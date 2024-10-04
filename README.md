@@ -6,8 +6,8 @@
 - Mod_Conta para la gestión de ingresos, gastos, clientes, proveedores y balances.
 - Mod_Gestion para la gestión del flujo de caja y almacén.
 - Enfocada actualmente al servicio en hostelería, se podría implementar en cualquier sector.
-- Podríamos crear secciones, productos, fechas de perecederos, modificar los stocks y los precios de los productos, su iva, etc.
-- Realizar una comanda en una mesa o zona del local, modificarla, mover la comanda a otra zona del local, hasta el momento de finalizar la facturación.
+- Podríamos crear secciones, productos, fechas de perecederos, modificar los stocks y los precios de los productos, su iva, etc...
+- Realizar una comanda en una mesa o zona del local, modificarla, mover la comanda a otra zona del local, hasta el momento de finalizar la facturación...
 ----
 ## CUESTIONES PENDIENTES
 - CONFIGURAR MEDIA PARA IMPRESIÓN DE FACTURA.
@@ -22,7 +22,7 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2023 V24.09.26A
+## * MCGestion2023 V24.10.04
 - !!! AJUSTAR LOS ESTILOS MEDIA EN function subtotal(){...}
 - ! AJUSTAR MEDIA PRINT PARA function subtotal(){...}
 - ! REVISAR DISTINTOS NIVELES DE USUARIOS...
@@ -30,10 +30,19 @@
 
 * !! AJUSTE NIVEL USUARIO CAJA...
 
+* REISTALACIÓN DESDE 0...
+* OK CREACION AUTOMATICA DE TABLAS EN BBDD
+* OK CREACIÓN DE USUARIO ADMIN EN EL MOD_ADMIN
+* OK INICIO SESION WEBMASTER
+* OK Mod_Admin/config/logs/ini_log_2024_10_04.log
+* OK Mod_Conta/config/logs/ini_log_2024_10_04.log
+* OK Mod_Gestion/logs/Config/ini_log_2024_10_04.log
+* OK CIERRE DE SESION WEBMASTER Y GRABACION DE DATOS EN BBDD
+----
+## * MCGestion2023 V24.09.26A
 * AJUSTE DE LOS @media print
 * AJUSTES GENERALES EN CajaShop/
 ----
-# ** ÚLTIMA VERSIÓN:
 ## * MCGestion2023 V24.09.20
 * CONFIGURACIÓN PARA CLIENTES DE Ventas.php FORMULARIO FECHA, GRÁFICAS, CONSULTAS, TABLAS...
 * SE ELIMINA EL CAMPO `pvptot` EN LAS TABLAS PRODUCTOS Y PRODUCTOS FEED 
@@ -43,7 +52,7 @@
   * ProductosCrear.php  `$db_name`.$Productos 
   * ProductosFeedbackRecuperar.php `$db_name`.$Productos
   * StockModificar.php `$db_name`.$Productos
-* SE MODIFICA EL CONSTRUCTOR DE LA BBDD PARA NO CREAR EL CAMPO `pvptot` EN Integra_Admin\CreaTablasContenido.php
+* SE MODIFICA EL CONSTRUCTOR DE BBDD PARA NO CREAR EL CAMPO `pvptot` EN Integra_Admin\CreaTablasContenido.php
 * NO ACTUALIZAR EL CAMPO SET EN LAS OPERACIONES DE COMPRA `ivae` = $cuadraiva,
 * SE COMENTA CAJA_OO.PHP L.1300 & 1765 `ivae` = $cuadraiva,
 * CAJA CLIENTES WEB SOLUCIONADO PROBLEMA CON SESSION OPER.
