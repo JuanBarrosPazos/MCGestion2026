@@ -1,7 +1,7 @@
 <?php
 
-if(file_exists("../../Mod_Admin/Conections/conection.php")){
-    require "../../Mod_Admin/Conections/conection.php";
+if(file_exists("../../Mod_Admin_Plus/Conections/conection.php")){
+    require "../../Mod_Admin_Plus/Conections/conection.php";
 } else {
     global $cero_conection;
     $cero_conection = 1;

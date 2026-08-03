@@ -2,9 +2,9 @@
 session_start();
 
 	require '../Inclu/Admin_Inclu_popup.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 
 ?>
 
@@ -27,7 +27,7 @@ function MM_showHideLayers() { //v9.0
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
-if (($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus') || ($_SESSION['Nivel']=='user') || ($_SESSION['Nivel']=='caja')||($_SESSION['Nivel']=='cliente')){
+if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus') || ($_SESSION['Nivel']=='user') || ($_SESSION['Nivel']=='caja')||($_SESSION['Nivel']=='cliente')){
 				
 	//global $nombre;			$nombre = $_POST['Nombre'];
 	//global $apellido;		$apellido = $_POST['Apellidos'];

@@ -3,9 +3,9 @@ session_start();
 
 	global $rutaHeader;		$rutaHeader = "";
 	require $rutaHeader.'Inclu/Inclu_Header.php'; 
-	require '../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../Mod_Admin/Conections/conection.php';
-	require '../Mod_Admin/Conections/conect.php';
+	require '../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../Mod_Admin_Plus/Conections/conection.php';
+	require '../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -18,7 +18,7 @@ session_start();
 				 ////////////////////				  ///////////////////
 					
 	if(isset($_POST['oculto'])){
-		if($form_errors = validate_form()){
+		if($form_errors = validate_form()){ 
 							suma_denegado ();
 							show_form($form_errors);
 		}else{ 	admin_entrada();
@@ -38,7 +38,7 @@ session_start();
 			show_form();
 			unset($_SESSION['refcl']);
 		/*
-			global $RedirUrl;	$RedirUrl = "../Mod_Admin/index.php";
+			global $RedirUrl;	$RedirUrl = "../Mod_Admin_Plus/index.php";
 			global $RedirTime;	$RedirTime = 10;
 			require 'Inclu/AutoRedirUrl.php';
 			global $Redir;
@@ -159,7 +159,7 @@ function admin_entrada(){
 		$ActionTime = date('H:i:s');
 		$logdate = date('Y_m_d');
 		$LogText = "** ".$ActionTime.PHP_EOL."\t ** ".$LogText.PHP_EOL;
-		$filename = "../Mod_Admin/LogsAcceso/LogsAcceso_".$logdate.".log";
+		$filename = "../Mod_Admin_Plus/LogsAcceso/LogsAcceso_".$logdate.".log";
 		$log = fopen($filename, 'ab+');
 		fwrite($log, $LogText);
 		fclose($log);
@@ -336,6 +336,7 @@ if(($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')){
 	global $apellido;		$apellido = $_SESSION['Apellidos'];
 		
 	require "config/TablesNames.php";
+	
 	$SqlSelectClientesWeb =  "SELECT * FROM $ClientesWeb WHERE `Nombre` = '$nombre' AND `Apellidos` = '$apellido' ";
  	
 	$qb = mysqli_query($db, $SqlSelectClientesWeb);

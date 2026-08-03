@@ -6,16 +6,16 @@
 	require_once ('../jpgraph/src/jpgraph.php');
 	require_once ('../jpgraph/src/jpgraph_bar.php');
 
-	require '../../Mod_Admin/Inclu/error_hidden.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/error_hidden.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if ($_SESSION['Nivel'] == 'admin'){
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
 				
 		if(isset($_POST['graficob2'])){	a();
 										process_form();

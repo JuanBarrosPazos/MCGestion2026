@@ -1,6 +1,6 @@
 ﻿<?php
 
-if ($_SESSION['Nivel'] == 'admin') {	
+if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')) {	
 
 
 print("<div style='clear:both'></div>
@@ -79,7 +79,7 @@ print("<!-- Fin MENU ADMINISTRADORES-->
 	
 <!-- Fin STATUS EJERCICIO -->"); // FIN DEL PRINT
 
-	global $rutDir;	$rutDir = $rutaIndex."../Mod_Admin/index.php";
+	global $rutDir;	$rutDir = $rutaIndex."../Mod_Admin_Plus/index.php";
 	if(!file_exists($rutDir)) {
 		print("<!-- Inicio BBDD -->
 					<li><a href='".$rutaUpBbdd."export_bbdd_backups.php'>BACKUP BBDD</a></li>

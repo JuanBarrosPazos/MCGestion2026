@@ -49,7 +49,7 @@
 				$RowSqlClientesWebClient = mysqli_fetch_assoc($QrySqlClientesWebRef);
 				$_SESSION['nclient'] = $RowSqlClientesWebClient['Nivel'];
         
-		if(($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='plus')){ 
+		if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='plus')){ 
 				$CssHeight = 'height=530px'; 
 		}else { $CssHeight = 'height=290px'; }
 

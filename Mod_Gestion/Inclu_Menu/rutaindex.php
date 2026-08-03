@@ -3,7 +3,7 @@
     //global $rutaindex;          $rutaindex = '';
     //global $rutaOut;            $rutaOut = $rutaindex.'../';
 
-    global $rutaModAdmin;       $rutaModAdmin = $rutaOut.'Mod_Admin/';
+    global $rutaModAdmin;       $rutaModAdmin = $rutaOut.'Mod_Admin_Plus/';
     global $rutaModConta;       $rutaModConta = $rutaOut.'Mod_Conta/';
 
     global $AdminClientesWeb;   $AdminClientesWeb = $rutaindex.'AdminClientesWeb/';

@@ -13,7 +13,7 @@
     $rutaStatus = $rutaIndex."cb23_Status/";
     $rutaUpBbdd = $rutaIndex."cb23_upbbdd/";
 
-    $rutaModAdmin = $rutaIndex."../Mod_Admin/";
+    $rutaModAdmin = $rutaIndex."../Mod_Admin_Plus/";
     $rutaModGestion = $rutaIndex."../Mod_Gestion/";
 
 ?>

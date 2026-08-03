@@ -2,7 +2,7 @@
 
 require 'Master_Index_Header.php';
 
-if($_SESSION['Nivel']=='admin'){	
+if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){	
 		
 print("<ul id='MenuBar1' class='MenuBarVertical'>
 			<li style='text-align:center !important;'>

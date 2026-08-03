@@ -3,15 +3,15 @@ session_start();
 
 	global $rutaHeader;		$rutaHeader = "../";
 	require $rutaHeader.'Inclu/Inclu_Header.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if($_SESSION['Nivel']=='admin'){
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){
 
 		master_index();
 		if(isset($_POST['todo'])){ 	show_form();							
@@ -101,7 +101,9 @@ function process_form(){
 
 		global $KeyFeedback; 		$KeyFeedback = 0;
 		global $FormTitulo;			$FormTitulo = "CLIENTES WEB";
-		if($_SESSION['Nivel']=='admin'){ require "UserFormFiltro.php"; }else{ }
+		if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){ 
+			require "UserFormFiltro.php";
+		}else{ }
 		
 	}	
 
@@ -118,7 +120,7 @@ function ver_todo(){
 
 	global $db;		global $db_name;
 	require "../config/TablesNames.php";
-	if($_SESSION['Nivel']=='admin'){
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){
 		//$SqlSelectClientesWeb =  "SELECT * FROM $ClientesWeb ORDER BY $Orden ";
 		$SqlSelectClientesWeb =  "SELECT * FROM $ClientesWeb WHERE `doc` <> 'local' ORDER BY $Orden ";
 	}elseif(($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')){

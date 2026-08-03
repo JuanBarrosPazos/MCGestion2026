@@ -1,9 +1,14 @@
 .vscode/sftp.json
 .vscode/*
 sftp.json
-Modulo_Admin.code-workspace
-Web_CV.zip
-*.doc
+*.code-workspace
 *.zip
+*.doc
+*.docx
 *.rar
+*.py
+*.sql
 desktop.ini
+Mod_Admin_Plus/GenerarDatosPy/*
+Mod_Admin_Plus/GenerarDatosPy/*.sql
+Mod_Admin_Plus/GenerarDatosPy/*.py

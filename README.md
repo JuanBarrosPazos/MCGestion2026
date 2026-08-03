@@ -1,4 +1,5 @@
 # ** PROYECTO INICIADO EN EL AÑO 2012 **
+## * SE MODIFICA EL NOMBRE A MCGestion2025 2025.05.25
 ## * DESCRIPCION GENERAL *
 ### GESTOR DE STOCK, VENTAS, ADMINISTRADORES Y CLIENTES.
 - Esta aplicación implementa tres modulos.
@@ -34,7 +35,7 @@
 * OK CREACION AUTOMATICA DE TABLAS EN BBDD
 * OK CREACIÓN DE USUARIO ADMIN EN EL MOD_ADMIN
 * OK INICIO SESION WEBMASTER
-* OK Mod_Admin/config/logs/ini_log_2024_10_04.log
+* OK Mod_Admin_Plus/config/logs/ini_log_2024_10_04.log
 * OK Mod_Conta/config/logs/ini_log_2024_10_04.log
 * OK Mod_Gestion/logs/Config/ini_log_2024_10_04.log
 * OK CIERRE DE SESION WEBMASTER Y GRABACION DE DATOS EN BBDD

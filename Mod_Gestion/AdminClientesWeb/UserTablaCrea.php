@@ -45,7 +45,7 @@
 		case (@$_SESSION['Nivel']=='cliente'):
 			$BotonCreaCliente = "";
 			break;
-		case ((@$_SESSION['Nivel']=='admin')||(@$_SESSION['Nivel']=='caja')):
+		case (($_SESSION['Nivel'] == 'wmaster')||(@$_SESSION['Nivel']=='admin')||(@$_SESSION['Nivel']=='caja')):
 			$BotonCreaCliente = "<form name='boton' action='ClienteCrear.php' method='post' style='display: inline-block;' >
 			<button type='submit' title='CREAR CLIENTE O CAJERO' class='botonverde imgButIco PersonAddBlack'>
 			</button>
@@ -67,6 +67,7 @@
 							<input type='hidden' name='oculto2' value=1 />
 						</form>
 					</td></tr>";
+		global $imgNewName;
 		$safe_filename = $imgNewName;
 	}else{
 		$ModifImgBotonIni = "<tr>
@@ -107,6 +108,7 @@
 				</tr>";
 	}else{ $LinkAcceso = ""; }
 
+	global $Titulo;		global $rutImg;
 	global $tabla;
 	$tabla = "<table align='center' style='margin-top:1.0em; font-size:1.0em !important;'>
 				<tr>

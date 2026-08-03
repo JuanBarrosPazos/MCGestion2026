@@ -7,8 +7,8 @@
 							
 		if($form_errors = validate_form()){ show_form($form_errors); } 
 		else {	process_form();
-				require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-				require '../../Mod_Admin/Conections/conection.php';
+				require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+				require '../../Mod_Admin_Plus/Conections/conection.php';
 				$db = mysqli_connect($db_host,$db_user,$db_pass,$db_name);
 		
 				
@@ -164,7 +164,7 @@ function process_form(){
 				$db_name = '.$name.'; 
 				?>';
 	
-	$filename = "../../Mod_Admin/Conections/conection.php";
+	$filename = "../../Mod_Admin_Plus/Conections/conection.php";
 	$config = fopen($filename, 'w+');
 	fwrite($config, $bddata);
 	fclose($config);

@@ -3,7 +3,8 @@
     global $FormTitulo;		global $KeyFeedback;		global $accion;
 	global $valor;			
 	global $BotonFeed;			global $BotonIco;		global $BotonRefresca;
-
+	global $defaults;
+	
 	if($KeyFeedback == 1){
 		$accion = "ClienteVer.php";
 		$BotonIco = "PersonsBlack";
@@ -15,7 +16,7 @@
 		$BotonIco = "PersonAddBlack";
 		
 		switch (true) {
-			case ($_SESSION['Nivel']=='admin'):
+			case (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')):
 				$valor = "CREAR CLIENTE O CAJERO";
 				break;
 			case (($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')):

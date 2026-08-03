@@ -3,9 +3,9 @@ session_start();
 
 	global $rutaHeader;		$rutaHeader = "../";
 	require $rutaHeader.'Inclu/Inclu_Header.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 
 	require "../config/TablesNames.php";
 
@@ -16,7 +16,7 @@ session_start();
 	global $KeyClienteCero;
 
 	if(isset($_SESSION['Nivel'])){
-		if($_SESSION['Nivel']=='admin'){ 
+		if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){ 
 			master_index(); 
 		}else{ require "../Inclu/AccesoDenegado.php"; }
 		$KeyClienteCero = 0;
@@ -158,7 +158,7 @@ function show_form($errors=[]){
 
 		global $ArrayCliente;		global $ArrayAdmin;		global $ArrayCaja;		global $Titulo;
 		switch (true) {
-			case (@$_SESSION['Nivel']=='admin'):
+			case ((@$_SESSION['Nivel'] == 'wmaster')||(@$_SESSION['Nivel']=='admin')):
 				$ArrayAdmin = 1;
 				$Titulo = "NUEVO CLIENTE O CAJERO";
 				break;

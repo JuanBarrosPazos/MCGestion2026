@@ -3,6 +3,8 @@
 if((isset($_POST['Usuario'])&&(isset($_POST['Password'])))){
 
 	require "config/TablesNames.php";
+	
+	global $Admin;	global $db;
 
 	$sql =  "SELECT * FROM $Admin WHERE `Usuario` = '$_POST[Usuario]' AND `Password` = '$_POST[Password]'";
 	$q = mysqli_query($db, $sql);

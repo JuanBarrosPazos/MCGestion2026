@@ -1,7 +1,7 @@
 <?php
 
 	global $TdIvaSopor;		global $TdPersonal;
-	if($_SESSION['Nivel']=='admin'){
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){
 		$TdIvaSopor = "IVA SOPORTADO ".number_format($sumaivasoportado,2,".",",")." €";
 		$TdPersonal = "PERSONAL ".$sumapersonal." €";
 	}else{

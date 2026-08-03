@@ -2,15 +2,15 @@
 session_start();
 
 	require '../Inclu/Admin_Inclu_popup.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if (($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')){
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')){
 					
 		global $nombre;			$nombre = $_POST['Nombre'];
 		global $apellido;		$apellido = $_POST['Apellidos'];

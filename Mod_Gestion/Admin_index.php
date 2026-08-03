@@ -3,15 +3,16 @@ session_start();
 
 	global $rutaHeader;		$rutaHeader = "";
 	require $rutaHeader.'Inclu/Inclu_Header.php'; 
-	require '../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../Mod_Admin/Conections/conection.php';
-	require '../Mod_Admin/Conections/conect.php';
+	require '../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../Mod_Admin_Plus/Conections/conection.php';
+	require '../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
-
-	require "Inclu/Only.index.php";
+	if(!isset($_SESSION['Nivel'])&&($_SESSION['Nivel'] != 'wmaster')){
+		require "Inclu/Only.index.php";
+	}else{ }
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -34,7 +35,7 @@ session_start();
 								ayear();
 		}else{ 	suma_visit();	
 				//show_form();
-				global $RedirUrl;	$RedirUrl = "../Mod_Admin/index.php";
+				global $RedirUrl;	$RedirUrl = "../Mod_Admin_Plus/index.php";
 				global $RedirTime;	$RedirTime = 10;
 				require 'Inclu/AutoRedirUrl.php';
 				global $Redir;
@@ -171,7 +172,7 @@ function admin_entrada(){
 		$ActionTime = date('H:i:s');
 		$logdate = date('Y_m_d');
 		$LogText = "** ".$ActionTime.PHP_EOL."\t ** ".$LogText.PHP_EOL;
-		$filename = "../Mod_Admin/LogsAcceso/LogsAcceso_".$logdate.".log";
+		$filename = "../Mod_Admin_Plus/LogsAcceso/LogsAcceso_".$logdate.".log";
 		$log = fopen($filename, 'ab+');
 		fwrite($log, $LogText);
 		fclose($log);
@@ -371,8 +372,8 @@ function process_form(){
 	
 	global $db;
 					
-	if (($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus') || ($_SESSION['Nivel']=='user') || ($_SESSION['Nivel']=='caja')){				 
-		global $rutaindex;		$rutaindex = "../Mod_Admin/";
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus') || ($_SESSION['Nivel']=='user') || ($_SESSION['Nivel']=='caja')){				 
+		global $rutaindex;		$rutaindex = "../Mod_Admin_Plus/";
 			master_index();
 			recup_compra();
 			// DATOS LOG...
@@ -510,7 +511,7 @@ function recup_compra(){
 	}
 
 if($ClientRef != ''){
-	if(($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus')){$CssHeight = 'height=530px';}
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus')){$CssHeight = 'height=530px';}
 	else {$CssHeight = 'height=250px';}
 
 	if($_SESSION['nclient'] == 'cliente'){

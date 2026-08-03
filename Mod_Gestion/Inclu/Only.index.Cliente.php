@@ -4,6 +4,8 @@ if((isset($_POST['Usuario'])&&(isset($_POST['Password'])))){
 
 	require "config/TablesNames.php";
 
+	global $ClientesWeb;	global $db;	global $uservisita;
+
 	$sql =  "SELECT * FROM $ClientesWeb WHERE `Usuario` = '$_POST[Usuario]' AND `Password` = '$_POST[Password]'";
 	$q = mysqli_query($db, $sql);
 	$row = mysqli_fetch_assoc($q);
@@ -13,7 +15,7 @@ if((isset($_POST['Usuario'])&&(isset($_POST['Password'])))){
 
 	global $userid; 		$uservisita;
 
-	if($countq < 1){ 
+	if($countq < 1){
 
 	}else{ 	$_SESSION['id'] = $row['id'];
 			$_SESSION['ref'] = $row['ref'];

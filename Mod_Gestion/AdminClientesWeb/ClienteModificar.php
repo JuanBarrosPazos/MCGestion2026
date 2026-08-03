@@ -3,15 +3,15 @@ session_start();
 
 	global $rutaHeader;		$rutaHeader = "../";
 	require $rutaHeader.'Inclu/Inclu_Header.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if(($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')){
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='cliente')||($_SESSION['Nivel']=='caja')){
 
 		master_index();
 		if (isset($_POST['oculto2'])){  show_form();
@@ -162,7 +162,7 @@ function show_form($errors=[]){
 
 	global $ArrayCliente;		global $ArrayAdmin;    global $ArrayCaja;		global $Titulo;
 	switch (true) {
-		case ($_SESSION['Nivel']=='admin'):
+		case (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')):
 			$ArrayCliente = 0;		$ArrayAdmin = 1;
 			$Titulo = "MODIFICAR CLIENTE O CAJERO";
 			break;

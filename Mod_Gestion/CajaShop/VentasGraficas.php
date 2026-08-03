@@ -72,7 +72,7 @@
     		$PorcentIvaSop = ($sumaivasoportado*100)/$sumapvptot;
         }else{ $PorcentIvaSop = 0.00; }
 
-		if($_SESSION['Nivel']=='admin'){
+		if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){
 		print("<li>
 					<a href='#' title='IVA SOPORTADO ".$sumaivasoportado." €'>
 				<span class='label'>".$sumaivasoportado."</span>
@@ -113,7 +113,7 @@
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if($_SESSION['Nivel']=='admin'){
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')){
 
     // GRAFICA CONSULTA NO COBRADO
 	print ("<div style='clear:both'></div>

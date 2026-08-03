@@ -15,7 +15,7 @@
 	while($rowb = mysqli_fetch_assoc($qb)){
  			
 	if(($rowb['Nivel']=='admin')||($rowb['Nivel']=='plus')||($rowb['Nivel']=='user')){ 
-		$ruta = '../../Mod_Admin/Users/'.$rowb['ref']."/img_admin/";
+		$ruta = '../../Mod_Admin_Plus/Users/'.$rowb['ref']."/img_admin/";
 	}elseif(($rowb['Nivel']=='cliente')||($rowb['Nivel']=='caja')){ 
 		$ruta = '../AdminClientesWeb/img_cliente/'; }
 

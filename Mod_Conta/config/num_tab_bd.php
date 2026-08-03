@@ -7,7 +7,7 @@
         $db_host = $_POST['host']; 	$db_user = $_POST['user'];
         $db_pass = $_POST['pass']; 	$db_name = $_POST['name'];
     }else{ 
-        require '../../Mod_Admin/Conections/conection.php';
+        require '../../Mod_Admin_Plus/Conections/conection.php';
     }        
     
     mysqli_report(MYSQLI_REPORT_OFF);

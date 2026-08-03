@@ -1,0 +1,59 @@
+<?php
+
+	global $sesus;
+	if($sesus==''){ $sesus = @$_SESSION['ref']; }else{ }	
+	
+	global $vname;		$vname = "`".strtolower($_SESSION['clave']."horarios_").date('Y')."`";
+	//echo "* ".$vname;
+
+	// INICIO ERRORES FICHAR.
+		global $db;		global $db_name;
+		$sqle =  "SELECT * FROM `$db_name`.$vname WHERE $vname.`ref` = '$sesus' AND $vname.`error` = 'true' ";
+		$qe = mysqli_query($db, $sqle);
+		global $counte;
+		if(!$qe){
+			echo "* fichar/Inc_errors.php ERROR L.14 ".mysqli_error($db);
+		}else{
+			$counte = mysqli_num_rows($qe);
+		}
+
+	if($counte > 0){
+		print("<table class='centradiv alertdiv'>
+				<tr>
+					<th colspan=6 class='BorderInfY'>
+						".$sesus." EXISTEN ERRORES EN SUS HORARIOS
+						<br>
+						NO SE COMPUTARÁN COMO HORAS REALIZADAS...
+					</th>
+				</tr>
+				<tr>
+					<td class='BorderInfDchY'>ID</td>
+					<td class='BorderInfDchY'>D. IN</td>
+					<td class='BorderInfDchY'>T. IN</td>
+					<td class='BorderInfDchY'>D. OUT</td>
+					<td class='BorderInfDchY'>T. OUT</td>
+					<td class='BorderInfY'>T. TOT</td>
+				</tr>");
+		
+		while($rowe = mysqli_fetch_assoc($qe)){
+			
+			print("<tr>
+					<td class='BorderInfDchY'>".$rowe['id']."</td>
+					<td class='BorderInfDchY'>".$rowe['din']."</td>
+					<td class='BorderInfDchY'>".$rowe['tin']."</td>
+					<td class='BorderInfDchY'>".$rowe['dout']."</td>
+					<td class='BorderInfDchY'>".$rowe['tout']."</td>
+					<td class='BorderInfY'>".$rowe['ttot']."</td>
+				</tr>");
+			
+				} // FIN DEL WHILE.
+		
+			print("<tr>
+					<th colspan=6>
+						PONGASE EN CONTACTO CON ADMIN SYSTEM
+					</th>
+				 </tr>
+				</table>");
+	} else{ }
+
+?>

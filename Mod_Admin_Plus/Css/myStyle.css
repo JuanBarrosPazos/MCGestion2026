@@ -1,0 +1,732 @@
+body {
+	text-align: center;
+	color: #FFFFFF;
+	font-size: 14px;
+	font-family: "Times New Roman", Times, serif;
+	background-color: #343434;
+}
+
+h1 {
+	color: #FFFFFF;
+	float: left;
+	margin-left: 16px;
+	font-style: italic;
+	margin-top: 4px;
+	width: 560px;
+	/*font-size: 24px;*/
+	text-align: left;
+}
+
+table, .centradiv {
+	border-spacing: 0.0em;
+    border: solid 0.1em #CCC;/*  */
+	border-radius: 0.8em !important;
+	margin: 1.0em auto 0.6em auto;
+	text-align: center;
+	size: 1.0em;
+}
+.TFormAdmin td:first-child{
+	text-align: right !important;
+}
+.TFormAdmin td:last-child{
+	text-align: left !important;
+}
+.TFormAdmin td:only-child{
+	text-align: right !important;
+}
+
+audio, .audio {
+	display: none !important;
+	visibility: hidden !important;
+	height: 0.0em !important;
+	width: 0.0em !important;
+}
+
+.centradiv {
+	text-align: center;
+	width: max-content;
+    max-width: 95%;
+    min-width: 16.8em;
+	padding: 6px 4px 6px 4px;
+    height: auto;
+	vertical-align: top !important;
+	border: solid 0.1em #CCC;
+}
+.centradiv li{
+  	list-style: none;
+	text-align: left;
+}
+.centradiv li div{
+	display: inline-block;
+	margin: 0.2em;
+	padding: 0.1em;
+	width: fit-content;
+  	/*border: solid 0.1em #CCC !important;*/
+}
+.alertdiv{
+	border-color:#F1BD2D;
+	color:#F1BD2D;
+	padding:0.4em;
+}
+.liCentra{
+	text-align: center !important;
+}
+.centradiv li img{
+	height: 8.0em;
+	width: 6.4em;
+}
+
+#visitsDatos{
+	color:#59746A;
+	/*border:none;*/
+	border: solid 0.1em #59746A;
+	min-width:fit-content;
+	text-align:left !important;
+}
+#visitsDatos li div:first-child, .centradiv li div:first-child{
+	text-align: right;
+	width: fit-content;
+}
+#visitsDatos li div:first-child{
+	min-width: 7.2em;
+}
+.centradiv li div:first-child{
+	width: max-content;
+	min-width: 52%;
+	color: #59746A !important;
+}
+
+
+.limpiar {
+	clear: both;
+	margin: 0px;
+	padding: 0px;
+}
+
+th {padding: 6px;
+	margin: 0px;
+	text-align: center !important;
+	font-size: 1.2em;
+	font-style: normal;
+	font-family: "Times New Roman", Times, serif;
+	font-weight: bold;
+}
+tr {
+	margin: 0px;
+	padding: 0px;
+}
+td {
+	margin: 0px;
+	padding: 4px;
+	text-align: center !important;
+}
+
+input {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 12px;
+	padding: 3px 4px 2px 4px;
+	margin: 2px auto 2px auto;
+	border: none;
+	border-radius: 6px;
+}
+input:focus {
+	color: #000;
+	background-color: #dadada;
+	border:none;
+}
+
+select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+a {
+	color:#CCC;
+	text-decoration:none;
+	font-family: "Times New Roman";
+}
+
+a:hover {
+	color:#FF9900;
+	text-decoration:none;
+	font-family: "Times New Roman";
+}
+
+a:visited {
+	color:#93D7BF;
+	text-decoration:none;
+	font-family: "Times New Roman";
+}
+
+a:visited:hover {
+	color:#55BF9A;
+	text-decoration:none;
+	font-family: "Times New Roman";
+}
+
+a  img {
+	border: 1px solid #CCC;
+}
+
+a:hover  img {
+	border: 1px solid #FF9900;
+}
+
+img {
+	border: 1px solid #CCC;
+	border-radius: 6px !important;
+}
+
+/* ******************************** */
+/* ******                    ****** */
+/* ******************************** */
+ 
+/* FLOTANTE ERRORES FORMULARIO */
+/*
+.errors{
+	background-color: #343434;
+	position: fixed;
+	top: 32.8%;
+	left: 1.6%;
+	margin-left: -180px;
+	z-index:999;
+	width: 25.0%;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #CCC;
+}
+*/
+
+.MenuVertical {
+	position: fixed;
+	top: 0.2%;
+	left: 0.2%;
+	margin-left: -180px;
+	z-index:999;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+}
+.MenuBarVertical {
+	padding: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-size: 12px;
+}
+
+/*.errorsimg{
+	background-color: #343434;
+	position: fixed;
+	top: 6.9%;
+	left: 3.4%;
+	//margin-left: -80px;
+	z-index:999;
+	width: 91.0%;
+	margin: 0px;
+	padding: 0px;
+	border: 1px solid #CCC;
+}
+
+.errorsindex{
+	background-color: #343434;
+	position: fixed;
+	top: 18.0%;
+	//bottom: 12.0%;
+	left: 12.0%;
+	margin-left: -180px;
+	z-index:999;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid #CCC;
+}
+
+.errorscam{
+	background-color: #343434;
+	position: fixed;
+	top: 18.0%;
+	//bottom: 12.0%;
+	left: 12.0%;
+	margin-left: -180px;
+	z-index:999;
+	width: auto;
+	margin: 0px;
+	padding: 0px;
+	border: 0px solid #CCC;
+}
+*/
+
+/* FLOTANTE VISITAS INDEX ENTRADA */
+
+/*.visitas{
+	//
+	position: fixed;
+	top: 16.0%;
+	left: 82.0%;
+	margin-left: -180px;
+	z-index:999;
+	//
+	margin: 0px;
+	padding: 0px;
+}
+*/
+
+/* ******************************** */
+/* ******   BORDES TABLAS    ****** */
+/* ******************************** */
+
+.BorderInf, .BorderInfY {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #CCC;
+}
+.BorderInfY {
+	border-bottom-color: #F1BD2D !important;
+}
+.BorderSup, .BorderSupY {
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #CCC;
+}
+.BorderSupY {
+	border-top-color: #F1BD2D !important;
+}
+.BorderInfDch, .BorderInfDchY {
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #CCC;
+	border-bottom-color: #CCC;
+}
+.BorderInfDchY {
+	border-right-color: #F1BD2D !important;
+	border-bottom-color: #F1BD2D !important;
+}
+.BorderDch, .BorderDchY {
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #CCC;
+}
+.BorderDchY {
+	border-right-color: #F1BD2D !important;
+}
+
+/* ******************************** */
+/* ***** MAQUETACION GENERAL  ***** */
+/* ******************************** */
+
+#page {
+	height: 90%;
+	max-width: 98vw;
+	min-width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 0.5%;
+}
+
+#header {
+	float: none;
+	width: 98%;
+	margin-top: 0.5%;
+	height: auto;
+	margin-bottom: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	/*border: medium double #CCC;*/
+	padding-top: 8px;
+	padding-bottom: 8px;
+	color: #CCC;
+	font-style: italic;
+	font-weight: normal;
+	font-family: "Times New Roman", Times, serif;
+	text-align: center;
+}
+
+#headerTitulo a {
+	color: #666;
+	text-decoration: none;
+}
+
+#headerTitulo a:hover {
+	color: #333;
+	text-decoration: none;
+}
+
+#pageContenido {
+	float: left;
+	width: 99%;
+	color: #FFFFFF;
+	text-align: left;
+	height: auto;
+}
+
+#pageContenido a {
+	color: #CCC;
+	text-decoration: none;
+}
+
+#pageContenido a:hover {
+	color: #CF810D;
+	text-decoration: none;
+}
+
+#pageContenido .MenuBarVertical
+{
+	text-align: left;
+}
+
+#pageContenido .MenuBarVertical a:hover
+{
+	color: #FFFFFF;
+}
+
+.MenuBarVertical a:hover
+{
+	color: #000;
+}
+
+#mensaje {
+	margin-top: 6px;
+}
+
+#footer {
+	height: 3.25%;
+	width: 98%;
+	margin-top: 4px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 4px;
+	font-family: "Times New Roman", Times, serif;
+	/*font-size: 12px;*/
+	font-style: normal;
+	text-align: center;
+	color: #CCC;
+	/*border: medium double #CCC;*/
+	padding-top: 4px;
+	padding-right: 0px;
+	padding-bottom: 4px;
+	padding-left: 0px;
+
+	/*position: fixed;
+	bottom: 1.6%;
+	left: 0.0%;
+	z-index:999;
+	*/
+}
+
+#licencia{
+	position: fixed;
+	bottom: 1.2em;
+	right: 1.2em;
+	z-index:999;
+	width: 8.0em;
+	height: auto;
+	border: 0.2em solid #F1BD2D;
+}
+
+
+#footer  a {
+	color: #333333;
+	text-decoration: none;
+}
+
+#footer  a:hover {
+	color: #CCC;
+	text-decoration: none;
+}
+
+/* ******************************** */
+/* *****     PAGINACIÓN       ***** */
+/* ******************************** */
+
+.pageli, .pagelib {
+	display: inline-block !important;
+	margin: 3px;
+	padding: 3px 8px 3px 8px;
+	font-weight: bold;
+	font-size: 1.0em;
+}
+.pageli {
+	border: solid 1px #fff;
+	border-radius: 6px;
+}
+.pagelib {
+	border: solid 2px #f40;
+	border-radius: 6px;
+}
+
+.pagelib a {
+	color: #f40 !important;
+	text-decoration: none;
+}
+
+.textpaginacion {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
+   /* ******************************** */
+/* ****** Master_Index_Header.php  ****** */
+   /* ******************************** */
+
+.imgtitle {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 40px;
+	height: 46px;
+	overflow: hidden;
+	border-radius: 12px;
+}
+
+/* ******************************** */
+/* ******    WHILE DATOS     ****** */
+/* ******************************** */
+
+.centraWhileDatos{
+	text-align: center;
+	width: 70%;
+	border: solid 0.1em #CCC;
+	border-radius: 0.8em;
+	margin: 0.1em auto 0.1em auto;
+}
+.CardWhileDatos{
+	display: inline-block;
+	text-align: left;
+	border: solid 0.1em #CCC;
+	border-radius: 0.8em;
+	margin: 0.2em;
+	width: 23%;
+	min-width: max-content;
+}
+
+.whiletotal{
+	display:inline-block;
+	vertical-align: top !important;
+	width: max-content;
+	padding: 1px 4px 1px 4px; 
+	margin: 0.4em 3px 1px 3px;
+}
+
+.whiletotala{
+	padding: 1px 4px 1px 4px;
+	margin: 0.2em;
+	/* border: #93D7BF solid 1px; */
+}
+.whiletotala div{
+	display: inline-block;
+	margin: 0.1em;
+	/*border: solid 0.1em #93D7BF;*/
+}
+.whiletotala div:first-child{
+	text-align: right;
+	width: 48%;
+	min-width: max-content;
+}
+.whiletotala div:last-child{
+	width: max-content;
+}
+
+.whiletotala, .whiletotalaimg{
+	display:block; 
+	max-width: auto;
+	/* border: #93D7BF solid 1px; */
+}
+
+.whiletotalaimg{
+	display: block;
+	text-align: center !important;
+	margin: auto;
+	padding: 0px !important;
+	max-width: max-content !important;
+}
+
+.whiletotalaimg img{
+	height: 5.4em;
+	width:auto;
+	margin-top: 0.4em;
+	border: none;
+}
+
+.balresult td:nth-child(even){
+	text-align: left !important;
+}
+.balresult td:nth-child(odd){
+	text-align: right !important;
+}
+.balresult td:only-child{
+	text-align: center !important;
+}
+
+/* ******************************** */
+/* ******   MEDIA SCREEN     ****** */
+/* ******************************** */
+
+@media screen and (max-width:740px){
+
+	.imgtitle {		
+		display: block;
+		margin-left: 0.1em !important;
+		width: 40px;
+		height: 50px;
+		overflow: hidden;
+		border-radius: 12px;
+			}
+
+	.ocultahead {
+		visibility: hidden;
+		display: none;
+		width: 0.0em !important;
+		height: 0.0em !important;
+		overflow: hidden;
+	}
+
+	.centraWhileDatos{
+		width: 98%;
+	}
+
+	.CardWhileDatos{
+		width: 32%;
+		margin: 0.2em;
+	}
+
+	/* ******   max-width:740px MEDIA SCREEN     ****** */
+	/* ******   INICIO ESTILOS MENU    ****** */
+
+	.app {
+		height: 374px !important;
+    }
+
+	.sidebar {
+		position: absolute;
+		width: 4.6em !important;
+		height: 70px !important;
+    }
+
+	.sidebar:hover {
+		height: 100% !important;
+		width: 11.6em !important;
+	}
+
+	.sidebar header {
+		background-color: #343434;
+		width: auto;
+		display: block;
+		padding: 0.0em	0.5em;
+	}
+
+	.icoh {
+		display: block;
+		width: fit-content;
+		margin-left: 0.8em !important;
+	}
+
+	/* ******   FIN ESTILOS MENU    ****** */
+
+} /* ******  FIN max-width:740px MEDIA SCREEN     ****** */
+
+
+@media screen and (max-width:440px){
+
+	.imgtitle {
+		width: 0px !important;
+		height: 0px !important;
+		border: none !important;
+		overflow: hidden;
+	}
+
+	.ocultahead, .ocultagraf {
+		visibility: hidden;
+		display: none;
+		width: 0.0em !important;
+		height: 0.0em !important;
+		overflow: hidden;
+	}
+
+	.borderhead {
+		display: block;
+		border: 0.1em #fff solid !important;
+		border-radius: 6px !important;
+	}
+
+	.CardWhileDatos{
+		width: 90%;
+		display: block;
+		margin: 0.3em auto 0.3em auto;
+	}
+
+	.whiletotalaimg {
+		margin-left: auto !important;
+		margin-right: auto !important;
+		max-width: max-content !important;
+		/* border: #93D7BF solid 2px; */
+	}
+
+	.balresult{
+		font-size: 0.72em !important;
+	}
+	.filtroGraf, .filtroGraf select{
+		font-size: 0.9em !important;
+		padding: 0.3em !important;
+		border-radius: 0.4em;
+	}
+	.filtroGraf select{
+		margin-left: 0.0em !important;
+		margin-right: 0.0em !important;
+	}
+
+	#licencia{
+		bottom: 0.4em !important;
+		right: 0.4em !important;
+		width: 5.0em;
+		border: 0.2em solid #F1BD2D;
+	}
+	
+	/* ******   max-width:440px MEDIA SCREEN     ****** */
+	/* ******   INICIO ESTILOS MENU    ****** */
+
+  	.app {
+		height: 312px !important;
+    }
+  	.sidebar {
+		position: absolute;
+		width: 3.2em !important;
+		height: 25px !important;
+    }
+
+  	.sidebar:hover {
+		height: 100% !important;
+		width: 11.6em !important;
+    }
+
+  	.sidebar header {
+		background-color: #343434;
+		width: auto;
+		display: block;
+		padding: 0.0em	0.5em;
+    }
+
+#header{
+	font-size: 0.8em !important;
+}
+	.icoh {
+		display: block;
+		width: fit-content;
+		margin-left: 0.2em !important;
+	}
+
+	/* ******   FIN max-width:440px MEDIA SCREEN     ****** */
+
+} /* ******   FIN INICIO ESTILOS MENU    ****** */
+
+/* ******************************** */
+/* ******                    ****** */
+/* ******************************** */
+
+/* Creado por © Juan Barros Pazos 2020/26 Licencia CC BY-NC-SA */

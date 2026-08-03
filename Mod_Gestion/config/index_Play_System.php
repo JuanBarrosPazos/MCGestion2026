@@ -2,9 +2,9 @@
 session_start();
 
 	require 'Inclu/Inclu_Menu_00.php';
-	require '../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../Mod_Admin/Conections/conection.php';
-	require '../Mod_Admin/Conections/conect.php';
+	require '../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../Mod_Admin_Plus/Conections/conection.php';
+	require '../Mod_Admin_Plus/Conections/conect.php';
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -33,7 +33,7 @@ session_start();
 	}else{ suma_visit();	
 			//show_form();
 
-			global $RedirUrl;	$RedirUrl = "../Mod_Admin/index.php";
+			global $RedirUrl;	$RedirUrl = "../Mod_Admin_Plus/index.php";
 			global $RedirTime;	$RedirTime = 10;
 			require '../Inclu/AutoRedirUrl.php';
 			global $Redir;      print ($Redir);
@@ -49,9 +49,10 @@ function admin_entrada(){
 	global $userid; 		global $uservisita;
 
 	global $dir;
-	if (($_SESSION['Nivel']=='admin') || ($_SESSION['Nivel']=='plus')){ $dir = 'Admin';}
-	elseif ($_SESSION['Nivel']=='cliente'){ $dir = 'ClientesWeb';}
-	elseif (($_SESSION['Nivel']=='user') || ($_SESSION['Nivel']=='caja')){ $dir = 'User';}
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='plus')){
+		$dir = 'Admin';
+		}elseif ($_SESSION['Nivel']=='cliente'){ $dir = 'ClientesWeb';
+	}elseif (($_SESSION['Nivel']=='user') || ($_SESSION['Nivel']=='caja')){ $dir = 'User';}
 	
 	$total = $uservisita + 1;
 	$datein = date('Y-m-d/H:i:s');

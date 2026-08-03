@@ -7,7 +7,7 @@
 	global $ActionTime;	$ActionTime = date('H:i:s');
 
 	global $dir;
-	if(($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='plus')){ 
+	if(($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel']=='admin')||($_SESSION['Nivel']=='plus')){ 
 			$dir = 'Admin';
 	}elseif($_SESSION['Nivel']=='cliente'){ 
 			$dir = 'Clientes';

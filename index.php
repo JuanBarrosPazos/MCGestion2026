@@ -1,10 +1,10 @@
 <?php
 
     global $keyIndex;    $keyIndex = 1;
-    require 'Mod_Admin/Conections/conection.php';
-    require 'Mod_Admin/Conections/conect.php';
+    require 'Mod_Admin_Plus/Conections/conection.php';
+    require 'Mod_Admin_Plus/Conections/conect.php';
 
-    require 'Mod_Admin/Inclu/error_hidden.php';
+    require 'Mod_Admin_Plus/Inclu/error_hidden.php';
 
 ?>
 
@@ -61,7 +61,7 @@
         <div class="intro-heading text-uppercase" style="color: #343434 !important;">
           Welcome To Web Monkey
         </div>
-    <a href="Mod_Admin/index.php"> ALGO NO HA IDO BIEN PULSA AQUÍ...</a>
+    <a href="Mod_Admin_Plus/index.php"> ALGO NO HA IDO BIEN PULSA AQUÍ...</a>
       </div>
   </header>
 

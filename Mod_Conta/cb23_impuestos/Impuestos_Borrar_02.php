@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-	require '../../Mod_Admin/Inclu/error_hidden.php';
+	require '../../Mod_Admin_Plus/Inclu/error_hidden.php';
 	require '../Inclu/Conta_Head.php';
-	require '../../Mod_Admin/Inclu/my_bbdd_clave.php';
-	require '../../Mod_Admin/Conections/conection.php';
-	require '../../Mod_Admin/Conections/conect.php';
+	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';
+	require '../../Mod_Admin_Plus/Conections/conection.php';
+	require '../../Mod_Admin_Plus/Conections/conect.php';
 		
 	require '../Inclu/sqld_query_fetch_assoc.php';
 
@@ -13,7 +13,7 @@ session_start();
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if ($_SESSION['Nivel'] == 'admin'){
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
 
 		master_index();
 
@@ -158,7 +158,7 @@ function show_form($errors=[]){
 		$ActionTime = date('H:i:s');
 
 		global $dir;
-		if ($_SESSION['Nivel'] == 'admin'){ 
+		if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
 					$dir = "../cb23_Docs/log";
 					}
 	
@@ -188,7 +188,7 @@ function show_form($errors=[]){
 		$ActionTime = date('H:i:s');
 
 		global $dir;
-		if ($_SESSION['Nivel'] == 'admin'){ 
+		if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
 					$dir = "../cb23_Docs/log";
 					}
 	
