@@ -45,12 +45,12 @@
 					</a>
 						<ul class='nav-flyout'>
 							<li>
-								<a href='../../Mod_Conta/index.php'".$topcat4.">
+								<a href='".$rutaindex."../Mod_Conta/index.php'".$topcat4.">
 									<i class='ic ico22'></i>MOD_CONTA
 								</a>
 							</li>
 							<li>
-								<a href='../../Mod_Gestion/Admin_index.php'>
+								<a href='".$rutaindex."../Mod_Gestion/Admin_index.php'>
 									<i class='ic ico22'></i>MOD_GESTION
 								</a>
 							</li>
