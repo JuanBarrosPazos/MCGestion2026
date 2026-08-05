@@ -148,7 +148,6 @@ function config_one_cb23(){
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname5."\n\t* ".mysqli_error($db)."\n";
 	}
 
-
 	/************** CREAMOS LA TABLA PROVEEDORES FEED **************
 
 	global $vname5f;
@@ -330,6 +329,41 @@ function config_one_cb23(){
 	}else{	//print( "* ERROR CREATE TABLE ".$vname3b." ".mysqli_error($db)."\n");
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname3b."\n\t* ".mysqli_error($db)."\n";
 	}
+
+	/************** CREAMOS LA TABLA IMPUESTOS ***************/
+
+	global $vname10;
+	$vname10 = "`".$_SESSION['clave']."impuestos`";
+
+	$impuestos = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname10 (
+				  `id` int(2) NOT NULL auto_increment,
+  				  `iva` decimal(10,2) UNSIGNED NOT NULL DEFAULT '0.00',
+  				  `name` varchar(12) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'NAME %',
+				  PRIMARY KEY  (`id`)
+				) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=6 ";
+		
+	if(mysqli_query($db, $impuestos)){
+			global $table16;
+			$table16 = "\t* OK TABLA ".$vname10.". \n";
+		} else { print("* NO OK TABLE ".$vname10.". ".mysqli_error($db)."</br>");
+				 global $table16;
+				 $table16 = "\t* NO OK TABLA ".$vname10.". ".mysqli_error($db)." \n";
+			}
+					
+$vname10 = strtolower($vname10);					
+$impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
+(1, '0.00', '% IMPUESTOS'), 
+(2, '0.00', '0.00 %'), 
+(3, '4.00', '4.00 %'), 
+(4, '10.00', '10.00 %'),  
+(5, '21.00', '21.00 %')";
+		
+	if(mysqli_query($db, $impuestos2)){
+			$LogText = $LogText."\t* OK INIT VALUES EN ".$vname10.". \n";
+	} else { print("* NO OK INIT VALUES EN ".$vname10.". ".mysqli_error($db)."</br>");
+			$LogText = $LogText."\t* NO OK INIT VALUES EN ".$vname10.". ".mysqli_error($db)." \n";
+	}
+
 
 	/************** CREAMOS LA TABLA STATUS ***************/
 

@@ -2,8 +2,7 @@
  
 	/* CREA LAS TABLAS BÁSICAS DEL SISTEMA */
 	
-	global $db;	 		global $db_host; 		global $db_user; 		global $db_pass;
-	global $db_name; 	global $dbconecterror;
+	global $db, $db_name, $db_host, $db_user, $db_pass, $dbconecterror;
 	
 	/************** CREAMOS LA TABLA ADMIN ***************/
 
@@ -189,10 +188,10 @@ if(mysqli_query($db, $visitas)){
 	/************	SI EXISTE EL CONSTRUCTOR DE TABLAS MCGESTION	*****************/
 	
 	global $tblMCGest;		
-	if(file_exists('../Mod_Gestion/Integra_Admin/CreaTablasContenido.php')){
-		require '../Mod_Gestion/Integra_Admin/CreaTablasContenido.php';
-		$tblMCGest= "\t** EXISTE ../Mod_Gestion/Integra_Admin/CreaTablasContenido.php\n";
-	}else{ $tblMCGest = "\t** NO EXISTE ../Mod_Gestion/Integra_Admin/CreaTablasContenido.php\n";}
+	if(file_exists('../Mod_Gestion/Integra_Admin/CreaTablasGestion.php')){
+		require '../Mod_Gestion/Integra_Admin/CreaTablasGestion.php';
+		$tblMCGest= "\t** EXISTE ../Mod_Gestion/Integra_Admin/CreaTablasGestion.php\n";
+	}else{ $tblMCGest = "\t** NO EXISTE ../Mod_Gestion/Integra_Admin/CreaTablasGestion.php\n";}
 
 	/************	PASAMOS LOS PARAMETROS A .LOG	*****************/
 

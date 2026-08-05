@@ -2,8 +2,7 @@
 
 // 10 TABLAS MOD GESTION + 15 TABLAS MOD CONTA + 4 TABLAS MOD ADMIN = 29 TABLAS EN TOTAL
 
-global $db;             global $db_host;        global $db_user;        global $db_pass;
-global $db_name;
+global $db, $db_name, $db_host, $db_user, $db_pass;
  
 /************* CREAMOS LA TABLA ADMIN *************/
 /************* CREAMOS LA TABLA FEEDBACK *************/
