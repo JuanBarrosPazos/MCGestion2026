@@ -137,30 +137,33 @@ $table_name_cl = "`".$_SESSION['clave']."clientesweb`";
 
 $ClientesWeb = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_cl (
 `id` int(4) NOT NULL auto_increment,
-`ref` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`Nivel` varchar(8) collate utf8_spanish2_ci NOT NULL default 'cliente',
-`Nombre` varchar(25) collate utf8_spanish2_ci NOT NULL,
-`Apellidos` varchar(25) collate utf8_spanish2_ci NOT NULL,
-`myimg` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`doc` varchar(11) collate utf8_spanish2_ci NOT NULL,
-`dni` varchar(8) collate utf8_spanish2_ci NOT NULL,
-`ldni` varchar(1) collate utf8_spanish2_ci NOT NULL,
-`Email` varchar(50) collate utf8_spanish2_ci NOT NULL,
-`Usuario` varchar(12) collate utf8_spanish2_ci NOT NULL,
-`Password` varchar(12) collate utf8_spanish2_ci NOT NULL,
-`Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
+`ref` varchar(20) NOT NULL,
+`Nivel` varchar(8) NOT NULL default 'cliente',
+`Nombre` varchar(25) NOT NULL,
+`Apellidos` varchar(25) NOT NULL,
+`myimg` varchar(30) NOT NULL default 'untitled.png',
+`doc` varchar(11) NOT NULL,
+`dni` varchar(8) NOT NULL,
+`ldni` varchar(1) NOT NULL,
+`Email` varchar(50) NOT NULL,
+`Usuario` varchar(12) NOT NULL,
+`Password` varchar(12) NOT NULL,
+`Direccion` varchar(60) NOT NULL,
 `Tlf1` int(9) NOT NULL,
 `Tlf2` int(9) NOT NULL,
 `lastin` datetime NOT NULL default CURRENT_TIMESTAMP,
 `lastout` datetime NOT NULL default CURRENT_TIMESTAMP,
-`visitadmin` varchar(4) collate utf8_spanish2_ci NOT NULL default '0',
+`visitadmin` varchar(4) NOT NULL default '0',
+`del` varchar(5) NOT NULL default 'false',
+`borrado` datetime NULL,
+`recuper` datetime NULL,
 UNIQUE KEY `id` (`id`),
 UNIQUE KEY `ref` (`ref`),
 PRIMARY KEY `ref` (`ref`),
 UNIQUE KEY `dni` (`dni`),
 UNIQUE KEY `Email` (`Email`),
 UNIQUE KEY `Usuario` (`Usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $ClientesWeb)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_cl."\n";
@@ -221,41 +224,42 @@ if(mysqli_query($db, $vc)){
         $LogText = $LogText."\t* OK INSERT INIT VALUES EN  ".$table_name_cl."\n";
 }else{  $LogText = $LogText."\t* ERROR INSERT INIT VALUES EN  ".$table_name_cl."\n\t* ".mysqli_error($db)."\n";  }
 
-/************* CREAMOS LA TABLA CLIENTES SHOP FEEDBACK *************/
+/************* CREAMOS LA TABLA CLIENTES SHOP FEEDBACK ************
 
 global $table_name_fcl;
 $table_name_fcl = "`".$_SESSION['clave']."clienteswebfeed`";
 
 $feedbackcl = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_fcl (
 `id` int(4) NOT NULL auto_increment,
-`ref` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`Nivel` varchar(8) collate utf8_spanish2_ci NOT NULL default 'cliente',
-`Nombre` varchar(25) collate utf8_spanish2_ci NOT NULL,
-`Apellidos` varchar(25) collate utf8_spanish2_ci NOT NULL,
-`myimg` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png ',
-`doc` varchar(11) collate utf8_spanish2_ci NOT NULL,
-`dni` varchar(8) collate utf8_spanish2_ci NOT NULL,
-`ldni` varchar(1) collate utf8_spanish2_ci NOT NULL,
-`Email` varchar(50) collate utf8_spanish2_ci NOT NULL,
-`Usuario` varchar(10) collate utf8_spanish2_ci NOT NULL,
-`Password` varchar(10) collate utf8_spanish2_ci NOT NULL,
-`Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
+`ref` varchar(20) NOT NULL,
+`Nivel` varchar(8) NOT NULL default 'cliente',
+`Nombre` varchar(25) NOT NULL,
+`Apellidos` varchar(25) NOT NULL,
+`myimg` varchar(30) NOT NULL default 'untitled.png ',
+`doc` varchar(11) NOT NULL,
+`dni` varchar(8) NOT NULL,
+`ldni` varchar(1) NOT NULL,
+`Email` varchar(50) NOT NULL,
+`Usuario` varchar(10) NOT NULL,
+`Password` varchar(10) NOT NULL,
+`Direccion` varchar(60) NOT NULL,
 `Tlf1` int(9) NOT NULL default 0,
 `Tlf2` int(9) NOT NULL default 0,
-`lastin` datetime collate utf8_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
-`lastout` datetime collate utf8_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
-`visitadmin` varchar(4) collate utf8_spanish2_ci NOT NULL default '0',
-`borrado` datetime collate utf8_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
+`lastin` datetime NOT NULL default CURRENT_TIMESTAMP,
+`lastout` datetime NOT NULL default CURRENT_TIMESTAMP,
+`visitadmin` varchar(4) NOT NULL default '0',
+`borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
 UNIQUE KEY `id` (`id`),
 UNIQUE KEY `ref` (`ref`),
 UNIQUE KEY `dni` (`dni`),
 UNIQUE KEY `Email` (`Email`),
 UNIQUE KEY `Usuario` (`Usuario`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $feedbackcl)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_fcl."\n";
 }else{  $LogText = $LogText."\t* ERROR CREATE TABLE ".$table_name_fcl."\n\t* ".mysqli_error($db)."\n"; }
+*/
 
 /************* CREAMOS LA TABLA VISITAS CLIENTES SHOP ****************/
 
@@ -287,11 +291,14 @@ $table_name_sec = "`".$_SESSION['clave']."secciones`";
 
 $Secciones = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_sec (
 `id` int(3) NOT NULL auto_increment,
-`valor` varchar(22) collate utf8_spanish2_ci NOT NULL,
-`nombre` varchar(22) collate utf8_spanish2_ci NOT NULL,
+`valor` varchar(22) NOT NULL,
+`nombre` varchar(22) NOT NULL,
+`del` varchar(5) NOT NULL default 'false',
+`borrado` datetime NULL,
+`recuper` datetime NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`,`valor`,`nombre`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $Secciones)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_sec."\n";
@@ -303,23 +310,24 @@ if(mysqli_query($db, $vd)){
 }else{  $LogText = $LogText."\t* ERROR INSERT INIT VALUES EN ".$table_name_sec."\n\t* ".mysqli_error($db)."\n";
         }
                 
-/************* CREAMOS LA TABLA SECCIONES FEEDBACK *************/
+/************* CREAMOS LA TABLA SECCIONES FEEDBACK ************
 
 global $table_name_gfs;
 $table_name_gfs = "`".$_SESSION['clave']."seccionesfeed`";
 
 $gfs = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_gfs (
 `id` int(3) NOT NULL auto_increment,
-`valor` varchar(22) collate utf8_spanish2_ci NOT NULL,
-`nombre` varchar(22) collate utf8_spanish2_ci NOT NULL,
+`valor` varchar(22) NOT NULL,
+`nombre` varchar(22) NOT NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`,`valor`,`nombre`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $gfs)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_gfs."\n";
 }else{  $LogText = $LogText."\t* ERROR CREATE TABLE ".$table_name_gfs."\n\t* ".mysqli_error($db)."\n"; }
-                
+*/
+
 /************* CREAMOS LA TABLA DE PRODUCTOS *************/
 
 global $table_name_gfp;
@@ -327,75 +335,79 @@ $table_name_gfp = "`".$_SESSION['clave']."productos`";
 
 $gfp = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_gfp (
 `id` int(4) NOT NULL auto_increment,
-`vseccion` varchar(22) collate utf8_spanish2_ci,
-`valor` varchar(14) collate utf8_spanish2_ci,
-`nombre` varchar(24) collate utf8_spanish2_ci NOT NULL,
-`ref` varchar(14) collate utf8_spanish2_ci NOT NULL DEFAULT 'NO CODE',
+`vseccion` varchar(22),
+`valor` varchar(14),
+`nombre` varchar(24) NOT NULL,
+`ref` varchar(14) NOT NULL DEFAULT 'NO CODE',
 `psiva` decimal(7,2) unsigned NOT NULL,
 `iva` int(2) NOT NULL,
 `ivae` decimal(7,2) unsigned NOT NULL,
 `pvp` decimal(7,2) unsigned NOT NULL,
 `kgin` decimal(7,2) unsigned NOT NULL,
-`datekgin` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`datekgin` varchar(20) NOT NULL,
 `nsemana` int(2) NOT NULL,
 `kgbad` decimal(7,2) unsigned NOT NULL,
-`datekgbad` varchar(20) collate utf8_spanish2_ci default NULL,
+`datekgbad` varchar(20) default NULL,
 `kgcash` decimal(7,2) unsigned NOT NULL,
-`datecash` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`datecash` varchar(20) NOT NULL,
 `stock` decimal(7,2) unsigned NOT NULL,
-`myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`coment` text(400) collate utf8_spanish2_ci,
+`myimg1` varchar(30) NOT NULL default 'untitled.png',
+`myimg2` varchar(30) NOT NULL default 'untitled.png',
+`myimg3` varchar(30) NOT NULL default 'untitled.png',
+`myimg4` varchar(30) NOT NULL default 'untitled.png',
+`coment` text(400),
+`del` varchar(5) NOT NULL default 'false',
+`borrado` datetime NULL,
+`recuper` datetime NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`),
 UNIQUE KEY `valor` (`valor`),
 UNIQUE KEY `nombre` (`nombre`),
 UNIQUE KEY `ref` (`ref`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $gfp)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_gfp."\n";
 }else{  $LogText = $LogText."\t* ERROR CREATE TABLE ".$table_name_gfp."\n\t* ".mysqli_error($db)."\n"; }
                 
-/************* CREAMOS LA TABLA DE PRODUCTOS FEEDBACK *************/
+/************* CREAMOS LA TABLA DE PRODUCTOS FEEDBACK ************
 
 global $table_name_gfpf;
 $table_name_gfpf = "`".$_SESSION['clave']."productosfeed`";
 
 $gfpf = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_gfpf (
 `id` int(4) NOT NULL auto_increment,
-`vseccion` varchar(22) collate utf8_spanish2_ci,
-`valor` varchar(14) collate utf8_spanish2_ci,
-`nombre` varchar(24) collate utf8_spanish2_ci NOT NULL,
-`ref` varchar(14) collate utf8_spanish2_ci NOT NULL DEFAULT 'NO CODE',
+`vseccion` varchar(22),
+`valor` varchar(14),
+`nombre` varchar(24) NOT NULL,
+`ref` varchar(14) NOT NULL DEFAULT 'NO CODE',
 `psiva` decimal(7,2) unsigned NOT NULL,
 `iva` int(2) NOT NULL,
 `ivae` decimal(7,2) unsigned NOT NULL,
 `pvp` decimal(7,2) unsigned NOT NULL,
 `kgin` decimal(7,2) unsigned NOT NULL,
-`datekgin` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`datekgin` varchar(20) NOT NULL,
 `nsemana` int(2) NOT NULL,
 `kgbad` decimal(7,2) unsigned NOT NULL,
-`datekgbad` varchar(20) collate utf8_spanish2_ci default NULL,
+`datekgbad` varchar(20) default NULL,
 `kgcash` decimal(7,2) unsigned NOT NULL,
-`datecash` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`datecash` varchar(20) NOT NULL,
 `stock` decimal(7,2) unsigned NOT NULL,
-`myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-`coment` text(400) collate utf8_spanish2_ci,
-`borrado` varchar(22) collate utf8_spanish2_ci NOT NULL,
+`myimg1` varchar(30) NOT NULL default 'untitled.png',
+`myimg2` varchar(30) NOT NULL default 'untitled.png',
+`myimg3` varchar(30) NOT NULL default 'untitled.png',
+`myimg4` varchar(30) NOT NULL default 'untitled.png',
+`coment` text(400),
+`borrado` varchar(22) NOT NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $gfpf)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_gfpf."\n";
 }else{  $LogText = $LogText."\t* ERROR CREATE TABLE ".$table_name_gfpf."\n\t* ".mysqli_error($db)."\n"; }
-                
+*/
+
 /************* CREAMOS LA TABLA CAJA *************/
 
 global $table_name_gcj;
@@ -403,27 +415,27 @@ $table_name_gcj = "`".$_SESSION['clave']."cajashop`";
 
 $gcj = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_gcj (
 `id` int(4) NOT NULL auto_increment,
-`ini` varchar(3) collate utf8_spanish2_ci NOT NULL,
-`cname` varchar(52) collate utf8_spanish2_ci NOT NULL,
-`refcaja` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`clname` varchar(52) collate utf8_spanish2_ci NOT NULL,
-`refclient` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`oper` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`ini` varchar(3) NOT NULL,
+`cname` varchar(52) NOT NULL,
+`refcaja` varchar(20) NOT NULL,
+`clname` varchar(52) NOT NULL,
+`refclient` varchar(20) NOT NULL,
+`oper` varchar(20) NOT NULL,
 `nsemana` int(2) NOT NULL,
-`datecash` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`vseccion` varchar(22) collate utf8_spanish2_ci NOT NULL,
-`producto` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`proname` varchar(24) collate utf8_spanish2_ci NOT NULL,
+`datecash` varchar(20) NOT NULL,
+`vseccion` varchar(22) NOT NULL,
+`producto` varchar(20) NOT NULL,
+`proname` varchar(24) NOT NULL,
 `kgcash` decimal(7,2) unsigned NOT NULL,
 `psiva` decimal(7,2) unsigned NOT NULL,
 `iva` int(2) NOT NULL,
 `ivae` decimal(7,2) unsigned NOT NULL,
 `pvp` decimal(7,2) unsigned NOT NULL,
 `pvptot` decimal(10,2) unsigned NOT NULL,
-`coment` text(400) collate utf8_spanish2_ci NULL,
+`coment` text(400) NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $gcj)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$table_name_gcj."\n";
@@ -437,28 +449,28 @@ $vname = "`".$vname."`";
 
 $gcj = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname (
 `id` int(4) NOT NULL auto_increment,
-`ini` varchar(3) collate utf8_spanish2_ci NOT NULL,
-`cname` varchar(52) collate utf8_spanish2_ci NOT NULL,
-`refcaja` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`clname` varchar(52) collate utf8_spanish2_ci NOT NULL,
-`refclient` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`oper` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`ini` varchar(3) NOT NULL,
+`cname` varchar(52) NOT NULL,
+`refcaja` varchar(20) NOT NULL,
+`clname` varchar(52) NOT NULL,
+`refclient` varchar(20) NOT NULL,
+`oper` varchar(20) NOT NULL,
 `nsemana` int(2) NOT NULL,
-`datecash` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`vseccion` varchar(22) collate utf8_spanish2_ci NOT NULL,
-`producto` varchar(20) collate utf8_spanish2_ci,
-`proname` varchar(24) collate utf8_spanish2_ci NOT NULL,
+`datecash` varchar(20) NOT NULL,
+`vseccion` varchar(22) NOT NULL,
+`producto` varchar(20),
+`proname` varchar(24) NOT NULL,
 `kgcash` decimal(7,2) unsigned NOT NULL,
 `psiva` decimal(7,2) unsigned NOT NULL,
 `iva` int(2) NOT NULL,
 `ivae` decimal(7,2) unsigned NOT NULL,
 `pvp` decimal(7,2) unsigned NOT NULL,
 `pvptot` decimal(10,2) unsigned NOT NULL,
-`pago` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`coment` text(400) collate utf8_spanish2_ci NULL,
+`pago` varchar(20) NOT NULL,
+`coment` text(400) NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $gcj)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$vname."\n";
@@ -472,39 +484,39 @@ $vname = "`".$vname."`";
 
 $gcj2 = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname (
 `id` int(4) NOT NULL auto_increment,
-`ini` varchar(3) collate utf8_spanish2_ci NOT NULL,
-`cname` varchar(52) collate utf8_spanish2_ci NOT NULL,
-`refcaja` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`clname` varchar(52) collate utf8_spanish2_ci NOT NULL,
-`refclient` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`oper` varchar(20) collate utf8_spanish2_ci NOT NULL,
+`ini` varchar(3) NOT NULL,
+`cname` varchar(52) NOT NULL,
+`refcaja` varchar(20) NOT NULL,
+`clname` varchar(52) NOT NULL,
+`refclient` varchar(20) NOT NULL,
+`oper` varchar(20) NOT NULL,
 `nsemana` int(2) NOT NULL,
-`datecash` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`vseccion` varchar(22) collate utf8_spanish2_ci NOT NULL,
-`producto` varchar(20) collate utf8_spanish2_ci,
-`proname` varchar(24) collate utf8_spanish2_ci NOT NULL,
+`datecash` varchar(20) NOT NULL,
+`vseccion` varchar(22) NOT NULL,
+`producto` varchar(20),
+`proname` varchar(24) NOT NULL,
 `kgcash` decimal(7,2) unsigned NOT NULL,
 `psiva` decimal(7,2) unsigned NOT NULL,
 `iva` int(2) NOT NULL,
 `ivae` decimal(7,2) unsigned NOT NULL,
 `pvp` decimal(7,2) unsigned NOT NULL,
 `pvptot` decimal(10,2) unsigned NOT NULL,
-`pago` varchar(20) collate utf8_spanish2_ci NOT NULL,
-`coment` text(400) collate utf8_spanish2_ci NULL,
+`pago` varchar(20) NOT NULL,
+`coment` text(400) NULL,
 PRIMARY KEY  (`id`),
 UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
     
 if(mysqli_query($db, $gcj2)){
         $LogText = $LogText."\t* OK CREATE TABLE ".$vname."\n";
 }else{  $LogText = $LogText."\t* ERROR CREATE TABLE ".$vname."\n\t* ".mysqli_error($db)."\n"; }
 
-	          ////////////////////		   ////////////////////
-////////////////////		 ////////////////////		  ////////////////////
-		////////////////////	         ///////////////////
+				////////////////////			////////////////////
+////////////////////			////////////////////			////////////////////
+				////////////////////			///////////////////
 
 /*************	PASAMOS LOS PARAMETROS A .LOG	*************/
-
+global $datein;
 $LogText = PHP_EOL."\n - CONFIG INIT GESTION ".$datein.".\n * ".$db_name.". \n * ".$db_host.". \n * ".$db_user.". \n * ".$db_pass."\n".$LogText."\n";
 
 ?>

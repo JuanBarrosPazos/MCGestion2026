@@ -2,12 +2,13 @@
 ## * SE MODIFICA EL NOMBRE A MCGestion2025 2025.05.25
 ## * DESCRIPCION GENERAL *
 ### GESTOR DE STOCK, VENTAS, ADMINISTRADORES Y CLIENTES.
-- Esta aplicación implementa tres modulos.
-- Mod_Admin para la gestión de administradores en sus distintos niveles de acceso.
-- Mod_Conta para la gestión de ingresos, gastos, clientes, proveedores y balances.
-- Mod_Gestion para la gestión del flujo de caja y almacén.
+* CONFIGURACION BBDD: ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci
+- Se implementan tres modulos.
+- Mod_Admin: Gestión de administradores en sus distintos niveles y control de horario laboral.
+- Mod_Conta: Gestión de ingresos, gastos, clientes, proveedores y balances.
+- Mod_Gestion: Gestión del flujo de caja y almacén.
 - Enfocada actualmente al servicio en hostelería, se podría implementar en cualquier sector.
-- Podríamos crear secciones, productos, fechas de perecederos, modificar los stocks y los precios de los productos, su iva, etc...
+- Podemos crear secciones, productos, fecha perecederos, modificar stocks y precios de productos, iva, etc...
 - Realizar una comanda en una mesa o zona del local, modificarla, mover la comanda a otra zona del local, hasta el momento de finalizar la facturación...
 ----
 ## CUESTIONES PENDIENTES
@@ -23,8 +24,9 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.03
+## * MCGestion2026 V26.08.05
 * SE INTEGRA MOD_ADMIN_PLUS Con la gestión de horario laboral de los empleados.
+* SE MODIFICA LA CONFIGURACIÓN DE LAS TABLAS Y SE ELIMINAN LAS TABLAS FEED...
 ----
 ## * MCGestion2023 V24.09.26A
 * AJUSTE DE LOS @media print

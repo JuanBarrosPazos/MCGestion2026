@@ -99,9 +99,7 @@ function config_one_cb23(){
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	global $db;			global $db_name;
-	global $db_host; 	global $db_user;
-	global $db_pass;	global $LogText;
+	global $db, $db_name, $db_host, $db_user, $db_pass, $LogText;
 	
 	/************** CREAMOS LA TABLA ADMIN ***************/
 	// SE CONSTRUYE DESDE MOD_ADMIN
@@ -116,26 +114,29 @@ function config_one_cb23(){
 	
 	$provee = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname5 (
   `id` int(4) NOT NULL auto_increment,
-  `ref` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `rsocial` varchar(30) collate utf8_spanish2_ci NOT NULL,
-  `myimg` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `doc` varchar(11) collate utf8_spanish2_ci NOT NULL,
-  `dni` varchar(8) collate utf8_spanish2_ci NOT NULL,
-  `ldni` varchar(1) collate utf8_spanish2_ci NOT NULL,
-  `Email` varchar(50) collate utf8_spanish2_ci NULL,
-  `Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
+  `ref` varchar(20) NOT NULL,
+  `rsocial` varchar(30) NOT NULL,
+  `myimg` varchar(30) NOT NULL default 'untitled.png',
+  `doc` varchar(11) NOT NULL,
+  `dni` varchar(8) NOT NULL,
+  `ldni` varchar(1) NOT NULL,
+  `Email` varchar(50) NULL,
+  `Direccion` varchar(60) NOT NULL,
   `Tlf1` int(9) NOT NULL default 000000000,
   `Tlf2` int(9) NOT NULL default 000000000,
+  `del` varchar(5) NOT NULL default 'false',
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `ref` (`ref`),
   PRIMARY KEY `ref` (`ref`),
   UNIQUE KEY `dni` (`dni`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $provee)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname5."\n";
 
-		$vp = "INSERT INTO `$db_name`.$vname5 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000)";
+		$vp = "INSERT INTO `$db_name`.$vname5 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000,)";
 		
 		if(mysqli_query($db, $vp)){
 				$LogText = $LogText."\t* OK INSERT INIT VALUES EN ".$vname5."\n";
@@ -148,32 +149,33 @@ function config_one_cb23(){
 	}
 
 
-	/************** CREAMOS LA TABLA PROVEEDORES FEED ***************/
+	/************** CREAMOS LA TABLA PROVEEDORES FEED **************
 
 	global $vname5f;
 	$vname5f = "`".$_SESSION['clave']."proveedoresfeed`";
 	
 	$provee = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname5f (
   `id` int(4) NOT NULL auto_increment,
-  `ref` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `rsocial` varchar(30) collate utf8_spanish2_ci NOT NULL,
-  `myimg` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `doc` varchar(11) collate utf8_spanish2_ci NOT NULL,
-  `dni` varchar(8) collate utf8_spanish2_ci NOT NULL,
-  `ldni` varchar(1) collate utf8_spanish2_ci NOT NULL,
-  `Email` varchar(50) collate utf8_spanish2_ci NULL,
-  `Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
+  `ref` varchar(20) NOT NULL,
+  `rsocial` varchar(30) NOT NULL,
+  `myimg` varchar(30) NOT NULL default 'untitled.png',
+  `doc` varchar(11) NOT NULL,
+  `dni` varchar(8) NOT NULL,
+  `ldni` varchar(1) NOT NULL,
+  `Email` varchar(50) NULL,
+  `Direccion` varchar(60) NOT NULL,
   `Tlf1` int(9) NULL,
   `Tlf2` int(9) NULL,
   `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $provee)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname5f."\n";
 	}else{ 	//print("* ERROR CREATE TABLE ".$vname5f.". ".mysqli_error($db)."</br>");
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname5f."\n\t* ".mysqli_error($db)."\n";
 	}
+*/
 
 	/************** CREAMOS LA TABLA GASTOS PENDIENTES  ***************/
 
@@ -185,24 +187,24 @@ function config_one_cb23(){
 
 	$tgb = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname1b (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refprovee` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refprovee` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
@@ -210,7 +212,7 @@ function config_one_cb23(){
   INDEX `refprovee` (`refprovee`),
   FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
   */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tgb)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname1b."\n";
@@ -225,26 +227,29 @@ function config_one_cb23(){
 	
 	$provei = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname6 (
   `id` int(4) NOT NULL auto_increment,
-  `ref` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `rsocial` varchar(30) collate utf8_spanish2_ci NOT NULL,
-  `myimg` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `doc` varchar(11) collate utf8_spanish2_ci NOT NULL,
-  `dni` varchar(8) collate utf8_spanish2_ci NOT NULL,
-  `ldni` varchar(1) collate utf8_spanish2_ci NOT NULL,
-  `Email` varchar(50) collate utf8_spanish2_ci NULL,
-  `Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
+  `ref` varchar(20) NOT NULL,
+  `rsocial` varchar(30) NOT NULL,
+  `myimg` varchar(30) NOT NULL default 'untitled.png',
+  `doc` varchar(11) NOT NULL,
+  `dni` varchar(8) NOT NULL,
+  `ldni` varchar(1) NOT NULL,
+  `Email` varchar(50) NULL,
+  `Direccion` varchar(60) NOT NULL,
   `Tlf1` int(9) NOT NULL default 000000000,
   `Tlf2`int(9) NOT NULL default 000000000,
+  `del` varchar(5) NOT NULL default 'false',
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `ref` (`ref`),
   PRIMARY KEY `ref` (`ref`),
   UNIQUE KEY `dni` (`dni`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $provei)){
 			$LogText = $LogText."\t* OK CRETATE TABLE ".$vname6."\n";
 
-		$vpi = "INSERT INTO `$db_name`.$vname6 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000)";
+		$vpi = "INSERT INTO `$db_name`.$vname6 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000, `del`, `borrado`, `recuper`)";
 			
 		if(mysqli_query($db, $vpi)){
 				$LogText = $LogText."\t* OK INSERT INIT VALUES EN ".$vname6."\n";
@@ -255,32 +260,33 @@ function config_one_cb23(){
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname6."\n\t* ".mysqli_error($db)." \n";
 	}
 					
-	/************** CREAMOS LA TABLA CLIENTES FEED ***************/
+	/************** CREAMOS LA TABLA CLIENTES FEED **************
 
 	global $vname6f;
 	$vname6f = "`".$_SESSION['clave']."clientesfeed`";
 	
 	$provee = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname6f (
   `id` int(4) NOT NULL auto_increment,
-  `ref` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `rsocial` varchar(30) collate utf8_spanish2_ci NOT NULL,
-  `myimg` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `doc` varchar(11) collate utf8_spanish2_ci NOT NULL,
-  `dni` varchar(8) collate utf8_spanish2_ci NOT NULL,
-  `ldni` varchar(1) collate utf8_spanish2_ci NOT NULL,
-  `Email` varchar(50) collate utf8_spanish2_ci NULL,
-  `Direccion` varchar(60) collate utf8_spanish2_ci NOT NULL,
+  `ref` varchar(20) NOT NULL,
+  `rsocial` varchar(30) NOT NULL,
+  `myimg` varchar(30) NOT NULL default 'untitled.png',
+  `doc` varchar(11) NOT NULL,
+  `dni` varchar(8) NOT NULL,
+  `ldni` varchar(1) NOT NULL,
+  `Email` varchar(50) NULL,
+  `Direccion` varchar(60) NOT NULL,
   `Tlf1` int(9) NULL,
   `Tlf2` int(9) NULL,
   `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $provee)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname6f."\n";
 	}else{ 	//print("* ERROR CREATE TABLE ".$vname6f." ".mysqli_error($db)."</br>");
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname6f."\n\t* ".mysqli_error($db)."\n";
 	}
+*/
 
 	/************** CREAMOS LA TABLA INGRESOS PENDIENTES ***************/
 
@@ -292,24 +298,24 @@ function config_one_cb23(){
 	
 	$tib = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname3b (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refcliente` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refcliente` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
@@ -317,7 +323,7 @@ function config_one_cb23(){
   INDEX `refcliente` (`refcliente`),
   FOREIGN KEY (`refcliente`) REFERENCES $tblClientes (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
   */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tib)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname3b."\n";
@@ -334,10 +340,13 @@ function config_one_cb23(){
 				  `id` int(2) NOT NULL auto_increment,
   				  `year` int(4) NOT NULL,
    				  `ycod` int(2) NOT NULL,
- 				  `stat` varchar(5) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'open',
- 				  `hidden` varchar(2) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'no',
+ 				  `stat` varchar(5) NOT NULL DEFAULT 'open',
+ 				  `hidden` varchar(2) NOT NULL DEFAULT 'no',
+				  `del` varchar(5) NOT NULL default 'false',
+  				  `borrado` datetime NULL,
+				  `recuper` datetime NULL,
 				  PRIMARY KEY  (`id`)
-				) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=3 ";
+				) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=3 ";
 		
 	global $y1;		$y1 = date('Y')-1;
 	global $y1b;	$y1b = date('y')-1;
@@ -357,7 +366,7 @@ function config_one_cb23(){
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname11."\n\t* ".mysqli_error($db)." \n";
 	}
 
-	/************** CREAMOS LA TABLA STATUSFEEDBACK ***************/
+	/************** CREAMOS LA TABLA STATUS FEEDBACK **************
 
 	global $vname12;
 	$vname12 = "`".$_SESSION['clave']."statusfeed`";
@@ -366,18 +375,18 @@ function config_one_cb23(){
 				  `id` int(2) NOT NULL auto_increment,
   				  `year` int(4) NOT NULL,
    				  `ycod` int(2) NOT NULL,
- 				  `stat` varchar(5) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'open',
- 				  `hidden` varchar(2) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'no',
+ 				  `stat` varchar(5) NOT NULL DEFAULT 'open',
+ 				  `hidden` varchar(2) NOT NULL DEFAULT 'no',
 				  `date` datetime NOT NULL default CURRENT_TIMESTAMP,
 				  PRIMARY KEY  (`id`)
-				) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+				) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $statusfeed)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname12.". \n";
 	}else{ 	//print("* ERROR CREATE TABLE ".$vname12." ".mysqli_error($db)."</br>");
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname12."\n\t* ".mysqli_error($db)." \n";
 	}
-
+*/
 	/************** CREAMOS LA TABLA RETENCION ***************/
 
 	global $vname13;
@@ -386,9 +395,9 @@ function config_one_cb23(){
 	$retencion = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname13 (
 				  `id` int(2) NOT NULL auto_increment,
   				  `ret` decimal(10,2) UNSIGNED NOT NULL DEFAULT '0.00',
-  				  `name` varchar(12) COLLATE utf8_spanish2_ci NOT NULL DEFAULT 'NAME %',
+  				  `name` varchar(12) NOT NULL DEFAULT 'NAME %',
 				  PRIMARY KEY  (`id`)
-				) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=6 ";
+				) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=6 ";
 		
 	if(mysqli_query($db, $retencion)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname13."\n";
@@ -446,32 +455,35 @@ function config_one_cb23(){
 	
 	$tg = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname1 (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refprovee` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refprovee` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
+  `del` varchar(5) NOT NULL default 'false',
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)/*,
   INDEX `refprovee` (`refprovee`),
   FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
   */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 
 	if(mysqli_query($db, $tg)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname1."\n";
@@ -499,32 +511,35 @@ function config_one_cb23(){
 	
 	$tg2 = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname2 (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refprovee` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refprovee` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
+  `del` varchar(5) NOT NULL default 'false',
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)/*,
   INDEX `refprovee` (`refprovee`),
   FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
 	*/
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tg2)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname2."\n";
@@ -545,45 +560,45 @@ function config_one_cb23(){
 			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta2."\n";
 				}
 
-	/************** CREAMOS LA TABLA GASTOS FEED  ***************/
+	/************** CREAMOS LA TABLA GASTOS FEED  **************
  
 	global $vnamegf;
 	$vnamegf = "`".$_SESSION['clave']."gastosfeed`";
 	
 	$tgf = "CREATE TABLE IF NOT EXISTS `$db_name`.$vnamegf (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refprovee` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refprovee` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL,
-  `ruta` varchar(50) collate utf8_spanish2_ci NOT NULL,
+  `ruta` varchar(50) NOT NULL,
   `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 
 	if(mysqli_query($db, $tgf)){
 				$LogText = $LogText."\t* OK CREATE TABLE ".$vnamegf."\n";
 	} else { 	//print( "* ERROR CREATE TABLE ".$vnamegf." ".mysqli_error($db)."\n");
 				$LogText = $LogText."\t* ERROR CREATE TABLE ".$vnamegf."\n\t* ".mysqli_error($db)."\n";
 			}
-
+*/
 	/************** CREAMOS LA TABLA INGRESOS  ***************/
 
 	global $tblClientes;
@@ -594,32 +609,35 @@ function config_one_cb23(){
 	
 	$ti = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname3 (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refcliente` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refcliente` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
+  `del` varchar(5) NOT NULL default 'false',
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)/*,
   INDEX `refcliente` (`refcliente`),
   FOREIGN KEY (`refcliente`) REFERENCES $tblClientes (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
   */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $ti)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname3."\n";
@@ -647,32 +665,35 @@ function config_one_cb23(){
 	
 	$ti2 = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname4 (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refcliente` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refcliente` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
+  `del` varchar(5) NOT NULL default 'false',
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)/*,
   INDEX `refcliente` (`refcliente`),
   FOREIGN KEY (`refcliente`) REFERENCES $tblClientes (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
   */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $ti2)){
 			$LogText = $LogText."\t* OK CRETE TABLE ".$vname4."\n";
@@ -693,44 +714,44 @@ function config_one_cb23(){
 			 $LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta4."\n";
 				}
 
-	/************** CREAMOS LA TABLA INGRESOS FEED  ***************/
+	/************** CREAMOS LA TABLA INGRESOS FEED  **************
 
 	global $vnameif; 	$vnameif = "`".$_SESSION['clave']."ingresosfeed`";
 	
 	$tif = "CREATE TABLE IF NOT EXISTS `$db_name`.$vnameif (
   `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnumini` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `factnum` varchar(20) NOT NULL,
+  `factnumini` varchar(20) NOT NULL,
   `factdate` date NOT NULL,
   `factdateini` date NOT NULL,
-  `refcliente` varchar(20) collate utf8_spanish2_ci NOT NULL,
-  `factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-  `factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
+  `refcliente` varchar(20) NOT NULL,
+  `factnom` varchar(22) NOT NULL,
+  `factnif` varchar(20) NOT NULL,
   `factiva` int(2) NOT NULL,
   `factivae` decimal(9,2) unsigned NOT NULL,
   `factpvp` decimal(9,2) unsigned NOT NULL,
   `factret` int(2) unsigned NOT NULL,
   `factrete` decimal(9,2) unsigned NOT NULL,
   `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text collate utf8_spanish2_ci NOT NULL,
-  `myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
+  `coment` text NOT NULL,
+  `myimg1` varchar(30) NOT NULL default 'untitled.png',
+  `myimg2` varchar(30) NOT NULL default 'untitled.png',
+  `myimg3` varchar(30) NOT NULL default 'untitled.png',
+  `myimg4` varchar(30) NOT NULL default 'untitled.png',
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL,
-  `ruta` varchar(50) collate utf8_spanish2_ci NOT NULL,
+  `ruta` varchar(50) NOT NULL,
   `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=1 ";
+) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tif)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vnameif."\n";
 	}else{ 	//print( "* ERROR CREATE TABLE ".$vnameif." ".mysqli_error($db)."\n");
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vnameif."\n\t* ".mysqli_error($db)."\n";
 				}
-
+*/
 		/************	PASAMOS LOS PARAMETROS A .LOG	*****************/
 	
 		$datein = date('Y-m-d H:i:s');

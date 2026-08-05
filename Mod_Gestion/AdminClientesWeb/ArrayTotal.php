@@ -1,8 +1,8 @@
 <?php
 
     global $Nivel;				global $defaults;		
-	global $ArrayConfig;		global $ArrayCliente;
-	global $ArrayAdmin;			global $ArrayProveedor;		global $ArrayCaja;
+	global $ArrayConfig, $ArrayCliente, $ArrayAdmin, $ArrayProveedor;
+	global $ArrayCaja, $ArrayClienteCrea, $ArrayClienteModif;	
 
     if($ArrayConfig == 1){
         $Nivel = array ( 'admin' => 'NIVEL USUARIO',

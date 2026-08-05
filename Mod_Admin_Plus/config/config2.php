@@ -218,7 +218,7 @@ function crear_tablas(){
 	global $trf; 	$trf = $_SESSION['iniref'];
 	
 	global $rutCreaTablas; 	$rutCreaTablas = "";
-	require '../Admin/admin_crea_tablas.php';
+	require '../Admin/admin_crea_dir.php';
 		
 	/************	PASAMOS LOS PARAMETROS A .LOG	*****************/
 	

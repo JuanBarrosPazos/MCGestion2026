@@ -12,27 +12,27 @@
 
 	$admin = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_a (
   `id` int NOT NULL auto_increment,
-  `ref` varchar(20) collate utf16_spanish2_ci NOT NULL,
-  `Nivel` varchar(8) collate utf16_spanish2_ci NOT NULL default 'amd',
-  `Nombre` varchar(25) collate utf16_spanish2_ci NOT NULL,
-  `Apellidos` varchar(25) collate utf16_spanish2_ci NOT NULL,
-  `myimg` varchar(30) collate utf16_spanish2_ci NOT NULL default 'untitled.png',
-  `doc` varchar(11) collate utf16_spanish2_ci NOT NULL,
-  `dni` varchar(8) collate utf16_spanish2_ci NOT NULL,
-  `ldni` varchar(1) collate utf16_spanish2_ci NOT NULL,
-  `Email` varchar(50) collate utf16_spanish2_ci NOT NULL,
-  `Usuario` varchar(10) collate utf16_spanish2_ci NOT NULL,
-  `Password` varchar(100) collate utf16_spanish2_ci NOT NULL,
-  `Pass` varchar(10) collate utf16_spanish2_ci NOT NULL,
-  `Direccion` varchar(60) collate utf16_spanish2_ci NOT NULL,
+  `ref` varchar(20) NOT NULL,
+  `Nivel` varchar(8) NOT NULL default 'amd',
+  `Nombre` varchar(25) NOT NULL,
+  `Apellidos` varchar(25) NOT NULL,
+  `myimg` varchar(30) NOT NULL default 'untitled.png',
+  `doc` varchar(11) NOT NULL,
+  `dni` varchar(8) NOT NULL,
+  `ldni` varchar(1) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Usuario` varchar(10) NOT NULL,
+  `Password` varchar(100) NOT NULL,
+  `Pass` varchar(10) NOT NULL,
+  `Direccion` varchar(60) NOT NULL,
   `Tlf1` int(9) NOT NULL default 0,
   `Tlf2` int(9) NOT NULL default 0,
-  `lastin` datetime collate utf16_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
-  `lastout` datetime collate utf16_spanish2_ci NOT NULL default CURRENT_TIMESTAMP,
-  `visitadmin` int collate utf16_spanish2_ci NOT NULL default '0',
+  `lastin` datetime NOT NULL default CURRENT_TIMESTAMP,
+  `lastout` datetime NOT NULL default CURRENT_TIMESTAMP,
+  `visitadmin` int NOT NULL default '0',
   `del` varchar(5) NOT NULL default 'false',
-  `borrado` datetime collate utf16_spanish2_ci NULL,
-  `recuper` datetime collate utf16_spanish2_ci NULL,
+  `borrado` datetime NULL,
+  `recuper` datetime NULL,
   UNIQUE KEY `id` (`id`),
   UNIQUE KEY `ref` (`ref`),
   UNIQUE KEY `dni` (`dni`),
@@ -54,13 +54,13 @@
 
 	$ipcontrol = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_b (
   `id` int NOT NULL auto_increment,
-  `ref` varchar(20) collate utf16_spanish2_ci NOT NULL default 'anonimo',
-  `nivel` varchar(8) collate utf16_spanish2_ci NOT NULL default 'anonimo',
-  `ipn` varchar(22) collate utf16_spanish2_ci NOT NULL default 'lost',
-  `error`varchar(4) collate utf16_spanish2_ci NOT NULL default '1',
-  `acceso` varchar(4) collate utf16_spanish2_ci NOT NULL default '0',
-  `date` date collate utf16_spanish2_ci NOT NULL DEFAULT '2021-12-20',
-  `time` time collate utf16_spanish2_ci NOT NULL DEFAULT '00:00:00',
+  `ref` varchar(20) NOT NULL default 'anonimo',
+  `nivel` varchar(8) NOT NULL default 'anonimo',
+  `ipn` varchar(22) NOT NULL default 'lost',
+  `error`varchar(4) NOT NULL default '1',
+  `acceso` varchar(4) NOT NULL default '0',
+  `date` date NOT NULL DEFAULT '2021-12-20',
+  `time` time NOT NULL DEFAULT '00:00:00',
   UNIQUE KEY `id` (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 
@@ -114,15 +114,15 @@ if(mysqli_query($db, $visitas)){
 	
 	$tcl = "CREATE TABLE IF NOT EXISTS `$db_name`.$table_name_d (
   `id` int NOT NULL auto_increment,
-  `ref` varchar(20) collate utf16_spanish2_ci NOT NULL,
-  `din` varchar(10) collate utf16_spanish2_ci NOT NULL,
+  `ref` varchar(20) NOT NULL,
+  `din` varchar(10) NOT NULL,
   `tin` time NOT NULL,
-  `dout` varchar(10) collate utf16_spanish2_ci NULL,
+  `dout` varchar(10) NULL,
   `tout` time NULL,
   `ttot` time NULL,
   `error` varchar(5) NOT NULL default 'false',
   `del` varchar(5) NOT NULL default 'false',
-  `dfeed` varchar(10) collate utf16_spanish2_ci NULL,
+  `dfeed` varchar(10) NULL,
   `tfeed` time NULL,
   UNIQUE KEY `id` (`id`),
   KEY `ref` (`ref`),
@@ -166,7 +166,7 @@ if(mysqli_query($db, $visitas)){
 	global $tablasContactoLog; 
 	if(file_exists("../Mod_Contacto/Integra_Admin/CreaTablasContacto.php")){
 		require "../Mod_Contacto/Integra_Admin/CreaTablasContacto.php";
-	}else{ $tablasContactoLog = "\tNO EXISTE EL MODULO CONTACTO\n"; }
+	}else{ $tablasContactoLog = "\t** NO EXISTE EL MODULO CONTACTO\n"; }
 
 	/************	COMPROBAMOS LAS TABLAS CONTA BASIC	*****************/
 
@@ -184,7 +184,7 @@ if(mysqli_query($db, $visitas)){
 		require '../Mod_Contenidos/Integra_Admin/CreaTablasContenido.php';
 		global $text;
 		$tblArtic = $text.PHP_EOL;
-	}else{ /* NO EXISTE EL ARCHIVO */ $tblArtic = "\tNO EXISTE EL MODULO ARTICULOS\n";}
+	}else{ /* NO EXISTE EL ARCHIVO */ $tblArtic = "\t** NO EXISTE EL MODULO ARTICULOS\n";}
 
 	/************	SI EXISTE EL CONSTRUCTOR DE TABLAS MCGESTION	*****************/
 	
