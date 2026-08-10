@@ -12,6 +12,8 @@
 - Realizar una comanda en una mesa o zona del local, modificarla, mover la comanda a otra zona del local, hasta el momento de finalizar la facturación...
 ----
 ## CUESTIONES PENDIENTES
+- ** REVISAR CONFIGURACIONES PARA LAS TABLAS FEED... Y MODIFICAR LAS FUNCIONES RELACIONADAS...
+
 - CONFIGURAR MEDIA PARA IMPRESIÓN DE FACTURA.
 - OJO $KeyBorraUser NO LA LLAMA NADIE.
 - LOGS PRODUCTOS, LOGS CAJA.

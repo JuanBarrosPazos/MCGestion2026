@@ -42,14 +42,8 @@ function process_form(){
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
-	global $db; 		global $db_name;	
-	global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
-	
-	$sql = "INSERT INTO `$db_name`.$vname (`ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES ('$_POST[ref]', '$_POST[rsocial]', '$_POST[myimg]', '$_POST[doc]', '$_POST[dni]', '$_POST[ldni]', '$_POST[Email]', '$_POST[Direccion]', '$_POST[Tlf1]', '$_POST[Tlf2]')";
-
-	if(mysqli_query($db, $sql)){
-		
-		print("<table class='tableForm' >
+	global $tablaResult;
+	$tablaResult = "<table class='tableForm' >
 				<tr>
 					<th colspan=3 >HA RECUPERADO EL CLIENTE</th>
 				</tr>
@@ -96,34 +90,32 @@ function process_form(){
 						".$closeButton."
 					</td>
 				</tr>
-			</table>");
+			</table>";
 
+	global $FBaja;		$FRecuper = date('Y-m-d H:i:s');
+	global $db; 		global $db_name;	
+	global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
+	
+	$sql = "UPDATE `$db_name`.$vname SET `del`='false', `recuper`='$FRecuper' WHERE `id`='$_POST[id]' LIMIT 1 ";
 
-			global $vnamed; 		$vnamed = "`".$_SESSION['clave']."clientesfeed`";
-			$sqld = "DELETE FROM `$db_name`.$vnamed WHERE $vnamed.`id` = '$_POST[id]' LIMIT 1 ";
-			if(mysqli_query($db, $sqld)){
-				// NADA
-			}else{
-				print("</br><font color='#FF0000'>
-						* MODIFIQUE LA ENTRADA 106: </font></br> ".mysqli_error($db))."</br>";
-				show_form();
-				global $texerror; 		$texerror = "\n\t ".mysqli_error($db);
-			}
-			/*	*/
-		} else { 
-			print("</br><font color='#FF0000'>* ERROR L.59: </font></br> ".mysqli_error($db))."</br>";
-					show_form ();
-					//global $texerror;
-					//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
+	if(mysqli_query($db, $sql)){
+		
+		print $tablaResult;
+
+	} else { 
+		print("</br><font color='#FF0000'>* ERROR L.59: </font></br> ".mysqli_error($db))."</br>";
+				show_form ();
+				//global $texerror;
+				//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
+	}
+
+	global $redir;
+	$redir = "<script type='text/javascript'>
+					function redir(){
+					window.location.href='clientesFeed_Ver.php';
 				}
-
-		global $redir;
-		$redir = "<script type='text/javascript'>
-						function redir(){
-						window.location.href='clientesFeed_Ver.php';
-					}
-					setTimeout('redir()',8000);
-					</script>";
+				setTimeout('redir()',8000);
+				</script>";
 		print ($redir);
 		
 	} // FIN function process_form()

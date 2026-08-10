@@ -58,13 +58,13 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 		
-		global $vname; 		$vname = "`".$_SESSION['clave']."clientesfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
 		if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-			$sqlc =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `del`='true' ORDER BY $orden ";
 			//echo $sqlc;
 		}else{
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref` = '$ref' OR `rsocial` LIKE '$rso' ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE (`ref` = '$ref' OR `rsocial` LIKE '$rso') AND `del`='true' ORDER BY $orden ";
 			//echo $sqlc."<br>";
 		}
 
@@ -206,14 +206,14 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 
-		global $vname; 		$vname = "`".$_SESSION['clave']."clientesfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `del`='true' ORDER BY $orden ";
 		
 		$qb = mysqli_query($db, $sqlb);
 		
 		if(!$qb){
-		print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+		print("* ERROR SQL L.211: ".mysqli_error($db)."</br>");
 				
 		} else {
 			if(mysqli_num_rows($qb)<= 0){

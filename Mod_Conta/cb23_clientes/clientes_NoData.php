@@ -4,9 +4,7 @@
         global $PersonAddBlacktit;      $PersonAddBlacktit = "CREAR NUEVO CLIENTE";
         global $PersonsBlackTit;        $PersonsBlackTit = "VER TODOS LOS CLIENTES";
         require '../Inclu/BotoneraVar.php';
-        global $closeButton;
-
-	global $KeyForm;        global $BotonPapelera;
+        global $closeButton, $KeyForm, $BotonPapelera, $DeleteBlack, $PersonAddBlack, $PersonsBlack;
 
 	if($KeyForm == "feed"){
                 $BotonPapelera = "";

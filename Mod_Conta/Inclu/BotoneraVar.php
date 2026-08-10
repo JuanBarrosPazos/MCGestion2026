@@ -167,6 +167,4 @@ $SaveGrey = "<button type='submit' title='".$SaveGreyTit."' class='botonlila img
 global $SaveWhite;          global $SaveWhiteTit;
 $SaveWhite = "<button type='submit' title='".$SaveWhiteTit."' class='botonlila imgButIco SaveWhite' style='vertical-align:top;' >";
 
-
-
 ?>

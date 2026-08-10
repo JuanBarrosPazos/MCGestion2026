@@ -55,10 +55,10 @@ session_start();
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
 		if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-			$sqlc =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `del`='false' ORDER BY $orden ";
 			//echo $sqlc;
 		}else{
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref` = '$ref' OR `rsocial` LIKE '$rso' ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE (`ref` = '$ref' OR `rsocial` LIKE '$rso') AND `del`='false' ORDER BY $orden ";
 			//echo $sqlc."<br>";
 		}
 	
@@ -221,7 +221,7 @@ session_start();
 		$sesionref = "";
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `del`='false' ORDER BY $orden ";
 
 		$qb = mysqli_query($db, $sqlb);
 		

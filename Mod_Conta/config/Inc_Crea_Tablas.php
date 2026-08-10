@@ -300,7 +300,7 @@ $status2 = "INSERT INTO `$db_name`.$vname11 (`id`, `year`, `ycod`, `stat`, `hidd
 				 $table19 = "\t* NO OK INIT VALUES EN ".$vname11.". ".mysqli_error($db)." \n";
 			}
 
-	/************** CREAMOS LA TABLA STATUSFEEDBACK ***************/
+	/************** CREAMOS LA TABLA STATUSFEEDBACK **************
 
 	global $vname12;
 	$vname12 = "`".$_SESSION['clave']."statusfeed`";
@@ -322,7 +322,7 @@ $status2 = "INSERT INTO `$db_name`.$vname11 (`id`, `year`, `ycod`, `stat`, `hidd
 				 global $table20;
 				 $table20 = "\t* NO OK TABLA ".$vname12.". ".mysqli_error($db)." \n";
 			}
-
+*/
 	/************** CREAMOS LA TABLA RETENCION ***************/
 
 	global $vname13;
@@ -370,7 +370,7 @@ $retencion2 = "INSERT INTO `$db_name`.$vname13 (`id`, `ret`, `name`) VALUES
 		$text = $text.PHP_EOL." * ".$db_user;
 		$text = $text.PHP_EOL." * ".$db_pass;
 		$text = $text.PHP_EOL.$dbconecterror;
-		$text = $text.PHP_EOL.$data0.$table1.$table2.$table3.$table4.$table5.$table6.$table7.$table8.$table9.$table10.$table11.$table12.$table13.$table14.$table15.$table16.$table17.$table18.$table19.$table20.$table21.$table22."\n";
+		$text = $text.PHP_EOL.$data0.$table1.$table2.$table3.$table4.$table5.$table6.$table7.$table8.$table9.$table16.$table17.$table18.$table19.$table21.$table22."\n";
 
 		ini_log();
 		

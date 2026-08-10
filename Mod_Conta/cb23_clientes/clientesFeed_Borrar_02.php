@@ -40,9 +40,9 @@ session_start();
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
-		global $db; 		global $db_name;	
-		global $vname; 		$vname = "`".$_SESSION['clave']."clientesfeed`";
-		$sql = "DELETE FROM `$db_name`.$vname WHERE $vname.`id` = '$_POST[id]' LIMIT 1 ";
+		global $db, $db_name;	
+		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
+		$sql = "DELETE FROM `$db_name`.$vname WHERE $vname.`id` = '$_POST[id]' AND $vname.`del` = 'true' LIMIT 1 ";
 		
 		if(mysqli_query($db, $sql)){
 
