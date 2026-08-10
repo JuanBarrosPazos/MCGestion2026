@@ -26,9 +26,10 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.05
+## * MCGestion2026 V26.08.10
 * SE INTEGRA MOD_ADMIN_PLUS Con la gestión de horario laboral de los empleados.
 * SE MODIFICA LA CONFIGURACIÓN DE LAS TABLAS Y SE ELIMINAN LAS TABLAS FEED...
+* SE RECONFIGURA FEED Mod_Conta\cb23_clientes
 ----
 ## * MCGestion2023 V24.09.26A
 * AJUSTE DE LOS @media print
