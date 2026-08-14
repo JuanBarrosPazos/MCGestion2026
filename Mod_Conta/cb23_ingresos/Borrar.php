@@ -52,15 +52,13 @@ session_start();
 		require 'FormatNumber.php';
 
 		/////////////
-		global $vnamei; 		$vnamei = "`".$_SESSION['clave']."ingresosfeed`";
+
+		global $FBaja;		$FBaja = date('Y-m-d H:i:s');
+		global $vnamei; 	$vnamei = "`".$_SESSION['clave']."ingresos_".$dyt1."`";
 		global $sent;
-		$sent = "INSERT INTO `$db_name`.$vnamei (`factnum`, `factnumini`, `factdate`, `factdateini`, `refcliente`, `factnom`, `factnif`, `factiva`, `factivae`, `factpvp`, `factret`, `factrete`, `factpvptot`,`coment`, `myimg1`, `myimg2`, `myimg3`, `myimg4`, `factcrea`, `factmodif`, `ruta`) VALUES ('$_POST[factnum]', '$_POST[factnumini]', '$factdate', '$_POST[factdateini]', '$_POST[clienteingresos]', '$_POST[factnom]', '$_POST[factnif]', '$_POST[factiva]', '$factivae', '$factpvp', '$_POST[factret]', '$factrete', '$factpvptot', '$_POST[coment]', '$_SESSION[myimg1]', '$_SESSION[myimg2]', '$_SESSION[myimg3]', '$_SESSION[myimg4]', '$_POST[factcrea]', '$_POST[factmodif]', '$_POST[delruta]' )";
+		$sent = "UPDATE `$db_name`.$vnamei SET `del`='true', `borrado`='$FBaja' WHERE `id`='$_POST[id]' LIMIT 1 ";
 
 		if(mysqli_query($db, $sent)){
-
-			global $vname; 		$vname = "`".$_SESSION['clave']."ingresos_".$dyt1."`";
-			$sqla = "DELETE FROM `$db_name`.$vname  WHERE $vname.`id` = '$_POST[id]'  ";
-			if(mysqli_query($db, $sqla)){
 				global $title;			$title = 'SE HA BORRADO EN ';
 				global $Borrar2;		$Borrar2= "style='display:none; visibility: hidden;'";
 				global $Modif2;			$Modif2= "style='display:none; visibility: hidden;'";
@@ -70,10 +68,6 @@ session_start();
 				
 				global $ConteBotones;	$ConteBotones = "style='display:block;'";
 				require 'TableFormResult.php';			
-			}else{ print("* ERROR L.56: ".mysqli_error($db));
-						show_form ();
-						global $texerror; $texerror = "\n\t ".mysqli_error($db);
-							}
 		}else{
 			print("* ERROR L.51: ".mysqli_error($db));
 			show_form ();

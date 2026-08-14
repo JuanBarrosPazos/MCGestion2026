@@ -99,8 +99,8 @@ function process_form(){
 			</table>");
 
 
-			global $vnamed; 		$vnamed = "`".$_SESSION['clave']."proveedoresfeed`";
-			$sqld = "DELETE FROM `$db_name`.$vnamed WHERE $vnamed.`id` = '$_POST[id]' LIMIT 1 ";
+			global $vnamed; 		$vnamed = "`".$_SESSION['clave']."proveedores`";
+			$sqld = "DELETE FROM `$db_name`.$vnamed WHERE `id` = '$_POST[id]' AND `del`='true' LIMIT 1 ";
 			if(mysqli_query($db, $sqld)){
 				// NADA
 			}else{

@@ -21,7 +21,7 @@
 
     switch (true) {
         case ($papelera== '1'):
-            $vnameBot = "`".$_SESSION['clave']."gastosfeed`";
+            $vnameBot = "`".$_SESSION['clave']."gastos_".date('Y')."`";
             break;
         case ($rutPend == 'Pendientes'):
             $vnameBot = "`".$_SESSION['clave']."gastos_pendientes`";

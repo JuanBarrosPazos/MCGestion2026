@@ -10,7 +10,7 @@ session_start();
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
-	if(!isset($_SESSION['Nivel'])&&($_SESSION['Nivel'] != 'wmaster')){
+	if(!isset($_SESSION['Nivel'])&&(@$_SESSION['Nivel'] != 'wmaster')){
 		require "Inclu/Only.index.php";
 	}else{ }
 
@@ -186,9 +186,7 @@ function admin_entrada(){
 
 function show_visit(){
 
-	global $db;
-	global $db_name;
-	global $rowv;
+	global $db, $db_name;
 	global $sumavisit;
 	
 	require "config/TablesNames.php";
@@ -236,9 +234,7 @@ function show_visit(){
 
 function suma_visit(){
 
-	global $db;
-	global $db_name;
-	global $rowv;
+	global $db, $db_name;
 	global $sumavisit;
 	
 	require "config/TablesNames.php";
@@ -270,8 +266,8 @@ function suma_visit(){
 
 function suma_acces(){
 
-	global $db; 			global $db_name;
-	global $rowa; 			global $sumaacces;
+	global $db, $db_name;
+	global $sumaacces;
 	
 	require "config/TablesNames.php";
 
@@ -283,8 +279,7 @@ function suma_acces(){
 	
 	$tota = $rowa['acceso'];
 
-	global $sumaacces;
-	$sumaacces = $tota + 1;
+	global $sumaacces;	$sumaacces = $tota + 1;
 
 	$idv = 69;
 	
@@ -303,9 +298,7 @@ function suma_acces(){
 
 function suma_denegado(){
 
-	global $db;
-	global $db_name;
-	global $rowd;
+	global $db, $db_name;
 	global $sumadeneg;
 	
 	require "config/TablesNames.php";
@@ -337,8 +330,7 @@ function suma_denegado(){
 
 function validate_form(){
 	
-	global $db;
-	global $sql;
+	global $db, $sql;
 	global $q;
 	global $row;
 	
@@ -403,8 +395,8 @@ function show_form($errors=[]){
 			print("<font color='#F1BD2D'>* Campo </font>".$errors [$a]."</br>");
 			}
 		}
-		
-	print("".show_visit()."<div style='clear:both'></div>
+	show_visit();
+	print("<div style='clear:both'></div>
 			<table align='center' style=\"margin-top:2px; margin-bottom:8px\" >
 				<tr>
 					<th colspan=2 width=100% valign=\"bottom\" class='BorderInf'>

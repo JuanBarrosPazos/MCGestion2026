@@ -92,8 +92,8 @@ function process_form(){
 				</tr>
 			</table>";
 
-	global $FBaja;		$FRecuper = date('Y-m-d H:i:s');
-	global $db; 		global $db_name;	
+	global $FRecuper;		$FRecuper = date('Y-m-d H:i:s');
+	global $db, $db_name;	
 	global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 	
 	$sql = "UPDATE `$db_name`.$vname SET `del`='false', `recuper`='$FRecuper' WHERE `id`='$_POST[id]' LIMIT 1 ";

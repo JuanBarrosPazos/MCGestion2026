@@ -36,7 +36,7 @@ session_start();
 
 		global $db; 		global $db_name;	
 		
-		global $vname; 		$vname = "`".$_SESSION['clave']."statusfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."status`";
 		global $id; 		$id = $_POST['id'];
 		global $year; 		$year = $_POST['year'];
 		global $ycod; 		$ycod = substr(trim($_POST['year']),-2,2);
@@ -70,7 +70,7 @@ session_start();
 					</tr>
 				</table>";	
 		
-		$sqla = "DELETE FROM `$db_name`.$vname WHERE `year` = '$year'";
+		$sqla = "DELETE FROM `$db_name`.$vname WHERE `year` = '$year' AND `del`='true'";
 	
 		if(mysqli_query($db, $sqla)){ borrart(); 	borrard();
 									  borrare(); 	print($tabla);
@@ -246,9 +246,9 @@ function ver_feedback(){
 		
 	global $db; 		global $db_name;
 	
-	global $vname; 		$vname = "`".$_SESSION['clave']."statusfeed`";
+	global $vname; 		$vname = "`".$_SESSION['clave']."status`";
 
-	$sqlb =  "SELECT * FROM $vname ORDER BY `year` DESC ";
+	$sqlb =  "SELECT * FROM $vname WHERE `del`='true' ORDER BY `year` DESC ";
 	$qb = mysqli_query($db, $sqlb);
 
 	if(!$qb){

@@ -78,7 +78,7 @@
 		global $rutaOld;	global $papeleraRecup;		global $gastoModif3;
 		if($papeleraRecup == 1){
 			$idx = $_SESSION['idx'];
-			$vnamed = "`".$_SESSION['clave']."gastosfeed`";
+			$vnamed = "`".$_SESSION['clave']."gastos_".$dyt1."`";
 			$sqlrt = "SELECT * FROM `$db_name`.$vnamed  WHERE $vnamed.`id` = '$idx' LIMIT 1 ";
 			$qrt = mysqli_query($db,$sqlrt);
 			$rowrt = mysqli_fetch_assoc($qrt);

@@ -42,7 +42,7 @@ session_start();
 		
 		require 'FactDate.php';
 
-		global $vname; 		$vname = "`".$_SESSION['clave']."ingresosfeed`";
+		global $vname; 		$vname ="`".$_SESSION['clave']."ingresos_".$dyt1."`";
 
 		global $sqlb;
 		require 'FormConsultaFiltroGt2.php';
@@ -110,12 +110,12 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 
-		global $vname; 		$vname = "`".$_SESSION['clave']."ingresosfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."ingresos_".$dyt1."`";
 
 		global $iniVerTodo;		global $sqlb;
 		if($iniVerTodo == 1){
 				global $limit;
-				$sqlb =  "SELECT * FROM $vname  ORDER BY `factdate` DESC $limit";
+				$sqlb =  "SELECT * FROM $vname WHERE `del`='true' ORDER BY `factdate` DESC $limit";
 		}else{
 			require 'FormConsultaFiltroGt1.php';
 		}

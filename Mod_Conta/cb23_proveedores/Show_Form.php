@@ -4,7 +4,7 @@
 	global $KeyForm;	global $tabla1;		global $TitBut;
 
 	if($KeyForm == "feed"){
-		$tabla1 = "`".$_SESSION['clave']."proveedoresfeed`";
+		$tabla1 = "`".$_SESSION['clave']."proveedores`";
 		//$sqla =  "SELECT * FROM $tabla1 WHERE `ref` <> 'ANONIMO' ORDER BY `ref` ASC ";
 		//$sqlb =  "SELECT * FROM $tabla1 WHERE `rsocial` <> 'ANONIMO' ORDER BY `rsocial` ASC ";
 		$TitBut = "FILTRO PAPELERA PROVEEDORES";

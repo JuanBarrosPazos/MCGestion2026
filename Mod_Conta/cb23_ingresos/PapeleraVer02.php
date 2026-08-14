@@ -31,7 +31,7 @@
 		require 'Botonera.php';
 
 		global $db; 		global $db_name;
-		global $vname; 		$vname = $vname = "`".$_SESSION['clave']."ingresosfeed`";
+		global $vname; 		$vname = $vname = "`".$_SESSION['clave']."ingresos_".$dyt1."`";
 							// $vname = $_POST['vname'];
 		//print("** ".$_POST['vname']." / ".$_POST['dyt1']);
 			

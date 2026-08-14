@@ -97,11 +97,11 @@ session_start();
 		global $vname; 			global $dyt1;		$dyt1 = $_SESSION['dyt1'];
 		//echo "** ".$dyt1."<br>";
 
-		global $vnamed; 		$vnamed = "`".$_SESSION['clave']."gastosfeed`";
+		global $vnamed; 		$vnamed = "`".$_SESSION['clave']."gastos_".$dyt1."`";
 
 		$idx = $_SESSION['idx'];
 		// RECUPERO LA RUTA OLD DE LA BBDD
-		$sqlrt = "SELECT * FROM `$db_name`.$vnamed  WHERE $vnamed.`id` = '$idx' LIMIT 1 ";
+		$sqlrt = "SELECT * FROM `$db_name`.$vnamed  WHERE $vnamed.`id` = '$idx' AND `del`='true' LIMIT 1 ";
 		$qrt = mysqli_query($db,$sqlrt);
 		$rowrt = mysqli_fetch_assoc($qrt);
 		global $rutaOld;	$rutaOld = $rowrt['ruta'];

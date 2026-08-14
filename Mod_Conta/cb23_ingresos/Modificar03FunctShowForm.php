@@ -75,10 +75,11 @@
 
 		////////////////////
 		
+		global $db, $db_name, $dyt1;
 		global $rutaOld;	global $papeleraRecup;		global $ingresoModif3;
 		if($papeleraRecup == 1){
 			$idx = $_SESSION['idx'];
-			$vnamed = "`".$_SESSION['clave']."ingresosfeed`";
+			$vnamed = "`".$_SESSION['clave']."ingresos_".$dyt1."`";
 			$sqlrt = "SELECT * FROM `$db_name`.$vnamed  WHERE $vnamed.`id` = '$idx' LIMIT 1 ";
 			$qrt = mysqli_query($db,$sqlrt);
 			$rowrt = mysqli_fetch_assoc($qrt);

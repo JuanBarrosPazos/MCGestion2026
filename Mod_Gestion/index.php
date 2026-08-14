@@ -427,7 +427,8 @@ function show_form($errors=[]){
 			<button type='submit' title='ACCEDER' class='botonverde imgButIco CloseSessionBlack' style='vertical-align:top;' ></button>
 						<input type='hidden' name='oculto' value=1 />
 		</form>	
-						<a href='Admin_index.php' style='display:inline-block; float:left;'>
+				<!--<a href='Admin_index.php' style='display:inline-block; float:left;'>-->
+				<a href='../Mod_Admin_Plus/index.php' style='display:inline-block; float:left;'>
 			<button type='button' title='ACCESO ADMINISTRACION SISTEMA' class='botonverde imgButIco InicioBlack' style='vertical-align:top;' ></button>
 						</a>
 					</td>

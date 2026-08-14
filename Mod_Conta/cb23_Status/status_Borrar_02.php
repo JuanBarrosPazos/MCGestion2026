@@ -36,7 +36,7 @@ session_start();
 	
 		global $db; 		global $db_name;	
 		
-		global $vname; 		$vname = "`".$_SESSION['clave']."statusfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."status`";
 
 		global $id; 		$id = $_POST['id'];
 			
@@ -77,15 +77,9 @@ session_start();
 					</tr>
 				</table>";	
 			
-		$sqla = "INSERT INTO `$db_name`.$vname (`year`, `ycod`, `stat`, `hidden`, `date`) VALUES ('$year', '$ycod', '$stat', '$hidden', '$date')";
+		$sqla = "UPDATE `$db_name`.$vname SET `del`='true', `borrado`='$FBaja' WHERE `year` = '$year' LIMIT 1 ";
 	
 		if(mysqli_query($db, $sqla)){ 
-			global $vname2; 		$vname2 = "`".$_SESSION['clave']."status`";
-			$sqld = "DELETE FROM `$db_name`.$vname2 WHERE `year` = '$year' ";
-					if(mysqli_query($db, $sqld)){ }
-					else{print("* MODIFIQUE LA ENTRADA 127: ".mysqli_error($db));
-						global $texerror;
-						$texerror = "\n\t ".mysqli_error($db);}
 			print($tabla);
 			ver_todo();
 			ver_feedback();
@@ -167,9 +161,9 @@ session_start();
 		
 		global $db; 		global $db_name;
 		
-		global $vname; 		$vname = "`".$_SESSION['clave']."statusfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."status`";
 
-		$sqlb =  "SELECT * FROM $vname ORDER BY `year` DESC ";
+		$sqlb =  "SELECT * FROM $vname WHERE `del`='true' ORDER BY `year` DESC ";
 		$qb = mysqli_query($db, $sqlb);
 
 		if(!$qb){

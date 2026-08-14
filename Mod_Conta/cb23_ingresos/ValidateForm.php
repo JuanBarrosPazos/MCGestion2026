@@ -363,7 +363,7 @@ $errors [] = "FACTURA NUMERO <font color='#FF0000'>Solo mayusculas, números sin
 		if($papelera == 1){
 			// NO HAGO NADA
 		}else{
-			global $vnamegpap; 	$vnamegpap = "`".$_SESSION['clave']."ingresosfeed`";
+			global $vnamegpap; 	$vnamegpap = "`".$_SESSION['clave']."ingresos_".$dyt1."`";;
 			$sqlgpap =  "SELECT * FROM `$db_name`.$vnamegpap WHERE `factnum` = '$_POST[factnum]'";
 				$qgpap = mysqli_query($db, $sqlgpap);
 				$countgpap = mysqli_num_rows($qgpap);

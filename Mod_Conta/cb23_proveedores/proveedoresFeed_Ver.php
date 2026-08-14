@@ -58,13 +58,13 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 		
-		global $vname; 		$vname = "`".$_SESSION['clave']."proveedoresfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
 
 		if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-			$sqlc =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `del`='true' ORDER BY $orden ";
 			//echo $sqlc;
 		}else{
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref` = '$ref' OR `rsocial` LIKE '$rso' ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE (`ref` = '$ref' OR `rsocial` LIKE '$rso') AND `del`='true' ORDER BY $orden ";
 			//echo $sqlc."<br>";
 		}
 
@@ -202,9 +202,9 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 
-		global $vname; 		$vname = "`".$_SESSION['clave']."proveedoresfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `del`='true' ORDER BY $orden ";
 		
 		$qb = mysqli_query($db, $sqlb);
 		

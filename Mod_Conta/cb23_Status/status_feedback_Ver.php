@@ -33,9 +33,9 @@ session_start();
 
 		global $db; 		global $db_name;
 		
-		global $vname; 		$vname = "`".$_SESSION['clave']."statusfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."status`";
 
-		$sqlb =  "SELECT * FROM $vname ORDER BY `year` ASC ";
+		$sqlb =  "SELECT * FROM $vname WHERE `del`='true' ORDER BY `year` ASC ";
 		$qb = mysqli_query($db, $sqlb);
 
 		if(!$qb){

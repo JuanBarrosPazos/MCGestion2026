@@ -46,35 +46,27 @@ session_start();
 		
 		require 'FactDate.php';
 
-		global $db; 		global $db_name; 		
+		global $db, $db_name; 		
 		global $dyt1;		$dyt1 = $_POST['dy'];
 
 		require 'FormatNumber.php';
 
-		global $vnamepap; 		$vnamepap = "`".$_SESSION['clave']."ingresosfeed`";
+		global $vnamepap; 		$vnamepap = "`".$_SESSION['clave']."ingresos_pendientes`";
 		global $sent;
-		$sent = "INSERT INTO `$db_name`.$vnamepap (`factnum`, `factnumini`, `factdate`, `factdateini`, `refcliente`, `factnom`, `factnif`, `factiva`, `factivae`, `factpvp`, `factret`, `factrete`, `factpvptot`,`coment`, `myimg1`, `myimg2`, `myimg3`, `myimg4`, `factcrea`, `factmodif`, `ruta`) VALUES ('$_POST[factnum]', '$_POST[factnumini]', '$factdate', '$_POST[factdateini]', '$_POST[clienteingresos]', '$_POST[factnom]', '$_POST[factnif]', '$_POST[factiva]', '$factivae', '$factpvp', '$_POST[factret]', '$factrete', '$factpvptot', '$_POST[coment]', '$_SESSION[myimg1]', '$_SESSION[myimg2]', '$_SESSION[myimg3]', '$_SESSION[myimg4]', '$_POST[factcrea]', '$_POST[factmodif]', '$_POST[delruta]' )";
+		$sent = "UPDATE `$db_name`.$vnamei SET `del`='true', `borrado`='$FBaja' WHERE `id`='$_POST[id]' LIMIT 1 ";
 
 		if(mysqli_query($db, $sent)){
 
-			global $vname; 		$vname = "`".$_SESSION['clave']."ingresos_pendientes`";
-			$sqla = "DELETE FROM `$db_name`.$vname  WHERE $vname.`id` = '$_POST[id]'  ";
-			if(mysqli_query($db, $sqla)){
+			global $title;			$title = 'SE HA BORRADO EN ';
+			global $Borrar2;		$Borrar2= "style='display:none; visibility: hidden;'";
+			global $Modif2;			$Modif2= "style='display:none; visibility: hidden;'";
+			global $ModImg2;		$ModImg2= "style='display:none; visibility: hidden;'";
+			global $PendienteG;		$PendienteG = "style='display:none; visibility: hidden;'";
+			global $Recupera3;		$Recupera3 = "style='display:none; visibility: hidden;'";
+			global $Ver2;			$Ver2= "style='display:none; visibility: hidden;'";
+			global $ConteBotones;	$ConteBotones = "style='display:block;'";
+			require 'TableFormResult.php';
 
-				global $title;			$title = 'SE HA BORRADO EN ';
-				global $Borrar2;		$Borrar2= "style='display:none; visibility: hidden;'";
-				global $Modif2;			$Modif2= "style='display:none; visibility: hidden;'";
-				global $ModImg2;		$ModImg2= "style='display:none; visibility: hidden;'";
-				global $PendienteG;		$PendienteG = "style='display:none; visibility: hidden;'";
-				global $Recupera3;		$Recupera3 = "style='display:none; visibility: hidden;'";
-				global $Ver2;			$Ver2= "style='display:none; visibility: hidden;'";
-				global $ConteBotones;	$ConteBotones = "style='display:block;'";
-				require 'TableFormResult.php';
-
-			}else{ print("* ERROR L.62: ".mysqli_error($db));
-						show_form ();
-						global $texerror; $texerror = "\n\t ".mysqli_error($db);
-							}
 		}else{
 			print("* ERROR L.56: ".mysqli_error($db));
 			show_form ();
@@ -100,7 +92,7 @@ session_start();
 
 	function show_form(){
 	
-		global $db;		global $db_name;
+		global $db, $db_name;
 		global $rutPend;	$rutPend = 'Pendientes';
 
 		global $pend;	$pend = "PENDIENTES";

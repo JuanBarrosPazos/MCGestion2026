@@ -41,8 +41,8 @@ session_start();
 		global $closeButton;
 
 		global $db; 		global $db_name;	
-		global $vname; 		$vname = "`".$_SESSION['clave']."proveedoresfeed`";
-		$sql = "DELETE FROM `$db_name`.$vname WHERE $vname.`id` = '$_POST[id]' LIMIT 1 ";
+		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
+		$sql = "DELETE FROM `$db_name`.$vname WHERE `id` = '$_POST[id]' AND `del`='true' LIMIT 1 ";
 		
 		if(mysqli_query($db, $sql)){
 

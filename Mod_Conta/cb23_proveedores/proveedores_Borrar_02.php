@@ -84,23 +84,13 @@ function process_form(){
 			</tr>
 		</table>" );
 
-		global $db; 		global $db_name;	
-		global $vname; 		$vname = "`".$_SESSION['clave']."proveedoresfeed`";
+		global $FBaja;		$FBaja = date('Y-m-d H:i:s');
+		global $db, $db_name;	
+		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
 		
-		$sql = "INSERT INTO `$db_name`.$vname (`ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES ('$_POST[ref]', '$_POST[rsocial]', '$_POST[myimg]', '$_POST[doc]', '$_POST[dni]', '$_POST[ldni]', '$_POST[Email]', '$_POST[Direccion]', '$_POST[Tlf1]', '$_POST[Tlf2]')";
+		$sql = "UPDATE `$db_name`.$vnamei SET `del`='true', `borrado`='$FBaja' WHERE `id`='$_POST[id]' LIMIT 1 ";
 		
 		if(mysqli_query($db, $sql)){
-
-			global $vnamed; 		$vnamed = "`".$_SESSION['clave']."proveedores`";
-			$sqld = "DELETE FROM `$db_name`.$vnamed WHERE $vnamed.`id` = '$_POST[id]' LIMIT 1 ";
-			if(mysqli_query($db, $sqld)){
-				// NADA
-			}else{
-				print("</br><font color='#FF0000'>
-						* MODIFIQUE LA ENTRADA 87: </font></br> ".mysqli_error($db))."</br>";
-				show_form ();
-				global $texerror; 		$texerror = "\n\t ".mysqli_error($db);
-			}
 
 		} else { print("</br><font color='#FF0000'>
 						* MODIFIQUE LA ENTRADA 83: </font></br> ".mysqli_error($db))."</br>";

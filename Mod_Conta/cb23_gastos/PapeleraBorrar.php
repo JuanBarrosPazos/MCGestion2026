@@ -46,10 +46,10 @@ session_start();
 
 		require 'FactDate.php';
 
-		global $db; 		global $db_name;
+		global $db, $db_name;
 		global $dyt1;		$dyt1 = $_POST['dy'];
 
-		global $vname; 		$vname = "`".$_SESSION['clave']."gastosfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."gastos_".$dyt1."`";
  
 		require 'FormatNumber.php';
 

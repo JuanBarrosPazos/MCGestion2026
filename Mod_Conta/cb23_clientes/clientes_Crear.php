@@ -266,10 +266,15 @@ function show_form($errors=[]){
 						'UNDEFINE' => 'Sin Validación Definida...');
 
 	global $rf1; 	global $rf2;
-	if (preg_match('/^(\w{1})/',@$_POST['rsocial'],$ref1)){	$rf1 = $ref1[1];
-															$rf1 = trim($rf1); }
-	if (preg_match('/^(\w{1})*(\s\w{1})/',@$_POST['rsocial'],$ref2)){ $rf2 = $ref2[2];
-																	$rf2 = trim($rf2); }
+
+		if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
+																		$rf1 = trim($rf1);
+		}
+
+
+		if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
+																				$rf2 = trim($rf2);
+		}
 
 	global $rf;
 	$rf = strtolower($rf1.$rf2.@$_POST['dni'].@$_POST['ldni']);

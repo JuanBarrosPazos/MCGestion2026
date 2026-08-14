@@ -49,7 +49,7 @@ session_start();
 		global $db; 		global $db_name;
 		global $dyt1;		$dyt1 = $_POST['dy'];
 
-		global $vname; 		$vname = "`".$_SESSION['clave']."ingresosfeed`";
+		global $vname; 		$vname = "`".$_SESSION['clave']."ingresos_".$dyt1."`";
  
 		require 'FormatNumber.php';
 

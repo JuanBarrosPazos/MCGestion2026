@@ -77,7 +77,7 @@ session_start();
 		$sqla = "INSERT INTO `$db_name`.$vname (`year`, `ycod`, `stat`, `hidden`) VALUES ('$year', '$ycod', '$stat', '$hidden')";
 	
 		if(mysqli_query($db, $sqla)){ 
-				global $vname; 		$vname2 = "`".$_SESSION['clave']."statusfeed`";
+				global $vname; 		$vname2 = "`".$_SESSION['clave']."status`";
 				$sqld = "DELETE FROM `$db_name`.$vname2 WHERE `year` = '$year'";
 				if(mysqli_query($db, $sqld)){ /*print("DELETE OK...");*/
 				}else{print("* MODIFIQUE LA ENTRADA 125: ".mysqli_error($db));

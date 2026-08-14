@@ -88,7 +88,7 @@ function validate_form(){
 		$ry = mysqli_fetch_assoc($qy);		
 		$yval = $ry['year'];			
 
-		global $vname2; 		$vname2 = "`".$_SESSION['clave']."statusfeed`";
+		global $vname2; 		$vname2 = "`".$_SESSION['clave']."status`";
 		$sqlf =  "SELECT * FROM `$db_name`.$vname2 WHERE `year` = '$a'";
 		$qf = mysqli_query($db, $sqlf);	
 		$countf = mysqli_num_rows($qf);	
