@@ -37,15 +37,15 @@ session_start();
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	function validate_form(){
+function validate_form(){
 	
-		global $sqld; 		global $qd; 		global $rowd;
+	global $sqld; 		global $qd; 		global $rowd;
 	
-		require 'validate.php';	
+	require 'validate.php';	
 		
-		return $errors;
+	return $errors;
 
-		} 
+} 
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -53,14 +53,15 @@ session_start();
 
 function process_form(){
 	
-	global $db; 		global $db_name;	
-	global $rf1;		global $rf2;
-	if (preg_match('/^(\w{1})/',$_POST['rsocial'],$ref1)){	$rf1 = $ref1[1];
-															$rf1 = trim($rf1);
-																			}
-	if (preg_match('/^(\w{1})*(\s\w{1})/',$_POST['rsocial'],$ref2)){$rf2 = $ref2[2];
-																	$rf2 = trim($rf2);
-																			}
+	global $db, $db_name;	
+	global $rf1, $rf2;
+	if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
+																	$rf1 = trim($rf1);
+	}
+
+	if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
+																			$rf2 = trim($rf2);
+	}
 
 	global $rf; 		$rf = strtolower($rf1.$rf2.$_POST['dni'].$_POST['ldni']);
 	$rf = trim($rf);
@@ -107,15 +108,15 @@ function process_form(){
 			
 	}else{
 		
+		global $new_name;
 		if( file_exists("../cb23_Docs/img_clientes/".$_SESSION['myimgold']) ){
 			$dt = date('is');
 			$destination_file = "../cb23_Docs/img_clientes/".$_SESSION['myimgold'];
 			$extension = substr($_SESSION['myimgold'],-3);
-			global $new_name;
 			$new_name = $rf."_".$dt.".".$extension;
 			$rename_filename = "../cb23_Docs/img_clientes/".$new_name;	
 			rename($destination_file, $rename_filename);
-			}
+		}
 
 		global $tlf2;
 		if(strlen(trim($_POST['Tlf2'])) == 0){

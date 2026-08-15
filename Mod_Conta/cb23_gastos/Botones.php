@@ -1,6 +1,8 @@
 <?php
     
-    global $dyt1;	global $db;     global $db_name;
+    global $dyt1;	global $db, $db_name;
+
+    global $DetalleBlack, $closeButton, $DeleteWhite, $DeleteBlack, $RestoreBlack, $CancelBlack, $AddBlack, $MoneypGrey, $MoneypWhite, $MoneyWhite, $MoneyBlack, $FotoBlack, $DatosBlack;    
 
     if((isset($dyx))&&($dyx != '')){
         $dyt1 = $dyx;

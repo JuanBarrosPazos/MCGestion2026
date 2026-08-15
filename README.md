@@ -15,6 +15,11 @@
 - ** REVISAR CONFIGURACIONES PARA LAS TABLAS FEED... Y MODIFICAR LAS FUNCIONES RELACIONADAS...
 
 - *** cb23_clientes ***
+    - ** Pendiente: clientes_Modificar_02.php
+    - Ok clientes_Crear.php.
+    - Ok clientes_Ver.php
+    - Ok clientes_Modificar_img.php
+    - Ok clientes_Ver_02.php
 
 
 - CONFIGURAR MEDIA PARA IMPRESIÓN DE FACTURA.
@@ -29,9 +34,9 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.10
+## * MCGestion2026 V26.08.15 (Beta cb23_clientes)
+* SE MODIFICA LA CONFIGURACIÓN DE LAS TABLAS, CALVE FORANEA Y SE ELIMINAN LAS TABLAS FEED...
 * SE INTEGRA MOD_ADMIN_PLUS Con la gestión de horario laboral de los empleados.
-* SE MODIFICA LA CONFIGURACIÓN DE LAS TABLAS Y SE ELIMINAN LAS TABLAS FEED...
 * SE RECONFIGURA FEED Mod_Conta\cb23_clientes
 ----
 ## * MCGestion2023 V24.09.26A

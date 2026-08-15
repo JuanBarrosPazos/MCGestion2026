@@ -125,7 +125,7 @@ session_start();
 
 	function tgastos(){
 		
-		global $db; 		global $db_name;
+		global $db, $db_name;
 		
 		global $tablProveedores;
 		$tablProveedores = "`".$_SESSION['clave']."proveedores`";
@@ -134,26 +134,35 @@ session_start();
 		$vname = "`".$_SESSION['clave']."gastos_".date('Y')."`";
 		
 		$tg = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname (
-	`id` int(4) NOT NULL auto_increment,
-	`factnum` varchar(20) collate utf8_spanish2_ci NOT NULL,
-	`factdate` varchar(20) collate utf8_spanish2_ci NOT NULL,
-	`refprovee` varchar(20) collate utf8_spanish2_ci NOT NULL,
-	`factnom` varchar(22) collate utf8_spanish2_ci NOT NULL,
-	`factnif` varchar(20) collate utf8_spanish2_ci NOT NULL,
-	`factiva` int(2) NOT NULL,
-	`factivae` decimal(9,2) unsigned NOT NULL,
-	`factpvp` decimal(9,2) unsigned NOT NULL,
-	`factpvptot` decimal(9,2) unsigned NOT NULL,
-	`coment` text collate utf8_spanish2_ci NOT NULL,
-	`myimg1` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-	`myimg2` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-	`myimg3` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-	`myimg4` varchar(30) collate utf8_spanish2_ci NOT NULL default 'untitled.png',
-	PRIMARY KEY  (`id`),
-	UNIQUE KEY `id` (`id`),
-	INDEX `refprovee` (`refprovee`),
-	FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-	) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish2_ci AUTO_INCREMENT=2 ";
+		`id` int(4) NOT NULL auto_increment,
+		`factnum` varchar(20) NOT NULL,
+		`factnumini` varchar(20) NOT NULL,
+		`factdate` date NOT NULL,
+		`factdateini` date NOT NULL,
+		`refprovee` varchar(20) NOT NULL,
+		`factnom` varchar(22) NOT NULL,
+		`factnif` varchar(20) NOT NULL,
+		`factiva` int(2) NOT NULL,
+		`factivae` decimal(9,2) unsigned NOT NULL,
+		`factpvp` decimal(9,2) unsigned NOT NULL,
+		`factret` int(2) unsigned NOT NULL,
+		`factrete` decimal(9,2) unsigned NOT NULL,
+		`factpvptot` decimal(9,2) unsigned NOT NULL,
+		`coment` text NOT NULL,
+		`myimg1` varchar(30) NOT NULL default 'untitled.png',
+		`myimg2` varchar(30) NOT NULL default 'untitled.png',
+		`myimg3` varchar(30) NOT NULL default 'untitled.png',
+		`myimg4` varchar(30) NOT NULL default 'untitled.png',
+		`factcrea` datetime NOT NULL,
+		`factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
+		`del` varchar(5) NOT NULL default 'false',
+		`borrado` datetime NULL,
+		`recuper` datetime NULL,
+		PRIMARY KEY  (`id`),
+		UNIQUE KEY `id` (`id`),
+		INDEX `refprovee` (`refprovee`),
+		FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
+		) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 			
 		if(mysqli_query($db, $tg)){
 				global $dat5; 		$dat5 = "\tCREADA TABLA ".$vname.".\n";

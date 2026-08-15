@@ -87,7 +87,16 @@ function process_form(){
 		</tr>
 	</table>");
 
-	} // FIN process_form()
+	global $redir;
+	$redir = "<script type='text/javascript'>
+				function redir(){
+					window.close();
+				}
+			setTimeout('redir()',10000);
+		</script>";
+	print($redir);
+
+} // FIN process_form()
 			
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////

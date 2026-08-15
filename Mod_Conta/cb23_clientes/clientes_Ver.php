@@ -39,7 +39,7 @@ session_start();
 
 	function process_form(){
 		
-		global $db; 		global $db_name;
+		global $db, $db_name;
 		global $nombre;		$nombre = @$_POST['Nombre'];
 		global $apellido;	$apellido = @$_POST['Apellidos'];
 		
@@ -226,11 +226,12 @@ session_start();
 		$qb = mysqli_query($db, $sqlb);
 		
 		if(!$qb){
-		print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+
+			print("* Error SQL L.224. ".mysqli_error($db)."</br>");
 				
 		} else {
 				
-			if(mysqli_num_rows($qb)<= 1){
+			if(mysqli_num_rows($qb) <= 1){
 
 				global $titNoData;	$titNoData = "TABLA ".strtoupper($vname)."<br><br>";
 				require 'clientes_NoData.php';
@@ -247,7 +248,7 @@ session_start();
 								<th colspan='6'>ACCIONES</th>
 							</tr>");
 				
-			global $styleBgc; global $i; $i = 0;
+			global $styleBgc;		global $i; $i = 0;
 
 		while($rowb = mysqli_fetch_assoc($qb)){
 
@@ -287,7 +288,7 @@ session_start();
 			<td align='center'>
 				<form name='modifica' action='clientes_Modificar_02.php' method='POST'>");
 
-				require 'clientes_rowTotal.php';
+			require 'clientes_rowTotal.php';
 
 		print("<!--
 			<input type='submit' value='MODIFICAR DATOS' class='botonnaranja' />
@@ -301,7 +302,7 @@ session_start();
 							
 		<form name='modifica_img' action='$_SERVER[PHP_SELF]' method='POST' >");
 
-		require 'clientes_rowTotal.php';
+			require 'clientes_rowTotal.php';
 
 		print("<!--
 			<input type='submit' value='MODIFICAR IMAGEN' class='botonnaranja' />
@@ -313,7 +314,7 @@ session_start();
 			<td align='center'>
 				<form name='modifica' action='clientes_Borrar_02.php' method='POST'>");
 
-				require 'clientes_rowTotal.php';
+			require 'clientes_rowTotal.php';
 
 			print("<!--
 						<input type='submit' value='BORRAR DATOS' class='botonrojo' />

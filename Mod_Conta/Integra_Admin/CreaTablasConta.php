@@ -136,7 +136,7 @@ function config_one_cb23(){
 	if(mysqli_query($db, $provee)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname5."\n";
 
-		$vp = "INSERT INTO `$db_name`.$vname5 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000,)";
+		$vp = "INSERT INTO `$db_name`.$vname5 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`, `del`, `borrado`, `recuper`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000, 'false', NULL, NULL)";
 		
 		if(mysqli_query($db, $vp)){
 				$LogText = $LogText."\t* OK INSERT INIT VALUES EN ".$vname5."\n";
@@ -207,11 +207,10 @@ function config_one_cb23(){
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)/*,
+  UNIQUE KEY `id` (`id`),
   INDEX `refprovee` (`refprovee`),
   FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-  */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tgb)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname1b."\n";
@@ -248,7 +247,7 @@ function config_one_cb23(){
 	if(mysqli_query($db, $provei)){
 			$LogText = $LogText."\t* OK CRETATE TABLE ".$vname6."\n";
 
-		$vpi = "INSERT INTO `$db_name`.$vname6 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000, `del`, `borrado`, `recuper`)";
+		$vpi = "INSERT INTO `$db_name`.$vname6 (`id`, `ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`, `del`, `borrado`, `recuper`) VALUES (1, 'ANONIMO', 'ANONIMO', 'untitled.png', 'ANONIMO', 'ANONIMO', 'X', 'anonimo@anonimo.es', 'Not Adress', 000000000, 000000000, 'false', NULL, NULL)";
 			
 		if(mysqli_query($db, $vpi)){
 				$LogText = $LogText."\t* OK INSERT INIT VALUES EN ".$vname6."\n";
@@ -318,11 +317,10 @@ function config_one_cb23(){
   `factcrea` datetime NOT NULL,
   `factmodif` datetime NOT NULL default CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)/*,
+  UNIQUE KEY `id` (`id`),
   INDEX `refcliente` (`refcliente`),
   FOREIGN KEY (`refcliente`) REFERENCES $tblClientes (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-  */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tib)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname3b."\n";
@@ -513,11 +511,10 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
   `borrado` datetime NULL,
   `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)/*,
+  UNIQUE KEY `id` (`id`),
   INDEX `refprovee` (`refprovee`),
   FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-  */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 
 	if(mysqli_query($db, $tg)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname1."\n";
@@ -569,11 +566,10 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
   `borrado` datetime NULL,
   `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)/*,
+  UNIQUE KEY `id` (`id`),
   INDEX `refprovee` (`refprovee`),
   FOREIGN KEY (`refprovee`) REFERENCES $tablProveedores (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-	*/
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $tg2)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname2."\n";
@@ -667,11 +663,10 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
   `borrado` datetime NULL,
   `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)/*,
+  UNIQUE KEY `id` (`id`),
   INDEX `refcliente` (`refcliente`),
   FOREIGN KEY (`refcliente`) REFERENCES $tblClientes (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-  */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $ti)){
 			$LogText = $LogText."\t* OK CREATE TABLE ".$vname3."\n";
@@ -723,11 +718,10 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
   `borrado` datetime NULL,
   `recuper` datetime NULL,
   PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)/*,
+  UNIQUE KEY `id` (`id`),
   INDEX `refcliente` (`refcliente`),
   FOREIGN KEY (`refcliente`) REFERENCES $tblClientes (`ref`) ON DELETE NO ACTION ON UPDATE CASCADE
-  */
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
 		
 	if(mysqli_query($db, $ti2)){
 			$LogText = $LogText."\t* OK CRETE TABLE ".$vname4."\n";

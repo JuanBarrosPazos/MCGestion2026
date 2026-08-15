@@ -387,7 +387,14 @@ function show_form($errors=[]){
 				</tr>
 			</table>");
 		}
-		
+
+	global $rutaIndexAdmin;	
+	if(file_exists("../Mod_Admin_Plus/index.php")){
+		$rutaIndexAdmin ="../Mod_Admin_Plus/index.php";
+	}else{
+		$rutaIndexAdmin ="Admin_index.php";
+	}
+
 	print("<div style='clear:both'></div>
 			<table align='center' style=\"margin-top:2px; margin-bottom:8px\" >
 				<tr>
@@ -426,11 +433,14 @@ function show_form($errors=[]){
 					<td colspan='2' style='text-align:right; vertical-align:middle;'>
 			<button type='submit' title='ACCEDER' class='botonverde imgButIco CloseSessionBlack' style='vertical-align:top;' ></button>
 						<input type='hidden' name='oculto' value=1 />
-		</form>	
-				<!--<a href='Admin_index.php' style='display:inline-block; float:left;'>-->
+		</form>
+				<!--
+				<a href='Admin_index.php' style='display:inline-block; float:left;'>
 				<a href='../Mod_Admin_Plus/index.php' style='display:inline-block; float:left;'>
+				-->
+				<a href='".$rutaIndexAdmin."' style='display:inline-block; float:left;'>
 			<button type='button' title='ACCESO ADMINISTRACION SISTEMA' class='botonverde imgButIco InicioBlack' style='vertical-align:top;' ></button>
-						</a>
+				</a>
 					</td>
 				</tr>
 			</table>

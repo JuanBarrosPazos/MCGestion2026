@@ -53,8 +53,8 @@ session_start();
 
 function process_form(){
 	
-	global $db; 	global $db_name;	
-	global $rf1;	global $rf2;
+	global $db, $db_name;	
+	global $rf, $rf1, $rf2;
 
 	/*	REFERENCIA DE CLIENTE	*/
 	
@@ -65,7 +65,6 @@ function process_form(){
 																	$rf2 = trim($rf2);
 																			}
 	
-	global $rf;
 	$rf = strtolower($rf1.$rf2.$_POST['dni'].$_POST['ldni']);
 	$rf = trim($rf);
 			
@@ -130,7 +129,7 @@ function process_form(){
 
 					// print("El archivo se ha guardado en: ".$destination_file);
 			
-			}else { print("NO SE HA PODIDO GUARDAR EN ../cb23_Docs/img_clientes/".$new_name);}
+			}else { print("NO SE HA PODIDO GUARDAR EN ../cb23_Docs/img_clientes/".$new_name); }
 		
 		} // FIN ELSE
 	
@@ -153,7 +152,7 @@ function process_form(){
 				</tr>
 				<tr>
 					<td style='width:120px; text-align:right;' >RAZON SOCIAL</td>
-					<td  style='width:120px;' ".$_POST['rsocial']."</td>
+					<td  style='width:120px;' >".$_POST['rsocial']."</td>
 					<td rowspan='5'  style='width:100px; text-align:center;' >
 			<img src='../cb23_Docs/img_clientes/".$dudas."' height='120px' width='90px' />
 					</td>
@@ -265,16 +264,15 @@ function show_form($errors=[]){
 						*/
 						'UNDEFINE' => 'Sin Validación Definida...');
 
-	global $rf1; 	global $rf2;
+	global $rf1, $rf2;
 
-		if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
-																		$rf1 = trim($rf1);
-		}
+	if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
+																	$rf1 = trim($rf1);
+	}
 
-
-		if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
-																				$rf2 = trim($rf2);
-		}
+	if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
+																			$rf2 = trim($rf2);
+	}
 
 	global $rf;
 	$rf = strtolower($rf1.$rf2.@$_POST['dni'].@$_POST['ldni']);

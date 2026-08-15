@@ -40,16 +40,20 @@
 
 function validate_form_img(){
 	
-		global $sqld; 		global $qd; 		global $rowd;
+		global $sqld, $qd;
 		
 		$limite = 500 * 1024;
 		
-		$ext_permitidas = array('jpg','JPG','gif','GIF','png','PNG','bmp','BMP');
-		
-		$extension = substr($_FILES['myimg']['name'],-3);
+		$ext_permitidas = array('jpg','gif','png','bmp');
+		//$extension = substr($_FILES['myimg']['name'],-3);
+		$extension = pathinfo($_FILES['myimg']['name'], PATHINFO_EXTENSION);
+		$extension = strtolower($extension);
 		// print($extension);
 		// $extension = end(explode('.', $_FILES['myimg']['name']) );
 		$ext_correcta = in_array($extension, $ext_permitidas);
+
+		$ext_nopermitidas = array('txt','psd','pdf','mp4','mp3');
+		$ext_nocorrecta = in_array($extension, $ext_nopermitidas);
 
 		// $tipo_correcto = preg_match('/^image\/(gif|png|jpg|bmp)$/', $_FILES['myimg']['type']);
 
@@ -57,8 +61,10 @@ function validate_form_img(){
 
 		if($_FILES['myimg']['size'] == 0){
 				$errors [] = "Ha de seleccionar una fotograf&iacute;a.";
-		} elseif(!$ext_correcta) {
-				$errors [] = "La extension no esta admitida: ".$_FILES['myimg']['name'];
+		}elseif($ext_nocorrecta) {
+				$errors [] = "Extension no permitida: ".$_FILES['myimg']['name'];
+		}elseif(!$ext_correcta) {
+				$errors [] = "Extension no admitida: ".$_FILES['myimg']['name'];
 		}
 		/*
 			elseif(!$tipo_correcto){
@@ -66,13 +72,13 @@ function validate_form_img(){
 				}
 		*/
 		elseif ($_FILES['myimg']['size'] > $limite){
-		$tamanho = $_FILES['myimg']['size'] / 1024;
-		$errors [] = "El archivo".$_FILES['myimg']['name']." es mayor de 500 KBytes. ".$tamanho." KB";
+			$tamanho = $_FILES['myimg']['size'] / 1024;
+			$errors [] = "El archivo".$_FILES['myimg']['name']." es mayor de 500 KBytes. ".$tamanho." KB";
 		} elseif ($_FILES['myimg']['error'] == UPLOAD_ERR_PARTIAL){
-					$errors [] = "La carga del archivo se ha interrumpido.";
+			$errors [] = "La carga del archivo se ha interrumpido.";
 		} elseif ($_FILES['myimg']['error'] == UPLOAD_ERR_NO_FILE){
-						$errors [] = "Es archivo no se ha cargado.";
-						}
+			$errors [] = "Es archivo no se ha cargado.";
+		}
 						
 		return $errors;
 
