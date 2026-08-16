@@ -107,11 +107,11 @@ function process_form(){
 			
 	}else{
 		
+		global $new_name;
 		if( file_exists("../cb23_Docs/img_proveedores/".$_SESSION['myimgold']) ){
 			$dt = date('is');
 			$destination_file = "../cb23_Docs/img_proveedores/".$_SESSION['myimgold'];
 			$extension = substr($_SESSION['myimgold'],-3);
-			global $new_name;
 			$new_name = $rf."_".$dt.".".$extension;
 			$rename_filename = "../cb23_Docs/img_proveedores/".$new_name;	
 			rename($destination_file, $rename_filename);
@@ -447,9 +447,12 @@ function show_form($errors=[]){
 
 function info_01(){
 
-	global $db; 	global $orden;
+	global $db, $db_name; 	global $orden;
 	
-	$orden = @$_POST['Orden'];
+	if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
+		$orden = $_POST['Orden'];
+	}else{ $orden = '`id` ASC'; }
+
 		
 	$_SESSION['xid'] = $_POST['id'];
 	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS PROVEEDORES ".$orden;}

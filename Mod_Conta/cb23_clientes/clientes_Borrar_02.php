@@ -47,7 +47,7 @@ function process_form(){
 			<tr>
 				<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
 				<td style='width: 120px;' >".$_POST['rsocial']."</td>
-				<td rowspan='4' style='width: 100px; text-align: center;' >
+				<td rowspan='5' style='width: 100px; text-align: center;' >
 		<img src='../cb23_Docs/img_clientes/".$_POST['myimg']."' height='120px' width='90px' />
 				</td>
 			</tr>
@@ -61,10 +61,10 @@ function process_form(){
 				<td style='text-align: right;' >CONTROL</td><td>".$_POST['ldni']."</td>
 			</tr>				
 			<tr>
-				<td style='text-align: right;' >MAIL</td><td colspan='2'>".$_POST['Email']."</td>
+				<td style='text-align: right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
 			</tr>
 			<tr>
-				<td style='text-align: right;' >REFERENCIA</td><td colspan='2'>".$_POST['ref']."</td>
+				<td style='text-align: right;' >MAIL</td><td colspan='2'>".$_POST['Email']."</td>
 			</tr>
 			<tr>
 				<td style='text-align: right;' >PAIS</td><td colspan='2'>".$_POST['Direccion']."</td>
@@ -170,32 +170,32 @@ function show_form(){
 					<td style='width:120px;'>
 			<input type='hidden' name='id' value='".$_POST['id']."' />".$_POST['id']."
 					</td>
-					<td rowspan='4' style='width:100px; text-align:center;'>
+					<td rowspan='5' style='width:100px; text-align:center;'>
 			<input type='hidden' name='myimg' value='".$_POST['myimg']."' />
 			<img src='../cb23_Docs/img_clientes/".$_POST['myimg']."' height='120px' width='90px' />
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >REFERENCIA</td>
+					<td style='text-align:right;'>REFERENCIA</td>
 					<td>
 			<input type='hidden' name='ref' value='".$_POST['ref']."' />".$_POST['ref']."
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >RAZON SOCIAL</td>
+					<td style='text-align:right;'>RAZON SOCIAL</td>
 					<td>
 			<input type='hidden' name='rsocial' value='".$_POST['rsocial']."' />".$_POST['rsocial']."
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >DOCUMENTO</td>
+					<td style='text-align:right;'>DOCUMENTO</td>
 					<td>
 			<input type='hidden' name='doc' value='".$_POST['doc']."' />".$_POST['doc']."
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >NÚMERO</td>
-					<td colspan=2>
+					<td style='text-align:right;'>NÚMERO</td>
+					<td>
 			<input type='hidden' name='dni' value='".$_POST['dni']."' />".$_POST['dni']."
 					</td>
 				</tr>

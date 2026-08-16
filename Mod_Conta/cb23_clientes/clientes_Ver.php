@@ -55,10 +55,10 @@ session_start();
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
 		if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `del`='false' ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden ";
 			//echo $sqlc;
 		}else{
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE (`ref` = '$ref' OR `rsocial` LIKE '$rso') AND `del`='false' ORDER BY $orden ";
+			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND (`ref` = '$ref' OR `rsocial` LIKE '$rso') AND `del`='false' ORDER BY $orden ";
 			//echo $sqlc."<br>";
 		}
 	
@@ -211,7 +211,7 @@ session_start();
 
 	function ver_todo(){
 			
-		global $db; 		global $db_name;
+		global $db, $db_name;
 
 		global $orden;
 		if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
@@ -221,7 +221,7 @@ session_start();
 		$sesionref = "";
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `del`='false' ORDER BY $orden ";
+		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden ";
 
 		$qb = mysqli_query($db, $sqlb);
 		
@@ -231,7 +231,7 @@ session_start();
 				
 		} else {
 				
-			if(mysqli_num_rows($qb) <= 1){
+			if(mysqli_num_rows($qb) < 1){
 
 				global $titNoData;	$titNoData = "TABLA ".strtoupper($vname)."<br><br>";
 				require 'clientes_NoData.php';

@@ -67,10 +67,10 @@ session_start();
 					<td style='text-align: right;' >CONTROL</td><td>".$_POST['ldni']."</td>
 				</tr>				
 				<tr>
-					<td style='text-align: right;' >MAIL</td><td>".$_POST['Email']."</td>
+					<td style='text-align: right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
 				</tr>
 				<tr>
-					<td style='text-align: right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
+					<td style='text-align: right;' >MAIL</td><td>".$_POST['Email']."</td>
 				</tr>
 				<tr>
 					<td style='text-align: right;' >PAIS</td><td colspan='2'>".$_POST['Direccion']."</td>
@@ -104,7 +104,7 @@ session_start();
 
 			/* 
 			INICIO BORRA EN CASACADA TODAS LAS ENTRADAS EN LAS TABLAS INGRESOS CON EL NIF, RAZON SOCIAL 
-			*/
+			
 			global $tableName; 			$tableName = "`".$_SESSION['clave']."status`";
 			$a = "SELECT MIN(year) FROM `$db_name`.$tableName ";
 			$ra = mysqli_query($db, $a);
@@ -135,14 +135,15 @@ session_start();
 			}else{   print("</br>* ERROR L.133</br> ".mysqli_error($db)."</br>");
 					 global $texerror; 	 $texerror .= "\n\t* ERROR L.133 ".mysqli_error($db);
 						}
+			*/
 			/* 
 			FIN BORRA EN CASACADA TODAS LAS ENTRADAS EN LAS TABLAS INGRESOS CON EL NIF, RAZON SOCIAL 
 			*/
 			
-		} else { print("</br>* ERROR L.45 ".mysqli_error($db)."</br>");
-							show_form ();
-							global $texerror; 		$texerror .= "\n\t* ERROR L.45 ".mysqli_error($db);
-					}
+		}else{	print("</br>* ERROR L.45 ".mysqli_error($db)."</br>");
+				show_form ();
+				global $texerror; 		$texerror .= "\n\t* ERROR L.45 ".mysqli_error($db);
+		}
 
 		global $redir;
 		$redir = "<script type='text/javascript'>

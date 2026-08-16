@@ -14,13 +14,7 @@
 ## CUESTIONES PENDIENTES
 - ** REVISAR CONFIGURACIONES PARA LAS TABLAS FEED... Y MODIFICAR LAS FUNCIONES RELACIONADAS...
 
-- *** cb23_clientes ***
-    - ** Pendiente: clientes_Modificar_02.php
-    - Ok clientes_Crear.php.
-    - Ok clientes_Ver.php
-    - Ok clientes_Modificar_img.php
-    - Ok clientes_Ver_02.php
-
+- clientesFeed_Borrar_02.php Operaciones en cascada bbdd...
 
 - CONFIGURAR MEDIA PARA IMPRESIÓN DE FACTURA.
 - OJO $KeyBorraUser NO LA LLAMA NADIE.
@@ -34,8 +28,35 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.15 (Beta cb23_clientes)
-* SE MODIFICA LA CONFIGURACIÓN DE LAS TABLAS, CALVE FORANEA Y SE ELIMINAN LAS TABLAS FEED...
+## * MCGestion2026 V26.08.16 (Beta cb23_clientes)
+* cb23_clientes
+    - ** Pendiente: clientes_Modificar_02.php
+    - Ok clientes_Crear.php.
+        - datos bbdd...
+        - Img cliente en servidor...
+    - Ok clientes_Ver.php
+        - menos cliente ANONIMO inicial...
+        - del = false en bbdd...
+    - Ok clientes_Modificar_img.php
+    - Ok clientes_Ver_02.php
+        - window.close() 10s
+    - clientes_Borrar_02.php
+        - del de false a true en bbdd...
+    - Ok clientesFeed_Recuperar_02.php
+        - del de true a false en bbdd..
+    - Ok clientesFeed_Ver.php
+        - del = true en bbdd...
+    - Ok clientesFeed_Ver_02.php
+        - window.close() 10s
+    - Ok clientesFeed_Borrar_02.php
+        - Del datos bbdd...
+        - Del img en server...
+    - Ok validate.php
+        - Se modifica la estructura de la librería.
+        - Se validan todos los campos de formulario mediante php...
+        - Se validan todos los tipos de documento...
+
+* SE MODIFICA LA CONFIGURACIÓN DE LAS TABLAS, CLAVE FORANEA, RELACIONES Y SE ELIMINAN LAS TABLAS FEED...
 * SE INTEGRA MOD_ADMIN_PLUS Con la gestión de horario laboral de los empleados.
 * SE RECONFIGURA FEED Mod_Conta\cb23_clientes
 ----

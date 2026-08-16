@@ -38,8 +38,8 @@ session_start();
 
 	function validate_form(){
 	
-		global $db; 		global $db_name; 		global $sqld; 		
-		global $qd; 		global $rowd;
+		global $db, $db_name;
+		global $sqld; 		global $qd; 		global $rowd;
 	
 		require 'validate.php';	
 		
@@ -54,17 +54,17 @@ session_start();
 function process_form(){
 	
 	global $db, $db_name;	
-	global $rf, $rf1, $rf2;
+	global $rf1, $rf2;
 
-	/*	REFERENCIA DE CLIENTE	*/
+	if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
+																	$rf1 = trim($rf1);
+	}
+
+	if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
+																			$rf2 = trim($rf2);
+	}
 	
-	if (preg_match('/^(\w{1})/',$_POST['rsocial'],$ref1)){	$rf1 = $ref1[1];
-															$rf1 = trim($rf1);
-																			}
-	if (preg_match('/^(\w{1})*(\s\w{1})/',$_POST['rsocial'],$ref2)){$rf2 = $ref2[2];
-																	$rf2 = trim($rf2);
-																			}
-	
+	global $rf;
 	$rf = strtolower($rf1.$rf2.$_POST['dni'].$_POST['ldni']);
 	$rf = trim($rf);
 			
@@ -240,29 +240,27 @@ function show_form($errors=[]){
 	} // FIN ERRORS
 	
 	$doctype = array (	'' => 'TIPO DE IDENTIFICADOR',
+						'UNDEFINE' => 'Sin Validación Definida...',
 						'DNI' => 'DNI/NIF Espa&ntilde;oles',
 						'NIE' => 'NIE/NIF Extranjeros',
 						'NIFespecial' => 'NIF Persona F&iacute;sica Especial',
 						'NIFsa' => 'NIF Sociedad An&oacute;nima',
-						/*
-						'NIFsrl' => 'NIF Sociedad Responsabilidad Limitada',
+						'NIFsrl' => 'NIF Sociedad Respons. Limitada',
 						'NIFscol' => 'NIF Sociedad Colectiva',
 						'NIFscom' => 'NIF Sociedad Comanditaria',
-						'NIFcbhy' => 'NIF Comunidad Bienes y Herencias Yacentes',
+						'NIFcbhy' => 'NIF Com. Bienes y Herencia Yacente',
 						'NIFscoop' => 'NIF Sociedades Cooperativas',
 						'NIFasoc' => 'NIF Asociaciones',
-						'NIFcpph' => 'NIF Comunidad Propietarios Propiedad Horizontal',
-						'NIFsccspj' => 'NIF Sociedad Civil, con o sin Personalidad Juridica',
+						'NIFcpph' => 'NIF Comunidad Propietarios',
+						'NIFsccspj' => 'NIF Sociedad Civil',
 						'NIFee' => 'NIF Entidad Extranjera',
 						'NIFcl' => 'NIF Corporaciones Locales',
 						'NIFop' => 'NIF Organismo Publico',
-						'NIFcir' => 'NIF Congragaciones Instituciones Religiosas',
-						'NIFoaeca' => 'NIF Organos Admin Estado y Comunidades Autonomas',
-						'NIFute' => 'NIF Uniones Temporales de Empresas',
+						'NIFcir' => 'NIF Instituciones Religiosas',
+						'NIFoaeca' => 'NIF Admin Estado y Com. Autonoma',
+						'NIFute' => 'NIF Union Temporales Empresas',
 						'NIFotnd' => 'NIF Otros Tipos no Definidos',
-						'NIFepenr' => 'NIF Establecimientos Permanentes Entidades no Residentes',
-						*/
-						'UNDEFINE' => 'Sin Validación Definida...');
+						'NIFepenr' => 'NIF Establecim. Entidad No Residente');
 
 	global $rf1, $rf2;
 
@@ -287,7 +285,7 @@ function show_form($errors=[]){
 	<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]' enctype='multipart/form-data'>
 				<tr>
 					<td style='width:120px; text-align:right;'>REFERENCIA<font color='#FF0000'> *</font></td>
-					<td>SE GENERARÁ UNA REFERENCIA AUTOMÁTICA</td>
+					<td>SE GENERA AUTOMÁTICA</td>
 				</tr>
 				<tr>
 					<td style='text-align:right;'>RAZON SOCIAL<font color='#FF0000'> *</font>

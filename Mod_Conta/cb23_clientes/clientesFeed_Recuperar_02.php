@@ -50,7 +50,7 @@ function process_form(){
 				<tr>
 					<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
 					<td style='width: 120px;'>".$_POST['rsocial']."</td>
-					<td rowspan='4' style='width: 120px; text-align: center;' >
+					<td rowspan='5' style='width: 120px; text-align: center;' >
 			<img src='../cb23_Docs/img_clientes/".$_POST['myimg']."' height='120px' width='90px' />
 					</td>
 				</tr>
@@ -64,10 +64,10 @@ function process_form(){
 					<td style='text-align: right;'>CONTROL</td><td>".$_POST['ldni']."</td>
 				</tr>				
 				<tr>
-					<td style='text-align: right;'>MAIL</td><td colspan='2'>".$_POST['Email']."</td>
+					<td style='text-align: right;'>REFERENCIA</td><td>".$_POST['ref']."</td>
 				</tr>
 				<tr>
-					<td style='text-align: right;'>REFERENCIA</td><td colspan='2'>".$_POST['ref']."</td>
+					<td style='text-align: right;'>MAIL</td><td colspan='2'>".$_POST['Email']."</td>
 				</tr>
 				<tr>
 					<td style='text-align: right;'>PAIS</td><td colspan='2'>".$_POST['Direccion']."</td>
@@ -267,9 +267,12 @@ function show_form(){
 
 function info_01(){
 
-	global $db; 	global $orden;
+	global $db, $db_name; 	global $orden;
 	
-	$orden = @$_POST['Orden'];
+	if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
+		$orden = $_POST['Orden'];
+	}else{ $orden = '`id` ASC'; }
+
 		
 	$_SESSION['xid'] = $_POST['id'];
 	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS CLIENTES ".$orden;}

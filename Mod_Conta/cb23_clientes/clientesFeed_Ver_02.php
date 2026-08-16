@@ -20,7 +20,7 @@ if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){
 									info();
 										}
 								
-	} else { require '../Inclu/table_permisos.php'; }
+} else { require '../Inclu/table_permisos.php'; }
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -28,12 +28,11 @@ if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){
 
 function process_form(){
 	
-	global $db;
+	global $db, $db_name;
 	
 	global $nombre;			$nombre = isset($_POST['Nombre']);
 	global $apellido; 		$apellido = isset($_POST['Apellidos']);
-	global $sesionref; 		$sesionref = $_SESSION['ref'];
-	$sesionref = strtolower($sesionref);
+	global $sesionref; 		$sesionref = strtolower($_SESSION['ref']);
 	
 	global $CancelBlackTit;		$CancelBlackTit = "CERRAR VENTANA";
 	require '../Inclu/BotoneraVar.php';
@@ -89,6 +88,15 @@ function process_form(){
 				</td>
 			</tr>
 		</table>");
+		
+	global $redir;
+	$redir = "<script type='text/javascript'>
+				function redir(){
+					window.close();
+				}
+			setTimeout('redir()',10000);
+		</script>";
+	print($redir);
 
 	} // FIN process_form()
 			
