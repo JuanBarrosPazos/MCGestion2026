@@ -28,9 +28,11 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.16 (Beta cb23_clientes)
+## * MCGestion2026 V26.08.17 (Beta cb23_clientes)
 * cb23_clientes
     - ** Pendiente: clientes_Modificar_02.php
+    - Ok Logica_01.php Show_Form.php Show_Form_Val.php 
+        - Se modifican los select por input y se integra la validación...
     - Ok clientes_Crear.php.
         - datos bbdd...
         - Img cliente en servidor...

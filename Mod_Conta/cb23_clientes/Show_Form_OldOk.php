@@ -1,7 +1,7 @@
 <?php
 
-	global $db, $db_name;	global $sqla;		global $sqlb;
-	global $KeyForm;		global $tabla1;		global $TitBut;
+	global $db;			global $sqla;		global $sqlb;
+	global $KeyForm;	global $tabla1;		global $TitBut;
 
 	if($KeyForm == "feed"){
 		$tabla1 = "`".$_SESSION['clave']."clientesfeed`";
@@ -53,7 +53,7 @@
 				</tr>
 		<form name='form_tabla' method='post' action='$_SERVER[PHP_SELF]'>
 				<tr>
-					<td style='text-align: center;'>
+					<td>
 				<!--
 				<input type='submit' title='FILTRO PAPELERA CLIENTES' value='FILTRO' class='botonazul' />
 				-->
@@ -68,14 +68,44 @@
 								}	
 						
 		print ("</select>
-				</td>
-			</tr>
-			<tr>
-				<td>
-			<input type='text' name='ref' id='ref' size=20 maxlength=30 pattern='[a-zA-Z0-9\s]{3,20}' placeholder='REF. CLIENTE' title='REFERENCIA CLIENTE...' value='".@$defaults['ref']."' />
-			
-			<input type='text' name='rsocial' id='rsocial' size=20 maxlength=30 pattern='[a-zA-Z0-9\s]{3,20}' placeholder='RAZON SOCIAL' title='RAZON SOCIAL CLIENTE...' value='".@$defaults['rsocial']."' />
-		</form>	
+				<select name='ref' title='REFERENCIA CLIENTE...' class='botonlila'>
+					<option value=''>REFERENCIA</option>");
+					//global $tabla1; 		$tabla1 = "`".$_SESSION['clave']."clientes`";
+					$sqla =  "SELECT * FROM $tabla1 WHERE `ref` <> 'ANONIMO' ORDER BY `ref` ASC ";
+					$qa = mysqli_query($db, $sqla);
+					if(!$qa){
+							print("* ".mysqli_error($db)."<br/>");
+					} else {
+					while($rowsa = mysqli_fetch_assoc($qa)){
+						print ("<option value='".$rowsa['ref']."' ");
+						if($rowsa['ref'] == @$defaults['ref']){
+											print ("selected = 'selected'");
+													}
+									print ("> ".$rowsa['ref']." </option>");
+							}
+				}
+	
+		print ("</select>
+				<select name='rsocial' title='RAZON SOCIAL CLIENTE...' class='botonlila'>
+					<option value=''>RAZON SOCIAL</option>");
+					global $db;
+					//global $tabla1; 		$tabla1 = "`".$_SESSION['clave']."clientes`";
+					$sqlb =  "SELECT * FROM $tabla1 WHERE `rsocial` <> 'ANONIMO' ORDER BY `rsocial` ASC ";
+					$qb = mysqli_query($db, $sqlb);
+					if(!$qb){
+							print("* ".mysqli_error($db)."<br/>");
+					} else {
+					while($rowsb = mysqli_fetch_assoc($qb)){
+						print ("<option value='".$rowsb['rsocial']."' ");
+						if($rowsb['rsocial'] == @$defaults['rsocial']){
+											print ("selected = 'selected'");
+													}
+									print ("> ".$rowsb['rsocial']." </option>");
+							}
+				}
+	
+		print ("</select>
+				</form>	
 					</td>
 				</tr>
 					<th>".$LinkForm1.$LinkForm2."</th>

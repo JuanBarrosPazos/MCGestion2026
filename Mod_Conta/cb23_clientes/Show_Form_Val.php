@@ -2,20 +2,22 @@
 
 $errors = array();
 	
-	if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['dni'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-		$errors [] = " <font color='#FF0000'>UNO DE LOS TRES CAMPOS OBLIGATORIO</font>";
-		}
+	if ((strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0)){
 
-	elseif (!preg_match('/^[a-z A-Z 0-9 \s]*$/',$_POST['ref'])){
-    $errors [] = "<font color='#FF0000'>¡¡ CARÁCTERES NO VALIDOS !!</font>";
-    }
+		$errors [] = " <font color='#FF0000'>UNO DE LOS DOS CAMPOS OBLIGATORIO</font>";
 
-	elseif (!preg_match('/^[0-9 \s]*$/',$_POST['dni'])){
-		$errors [] = "<font color='#FF0000'>¡¡ SOLO NÚMEROS !!</font>";
-		}
+	}elseif((strlen(trim($_POST['ref'])) > 20) OR (strlen(trim($_POST['rsocial'])) > 20) ){
 
-	elseif (!preg_match('/^[a-z A-Z 0-9 \s]*$/',$_POST['rsocial'])){
-    $errors [] = "<font color='#FF0000'>¡¡ CARÁCTERES NO VALIDOS !!</font>";
+    	$errors [] = "<font color='#FF0000'>¡¡ MÁXIMO 20 CARACTERES !!</font>";
+
+	}elseif (!preg_match('/^[a-z A-Z 0-9 \s]*$/',$_POST['ref'])){
+
+    	$errors [] = "<font color='#FF0000'>¡¡ CARÁCTERES NO VALIDOS !!</font>";
+
+    }elseif (!preg_match('/^[a-z A-Z 0-9 \s]*$/',$_POST['rsocial'])){
+
+    	$errors [] = "<font color='#FF0000'>¡¡ CARÁCTERES NO VALIDOS !!</font>";
+ 
     }
 
 ?>
