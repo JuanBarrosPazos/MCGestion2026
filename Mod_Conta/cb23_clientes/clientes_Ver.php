@@ -52,15 +52,30 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 		
+		$ref = $_POST['ref'];
+		$rso = $_POST['rsocial'];
+
+		if((strlen(trim($_POST['ref'])) == 0)){
+			//$ref = "`ref` = ".trim($_POST['ref'])."%";
+			$ref = "";
+			$oper = "";
+		}else{
+			$ref = " `ref` LIKE '%".trim($_POST['ref'])."%' ";
+			$oper = " OR ";
+		}
+
+		if((strlen(trim($_POST['rsocial'])) == 0)){
+			//$rso = "`rsocial` = ".$_POST['rsocial'];
+			$rso = "";
+			$oper = "";
+		}else{
+			$rso = $oper." `rsocial` LIKE '%".$_POST['rsocial']."%' ";
+		}
+
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
-		if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden ";
-			//echo $sqlc;
-		}else{
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND (`ref` = '$ref' OR `rsocial` LIKE '$rso') AND `del`='false' ORDER BY $orden ";
-			//echo $sqlc."<br>";
-		}
+		$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND ($ref $rso) AND `del`='false' ORDER BY $orden ";
+		//echo $sqlc."<br>";
 	
 		$qc = mysqli_query($db, $sqlc);
 		
@@ -192,12 +207,17 @@ session_start();
 
 		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO CLIENTE";
 		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA CLIENTES";
+		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS CLIENTES";
+
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
 		$LinkForm1 = $PersonAddBlack."<a href='clientes_Crear.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
 		global $LinkForm2;
 		$LinkForm2 = $DeleteBlack."<a href='clientesFeed_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		global $LinkForm3;
+		$LinkForm3 = $PersonsBlack."<a href='clientes_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+
 		global $titulo2;
 		$titulo2 = "CLIENTES VER TODOS";
 
@@ -218,25 +238,32 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 
+			
 		$sesionref = "";
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden ";
+		global $result;
+		$result =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ";
+		require 'Paginacion_Head.php';
+		global $ruta;				$ruta = "";
+		global $pagedest;			$pagedest = "clientes_Ver.php";
 
+		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden $limit";
 		$qb = mysqli_query($db, $sqlb);
 		
 		if(!$qb){
-
 			print("* Error SQL L.224. ".mysqli_error($db)."</br>");
-				
 		} else {
-				
-			if(mysqli_num_rows($qb) < 1){
 
+
+			if(mysqli_num_rows($qb) < 1){
 				global $titNoData;	$titNoData = "TABLA ".strtoupper($vname)."<br><br>";
 				require 'clientes_NoData.php';
+			}else{
+				
 
-			}else{ print ("<table class='tableForm' >
+
+				print ("<table class='tableForm' >
 							<tr>
 								<th colspan=10 class='BorderInf'>CLIENTES ".mysqli_num_rows($qb)."</th>
 							</tr>
@@ -255,10 +282,10 @@ session_start();
 			if(($i%2) == 0){ $styleBgc = "bgctdb"; }else{ $styleBgc = "bgctd"; }
 			$i++;
 
-		if($rowb['dni'] != "ANONIMO"){
-				print (	"<tr class='".$styleBgc."'>
-										
-		<form name='ver' action='clientes_Ver_02.php' target='popup' method='POST' onsubmit=\"window.open('', 'popup', 'width=550px,height=460px')\">
+			if($rowb['dni'] != "ANONIMO"){
+					print (	"<tr class='".$styleBgc."'>
+											
+			<form name='ver' action='clientes_Ver_02.php' target='popup' method='POST' onsubmit=\"window.open('', 'popup', 'width=550px,height=460px')\">
 
 			<td align='left'>".$rowb['id']."</td>
 			<td align='left'>".$rowb['ref']."</td>
@@ -270,29 +297,29 @@ session_start();
 
 			require 'clientes_rowTotal.php';
 
-		global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
-		global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
-		global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
-		global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR CLIENTE";
-		require '../Inclu/BotoneraVar.php';
-		global $closeButton;
+			global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
+			global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
+			global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
+			global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR CLIENTE";
+			require '../Inclu/BotoneraVar.php';
+			global $closeButton;
 	
-		print("<td colspan=2 align='center'>
+			print("<td colspan=2 align='center'>
 					<!--
 						<input type='submit' value='VER DETALLES' class='botonverde' />
 					-->
 					".$DetalleBlack.$closeButton."
 							<input type='hidden' name='oculto2' value=1 />
-				</form>
-			</td>
-			<td align='center'>
-				<form name='modifica' action='clientes_Modificar_02.php' method='POST'>");
+					</form>
+				</td>
+				<td align='center'>
+					<form name='modifica' action='clientes_Modificar_02.php' method='POST'>");
 
 			require 'clientes_rowTotal.php';
 
-		print("<!--
-			<input type='submit' value='MODIFICAR DATOS' class='botonnaranja' />
-			-->
+			print("<!--
+				<input type='submit' value='MODIFICAR DATOS' class='botonnaranja' />
+				-->
 				".$DatosBlack.$closeButton."
 						<input type='hidden' name='oculto2' value=1 />
 				</form>
@@ -300,14 +327,14 @@ session_start();
 
 			<td align='center'>
 							
-		<form name='modifica_img' action='$_SERVER[PHP_SELF]' method='POST' >");
+			<form name='modifica_img' action='$_SERVER[PHP_SELF]' method='POST' >");
 
 			require 'clientes_rowTotal.php';
 
-		print("<!--
-			<input type='submit' value='MODIFICAR IMAGEN' class='botonnaranja' />
-			-->
-			".$FotoBlack.$closeButton."
+			print("<!--
+				<input type='submit' value='MODIFICAR IMAGEN' class='botonnaranja' />
+				-->
+				".$FotoBlack.$closeButton."
 						<input type='hidden' name='oculto2' value=1 />
 				</form>
 			</td>
@@ -324,11 +351,13 @@ session_start();
 				</form>
 			</td>
 				</tr>");
-		}
+			}
 						
-			} /* Fin del while.*/ 
+		} /* FIN WHILE */ 
 
 			print("</table>");
+
+			require 'Paginacion_Footter.php';
 				
 			} /* Fin segundo else anidado en if */
 

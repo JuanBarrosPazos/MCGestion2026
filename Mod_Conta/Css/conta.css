@@ -625,3 +625,48 @@ a:hover  img {
 	background-size: contain;
 }
 
+/* ******************************** */
+/* *****     PAGINACIÓN       ***** */
+/* ******************************** */
+
+.centradiv {
+	margin: auto;
+	text-align: center;
+	width: max-content;
+    /*
+	max-width: 95%; min-width: 16.8em;
+	*/
+	padding: 0.4em 0.6em 0.4em 0.6em;
+    height: auto;
+	vertical-align: top !important;
+	border: solid 0.1em #CCC;
+	border-radius: 0.8em;
+}
+
+.pageli, .pagelib {
+	display: inline-block !important;
+	margin: 3px;
+	padding: 3px 8px 3px 8px;
+	font-weight: bold;
+	font-size: 1.0em;
+}
+.pageli {
+	border: solid 1px #fff;
+	border-radius: 6px;
+}
+.pagelib {
+	border: solid 2px #f40;
+	border-radius: 6px;
+}
+
+.pagelib a {
+	color: #f40 !important;
+	text-decoration: none;
+}
+
+.textpaginacion {
+	display: block;
+	width: 100%;
+	text-align: center;
+}
+
