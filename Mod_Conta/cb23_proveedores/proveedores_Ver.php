@@ -181,21 +181,20 @@ session_start();
 
 	function show_form($errors=[]){
 		
+		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO PROVEEDOR";
+		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
+		require '../Inclu/BotoneraVar.php';
+		global $closeButton;
+
 		global $titulo;
 		$titulo = "GESTIONAR PROVEEDORES";
 		global $LinkForm1;
 		/*
 		$$LinkForm1 = "<a href='proveedores_Crear.php' title='CREAR NUEVO PROVEEDOR' class='botonverde' style='color:#343434;'>CREAR NUEVO PROVEEDOR</a>";
 		 */
-
-		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO PROVEEDOR";
-		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
-		require '../Inclu/BotoneraVar.php';
-		global $closeButton;
-
-		$LinkForm1 = $PersonAddBlack."<a href='proveedores_Crear.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		$LinkForm1 = "<a href='proveedores_Crear.php' >".$PersonAddBlack.$closeButton."</a>";
 		global $LinkForm2;
-		$LinkForm2 = $DeleteBlack."<a href='proveedoresFeed_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		$LinkForm2 = "<a href='proveedoresFeed_Ver.php' >".$DeleteBlack.$closeButton."</a>";
 		global $titulo2;
 		$titulo2 = "PROVEEDORES VER TODOS";
 

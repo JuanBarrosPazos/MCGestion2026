@@ -47,35 +47,10 @@ session_start();
 		
 		require 'clientes_ConsultaLogica.php';
 
-		global $orden;
-		if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
-			$orden = $_POST['Orden'];
-		}else{ $orden = '`id` ASC'; }
-		
-		$ref = $_POST['ref'];
-		$rso = $_POST['rsocial'];
-
-		if((strlen(trim($_POST['ref'])) == 0)){
-			//$ref = "`ref` = ".trim($_POST['ref'])."%";
-			$ref = "";
-			$oper = "";
-		}else{
-			$ref = " `ref` LIKE '%".trim($_POST['ref'])."%' ";
-			$oper = " OR ";
-		}
-
-		if((strlen(trim($_POST['rsocial'])) == 0)){
-			//$rso = "`rsocial` = ".$_POST['rsocial'];
-			$rso = "";
-			$oper = "";
-		}else{
-			$rso = $oper." `rsocial` LIKE '%".$_POST['rsocial']."%' ";
-		}
-
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
-		$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND ($ref $rso) AND `del`='false' ORDER BY $orden ";
-		//echo $sqlc."<br>";
+		$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND $ref $rso AND `del`='false' ORDER BY $orden ";
+		echo $sqlc."<br>";
 	
 		$qc = mysqli_query($db, $sqlc);
 		
@@ -102,7 +77,14 @@ session_start();
 							<th colspan='6'>ACCIONES</th>
 						</tr>");
 				
-			global $styleBgc; global $i; $i = 0;
+			global $DetalleBlackTit; 	$DetalleBlackTit = "VER DETALLES";
+			global $DatosBlackTit;		$DatosBlackTit = "MODIFICAR DATOS";
+			global $FotoBlackTit;		$FotoBlackTit = "MODIFICAR IMAGEN";
+			global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS";
+			require '../Inclu/BotoneraVar.php';
+			global $closeButton;
+		
+			global $styleBgc; global $i; $i = 1;
 
 		while($rowb = mysqli_fetch_assoc($qc)){
 			
@@ -124,13 +106,6 @@ session_start();
 
 			require 'clientes_rowTotal.php';
 
-		global $DetalleBlackTit; 	$DetalleBlackTit = "VER DETALLES";
-		global $DatosBlackTit;		$DatosBlackTit = "MODIFICAR DATOS";
-		global $FotoBlackTit;		$FotoBlackTit = "MODIFICAR IMAGEN";
-		global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS";
-		require '../Inclu/BotoneraVar.php';
-		global $closeButton;
-		
 		print("<td colspan=2 align='center'>
 					<!--
 						<input type='submit' value='VER DETALLES' class='botonverde' />
@@ -198,13 +173,6 @@ session_start();
 
 	function show_form($errors=[]){
 		
-		global $titulo;
-		$titulo = "GESTIONAR CLIENTES";
-		global $LinkForm1;
-		/*
-		$$LinkForm1 = "<a href='clientes_Crear.php' title='CREAR NUEVO CLIENTE' class='botonverde' style='color:#343434;'>CREAR NUEVO CLIENTE</a>";
-		 */
-
 		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO CLIENTE";
 		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA CLIENTES";
 		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS CLIENTES";
@@ -212,11 +180,18 @@ session_start();
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
-		$LinkForm1 = $PersonAddBlack."<a href='clientes_Crear.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		global $titulo;
+		$titulo = "GESTIONAR CLIENTES";
+
+		global $LinkForm1;
+		/*
+		$$LinkForm1 = "<a href='clientes_Crear.php' title='CREAR NUEVO CLIENTE' class='botonverde' style='color:#343434;'>CREAR NUEVO CLIENTE</a>";
+		 */
+		$LinkForm1 = "<a href='clientes_Crear.php' >".$PersonAddBlack.$closeButton."</a>";
 		global $LinkForm2;
-		$LinkForm2 = $DeleteBlack."<a href='clientesFeed_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		$LinkForm2 = "<a href='clientesFeed_Ver.php' >".$DeleteBlack.$closeButton."</a>";
 		global $LinkForm3;
-		$LinkForm3 = $PersonsBlack."<a href='clientes_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		$LinkForm3 = "<a href='clientes_Ver.php' >".$PersonsBlack.$closeButton."</a>";
 
 		global $titulo2;
 		$titulo2 = "CLIENTES VER TODOS";
@@ -238,7 +213,6 @@ session_start();
 			$orden = $_POST['Orden'];
 		}else{ $orden = '`id` ASC'; }
 
-			
 		$sesionref = "";
 		global $vname; 		$vname = "`".$_SESSION['clave']."clientes`";
 
@@ -248,21 +222,17 @@ session_start();
 		global $ruta;				$ruta = "";
 		global $pagedest;			$pagedest = "clientes_Ver.php";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden $limit";
+		//$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden $limit ";
+		$sqlb =  "$result ORDER BY $orden $limit ";
 		$qb = mysqli_query($db, $sqlb);
 		
 		if(!$qb){
 			print("* Error SQL L.224. ".mysqli_error($db)."</br>");
 		} else {
-
-
 			if(mysqli_num_rows($qb) < 1){
 				global $titNoData;	$titNoData = "TABLA ".strtoupper($vname)."<br><br>";
 				require 'clientes_NoData.php';
 			}else{
-				
-
-
 				print ("<table class='tableForm' >
 							<tr>
 								<th colspan=10 class='BorderInf'>CLIENTES ".mysqli_num_rows($qb)."</th>
@@ -275,7 +245,14 @@ session_start();
 								<th colspan='6'>ACCIONES</th>
 							</tr>");
 				
-			global $styleBgc;		global $i; $i = 0;
+			global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
+			global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
+			global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
+			global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR CLIENTE";
+			require '../Inclu/BotoneraVar.php';
+			global $closeButton;
+	
+			global $styleBgc;		global $i; $i = 1;
 
 		while($rowb = mysqli_fetch_assoc($qb)){
 
@@ -297,13 +274,6 @@ session_start();
 
 			require 'clientes_rowTotal.php';
 
-			global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
-			global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
-			global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
-			global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR CLIENTE";
-			require '../Inclu/BotoneraVar.php';
-			global $closeButton;
-	
 			print("<td colspan=2 align='center'>
 					<!--
 						<input type='submit' value='VER DETALLES' class='botonverde' />

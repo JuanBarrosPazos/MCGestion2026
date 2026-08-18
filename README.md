@@ -28,7 +28,7 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.17 (Beta cb23_clientes)
+## * MCGestion2026 V26.08.18 (Beta cb23_clientes)
 * cb23_clientes
     - ** Pendiente: clientes_Modificar_02.php
     - Ok Logica_01.php Show_Form.php Show_Form_Val.php 
@@ -37,6 +37,7 @@
         - datos bbdd...
         - Img cliente en servidor...
     - Ok clientes_Ver.php
+        - Consulta dinánmica a la bbdd con clientes_ConsultaLogica.php
         - Paginación en ver todos los clientes...
         - Menos cliente ANONIMO inicial...
         - del = false en bbdd...
@@ -50,6 +51,7 @@
     - Ok clientesFeed_Ver.php
         - del = true en bbdd...
     - Ok clientesFeed_Ver_02.php
+        - Se elimina el script y se visualiza en clientes_Ver_02.php
         - window.close() 10s
     - Ok clientesFeed_Borrar_02.php
         - Del datos bbdd...

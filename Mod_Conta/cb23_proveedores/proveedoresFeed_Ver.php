@@ -173,9 +173,9 @@ session_start();
 		global $titulo;
 		$titulo = "PAPELERA PROVEEDORES";
 		global $LinkForm1 ;
-		$LinkForm1  = $PersonAddBlack."<a href='proveedores_Crear.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		$LinkForm1 = "<a href='proveedores_Crear.php' >".$PersonAddBlack.$closeButton."</a>";
 		global $LinkForm2 ;
-		$LinkForm2  = $PersonsBlack."<a href='proveedores_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
+		$LinkForm2 = "<a href='proveedores_Ver.php' >".$PersonsBlack.$closeButton."</a>";
 		global $titulo2;
 		$titulo2 = "PAPELERA PROVEEDORES VER TODO";
 

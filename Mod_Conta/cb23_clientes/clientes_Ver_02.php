@@ -28,17 +28,17 @@ if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){
 
 function process_form(){
 	
-	global $CancelBlackTit;		$CancelBlackTit = "CERRAR VENTANA";
-	require '../Inclu/BotoneraVar.php';
-	global $closeButton;
-
-	global $db;
+	global $db, $db_name;
 	
 	global $nombre;			$nombre = isset($_POST['Nombre']);
 	global $apellido; 		$apellido = isset($_POST['Apellidos']);
 	global $sesionref; 		$sesionref = $_SESSION['ref'];
 	$sesionref = strtolower($sesionref);
 	
+	global $CancelBlackTit;		$CancelBlackTit = "CERRAR VENTANA";
+	require '../Inclu/BotoneraVar.php';
+	global $closeButton;
+
 	print("<table class='tableForm' style='margin-top: 1.6em !important;' >
 		<tr>
 			<th colspan=3 '>DATOS DEL CLIENTE</th>
@@ -104,14 +104,10 @@ function process_form(){
 
 function info(){
 
-	global $db;
-		
 	$ActionTime = date('H:i:s');
 	
 	global $dir;
-	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
-				$dir = "../cb23_Docs/log";
-				}
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ $dir = "../cb23_Docs/log"; }
 	
 	global $text;
 	$text = "\n- CLIENTES DETALLES ".$ActionTime.".\n\tID: ".$_POST['id'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".";
@@ -124,7 +120,7 @@ function info(){
 	fwrite($log, $logtext);
 	fclose($log);
 
-	}
+}
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////

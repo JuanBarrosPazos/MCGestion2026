@@ -1,19 +1,33 @@
 <?php
 
-	// RAZON SOCIAL
-    if($_POST['rsocial'] == ''){$rso = '';}
-    else{$rso = "%".$_POST['rsocial']."%";}
-    global $rsocial; 		$rsocial = $_POST['rsocial'];
+	// REF CLIENTE & RAZON SOCIAL
+	global $oper, $openPar, $closePar;
+	if((strlen(trim($_POST['ref'])) == 0)||(strlen(trim($_POST['rsocial'])) == 0)){
+		//$ref = "`ref` = ".trim($_POST['ref'])."%";
+		$oper = "";
+		$openPar = "";
+		$closePar = "";
+	}elseif((strlen(trim($_POST['ref'])) != 0)&&(strlen(trim($_POST['rsocial'])) != 0)){
+		$openPar = "(";
+		$closePar = ")";
+		$oper = " OR ";
+	}
+	
+	if((strlen(trim($_POST['ref'])) != 0)){
+		$ref = $openPar." `ref` LIKE '%".trim($_POST['ref'])."%' ";
+	}else{ $ref = ""; }
+
+	if((strlen(trim($_POST['rsocial'])) != 0)){
+		$rso = $oper." `rsocial` LIKE '%".$_POST['rsocial']."%' ".$closePar;
+	}else{ $rso = ""; }
+	
 	// NIF
     /*
     if($_POST['dni'] == ''){$dni = '';}
     else{$dni = $_POST['dni'];}
     global $dnie; 		$dnie = $_POST['dni'];
     */
-	// REF CLIENTE
-    if($_POST['ref'] == ''){$ref = '';}
-    else{$ref = $_POST['ref'];}
-    global $refer; 		$refer = $_POST['ref'];
+    
     // ORDEN
     global $orden;
     if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
