@@ -38,7 +38,7 @@
 
             ".$GrafIndex."
             <link href='".$ruta."Css/conta.css' rel='stylesheet' type='text/css' />
-            <link href='".$ruta."cb23_Images/logo_new' type='image/ico' rel='shortcut icon' />
+            <link href='".$ruta."cb26_Images/logo_new' type='image/ico' rel='shortcut icon' />
             <!--
                 <meta name='google-site-verification' content='eZH2zCJFS0R2mpv-pG5sLmYowSRSmDA48lBLzwfFj1I' />
             -->

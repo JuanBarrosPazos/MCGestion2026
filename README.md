@@ -28,6 +28,10 @@
 - ! Ojo al $txt no se define en ningún sitio. La defino global $txt para evitar el error.
 ----
 # ** ÚLTIMA VERSIÓN:
+## * MCGestion2026 V26.08.19 (Beta cb26_*)
+    - Se modifica cb23_*/*.* por cb26_*/*.*
+
+----
 ## * MCGestion2026 V26.08.18 (Beta cb23_clientes)
 * cb23_clientes
     - ** Pendiente: clientes_Modificar_02.php

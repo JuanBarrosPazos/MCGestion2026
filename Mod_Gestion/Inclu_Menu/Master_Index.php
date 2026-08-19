@@ -13,7 +13,7 @@ print("<ul id='MenuBar1' class='MenuBarVertical'>
 		<li><a href='".$rutaModConta."index.php'>CONTA BASIC</a></li>
 	<!-- Fin MENU ADMINISTRADORES-->
 	<!-- MENU PROVEEDORES -->
-		<li><a href='".$rutaModConta."cb23_proveedores/proveedores_Ver.php'>PROVEEDORES</a></li>
+		<li><a href='".$rutaModConta."cb26_proveedores/proveedores_Ver.php'>PROVEEDORES</a></li>
 	<!-- Fin MENU PROVEEDORES -->
 	
 	<!-- MENU CLIENTES -->

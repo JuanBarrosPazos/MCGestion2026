@@ -63,24 +63,24 @@ function config_one_cb23(){
 	}else{ $LogText = $LogText."";}
 	*/
 
-	if(!file_exists('../Mod_Conta/cb23_Docs/year.txt')){
+	if(!file_exists('../Mod_Conta/cb26_Docs/year.txt')){
 			if(file_exists('../Mod_Conta/config/year_Init_System.txt')){
-				copy("../Mod_Conta/config/year_Init_System.txt", "../Mod_Conta/cb23_Docs/year.txt");
-				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/year_Init_System.txt TO "."../Mod_Conta/cb23_Docs/year.txt";
+				copy("../Mod_Conta/config/year_Init_System.txt", "../Mod_Conta/cb26_Docs/year.txt");
+				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/year_Init_System.txt TO "."../Mod_Conta/cb26_Docs/year.txt";
 			}else{
 		//print("DON'T RENAME ../Mod_Conta/config/year_Init_System.txt TO ../Mod_Conta/config/year.txt </br>");
-				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/year_Init_System.txt TO ../Mod_Conta/cb23_Docs/year.txt";
+				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/year_Init_System.txt TO ../Mod_Conta/cb26_Docs/year.txt";
 			}
 	}else{ $LogText = $LogText."";}
 
 	/*
-	if(!file_exists('../Mod_Conta/cb23_Docs/ayear.php')){
+	if(!file_exists('../Mod_Conta/cb26_Docs/ayear.php')){
 			if(file_exists('../Mod_Conta/config/ayear_Init_System.php')){
-				copy("../Mod_Conta/config/ayear_Init_System.php", "../Mod_Conta/cb23_Docs/ayear.php");
-				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/ayear_Init_System.php TO ../Mod_Conta/cb23_Docs/ayear.php";
+				copy("../Mod_Conta/config/ayear_Init_System.php", "../Mod_Conta/cb26_Docs/ayear.php");
+				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/ayear_Init_System.php TO ../Mod_Conta/cb26_Docs/ayear.php";
 			}else{
-		//print("DON'T RENAME ../Mod_Conta/config/ayear_Init_System.php TO ../Mod_Conta/cb23_Docs/ayear.php </br>");
-				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/ayear_Init_System.php TO ../Mod_Conta/cb23_Docs/ayear.php";
+		//print("DON'T RENAME ../Mod_Conta/config/ayear_Init_System.php TO ../Mod_Conta/cb26_Docs/ayear.php </br>");
+				$LogText = $LogText."\n \t RENAME ../Mod_Conta/config/ayear_Init_System.php TO ../Mod_Conta/cb26_Docs/ayear.php";
 			}
 	}else{ $LogText = $LogText."";}
 	*/
@@ -469,12 +469,12 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 	
 	/************		SE CREAN TABLAS Y DIRECTORIOS ADICIONALES DESDE CONFIG2		*****************/
 
-	$carpeta = "../Mod_Conta/cb23_Docs";
+	$carpeta = "../Mod_Conta/cb26_Docs";
 	if (!file_exists($carpeta)) {
 			mkdir($carpeta, 0777, true);
-			$LogText = $LogText."\t* OK DIRECTORIO ../Mod_Conta/cb23_Docs. \n";
+			$LogText = $LogText."\t* OK DIRECTORIO ../Mod_Conta/cb26_Docs. \n";
 	}else{	//print("* NO HA CREADO EL DIRECTORIO ".$carpeta."\n");
-			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb23_Docs. \n";
+			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb26_Docs. \n";
 			}
 
 	/************** CREAMOS LA TABLA GASTOS  ***************/
@@ -525,11 +525,11 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 // CREA EL DIRECTORIO DE DOC GASTOS.
 
 	$vn1 = "docgastos_".date('Y');
-	$carpeta1 = "../Mod_Conta/cb23_Docs/".$vn1;
+	$carpeta1 = "../Mod_Conta/cb26_Docs/".$vn1;
 	if (!file_exists($carpeta1)) {
 		mkdir($carpeta1, 0777, true);
-		copy("../Mod_Conta/cb23_Images/untitled.png", $carpeta1."/untitled.png");
-		copy("../Mod_Conta/cb23_Images/pdf.png", $carpeta1."/pdf.png");
+		copy("../Mod_Conta/cb26_Images/untitled.png", $carpeta1."/untitled.png");
+		copy("../Mod_Conta/cb26_Images/pdf.png", $carpeta1."/pdf.png");
 		$LogText = $LogText."\t* OK DIRECTORIO ".$carpeta1."\n";
 	}else{ //print("* NO OK EL DIRECTORIO ".$carpeta1."\n");
 			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta1."\n";
@@ -580,11 +580,11 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 // CREA EL DIRECTORIO DE GASTOS DE AÑO ANTERIOR.
 
 	$vn2 = "docgastos_".(date('Y')-1);
-	$carpeta2 = "../Mod_Conta/cb23_Docs/".$vn2;
+	$carpeta2 = "../Mod_Conta/cb26_Docs/".$vn2;
 	if (!file_exists($carpeta2)) {
 			mkdir($carpeta2, 0777, true);
-			copy("../Mod_Conta/cb23_Images/untitled.png", $carpeta2."/untitled.png");
-			copy("../Mod_Conta/cb23_Images/pdf.png", $carpeta2."/pdf.png");
+			copy("../Mod_Conta/cb26_Images/untitled.png", $carpeta2."/untitled.png");
+			copy("../Mod_Conta/cb26_Images/pdf.png", $carpeta2."/pdf.png");
 			$LogText = $LogText."\t* OK DIRECTORIO ".$carpeta2."\n";
 	}else{	//print("* YA EXISTE EL DIRECTORIO DIRECTORIO ".$carpeta2."\n");
 			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta2."\n";
@@ -677,11 +677,11 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 // CREA EL DIRECTORIO DE INGRESOS DEL AÑO.
 
 	$vn3 = "docingresos_".date('Y');
-	$carpeta3 = "../Mod_Conta/cb23_Docs/".$vn3;
+	$carpeta3 = "../Mod_Conta/cb26_Docs/".$vn3;
 	if (!file_exists($carpeta3)) {
 			mkdir($carpeta3, 0777, true);
-			copy("../Mod_Conta/cb23_Images/untitled.png", $carpeta3."/untitled.png");
-			copy("../Mod_Conta/cb23_Images/pdf.png", $carpeta3."/pdf.png");
+			copy("../Mod_Conta/cb26_Images/untitled.png", $carpeta3."/untitled.png");
+			copy("../Mod_Conta/cb26_Images/pdf.png", $carpeta3."/pdf.png");
 			$LogText = $LogText."\t* OK DIRECTORIO ".$carpeta3."\n";
 	}else{ //print("* NO OK EL DIRECTORIO ".$carpeta3."\n");
 			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta3."\n";
@@ -732,11 +732,11 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 // CREA EL DIRECTORIO DE INGRESOS DEL AÑO ANTERIOR.
 
 	$vn4 = "docingresos_".(date('Y')-1);
-	$carpeta4 = "../Mod_Conta/cb23_Docs/".$vn4;
+	$carpeta4 = "../Mod_Conta/cb26_Docs/".$vn4;
 	if (!file_exists($carpeta4)) {
 			mkdir($carpeta4, 0777, true);
-			copy("../Mod_Conta/cb23_Images/untitled.png", $carpeta4."/untitled.png");
-			copy("../Mod_Conta/cb23_Images/pdf.png", $carpeta4."/pdf.png");
+			copy("../Mod_Conta/cb26_Images/untitled.png", $carpeta4."/untitled.png");
+			copy("../Mod_Conta/cb26_Images/pdf.png", $carpeta4."/pdf.png");
 			$LogText = $LogText."\t* OK DIRECTORIO ".$carpeta4."\n";
 	} else { //print("* NO OK EL DIRECTORIO ".$carpeta4."\n");
 			 $LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta4."\n";
@@ -802,7 +802,7 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 		/************	CONFIGURACIÓN ANUAL PARA MOD_CONTA	*****************/
 
 function modif2a(){
-	$filename = "../Mod_Conta/cb23_Docs/ayear.php";
+	$filename = "../Mod_Conta/cb26_Docs/ayear.php";
 	
 	$contenido = "<?php\n \$dy = array ('' => 'YEAR',\n'".date('y')."' => '".date('Y')."',\n'".(date('y')-1)."' => '".(date('Y')-1)."',\n);\n?>";
 	
@@ -814,7 +814,7 @@ function modif2a(){
 }
 
 function modif2b(){
-	$filename = "../Mod_Conta/cb23_Docs/year.txt";
+	$filename = "../Mod_Conta/cb26_Docs/year.txt";
 	$fw2 = fopen($filename, 'w+');
 	$date = "".date('Y')."";
 	fwrite($fw2, $date);
@@ -870,41 +870,41 @@ function ayear_cb23(){
 	function crear_dir(){
 
 	// ESTA FUNCIÓN LA TENGO INTEGRADA EN MOD_ADMIN DENTRO DE function crear_tablas()
-		global $data0; 		$carpeta = "../Mod_Conta/cb23_Docs/temp";
+		global $data0; 		$carpeta = "../Mod_Conta/cb26_Docs/temp";
 		if (!file_exists($carpeta)) {
 			mkdir($carpeta, 0777, true);
-			$data0 = $data0."\t* OK DIRECTORIO ../Mod_Conta/cb23_Docs/temp. \n";
+			$data0 = $data0."\t* OK DIRECTORIO ../Mod_Conta/cb26_Docs/temp. \n";
 			}
 			else{	//print("* NO HA CREADO EL DIRECTORIO ".$carpeta."\n");
-					$data0 = $data0."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb23_Docs/temp. \n";
+					$data0 = $data0."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb26_Docs/temp. \n";
 				}
 	
-		$carpeta = "../Mod_Conta/cb23_Docs/log";
+		$carpeta = "../Mod_Conta/cb26_Docs/log";
 		if (!file_exists($carpeta)) {
 			mkdir($carpeta, 0777, true);
-			$data0 = $data0."\t* OK DIRECTORIO ../Mod_Conta/cb23_Docs/log. \n";
+			$data0 = $data0."\t* OK DIRECTORIO ../Mod_Conta/cb26_Docs/log. \n";
 			}
 			else{	//print("* NO HA CREADO EL DIRECTORIO ".$carpeta."\n");
-					$data0 = $data0."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb23_Docs/log. \n";
+					$data0 = $data0."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb26_Docs/log. \n";
 				}
 	
-		$carpeta = "../Mod_Conta/cb23_Docs/grafics";
+		$carpeta = "../Mod_Conta/cb26_Docs/grafics";
 		if (!file_exists($carpeta)) {
 			mkdir($carpeta, 0777, true);
-			$data0 = $data0."\t* OK DIRECTORIO ../Mod_Conta/cb23_Docs/grafics. \n";
+			$data0 = $data0."\t* OK DIRECTORIO ../Mod_Conta/cb26_Docs/grafics. \n";
 			}
 			else{	//print("* NO HA CREADO EL DIRECTORIO ".$carpeta."\n");
-					$data0 = $data0."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb23_Docs/grafics. \n";
+					$data0 = $data0."\t* YA EXISTE EL DIRECTORIO ../Mod_Conta/cb26_Docs/grafics. \n";
 				}
 
 /*	DEPECRATED...
 	// CREA EL DIRECTORIO DE IMAGEN DE USUARIO.
 	
 		$vn1 = "img_admin";
-		$carpetaimg = "../Mod_Conta/cb23_Docs/".$vn1;
+		$carpetaimg = "../Mod_Conta/cb26_Docs/".$vn1;
 		if (!file_exists($carpetaimg)) {
 			mkdir($carpetaimg, 0777, true);
-			copy("config/cb23_Images/untitled.png", $carpetaimg."/untitled.png");
+			copy("config/cb26_Images/untitled.png", $carpetaimg."/untitled.png");
 			$data0 = $data0."\t* OK DIRECTORIO ".$carpetaimg."\n";
 			}
 			else{//print("* NO OK EL DIRECTORIO ".$carpetaimg."\n");
@@ -915,10 +915,10 @@ function ayear_cb23(){
 	// CREA EL DIRECTORIO DE IMAGEN DE PROVEEDOR GASTOS.
 	
 		$vn1 = "img_proveedores";
-		$carpetaimg1 = "../Mod_Conta/cb23_Docs/".$vn1;
+		$carpetaimg1 = "../Mod_Conta/cb26_Docs/".$vn1;
 		if (!file_exists($carpetaimg1)) {
 			mkdir($carpetaimg1, 0777, true);
-			copy("config/cb23_Images/untitled.png", $carpetaimg1."/untitled.png");
+			copy("config/cb26_Images/untitled.png", $carpetaimg1."/untitled.png");
 			$data0 = $data0."\t* OK DIRECTORIO ".$carpetaimg1."\n";
 			}
 			else{//print("* NO OK EL DIRECTORIO ".$carpetaimg1."\n");
@@ -928,10 +928,10 @@ function ayear_cb23(){
 	// CREA EL DIRECTORIO DE IMAGEN DE PROVEEDOR INGRESOS.
 	
 		$vn1 = "img_clientes";
-		$carpetaimg2 = "../Mod_Conta/cb23_Docs/".$vn1;
+		$carpetaimg2 = "../Mod_Conta/cb26_Docs/".$vn1;
 		if (!file_exists($carpetaimg2)) {
 			mkdir($carpetaimg2, 0777, true);
-			copy("config/cb23_Images/untitled.png", $carpetaimg2."/untitled.png");
+			copy("config/cb26_Images/untitled.png", $carpetaimg2."/untitled.png");
 			$data0 = $data0."\t* OK DIRECTORIO ".$carpetaimg2."\n";
 			}
 			else{//print("* NO OK EL DIRECTORIO ".$carpetaimg2."\n");
@@ -941,10 +941,10 @@ function ayear_cb23(){
 	// CREA EL DIRECTORIO GRAFICS.
 	
 		$vn1 = "grafics";
-		$carpetaimg2 = "../Mod_Conta/cb23_Docs/".$vn1;
+		$carpetaimg2 = "../Mod_Conta/cb26_Docs/".$vn1;
 		if (!file_exists($carpetaimg2)) {
 			mkdir($carpetaimg2, 0777, true);
-			copy("config/cb23_Images/untitled.png", $carpetaimg2."/untitled.png");
+			copy("config/cb26_Images/untitled.png", $carpetaimg2."/untitled.png");
 			$data0 = $data0."\t* OK DIRECTORIO ".$carpetaimg2."\n";
 			}
 			else{//print("* YA EXISTE EL DIRECTORIO ".$carpetaimg2."\n");
@@ -954,11 +954,11 @@ function ayear_cb23(){
 	// CREA EL DIRECTORIO DE DOC GASTOS PENDIENTES.
 	
 		$vn1b = "docgastos_pendientes";
-		$carpeta1b = "../Mod_Conta/cb23_Docs/".$vn1b;
+		$carpeta1b = "../Mod_Conta/cb26_Docs/".$vn1b;
 		if (!file_exists($carpeta1b)) {
 			mkdir($carpeta1b, 0777, true);
-			copy("config/cb23_Images/untitled.png", $carpeta1b."/untitled.png");
-			copy("config/cb23_Images/pdf.png", $carpeta1b."/pdf.png");
+			copy("config/cb26_Images/untitled.png", $carpeta1b."/untitled.png");
+			copy("config/cb26_Images/pdf.png", $carpeta1b."/pdf.png");
 			$data0 = $data0."\t* OK DIRECTORIO ".$carpeta1b."\n";
 			}
 			else{//print("* YA EXISTE EL DIRECTORIO ".$carpeta1b."\n");
@@ -968,11 +968,11 @@ function ayear_cb23(){
 	// CREA EL DIRECTORIO DE IMAGENES.
 	
 		$vn3b = "docingresos_pendientes";
-		$carpeta3b = "../Mod_Conta/cb23_Docs/".$vn3b;
+		$carpeta3b = "../Mod_Conta/cb26_Docs/".$vn3b;
 		if (!file_exists($carpeta3b)) {
 			mkdir($carpeta3b, 0777, true);
-			copy("config/cb23_Images/untitled.png", $carpeta3b."/untitled.png");
-			copy("config/cb23_Images/pdf.png", $carpeta3b."/pdf.png");
+			copy("config/cb26_Images/untitled.png", $carpeta3b."/untitled.png");
+			copy("config/cb26_Images/pdf.png", $carpeta3b."/pdf.png");
 			$data0 = $data0."\t* OK DIRECTORIO ".$carpeta3b."\n";
 			}
 			else{//print("* NO OK EL DIRECTORIO ".$carpeta3b."\n");

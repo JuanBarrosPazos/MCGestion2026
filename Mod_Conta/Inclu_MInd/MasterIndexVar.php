@@ -2,16 +2,16 @@
 
     //$rutaIndex = "";
 
-    $rutaBalaces = $rutaIndex."cb23_Balances/";
-    $rutaClientes = $rutaIndex."cb23_clientes/";
-    $rutaGastos = $rutaIndex."cb23_gastos/";
-    //$rutaPendientes = $rutaIndex."cb23_gastos_pendientes/";
-    $rutaImpuestos = $rutaIndex."cb23_impuestos/";
-    $rutaIngresos = $rutaIndex."cb23_ingresos/";
-    $rutaProveedores = $rutaIndex."cb23_proveedores/";
-    $rutaRetencion = $rutaIndex."cb23_retencion/";
-    $rutaStatus = $rutaIndex."cb23_Status/";
-    $rutaUpBbdd = $rutaIndex."cb23_upbbdd/";
+    $rutaBalaces = $rutaIndex."cb26_Balances/";
+    $rutaClientes = $rutaIndex."cb26_clientes/";
+    $rutaGastos = $rutaIndex."cb26_gastos/";
+    //$rutaPendientes = $rutaIndex."cb26_gastos_pendientes/";
+    $rutaImpuestos = $rutaIndex."cb26_impuestos/";
+    $rutaIngresos = $rutaIndex."cb26_ingresos/";
+    $rutaProveedores = $rutaIndex."cb26_proveedores/";
+    $rutaRetencion = $rutaIndex."cb26_retencion/";
+    $rutaStatus = $rutaIndex."cb26_Status/";
+    $rutaUpBbdd = $rutaIndex."cb26_upbbdd/";
 
     $rutaModAdmin = $rutaIndex."../Mod_Admin_Plus/";
     $rutaModGestion = $rutaIndex."../Mod_Gestion/";
