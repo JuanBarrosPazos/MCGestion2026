@@ -1,19 +1,17 @@
 <?php
 
-        global $DeleteBlackTit;         $DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
-        global $PersonAddBlacktit;      $PersonAddBlacktit = "CREAR NUEVO PROVEEDOR";
-        global $PersonsBlackTit;        $PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+        global $DeleteBlackTit;         $DeleteBlackTit = "INICIO PAPELERA proveedores";
+        global $PersonAddBlacktit;      $PersonAddBlacktit = "CREAR NUEVO CLIENTE";
+        global $PersonsBlackTit;        $PersonsBlackTit = "VER TODOS LOS proveedores";
         require '../Inclu/BotoneraVar.php';
-        global $closeButton;
-
-	global $KeyForm;        global $BotonPapelera;
+        global $closeButton, $KeyForm, $BotonPapelera, $DeleteBlack, $PersonAddBlack, $PersonsBlack;
 
 	if($KeyForm == "feed"){
                 $BotonPapelera = "";
 	}else{
                 $BotonPapelera = $DeleteBlack."<a href='proveedoresFeed_Ver.php' >&nbsp;&nbsp;&nbsp;</a>".$closeButton;
-	}	
-
+	}
+        	
         global $titNoData;
 
         print ("<table class='tableForm' style='padding:0.6em;' >
@@ -28,7 +26,7 @@
                                 ".$PersonAddBlack."
                                         <a href='proveedores_Crear.php' >&nbsp;&nbsp;&nbsp;</a>
                                 ".$closeButton.$PersonsBlack."
-                        <a href='proveedores_Ver.php' >&nbsp;&nbsp;&nbsp;</a>
+                                        <a href='proveedores_Ver.php' >&nbsp;&nbsp;&nbsp;</a>
                                 ".$closeButton.$BotonPapelera."
                         </th>
                 </tr>

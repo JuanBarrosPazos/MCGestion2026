@@ -40,16 +40,20 @@
 
 function validate_form_img(){
 	
-		global $sqld; 		global $qd; 		global $rowd;
+		global $sqld, $qd;
 		
 		$limite = 500 * 1024;
 		
-		$ext_permitidas = array('jpg','JPG','gif','GIF','png','PNG','bmp','BMP');
-		
-		$extension = substr($_FILES['myimg']['name'],-3);
+		$ext_permitidas = array('jpg','gif','png','bmp');
+		//$extension = substr($_FILES['myimg']['name'],-3);
+		$extension = pathinfo($_FILES['myimg']['name'], PATHINFO_EXTENSION);
+		$extension = strtolower($extension);
 		// print($extension);
 		// $extension = end(explode('.', $_FILES['myimg']['name']) );
 		$ext_correcta = in_array($extension, $ext_permitidas);
+
+		$ext_nopermitidas = array('txt','psd','pdf','mp4','mp3');
+		$ext_nocorrecta = in_array($extension, $ext_nopermitidas);
 
 		// $tipo_correcto = preg_match('/^image\/(gif|png|jpg|bmp)$/', $_FILES['myimg']['type']);
 
@@ -57,8 +61,10 @@ function validate_form_img(){
 
 		if($_FILES['myimg']['size'] == 0){
 				$errors [] = "Ha de seleccionar una fotograf&iacute;a.";
-		} elseif(!$ext_correcta) {
-				$errors [] = "La extension no esta admitida: ".$_FILES['myimg']['name'];
+		}elseif($ext_nocorrecta) {
+				$errors [] = "Extension no permitida: ".$_FILES['myimg']['name'];
+		}elseif(!$ext_correcta) {
+				$errors [] = "Extension no admitida: ".$_FILES['myimg']['name'];
 		}
 		/*
 			elseif(!$tipo_correcto){
@@ -66,13 +72,13 @@ function validate_form_img(){
 				}
 		*/
 		elseif ($_FILES['myimg']['size'] > $limite){
-		$tamanho = $_FILES['myimg']['size'] / 1024;
-		$errors [] = "El archivo".$_FILES['myimg']['name']." es mayor de 500 KBytes. ".$tamanho." KB";
+			$tamanho = $_FILES['myimg']['size'] / 1024;
+			$errors [] = "El archivo".$_FILES['myimg']['name']." es mayor de 500 KBytes. ".$tamanho." KB";
 		} elseif ($_FILES['myimg']['error'] == UPLOAD_ERR_PARTIAL){
-					$errors [] = "La carga del archivo se ha interrumpido.";
+			$errors [] = "La carga del archivo se ha interrumpido.";
 		} elseif ($_FILES['myimg']['error'] == UPLOAD_ERR_NO_FILE){
-						$errors [] = "Es archivo no se ha cargado.";
-						}
+			$errors [] = "Es archivo no se ha cargado.";
+		}
 						
 		return $errors;
 
@@ -84,7 +90,7 @@ function validate_form_img(){
 
 function process_form_img(){
 	
-	global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+	global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
@@ -106,11 +112,11 @@ function process_form_img(){
 		
 	    if( file_exists("../cb26_Docs/img_proveedores/".$nombre) ){
 			unlink("../cb26_Docs/img_proveedores/".$nombre);
-			}
-			
-		elseif (move_uploaded_file($_FILES['myimg']['tmp_name'], $destination_file)){
+		}elseif(move_uploaded_file($_FILES['myimg']['tmp_name'], $destination_file)){
 
-			unlink("../cb26_Docs/img_proveedores/".$_SESSION['myimgx']);
+			if(file_exists("../cb26_Docs/img_proveedores/".$_SESSION['myimgx'])){
+				unlink("../cb26_Docs/img_proveedores/".$_SESSION['myimgx']);
+			}else{ }
 											
 			// Renombrar el archivo:
 			$extension = substr($_FILES['myimg']['name'],-3);
@@ -213,7 +219,7 @@ function process_form_img(){
 function show_form_img($errors=[]){
 	
 	global $SaveBlackTit;		$SaveBlackTit = "MODIFICAR LA IMAGEN";
-	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
@@ -283,7 +289,7 @@ function show_form_img($errors=[]){
 		
 	print("<table align='center' style='border:none;'>
 				<tr>
-					<th colspan=2 >MODIFICAR IMAGEN PROVEEDOR</th>
+					<th colspan=2 >MODIFICAR IMAGEN CLIENTE</th>
 				</tr>
 				<tr>
 					<th class='BorderInf'>LA IMAGEN ACTUAL DE : </br>".$defaults['rsocial']."</th>
@@ -335,7 +341,7 @@ function show_form_img($errors=[]){
 		
 		global $rutaIndex;		$rutaIndex = "../";
 		require '../Inclu_MInd/MasterIndexVar.php';
-		global $rutaProveedores;	$rutaProveedores = "";
+		global $rutaproveedores;	$rutaproveedores = "";
 		require '../Inclu_MInd/MasterIndex.php'; 
 		
 				} 
@@ -357,7 +363,7 @@ function info_img(){
 				}
 
 global $text;
-$text = "\n- PROVEEDORES IMG MODIFICADA ".$ActionTime.".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\t".$destination_file.".\n\t".$rename_filename;
+$text = "\n- proveedores IMG MODIFICADA ".$ActionTime.".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\t".$destination_file.".\n\t".$rename_filename;
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');

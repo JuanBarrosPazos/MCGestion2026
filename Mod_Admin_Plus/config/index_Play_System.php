@@ -89,7 +89,7 @@ if(isset($_POST['oculto'])){
 
 function bbdd_backup(){
 	// RESPALDO BBDD AUTOMÁTICO...
-	global $db; 				global $db_name;
+	global $db, $db_name;
 	
 	global $dated; 				$dated = date('d');
 	global $datem; 				$datem = date('m');
@@ -809,7 +809,7 @@ function process_pin(){
 		global $redir;
 		$redir = "<script type='text/javascript'>
 					function redir(){
-						window.location.href='index.php';
+						window.location.href='index.php?redir=1';
 					}
 					setTimeout('redir()',6000);
 				</script>";
@@ -900,15 +900,15 @@ function process_pin(){
 			</div>
 			<audio src='audi/user_lost.mp3' autoplay></audio>");
 
+	}			
 	 	global $redir;
 		$redir = "<script type='text/javascript'>
 							function redir(){
-							window.location.href='index.php';
+							window.location.href='index.php?redir=1';
 						}
-						setTimeout('redir()',4000);
-						</script>";
+						setTimeout('redir()',12000);
+					</script>";
 		print($redir);
-	}			
 		
 } // FIN function process_pin()
 

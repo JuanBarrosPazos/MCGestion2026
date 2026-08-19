@@ -112,11 +112,11 @@ function process_form_img(){
 		
 	    if( file_exists("../cb26_Docs/img_clientes/".$nombre) ){
 			unlink("../cb26_Docs/img_clientes/".$nombre);
-			}
-			
-		elseif (move_uploaded_file($_FILES['myimg']['tmp_name'], $destination_file)){
+		}elseif(move_uploaded_file($_FILES['myimg']['tmp_name'], $destination_file)){
 
-			unlink("../cb26_Docs/img_clientes/".$_SESSION['myimgx']);
+			if(file_exists("../cb26_Docs/img_clientes/".$_SESSION['myimgx'])){
+				unlink("../cb26_Docs/img_clientes/".$_SESSION['myimgx']);
+			}else{ }
 											
 			// Renombrar el archivo:
 			$extension = substr($_FILES['myimg']['name'],-3);

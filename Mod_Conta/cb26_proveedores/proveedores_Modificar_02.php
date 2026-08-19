@@ -37,15 +37,15 @@ session_start();
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	function validate_form(){
+function validate_form(){
 	
-		global $sqld; 		global $qd; 		global $rowd;
+	global $sqld; 		global $qd; 		global $rowd;
 	
-		require 'validate.php';	
+	require 'validate.php';	
 		
-		return $errors;
+	return $errors;
 
-		} 
+} 
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -53,14 +53,15 @@ session_start();
 
 function process_form(){
 	
-	global $db; 		global $db_name;	
-	global $rf1;		global $rf2;
-	if (preg_match('/^(\w{1})/',$_POST['rsocial'],$ref1)){	$rf1 = $ref1[1];
-															$rf1 = trim($rf1);
-																			}
-	if (preg_match('/^(\w{1})*(\s\w{1})/',$_POST['rsocial'],$ref2)){$rf2 = $ref2[2];
-																	$rf2 = trim($rf2);
-																			}
+	global $db, $db_name;	
+	global $rf1, $rf2;
+	if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
+																	$rf1 = trim($rf1);
+	}
+
+	if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
+																			$rf2 = trim($rf2);
+	}
 
 	global $rf; 		$rf = strtolower($rf1.$rf2.$_POST['dni'].$_POST['ldni']);
 	$rf = trim($rf);
@@ -115,7 +116,7 @@ function process_form(){
 			$new_name = $rf."_".$dt.".".$extension;
 			$rename_filename = "../cb26_Docs/img_proveedores/".$new_name;	
 			rename($destination_file, $rename_filename);
-			}
+		}
 
 		global $tlf2;
 		if(strlen(trim($_POST['Tlf2'])) == 0){
@@ -124,7 +125,7 @@ function process_form(){
 
 		$sql = "UPDATE `$db_name`.$vname SET  `ref`= '$rf', `rsocial` = '$_POST[rsocial]', `myimg` = '$new_name', `doc` = '$_POST[doc]', `dni` = '$_POST[dni]', `ldni` = '$_POST[ldni]', `Email` = '$_POST[Email]', `Direccion` = '$_POST[Direccion]', `Tlf1` = '$_POST[Tlf1]', `Tlf2` = '$tlf2' WHERE $vname.`id` = '$_POST[id]' LIMIT 1 ";
 	
-			/* ACTUALIZA EN CASACADA LAS TABLAS gastos CON EL NUEVO NIF, RAZON SOCIAL */
+		/* ACTUALIZA EN CASACADA LAS TABLAS ingresos CON EL NUEVO NIF, RAZON SOCIAL
 			global $tableName; 			$tableName = "`".$_SESSION['clave']."status`";
 			$a = "SELECT MIN(year) FROM `$db_name`.$tableName ";
 			$ra = mysqli_query($db, $a);
@@ -133,10 +134,10 @@ function process_form(){
 			global $yearHoy; 	$yearHoy = date('Y'); 	//echo $yearHoy;
 		
 			while($yearMin<=$yearHoy){
-	
+		
 				//echo "* AÑO: ".$yearMin.".<br>";
-				global $tName; 	$tName =  "`".$_SESSION['clave']."gastos_".$yearMin."`";
-				$sg6 = "UPDATE `$db_name`.$tName SET `refprovee` = '$rf', `factnif` = '$factnif', `factnom` = '$_POST[rsocial]' WHERE $tName.`factnif` LIKE '$dnif' ";
+				global $tName; 	$tName =  "`".$_SESSION['clave']."ingresos_".$yearMin."`";
+				$sg6 = "UPDATE `$db_name`.$tName SET `refcliente` = '$rf', `factnif` = '$factnif', `factnom` = '$_POST[rsocial]' WHERE $tName.`factnif` LIKE '$dnif' ";
 	
 				if(mysqli_query($db, $sg6)){ //print("* OK");
 				} else { //print("<font color='#FF0000'>* ".mysqli_error($db))."</br>";
@@ -148,18 +149,18 @@ function process_form(){
 
 			} // FIN WHILE
 
-			global $tableGastPend; 		$tableGastPend = "`".$_SESSION['clave']."gastos_pendientes`";
-			$sg6 = "UPDATE `$db_name`.$tableGastPend SET `refprovee` = '$rf', `factnif` = '$factnif', `factnom` = '$_POST[rsocial]' WHERE $tableGastPend.`factnif` LIKE '$dnif' ";
+			global $tableGastPend; 		$tableGastPend = "`".$_SESSION['clave']."ingresos_pendientes`";
+			$sg6 = "UPDATE `$db_name`.$tableGastPend SET `refcliente` = '$rf', `factnif` = '$factnif', `factnom` = '$_POST[rsocial]' WHERE $tableGastPend.`factnif` LIKE '$dnif' ";
 	
 			if(mysqli_query($db, $sg6)){ //print("* OK");
 			} else { //print("<font color='#FF0000'>* ".mysqli_error($db))."</br>";
 					 global $texerror6;
 					 $texerror6 = "\n\t ".mysqli_error($db);
 						}
-
-			/* FIN ACTUALIZA EN CASACADA LAS TABLAS gastos CON EL NUEVO NIF, RAZON SOCIAL */
+		*/
+		/* FIN ACTUALIZA EN CASACADA LAS TABLAS ingresos CON EL NUEVO NIF, RAZON SOCIAL */
 	
-		} // FIN ELSE
+	} // FIN ELSE
 
 	if(mysqli_query($db, $sql)){
 		
@@ -171,13 +172,13 @@ function process_form(){
 		global $dudas; 		$dudas = $_SESSION['dudas']; 	$dudas = trim($dudas);
 	//	print("** ".$rowpimg['myimg']);
 
-		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
 		print("<table class='tableForm'>
 				<tr>
-					<th colspan=3 class='BorderInf'>HA MODIFICADO EL PROVEEDOR</th>
+					<th colspan=3 class='BorderInf'>HA MODIFICADO EL CLIENTE</th>
 				</tr>
 				<tr>
 					<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
@@ -219,11 +220,12 @@ function process_form(){
 				</tr>
 			</table>");
 	
-		} else { print("</br><font color='#FF0000'>* ERROR L. 114/133: </font></br> ".mysqli_error($db))."</br>";
-					show_form ();
-					//global $texerror;
-					//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
-				}
+		} else { 
+			print("</br><font color='#FF0000'>* ERROR L. 114/133: </font></br> ".mysqli_error($db))."</br>";
+			show_form ();
+			//global $texerror;
+			//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
+		}
 
 		global $redir;
 		$redir = "<script type='text/javascript'>
@@ -234,7 +236,7 @@ function process_form(){
 					</script>";
 		print ($redir);
 
-	} // FIN function process_form()
+} // FIN function process_form()
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -244,26 +246,26 @@ function show_form($errors=[]){
 	
 	if(isset($_POST['oculto2'])){
 		
-	$_SESSION['dniold'] = $_POST['dni'];
-	$_SESSION['refold'] = $_POST['ref'];
-	$_SESSION['ldniold'] = $_POST['ldni'];
-	$_SESSION['myimgold'] = $_POST['myimg'];
-	
-	$defaults = array ( 'id' => $_POST['id'],
-						'rsocial' => $_POST['rsocial'],
-						'myimg' => $_POST['myimg'],	
-						'ref' => $_POST['ref'],
-						'doc' => $_POST['doc'],
-						'dni' => $_POST['dni'],
-						'ldni' => $_POST['ldni'],
-						'Email' => $_POST['Email'],
-						'Direccion' => $_POST['Direccion'],
-						'Tlf1' => $_POST['Tlf1'],
-						'Tlf2' => $_POST['Tlf2']);
+		$_SESSION['dniold'] = $_POST['dni'];
+		$_SESSION['refold'] = $_POST['ref'];
+		$_SESSION['ldniold'] = $_POST['ldni'];
+		$_SESSION['myimgold'] = $_POST['myimg'];
+		
+		$defaults = array ( 'id' => $_POST['id'],
+							'rsocial' => $_POST['rsocial'],
+							'myimg' => $_POST['myimg'],	
+							'ref' => $_POST['ref'],
+							'doc' => $_POST['doc'],
+							'dni' => $_POST['dni'],
+							'ldni' => $_POST['ldni'],
+							'Email' => $_POST['Email'],
+							'Direccion' => $_POST['Direccion'],
+							'Tlf1' => $_POST['Tlf1'],
+							'Tlf2' => $_POST['Tlf2']);
 
 	} elseif(isset($_POST['modifica'])){
-			global $img2;
-			$img2 = 'untitled.png';
+		global $img2;
+		$img2 = 'untitled.png';
 
 		$defaults = array ( 'id' => $_POST['id'],
 							'rsocial' => $_POST['rsocial'],
@@ -279,9 +281,7 @@ function show_form($errors=[]){
 
 	} else { $defaults = $_POST; }
 		
-	if ($errors){
-		require 'tablaErrors.php';
-	} // FIN ERRORS
+	if ($errors){ require 'tablaErrors.php'; } // FIN ERRORS
 	
 	$doctype = array (	'' => 'TIPO DE IDENTIFICADOR',
 						'DNI' => 'DNI/NIF Espa&ntilde;oles',
@@ -308,21 +308,22 @@ function show_form($errors=[]){
 						*/
 						'UNDEFINE' => 'Sin Validación Definida...');
 	
-	global $rf1;	global $rf2;
+	global $rf1, $rf2;
+	if (preg_match('/^(\w{1})/', $_POST['rsocial'] ?? '', $ref1)) { $rf1 = $ref1[1];
+																	$rf1 = trim($rf1);
+	}
 
-	if (preg_match('/^(\w{1})/',$_POST['rsocial'],$ref1)){	$rf1 = $ref1[1];
-															$rf1 = trim($rf1);
-																							}
-	if (preg_match('/^(\w{1})*(\s\w{1})/',$_POST['rsocial'],$ref2)){	$rf2 = $ref2[2];
-																	$rf2 = trim($rf2);
-																							}
+	if (preg_match('/^(\w{1})*(\s\w{1})/', $_POST['rsocial'] ?? '',$ref2)){ $rf2 = $ref2[2];
+																			$rf2 = trim($rf2);
+	}
+
 	global $rf;
 	$rf = strtolower($rf1.$rf2.$_POST['dni'].$_POST['ldni']);
 	$rf = trim($rf);
 
 	print("<table class='tableForm'>
 				<tr>
-					<th colspan=2 >NUEVOS DATOS DEL PROVEEDOR</th>
+					<th colspan=2 >NUEVOS DATOS DEL CLIENTE</th>
 				</tr>
 	<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]'  enctype='multipart/form-data'>
 			<input type='hidden' name='id' value='".$defaults['id']."' />
@@ -354,7 +355,7 @@ function show_form($errors=[]){
 												}
 
 		global $SaveBlackTit;			$SaveBlackTit = "MODIFICAR DATOS";
-		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 									
@@ -421,7 +422,6 @@ function show_form($errors=[]){
 					".$PersonsBlack."
 						<a href='proveedores_Ver.php' >&nbsp;&nbsp;&nbsp;</a>
 					".$closeButton."
-											
 					</td>
 				</tr>
 			</table>"); /* Fin del print */
@@ -432,14 +432,14 @@ function show_form($errors=[]){
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 	
-	function master_index(){
+function master_index(){
 		
-		global $rutaIndex;		$rutaIndex = "../";
-		require '../Inclu_MInd/MasterIndexVar.php';
-		global $rutaProveedores;	$rutaProveedores = "";
-		require '../Inclu_MInd/MasterIndex.php'; 
+	global $rutaIndex;		$rutaIndex = "../";
+	require '../Inclu_MInd/MasterIndexVar.php';
+	global $rutaproveedores;	$rutaproveedores = "";
+	require '../Inclu_MInd/MasterIndex.php'; 
 		
-				} 
+} 
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -455,7 +455,7 @@ function info_01(){
 
 		
 	$_SESSION['xid'] = $_POST['id'];
-	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS PROVEEDORES ".$orden;}
+	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS proveedores ".$orden;}
 	else{$TitBut = "\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";}
 
 	$ActionTime = date('H:i:s');
@@ -466,7 +466,7 @@ function info_01(){
 				}
 	
 	global $text;
-	$text = "\n- PROVEEDORES MODIFICAR SELECCIONADO ".$ActionTime.$TitBut;
+	$text = "\n- proveedores MODIFICAR SELECCIONADO ".$ActionTime.$TitBut;
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');
@@ -495,7 +495,7 @@ function info_02(){
 
 	global $texerror;
 	global $text;
-	$text = "\n- PROVEEDORES GASTO MODIFICADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$rf.".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- proveedores GASTO MODIFICADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$rf.".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');

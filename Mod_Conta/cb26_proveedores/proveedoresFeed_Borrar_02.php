@@ -35,20 +35,20 @@ session_start();
 
 	function process_form(){
 
-		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
-		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
+		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
+		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA proveedores";
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
-		global $db; 		global $db_name;	
+		global $db, $db_name;	
 		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
-		$sql = "DELETE FROM `$db_name`.$vname WHERE `id` = '$_POST[id]' AND `del`='true' LIMIT 1 ";
+		$sql = "DELETE FROM `$db_name`.$vname WHERE $vname.`id` = '$_POST[id]' AND $vname.`del` = 'true' LIMIT 1 ";
 		
 		if(mysqli_query($db, $sql)){
 
 			print("<table class='tableForm' >
 				<tr>
-					<th colspan=3 >HA BORRADO AL PROVEEDOR Y TODAS LAS FACTURAS</th>
+					<th colspan=3 >HA BORRADO AL CLIENTE</th>
 				</tr>
 				<tr>
 					<td style='width: 120px; text-align: right;'>RAZON SOCIAL</td>
@@ -67,10 +67,10 @@ session_start();
 					<td style='text-align: right;' >CONTROL</td><td>".$_POST['ldni']."</td>
 				</tr>				
 				<tr>
-					<td style='text-align: right;' >MAIL</td><td>".$_POST['Email']."</td>
+					<td style='text-align: right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
 				</tr>
 				<tr>
-					<td style='text-align: right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
+					<td style='text-align: right;' >MAIL</td><td>".$_POST['Email']."</td>
 				</tr>
 				<tr>
 					<td style='text-align: right;' >PAIS</td><td colspan='2'>".$_POST['Direccion']."</td>
@@ -103,8 +103,8 @@ session_start();
 			if( file_exists($destination_file)){unlink($destination_file);}
 
 			/* 
-			INICIO BORRA EN CASACADA TODAS LAS ENTRADAS EN LAS TABLAS gastos CON EL NIF, RAZON SOCIAL 
-			*/
+			INICIO BORRA EN CASACADA TODAS LAS ENTRADAS EN LAS TABLAS INGRESOS CON EL NIF, RAZON SOCIAL 
+			
 			global $tableName; 			$tableName = "`".$_SESSION['clave']."status`";
 			$a = "SELECT MIN(year) FROM `$db_name`.$tableName ";
 			$ra = mysqli_query($db, $a);
@@ -117,7 +117,7 @@ session_start();
  			while($yearMin<=$yearHoy){
 	
 				//echo "* AÑO: ".$yearMin.".<br>";
-				global $tName; 	$tName =  "`".$_SESSION['clave']."gastos_".$yearMin."`";
+				global $tName; 	$tName =  "`".$_SESSION['clave']."ingresos_".$yearMin."`";
 				$sgDel = "DELETE FROM `$db_name`.$tName WHERE $tName.`refprovee` = '$_POST[ref]' AND `factnom` = '$_POST[rsocial]' ";
 	
 				if(mysqli_query($db, $sgDel)){ //print("* OK");
@@ -129,22 +129,22 @@ session_start();
 
 			} // FIN WHILE
 
-			global $tableGastPend; 		$tableGastPend = "`".$_SESSION['clave']."gastos_pendientes`";
+			global $tableGastPend; 		$tableGastPend = "`".$_SESSION['clave']."ingresos_pendientes`";
 			$sgDelPend = "DELETE FROM `$db_name`.$tableGastPend WHERE `refprovee` = '$_POST[ref]' AND `factnom` = '$_POST[rsocial]' ";
 			if(mysqli_query($db, $sgDelPend)){ //print("* OK");
 			}else{   print("</br>* ERROR L.133</br> ".mysqli_error($db)."</br>");
 					 global $texerror; 	 $texerror .= "\n\t* ERROR L.133 ".mysqli_error($db);
 						}
-			/* 
-			FIN BORRA EN CASACADA TODAS LAS ENTRADAS EN LAS TABLAS gastos CON EL NIF, RAZON SOCIAL 
 			*/
-
+			/* 
+			FIN BORRA EN CASACADA TODAS LAS ENTRADAS EN LAS TABLAS INGRESOS CON EL NIF, RAZON SOCIAL 
+			*/
 			
-		} else { print("</br>* ERROR L.45</br> ".mysqli_error($db)."</br>");
-							show_form ();
-							global $texerror; 		$texerror .= "\n\t* ERROR L.45 ".mysqli_error($db);
-					}
-		/*
+		}else{	print("</br>* ERROR L.45 ".mysqli_error($db)."</br>");
+				show_form ();
+				global $texerror; 		$texerror .= "\n\t* ERROR L.45 ".mysqli_error($db);
+		}
+
 		global $redir;
 		$redir = "<script type='text/javascript'>
 						function redir(){
@@ -153,7 +153,6 @@ session_start();
 					setTimeout('redir()',8000);
 					</script>";
 		print ($redir);
-		*/
 
 	} // FIN function process_form()
 
@@ -196,9 +195,9 @@ session_start();
 
 function show_form(){
 	
-	global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS PROVEEDOR Y TODAS LAS FACTURAS";
-	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
-	global $DeleteBlackTit;		$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
+	global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS CLIENTE";
+	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
+	global $DeleteBlackTit;		$DeleteBlackTit = "INICIO PAPELERA proveedores";
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
@@ -207,7 +206,7 @@ function show_form(){
 	print("
 			<table class='tableForm' >
 				<tr>
-					<th colspan=3 >BORRARÁ EL PROVEEDOR</th>
+					<th colspan=3 >BORRARÁ EL CLIENTE</th>
 				</tr>
 		<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]'>
 				<tr>
@@ -307,7 +306,7 @@ function show_form(){
 		
 		global $rutaIndex;		$rutaIndex = "../";
 		require '../Inclu_MInd/MasterIndexVar.php';
-		global $rutaProveedores;	$rutaProveedores = "";
+		global $rutaproveedores;	$rutaproveedores = "";
 		require '../Inclu_MInd/MasterIndex.php'; 
 		
 				} /* Fin funcion master_index.*/
@@ -329,7 +328,7 @@ function info_01(){
 				}
 
 	global $text;
-	$text = "\n- PROVEEDOR ELIMINAR SELECCIONADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- CLIENTE ELIMINAR SELECCIONADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	global $texerror;
 	$logdocu = $_SESSION['ref'];
@@ -359,7 +358,7 @@ function info_02(){
 				}
 
 	global $text;
-	$text = "\n- PROVEEDOR ELIMINADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- CLIENTE ELIMINADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	global $texerror;
 	$logdocu = $_SESSION['ref'];

@@ -425,7 +425,7 @@ print(" <table align='center' style=\"border:0px;margin_bottom:6px;margin-top:15
 						<tr>
 							<td align='center'>
 								<a href='http://juanbarrospazos.blogspot.com.es/' target='_blank'>
-									&copy; Juan Barr&oacute;s Pazos 2021 - 2023.
+									&copy; Juan Barr&oacute;s Pazos 2016/2026.
 								</a>
 							</td>
 						</tr>
@@ -443,7 +443,7 @@ print(" <table align='center' style=\"border:0px;margin_bottom:6px;margin-top:15
 
 	</div>
 	<div style="clear:both"></div>
-		<div id="footer">&copy; Juan Barr&oacute;s Pazos 2021 - 2023.</div>
+		<div id="footer">&copy; Juan Barr&oacute;s Pazos 2016/2026.</div>
 	</div>
 </body>
 </html>

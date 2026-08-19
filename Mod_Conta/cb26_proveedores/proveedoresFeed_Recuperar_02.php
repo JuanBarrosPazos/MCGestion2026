@@ -37,26 +37,20 @@ session_start();
 
 function process_form(){
 	
-	global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
-	global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
+	global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
+	global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA proveedores";
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
-	global $db; 		global $db_name;	
-	global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
-	
-	$sql = "INSERT INTO `$db_name`.$vname (`ref`, `rsocial`, `myimg`, `doc`, `dni`, `ldni`, `Email`, `Direccion`, `Tlf1`, `Tlf2`) VALUES ('$_POST[ref]', '$_POST[rsocial]', '$_POST[myimg]', '$_POST[doc]', '$_POST[dni]', '$_POST[ldni]', '$_POST[Email]', '$_POST[Direccion]', '$_POST[Tlf1]', '$_POST[Tlf2]')";
-
-	if(mysqli_query($db, $sql)){
-		
-		print("<table class='tableForm' >
+	global $tablaResult;
+	$tablaResult = "<table class='tableForm' >
 				<tr>
-					<th colspan=3 >HA RECUPERADO EL PROVEEDOR</th>
+					<th colspan=3 >HA RECUPERADO EL CLIENTE</th>
 				</tr>
 				<tr>
 					<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
 					<td style='width: 120px;'>".$_POST['rsocial']."</td>
-					<td rowspan='4' style='width: 120px; text-align: center;' >
+					<td rowspan='5' style='width: 120px; text-align: center;' >
 			<img src='../cb26_Docs/img_proveedores/".$_POST['myimg']."' height='120px' width='90px' />
 					</td>
 				</tr>
@@ -70,10 +64,10 @@ function process_form(){
 					<td style='text-align: right;'>CONTROL</td><td>".$_POST['ldni']."</td>
 				</tr>				
 				<tr>
-					<td style='text-align: right;'>MAIL</td><td colspan='2'>".$_POST['Email']."</td>
+					<td style='text-align: right;'>REFERENCIA</td><td>".$_POST['ref']."</td>
 				</tr>
 				<tr>
-					<td style='text-align: right;'>REFERENCIA</td><td colspan='2'>".$_POST['ref']."</td>
+					<td style='text-align: right;'>MAIL</td><td colspan='2'>".$_POST['Email']."</td>
 				</tr>
 				<tr>
 					<td style='text-align: right;'>PAIS</td><td colspan='2'>".$_POST['Direccion']."</td>
@@ -96,34 +90,32 @@ function process_form(){
 						".$closeButton."
 					</td>
 				</tr>
-			</table>");
+			</table>";
 
+	global $FRecuper;		$FRecuper = date('Y-m-d H:i:s');
+	global $db, $db_name;	
+	global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
+	
+	$sql = "UPDATE `$db_name`.$vname SET `del`='false', `recuper`='$FRecuper' WHERE `id`='$_POST[id]' LIMIT 1 ";
 
-			global $vnamed; 		$vnamed = "`".$_SESSION['clave']."proveedores`";
-			$sqld = "DELETE FROM `$db_name`.$vnamed WHERE `id` = '$_POST[id]' AND `del`='true' LIMIT 1 ";
-			if(mysqli_query($db, $sqld)){
-				// NADA
-			}else{
-				print("</br><font color='#FF0000'>
-						* MODIFIQUE LA ENTRADA 106: </font></br> ".mysqli_error($db))."</br>";
-				show_form();
-				global $texerror; 		$texerror = "\n\t ".mysqli_error($db);
-			}
-			/*	*/
-		} else { 
-			print("</br><font color='#FF0000'>* ERROR L.59: </font></br> ".mysqli_error($db))."</br>";
-					show_form ();
-					//global $texerror;
-					//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
+	if(mysqli_query($db, $sql)){
+		
+		print $tablaResult;
+
+	} else { 
+		print("</br><font color='#FF0000'>* ERROR L.59: </font></br> ".mysqli_error($db))."</br>";
+				show_form ();
+				//global $texerror;
+				//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
+	}
+
+	global $redir;
+	$redir = "<script type='text/javascript'>
+					function redir(){
+					window.location.href='proveedoresFeed_Ver.php';
 				}
-
-		global $redir;
-		$redir = "<script type='text/javascript'>
-						function redir(){
-						window.location.href='proveedoresFeed_Ver.php';
-					}
-					setTimeout('redir()',8000);
-					</script>";
+				setTimeout('redir()',8000);
+				</script>";
 		print ($redir);
 		
 	} // FIN function process_form()
@@ -165,15 +157,15 @@ function show_form(){
 
 	} else { $defaults = $_POST; }
 	
-		global $RestoreBlackTit;	$RestoreBlackTit = "RECUPERAR DATOS PROVEEDOR";
-		global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
-		global $DeleteBlackTit;		$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
+		global $RestoreBlackTit;	$RestoreBlackTit = "RECUPERAR DATOS CLIENTE";
+		global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
+		global $DeleteBlackTit;		$DeleteBlackTit = "INICIO PAPELERA proveedores";
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
 	print("<table class='tableForm' >
 				<tr>
-					<th colspan=2 >RECUPERAR DATOS DEL PROVEEDOR</th>
+					<th colspan=2 >RECUPERAR DATOS DEL CLIENTE</th>
 				</tr>
 	<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]' enctype='multipart/form-data'>
 		<input type='hidden' name='id' value='".$defaults['id']."' />
@@ -265,7 +257,7 @@ function show_form(){
 		
 		global $rutaIndex;		$rutaIndex = "../";
 		require '../Inclu_MInd/MasterIndexVar.php';
-		global $rutaProveedores;	$rutaProveedores = "";
+		global $rutaproveedores;	$rutaproveedores = "";
 		require '../Inclu_MInd/MasterIndex.php'; 
 				} 
 
@@ -283,7 +275,7 @@ function info_01(){
 
 		
 	$_SESSION['xid'] = $_POST['id'];
-	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS PROVEEDORES ".$orden;}
+	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS proveedores ".$orden;}
 	else{$TitBut = "\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";}
 
 	$ActionTime = date('H:i:s');
@@ -294,7 +286,7 @@ function info_01(){
 				}
 	
 	global $text;
-	$text = "\n- PROVEEDORES MODIFICAR SELECCIONADO ".$ActionTime.$TitBut;
+	$text = "\n- proveedores MODIFICAR SELECCIONADO ".$ActionTime.$TitBut;
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');
@@ -323,7 +315,7 @@ function info_02(){
 
 	global $texerror;
 	global $text;
-	$text = "\n- PROVEEDORES GASTO MODIFICADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$rf.".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- proveedores GASTO MODIFICADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$rf.".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');

@@ -13,7 +13,7 @@ session_start();
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){
 
 		//print("Hello ".$_SESSION['Nombre']." ".$_SESSION['Apellidos'].".");
 		master_index();
@@ -35,18 +35,19 @@ session_start();
 
 function process_form(){
 	
-	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
-	print("<table class='tableForm' >
+	global $tablaResult;
+	$tablaResult = "<table class='tableForm' >
 			<tr>
-				<th colspan=3 >HA BORRADO AL PROVEEDOR</th>
+				<th colspan=3 >HA BORRADO AL CLIENTE</th>
 			</tr>
 			<tr>
 				<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
 				<td style='width: 120px;' >".$_POST['rsocial']."</td>
-				<td rowspan='4' style='width: 100px; text-align: center;' >
+				<td rowspan='5' style='width: 100px; text-align: center;' >
 		<img src='../cb26_Docs/img_proveedores/".$_POST['myimg']."' height='120px' width='90px' />
 				</td>
 			</tr>
@@ -60,10 +61,10 @@ function process_form(){
 				<td style='text-align: right;' >CONTROL</td><td>".$_POST['ldni']."</td>
 			</tr>				
 			<tr>
-				<td style='text-align: right;' >MAIL</td><td colspan='2'>".$_POST['Email']."</td>
+				<td style='text-align: right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
 			</tr>
 			<tr>
-				<td style='text-align: right;' >REFERENCIA</td><td colspan='2'>".$_POST['ref']."</td>
+				<td style='text-align: right;' >MAIL</td><td colspan='2'>".$_POST['Email']."</td>
 			</tr>
 			<tr>
 				<td style='text-align: right;' >PAIS</td><td colspan='2'>".$_POST['Direccion']."</td>
@@ -79,21 +80,23 @@ function process_form(){
 				".$PersonsBlack."
 					<a href='proveedores_Ver.php' >&nbsp;&nbsp;&nbsp;</a>
 				".$closeButton."
-	
 				</td>
 			</tr>
-		</table>" );
+		</table>";
 
 		global $FBaja;		$FBaja = date('Y-m-d H:i:s');
+
 		global $db, $db_name;	
 		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
 		
-		$sql = "UPDATE `$db_name`.$vnamei SET `del`='true', `borrado`='$FBaja' WHERE `id`='$_POST[id]' LIMIT 1 ";
+		$sql = "UPDATE `$db_name`.$vname SET `del`='true', `borrado`='$FBaja' WHERE `id`='$_POST[id]' LIMIT 1 ";
 		
 		if(mysqli_query($db, $sql)){
 
+			print $tablaResult;
+
 		} else { print("</br><font color='#FF0000'>
-						* MODIFIQUE LA ENTRADA 83: </font></br> ".mysqli_error($db))."</br>";
+						* MODIFIQUE LA ENTRADA 92: </font></br> ".mysqli_error($db))."</br>";
 					show_form ();
 					global $texerror; 		$texerror = "\n\t ".mysqli_error($db);
 				}
@@ -151,15 +154,15 @@ function show_form(){
 	
 	$_SESSION['xid'] = $_POST['id'];
 
-	global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS PROVEEDOR";
-	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS PROVEEDORES";
+	global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS CLIENTE";
+	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
 	require '../Inclu/BotoneraVar.php';
 	global $closeButton;
 
 	print("
 			<table class='tableForm' >
 				<tr>
-					<th colspan=3 >BORRARÁ EL PROVEEDOR</th>
+					<th colspan=3 >BORRARÁ EL CLIENTE</th>
 				</tr>
 		<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]'>
 				<tr>
@@ -167,32 +170,32 @@ function show_form(){
 					<td style='width:120px;'>
 			<input type='hidden' name='id' value='".$_POST['id']."' />".$_POST['id']."
 					</td>
-					<td rowspan='4' style='width:100px; text-align:center;'>
+					<td rowspan='5' style='width:100px; text-align:center;'>
 			<input type='hidden' name='myimg' value='".$_POST['myimg']."' />
 			<img src='../cb26_Docs/img_proveedores/".$_POST['myimg']."' height='120px' width='90px' />
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >REFERENCIA</td>
+					<td style='text-align:right;'>REFERENCIA</td>
 					<td>
 			<input type='hidden' name='ref' value='".$_POST['ref']."' />".$_POST['ref']."
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >RAZON SOCIAL</td>
+					<td style='text-align:right;'>RAZON SOCIAL</td>
 					<td>
 			<input type='hidden' name='rsocial' value='".$_POST['rsocial']."' />".$_POST['rsocial']."
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >DOCUMENTO</td>
+					<td style='text-align:right;'>DOCUMENTO</td>
 					<td>
 			<input type='hidden' name='doc' value='".$_POST['doc']."' />".$_POST['doc']."
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;' >NÚMERO</td>
-					<td colspan=2>
+					<td style='text-align:right;'>NÚMERO</td>
+					<td>
 			<input type='hidden' name='dni' value='".$_POST['dni']."' />".$_POST['dni']."
 					</td>
 				</tr>
@@ -251,7 +254,7 @@ function show_form(){
 		
 		global $rutaIndex;		$rutaIndex = "../";
 		require '../Inclu_MInd/MasterIndexVar.php';
-		global $rutaProveedores;	$rutaProveedores = "";
+		global $rutaproveedores;	$rutaproveedores = "";
 		require '../Inclu_MInd/MasterIndex.php'; 
 		
 				} /* Fin funcion master_index.*/
@@ -273,7 +276,7 @@ function info_01(){
 				}
 
 	global $text;
-	$text = "\n- PROVEEDOR ELIMINAR SELECCIONADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- CLIENTE ELIMINAR SELECCIONADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	global $texerror;
 	$logdocu = $_SESSION['ref'];
@@ -303,7 +306,7 @@ function info_02(){
 				}
 
 	global $text;
-	$text = "\n- PROVEEDOR ELIMINADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- CLIENTE ELIMINADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	global $texerror;
 	$logdocu = $_SESSION['ref'];

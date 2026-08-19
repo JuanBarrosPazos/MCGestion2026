@@ -5,11 +5,12 @@
 								info();
 
 	}elseif(isset($_POST['oculto'])){
-			/*if($form_errors = validate_form()){
+			if($form_errors = validate_form()){
 						show_form($form_errors);
-			} else {*/process_form();
+						ver_todo();
+			} else {process_form();
 					info();
-						//}
+			}
 
 	}elseif((isset($_POST['oculto2']))||(isset($_POST['imagenmodif']))){
 		show_form();

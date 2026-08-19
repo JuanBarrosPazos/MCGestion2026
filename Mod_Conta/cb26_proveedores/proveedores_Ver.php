@@ -39,7 +39,7 @@ session_start();
 
 	function process_form(){
 		
-		global $db; 		global $db_name;
+		global $db, $db_name;
 		global $nombre;		$nombre = @$_POST['Nombre'];
 		global $apellido;	$apellido = @$_POST['Apellidos'];
 		
@@ -47,20 +47,10 @@ session_start();
 		
 		require 'proveedores_ConsultaLogica.php';
 
-		global $orden;
-		if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
-			$orden = $_POST['Orden'];
-		}else{ $orden = '`id` ASC'; }
-		
 		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
 
-		if ( (strlen(trim($_POST['ref'])) == 0) && (strlen(trim($_POST['rsocial'])) == 0) ){
-			$sqlc =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
-			//echo $sqlc;
-		}else{
-			$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref` = '$ref' OR `rsocial` LIKE '$rso' ORDER BY $orden ";
-			//echo $sqlc."<br>";
-		}
+		$sqlc =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND $ref $rso AND `del`='false' ORDER BY $orden ";
+		echo $sqlc."<br>";
 	
 		$qc = mysqli_query($db, $sqlc);
 		
@@ -77,21 +67,30 @@ session_start();
 			} else { 	
 				print ("<table class='tableForm' >
 						<tr>
-							<th colspan=10 class='BorderInf'>PROVEEDORES ".mysqli_num_rows($qc)."</th>
+							<th colspan=10 class='BorderInf'>proveedores ".mysqli_num_rows($qc)."</th>
 						</tr>
 						<tr>
-							<th>ID</th><th>REFERENCIA</th>
-							<th>DNI</th><th>RAZON SOCIAL</th>
+							<th>ID</th>
+							<th>REFERENCIA</th>
+							<th>DNI</th>
+							<th>RAZON SOCIAL</th>
 							<th colspan='6'>ACCIONES</th>
 						</tr>");
 				
-			global $styleBgc; global $i; $i = 0;
+			global $DetalleBlackTit; 	$DetalleBlackTit = "VER DETALLES";
+			global $DatosBlackTit;		$DatosBlackTit = "MODIFICAR DATOS";
+			global $FotoBlackTit;		$FotoBlackTit = "MODIFICAR IMAGEN";
+			global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS";
+			require '../Inclu/BotoneraVar.php';
+			global $closeButton;
+		
+			global $styleBgc; global $i; $i = 1;
 
 		while($rowb = mysqli_fetch_assoc($qc)){
-
+			
 			if(($i%2) == 0){ $styleBgc = "bgctdb"; }else{ $styleBgc = "bgctd"; }
 			$i++;
-			
+
 			if($rowb['dni'] != "ANONIMO"){
 
 			print (	"<tr class='".$styleBgc."'>
@@ -107,13 +106,6 @@ session_start();
 
 			require 'proveedores_rowTotal.php';
 
-		global $DetalleBlackTit; 	$DetalleBlackTit = "VER DETALLES";
-		global $DatosBlackTit;		$DatosBlackTit = "MODIFICAR DATOS";
-		global $FotoBlackTit;		$FotoBlackTit = "MODIFICAR IMAGEN";
-		global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS";
-		require '../Inclu/BotoneraVar.php';
-		global $closeButton;
-		
 		print("<td colspan=2 align='center'>
 					<!--
 						<input type='submit' value='VER DETALLES' class='botonverde' />
@@ -181,22 +173,28 @@ session_start();
 
 	function show_form($errors=[]){
 		
-		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO PROVEEDOR";
-		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA PROVEEDORES";
+		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO CLIENTE";
+		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA proveedores";
+		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
+
 		require '../Inclu/BotoneraVar.php';
 		global $closeButton;
 
 		global $titulo;
 		$titulo = "GESTIONAR PROVEEDORES";
+
 		global $LinkForm1;
 		/*
-		$$LinkForm1 = "<a href='proveedores_Crear.php' title='CREAR NUEVO PROVEEDOR' class='botonverde' style='color:#343434;'>CREAR NUEVO PROVEEDOR</a>";
+		$$LinkForm1 = "<a href='proveedores_Crear.php' title='CREAR NUEVO CLIENTE' class='botonverde' style='color:#343434;'>CREAR NUEVO CLIENTE</a>";
 		 */
 		$LinkForm1 = "<a href='proveedores_Crear.php' >".$PersonAddBlack.$closeButton."</a>";
 		global $LinkForm2;
 		$LinkForm2 = "<a href='proveedoresFeed_Ver.php' >".$DeleteBlack.$closeButton."</a>";
+		global $LinkForm3;
+		$LinkForm3 = "<a href='proveedores_Ver.php' >".$PersonsBlack.$closeButton."</a>";
+
 		global $titulo2;
-		$titulo2 = "PROVEEDORES VER TODOS";
+		$titulo2 = "proveedores VER TODOS";
 
 		require 'Show_Form.php';
 	
@@ -208,7 +206,7 @@ session_start();
 
 	function ver_todo(){
 			
-		global $db; 		global $db_name;
+		global $db, $db_name;
 
 		global $orden;
 		if((isset($_POST['Orden']))&&($_POST['Orden']!= '')){
@@ -218,23 +216,26 @@ session_start();
 		$sesionref = "";
 		global $vname; 		$vname = "`".$_SESSION['clave']."proveedores`";
 
-		$sqlb =  "SELECT * FROM `$db_name`.$vname ORDER BY $orden ";
+		global $result;
+		$result =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ";
+		require 'Paginacion_Head.php';
+		global $ruta;				$ruta = "";
+		global $pagedest;			$pagedest = "proveedores_Ver.php";
 
+		//$sqlb =  "SELECT * FROM `$db_name`.$vname WHERE `ref`<>'ANONIMO' AND `del`='false' ORDER BY $orden $limit ";
+		$sqlb =  "$result ORDER BY $orden $limit ";
 		$qb = mysqli_query($db, $sqlb);
 		
 		if(!$qb){
-		print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
-				
+			print("* Error SQL L.224. ".mysqli_error($db)."</br>");
 		} else {
-				
-			if(mysqli_num_rows($qb)<= 1){
-
+			if(mysqli_num_rows($qb) < 1){
 				global $titNoData;	$titNoData = "TABLA ".strtoupper($vname)."<br><br>";
 				require 'proveedores_NoData.php';
-
-			} else { print ("<table class='tableForm' >
+			}else{
+				print ("<table class='tableForm' >
 							<tr>
-								<th colspan=10 class='BorderInf'>PROVEEDORES ".mysqli_num_rows($qb)."</th>
+								<th colspan=10 class='BorderInf'>proveedores ".mysqli_num_rows($qb)."</th>
 							</tr>
 							<tr>
 								<th>ID</th>
@@ -244,17 +245,24 @@ session_start();
 								<th colspan='6'>ACCIONES</th>
 							</tr>");
 				
-			global $styleBgc; global $i; $i = 0;
+			global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
+			global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
+			global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
+			global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR CLIENTE";
+			require '../Inclu/BotoneraVar.php';
+			global $closeButton;
+	
+			global $styleBgc;		global $i; $i = 1;
 
-		while($rowb = mysqli_fetch_assoc($qb)){  
+		while($rowb = mysqli_fetch_assoc($qb)){
 
 			if(($i%2) == 0){ $styleBgc = "bgctdb"; }else{ $styleBgc = "bgctd"; }
 			$i++;
 
-		if($rowb['dni'] != "ANONIMO"){
-				print (	"<tr class='".$styleBgc."'>
-										
-		<form name='ver' action='proveedores_Ver_02.php' target='popup' method='POST' onsubmit=\"window.open('', 'popup', 'width=550px,height=460px')\">
+			if($rowb['dni'] != "ANONIMO"){
+					print (	"<tr class='".$styleBgc."'>
+											
+			<form name='ver' action='proveedores_Ver_02.php' target='popup' method='POST' onsubmit=\"window.open('', 'popup', 'width=550px,height=460px')\">
 
 			<td align='left'>".$rowb['id']."</td>
 			<td align='left'>".$rowb['ref']."</td>
@@ -266,29 +274,22 @@ session_start();
 
 			require 'proveedores_rowTotal.php';
 
-		global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
-		global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
-		global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
-		global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR PROVEEDOR";
-		require '../Inclu/BotoneraVar.php';
-		global $closeButton;
-	
-		print("<td colspan=2 align='center'>
+			print("<td colspan=2 align='center'>
 					<!--
 						<input type='submit' value='VER DETALLES' class='botonverde' />
 					-->
 					".$DetalleBlack.$closeButton."
 							<input type='hidden' name='oculto2' value=1 />
-				</form>
-			</td>
-			<td align='center'>
-				<form name='modifica' action='proveedores_Modificar_02.php' method='POST'>");
+					</form>
+				</td>
+				<td align='center'>
+					<form name='modifica' action='proveedores_Modificar_02.php' method='POST'>");
 
-				require 'proveedores_rowTotal.php';
+			require 'proveedores_rowTotal.php';
 
-		print("<!--
-			<input type='submit' value='MODIFICAR DATOS' class='botonnaranja' />
-			-->
+			print("<!--
+				<input type='submit' value='MODIFICAR DATOS' class='botonnaranja' />
+				-->
 				".$DatosBlack.$closeButton."
 						<input type='hidden' name='oculto2' value=1 />
 				</form>
@@ -296,21 +297,21 @@ session_start();
 
 			<td align='center'>
 							
-		<form name='modifica_img' action='$_SERVER[PHP_SELF]' method='POST' >");
+			<form name='modifica_img' action='$_SERVER[PHP_SELF]' method='POST' >");
 
-		require 'proveedores_rowTotal.php';
+			require 'proveedores_rowTotal.php';
 
-		print("<!--
-			<input type='submit' value='MODIFICAR IMAGEN' class='botonnaranja' />
-			-->
-			".$FotoBlack.$closeButton."
+			print("<!--
+				<input type='submit' value='MODIFICAR IMAGEN' class='botonnaranja' />
+				-->
+				".$FotoBlack.$closeButton."
 						<input type='hidden' name='oculto2' value=1 />
 				</form>
 			</td>
 			<td align='center'>
 				<form name='modifica' action='proveedores_Borrar_02.php' method='POST'>");
 
-				require 'proveedores_rowTotal.php';
+			require 'proveedores_rowTotal.php';
 
 			print("<!--
 						<input type='submit' value='BORRAR DATOS' class='botonrojo' />
@@ -320,11 +321,13 @@ session_start();
 				</form>
 			</td>
 				</tr>");
-		}
+			}
 						
-			} /* Fin del while.*/ 
+		} /* FIN WHILE */ 
 
 			print("</table>");
+
+			require 'Paginacion_Footter.php';
 				
 			} /* Fin segundo else anidado en if */
 
@@ -340,7 +343,7 @@ session_start();
 		
 		global $rutaIndex;		$rutaIndex = "../";
 		require '../Inclu_MInd/MasterIndexVar.php';
-		global $rutaProveedores;	$rutaProveedores = "";
+		global $rutaproveedores;	$rutaproveedores = "";
 		require '../Inclu_MInd/MasterIndex.php'; 
 		
 				} 
@@ -358,7 +361,7 @@ function info(){
 		$orden = $_POST['Orden'];
 	}else{ $orden = '`id` ASC'; }
 
-	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS PROVEEDORES ".$orden;}
+	if (isset($_POST['todo'])){$TitBut = "\n\tFiltro => TODOS LOS proveedores ".$orden;}
 	else{$TitBut = "\n\tFiltros: \n\tR. Social: ".$_POST['rsocial'].".\n\tReferencia: ".$_POST['ref'].".";}
 
 	$ActionTime = date('H:i:s');
@@ -369,7 +372,7 @@ function info(){
 				}
 	
 	global $text;
-	$text = "\n- PROVEEDORES MODIFICAR BUSCAR ".$ActionTime.$TitBut;
+	$text = "\n- proveedores MODIFICAR BUSCAR ".$ActionTime.$TitBut;
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');

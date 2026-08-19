@@ -28,66 +28,75 @@ if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){
 
 function process_form(){
 	
-	global $CancelBlackTit;		$CancelBlackTit = "CERRAR VENTANA";
-	require '../Inclu/BotoneraVar.php';
-	global $closeButton;
-
-	global $db;
+	global $db, $db_name;
 	
 	global $nombre;			$nombre = isset($_POST['Nombre']);
 	global $apellido; 		$apellido = isset($_POST['Apellidos']);
 	global $sesionref; 		$sesionref = $_SESSION['ref'];
 	$sesionref = strtolower($sesionref);
 	
-	print("<table class='tableForm' style='margin-top: 1.6em !important;' >
-				<tr>
-					<th colspan=3 '>DATOS DEL PROVEEDOR</th>
-				</tr>
-				<tr>
-					<td style='width:120px; text-align:right;' >ID</td>
-					<td style='width:120px;' >".$_POST['id']."</td>
-					<td rowspan='5' style='width:100px; text-align:center;'>
-		<img src='../cb26_Docs/img_proveedores/".$_POST['myimg']."' height='120px' width='90px' />
-					</td>
-				</tr>
-				<tr>
-					<td style='text-align:right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
-				</tr>
-				<tr>
-					<td style='text-align:right;' >RAZON SOCIAL</td><td>".$_POST['rsocial']."</td>
-				</tr>				
-				<tr>
-					<td style='text-align:right;' >Tipo Documento:</td><td>".$_POST['doc']."</td>
-				</tr>				
-				<tr>
-					<td style='text-align:right;' >N&uacute;mero:</td><td>".$_POST['dni']." ".$_POST['ldni']."</td>
-				</tr>				
-				<tr>
-					<td style='text-align:right;' >MAIL</td><td colspan='2'>".$_POST['Email']."</td>
-				</tr>
-				<tr>
-					<td style='text-align:right;' >Direcci&oacute;n:</td><td colspan='2'>".$_POST['Direccion']."</td>
-				</tr>
-				<tr>
-					<td style='text-align:right;' >Tel&eacute;fono 1:</td><td colspan='2'>".$_POST['Tlf1']."</td>
-				</tr>
-				<tr>
-					<td style='text-align:right;' >Tel&eacute;fono 2:</td><td colspan='2'>".$_POST['Tlf2']."</td>
-				</tr>
-				<tr>
-					<td colspan=3 style='text-align:right;' >
-						<form name='closewindow' action='$_SERVER[PHP_SELF]'  onsubmit=\"window.close()\">
-							<!--
-							<input type='submit' value='CERRAR VENTANA' class='botonverde' />
-							-->
-							".$CancelBlack.$closeButton."
-							<input type='hidden' name='oculto2' value=1 />
-						</form>
-					</td>
-				</tr>
-			</table>");
+	global $CancelBlackTit;		$CancelBlackTit = "CERRAR VENTANA";
+	require '../Inclu/BotoneraVar.php';
+	global $closeButton;
 
-	} // FIN process_form()
+	print("<table class='tableForm' style='margin-top: 1.6em !important;' >
+		<tr>
+			<th colspan=3 '>DATOS DEL CLIENTE</th>
+		</tr>
+		<tr>
+			<td style='width:120px; text-align:right;' >ID</td>
+			<td style='width:120px;' >".$_POST['id']."</td>
+			<td rowspan='5' style='width:100px; text-align:center;'>
+	<img src='../cb26_Docs/img_proveedores/".$_POST['myimg']."' height='120px' width='90px' />
+			</td>
+		</tr>
+		<tr>
+			<td style='text-align:right;' >REFERENCIA</td><td>".$_POST['ref']."</td>
+		</tr>
+		<tr>
+			<td style='text-align:right;' >RAZON SOCIAL</td><td>".$_POST['rsocial']."</td>
+		</tr>				
+		<tr>
+			<td style='text-align:right;' >Tipo Documento:</td><td>".$_POST['doc']."</td>
+		</tr>				
+		<tr>
+			<td style='text-align:right;' >N&uacute;mero:</td><td>".$_POST['dni']." ".$_POST['ldni']."</td>
+		</tr>				
+		<tr>
+			<td style='text-align:right;' >MAIL</td><td colspan='2'>".$_POST['Email']."</td>
+		</tr>
+		<tr>
+			<td style='text-align:right;' >Direcci&oacute;n:</td><td colspan='2'>".$_POST['Direccion']."</td>
+		</tr>
+		<tr>
+			<td style='text-align:right;' >Tel&eacute;fono 1:</td><td colspan='2'>".$_POST['Tlf1']."</td>
+		</tr>
+		<tr>
+			<td style='text-align:right;' >Tel&eacute;fono 2:</td><td colspan='2'>".$_POST['Tlf2']."</td>
+		</tr>
+		<tr>
+			<td colspan=3 style='text-align:right;' >
+				<form name='closewindow' action='$_SERVER[PHP_SELF]'  onsubmit=\"window.close()\">
+					<!--
+					<input type='submit' value='CERRAR VENTANA' class='botonverde' />
+					-->
+					".$CancelBlack.$closeButton."
+					<input type='hidden' name='oculto2' value=1 />
+				</form>
+			</td>
+		</tr>
+	</table>");
+
+	global $redir;
+	$redir = "<script type='text/javascript'>
+				function redir(){
+					window.close();
+				}
+			setTimeout('redir()',10000);
+		</script>";
+	print($redir);
+
+} // FIN process_form()
 			
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
@@ -95,17 +104,13 @@ function process_form(){
 
 function info(){
 
-	global $db;
-		
 	$ActionTime = date('H:i:s');
 	
 	global $dir;
-	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ 
-				$dir = "../cb26_Docs/log";
-				}
+	if (($_SESSION['Nivel'] == 'wmaster')||($_SESSION['Nivel'] == 'admin')){ $dir = "../cb26_Docs/log"; }
 	
 	global $text;
-	$text = "\n- PROVEEDORES DETALLES ".$ActionTime.".\n\tID: ".$_POST['id'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".";
+	$text = "\n- proveedores DETALLES ".$ActionTime.".\n\tID: ".$_POST['id'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".";
 
 	$logdocu = $_SESSION['ref'];
 	$logdate = date('Y_m_d');
@@ -115,7 +120,7 @@ function info(){
 	fwrite($log, $logtext);
 	fclose($log);
 
-	}
+}
 
 				   ////////////////////				   ////////////////////
 ////////////////////				////////////////////				////////////////////
