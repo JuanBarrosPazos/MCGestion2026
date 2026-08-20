@@ -37,7 +37,7 @@
 ----
 
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.20 (Beta cb26_)
+## * MCGestion2026 V26.08.20 (Beta cb26_) py
     * INTEGRACIÓN DE SCRIPTS PY...
     - Mod_Conta Clientes y Proveedores:
         - Se integra script py para la generación de imagenes y datos automaticamente.
