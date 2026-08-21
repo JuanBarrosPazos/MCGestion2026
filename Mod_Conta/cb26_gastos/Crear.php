@@ -192,7 +192,6 @@ session_start();
 					$rename_filename2 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name2;								
 					rename($destination_file2, $rename_filename2);
 				}else {print("NO SE HA PODIDO GUARDAR EN ".$destination_file2);}
-	
 			}
 				
 			/////////////
@@ -202,7 +201,6 @@ session_start();
 					$rename_filename3 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name3;								
 					copy("../cb26_Docs/docgastos_".$dyt1."/untitled.png", $rename_filename3);
 			}else{
-	
 				$safe_filename3 = trim(str_replace('/', '', $_FILES['myimg3']['name']));
 				$safe_filename3 = trim(str_replace('..', '', $safe_filename3));
 		
@@ -227,7 +225,6 @@ session_start();
 					$rename_filename3 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name3;								
 					rename($destination_file3, $rename_filename3);
 				}else {print("NO SE HA PODIDO GUARDAR EN ".$destination_file3);}
-				
 			}
 				
 			/////////////
@@ -237,7 +234,6 @@ session_start();
 					$rename_filename4 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name4;								
 					copy("../cb26_Docs/docgastos_".$dyt1."/untitled.png", $rename_filename4);
 			}else{
-	
 				$safe_filename4 = trim(str_replace('/', '', $_FILES['myimg4']['name']));
 				$safe_filename4 = trim(str_replace('..', '', $safe_filename4));
 		
@@ -262,14 +258,13 @@ session_start();
 					$rename_filename4 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name4;								
 					rename($destination_file4, $rename_filename4);
 				}else {print("NO SE HA PODIDO GUARDAR EN ".$destination_file4);}
-	
 			}
 
 			/************* FIN CREAMOS LAS IMAGENES ***************/
 
-			global $iniy; 		$iniy = substr(date('Y'),0,2);
-			global $title;	$title = 'SE HA GRABADO EN ';
-			global $ConteBotones;		$ConteBotones = "style='display:block;'";
+			global $iniy; 			$iniy = substr(date('Y'),0,2);
+			global $title;			$title = 'SE HA GRABADO EN ';
+			global $ConteBotones;	$ConteBotones = "style='display:block;'";
 
 			/*
 			global $Crear;			$Crear = "style='display:none; visibility: hidden;'";
@@ -278,13 +273,14 @@ session_start();
 			global $Modif2;			$Modif2 = "style='display:none; visibility: hidden;'";
 			global $Borrar2;		$Borrar2 = "style='display:none; visibility: hidden;'";
 			*/
+
 			require 'TableFormResult.php';
 
 		}else{ // NO SE CUMPLE EL QUERY
 				print("* ERROR L.124: ".mysqli_error($db));
 				show_form();
 				global $texerror; 	$texerror = "\n\t ".mysqli_error($db);
-			}
+		}
 
 		/*
 		global $redir;

@@ -55,7 +55,7 @@
 		$qrySumToti = mysqli_query($db, $sqlSumToti);
 		$SumToti = mysqli_fetch_assoc($qrySumToti);
 		$sumapvptoti = $SumToti['YearSumToti'];
-		$sumapvptoti  = number_format($sumapvptoti ,2,".","");
+		$sumapvptoti  = number_format((float)($sumapvptoti ?? 0 ) ,2,".","");
 		//if($sumapvptoti == ''){ $sumapvptoti = "0.00"; }else{ }
 		//echo "- TOTAL ANUAL: ".$sumapvptoti."<br>";
 	}else{ $sumapvptoti = "0.00"; }
@@ -75,7 +75,7 @@
 		$qrySumRetei = mysqli_query($db, $sqlSumRetei);
 		$SumRetei = mysqli_fetch_assoc($qrySumRetei);
 		$sumaretei = $SumRetei['YearSumRetei'];
-		$sumaretei  = number_format($sumaretei ,2,".","");
+		$sumaretei  = number_format((float)($sumaretei ?? 0 ) ,2,".","");
 		//if($sumaretei == ''){ $sumaretei = "0.00"; }else{ }
 		//echo "* TOTAL ANUAL RETENCIONES: ".$sumaretei."<br>";
 	}else{ $sumaretei = "0.00"; }
@@ -95,7 +95,7 @@
 		$qrySumIvai = mysqli_query($db, $sqlSumIvai);
 		$SumIvai = mysqli_fetch_assoc($qrySumIvai);
 		$sumaivaei = $SumIvai['YearSumIvai'];
-		$sumaivaei  = number_format($sumaivaei ,2,".","");
+		$sumaivaei  = number_format((float)($sumaivaei ?? 0 ) ,2,".","");
 		//if($sumaivaei == ''){ $sumaivaei = "0.00";   }else{ }
 		//echo "- TOTAL ANUAL IVA: ".$sumaivaei."<br>";
 	}else{ $sumaivaei = "0.00"; }
@@ -142,7 +142,7 @@
 			$qrySumToti = mysqli_query($db, $sqlSumToti);
 			$SumToti = mysqli_fetch_assoc($qrySumToti);
 			$TriSumToti = $SumToti['TriSumToti'];
-			$rowi['factpvptot']  = number_format($TriSumToti ,2,".","");
+			$rowi['factpvptot']  = number_format((float)($TriSumToti ?? 0 ) ,2,".","");
 			//if($TriSumTotg == ''){ $TriSumTotg = "0.00"; }else{ }
 			global $sumapvptoti;
 			if($sumapvptoti > 0){
@@ -218,21 +218,21 @@
 			$qrySumIva = mysqli_query($db, $sqlSumIva);
 			$SumIva = mysqli_fetch_assoc($qrySumIva);
 			$TriSumIvai = $SumIva['TriSumIvai'];
-			$rowi['factivae']  = number_format($TriSumIvai ,2,".","");
+			$rowi['factivae']  = number_format((float)($TriSumIvai ?? 0 ) ,2,".","");
 			//if($TriSumIvai == ''){ $TriSumIvai = "0.00"; }else{ }
 
 			$sqlSumSub = "SELECT SUM(`factpvp`) AS 'TriSumSubToti' $SqlFromi";
 			$qrySumSub = mysqli_query($db, $sqlSumSub);
 			$SumSub = mysqli_fetch_assoc($qrySumSub);
 			$TriSumSubToti = $SumSub['TriSumSubToti'];
-			$rowi['factpvp']  = number_format($TriSumSubToti ,2,".","");
+			$rowi['factpvp']  = number_format((float)($TriSumSubToti ?? 0 ) ,2,".","");
 			//if($TriSumSubToti == ''){ $TriSumSubToti = "0.00"; }else{ }
 
 			$sqlSumRete = "SELECT SUM(`factrete`) AS 'TriSumRetei' $SqlFromi";
 			$qrySumRete = mysqli_query($db, $sqlSumRete);
 			$SumRete = mysqli_fetch_assoc($qrySumRete);
 			$TriSumRetei = $SumRete['TriSumRetei'];
-			$rowi['factrete']  = number_format($TriSumRetei ,2,".","");
+			$rowi['factrete']  = number_format((float)($TriSumRetei ?? 0 ) ,2,".","");
 			//if($TriSumRetei == ''){ $TriSumRetei ="0.00"; }else{ }
 
 			$sqlSumTot = "SELECT SUM(`factpvptot`) AS 'TriSumToti' $SqlFromi";
@@ -240,7 +240,7 @@
 			$qrySumTot = mysqli_query($db, $sqlSumTot);
 			$SumTot = mysqli_fetch_assoc($qrySumTot);
 			$TriSumToti = $SumTot['TriSumToti'];
-			$rowi['factpvptot']  = number_format($TriSumToti ,2,".","");
+			$rowi['factpvptot']  = number_format((float)($TriSumToti ?? 0 ) ,2,".","");
 			//if($TriSumToti == ''){ $TriSumToti = "0.00"; }else{ }
 
 		global $vnamei; 	global $dyt1;   global $MesNomb;
@@ -327,7 +327,7 @@
 		$qrySumTotg = mysqli_query($db, $sqlSumTotg);
 		$SumTotg = mysqli_fetch_assoc($qrySumTotg);
 		$sumapvptotg = $SumTotg['YearSumTotg'];
-		$sumapvptotg  = number_format($sumapvptotg ,2,".","");
+		$sumapvptotg  = number_format((float)($sumapvptotg ?? 0 ) ,2,".","");
 		//if($sumapvptotg == ''){ $sumapvptotg = "0.00"; }else{ }
 		//echo "* TOTAL ANUAL: ".$sumapvptoti."<br>";
 	}else{ $sumapvptotg = "0.00"; }
@@ -346,7 +346,7 @@
 		$qrySumReteg = mysqli_query($db, $sqlSumReteg);
 		$SumReteg = mysqli_fetch_assoc($qrySumReteg);
 		$sumareteg = $SumReteg['YearSumReteg'];
-		$sumareteg  = number_format($sumareteg ,2,".","");
+		$sumareteg  = number_format((float)($sumareteg ?? 0 ) ,2,".","");
 		//if($sumareteg == ''){  }else{ }
 		//echo "* TOTAL ANUAL RETENCIONES: ".$sumaretei."<br>";
 	}else{ $sumareteg = "0.00"; }
@@ -365,7 +365,7 @@
 		$SumIvag = mysqli_fetch_assoc($qrySumIvag);
 		global $sumaivaeg;
 		$sumaivaeg = $SumIvag['YearSumIvag'];
-		$sumaivaeg  = number_format($sumaivaeg ,2,".","");
+		$sumaivaeg  = number_format((float)($sumaivaeg ?? 0 ) ,2,".","");
 		//if($sumaivaeg == ''){ $sumaivaeg = "0.00";   }else{ }
 		//echo "* TOTAL ANUAL IVA: ".$sumaivaei."<br>";
 	}else{ $sumaivaeg = "0.00"; }
@@ -410,7 +410,7 @@
 			$qrySumTotg = mysqli_query($db, $sqlSumTotg);
 			$SumTotg = mysqli_fetch_assoc($qrySumTotg);
 			$TriSumTotg = $SumTotg['TriSumTotg'];
-			$rowg['factpvptot']  = number_format($TriSumTotg ,2,".","");
+			$rowg['factpvptot']  = number_format((float)($TriSumTotg ?? 0 ) ,2,".","");
 			//if($TriSumTotg == ''){ $TriSumTotg = "0.00"; }else{ }
 			global $sumapvptotg;
 			if($sumapvptotg > 0){
@@ -485,28 +485,28 @@
 		$qrySumIvag = mysqli_query($db, $sqlSumIvag);
 		$SumIvag = mysqli_fetch_assoc($qrySumIvag);
 		$TriSumIvag = $SumIvag['TriSumIvag'];
-		$rowg['factivae'] = number_format($TriSumIvag ,2,".","");
+		$rowg['factivae'] = number_format((float)($TriSumIvag ?? 0 ),2,".","");
 		//if($TriSumIvag == ''){ $TriSumIvag = "0.00"; }else{ }
 
 		$sqlSumSubg = "SELECT SUM(`factpvp`) AS 'TriSumSubTotg' $SqlFromg";
 		$qrySumSubg = mysqli_query($db, $sqlSumSubg);
 		$SumSubg = mysqli_fetch_assoc($qrySumSubg);
 		$TriSumSubTotg = $SumSubg['TriSumSubTotg'];
-		$rowg['factpvp'] = number_format($TriSumSubTotg ,2,".","");
+		$rowg['factpvp'] = number_format((float)($TriSumSubTotg ?? 0 ),2,".","");
 		//if($TriSumSubTotg == ''){ $TriSumSubTotg = "0.00"; }else{ }
 
 		$sqlSumReteg = "SELECT SUM(`factrete`) AS 'TriSumReteg' $SqlFromg";
 		$qrySumReteg = mysqli_query($db, $sqlSumReteg);
 		$SumReteg = mysqli_fetch_assoc($qrySumReteg);
 		$TriSumReteg = $SumReteg['TriSumReteg'];
-		$rowg['factrete']  = number_format($TriSumReteg ,2,".","");
+		$rowg['factrete']  = number_format((float)($TriSumReteg ?? 0 ) ,2,".","");
 		//if($TriSumReteg == ''){ $TriSumReteg ="0.00"; }else{ }
 
 		$sqlSumTotg = "SELECT SUM(`factpvptot`) AS 'TriSumTotg' $SqlFromg";
 		$qrySumTotg = mysqli_query($db, $sqlSumTotg);
 		$SumTotg = mysqli_fetch_assoc($qrySumTotg);
 		$TriSumTotg = $SumTotg['TriSumTotg'];
-		$rowg['factpvptot']  = number_format($TriSumTotg ,2,".","");
+		$rowg['factpvptot']  = number_format((float)($TriSumTotg ?? 0 ) ,2,".","");
 		//if($TriSumTotg == ''){ $TriSumTotg = "0.00"; }else{ }
 				
 		global $dyt1;
@@ -569,15 +569,15 @@
 	global $sumapvptotd; 		global $sumareted; 		global $sumaivaed;
 
 	$sumapvptotd = $sumapvptoti - $sumapvptotg;
-	$sumapvptotd  = number_format($sumapvptotd ,2,".","");
+	$sumapvptotd  = number_format((float)($sumapvptotd ?? 0 ) ,2,".","");
 	//if($sumapvptotd == ""){$sumapvptotd = "0.00"; }else{ }
 
 	$sumareted = $sumaretei - $sumareteg;
-	$sumareted  = number_format($sumareted ,2,".","");
+	$sumareted  = number_format((float)($sumareted ?? 0 ) ,2,".","");
 	//if($sumareted == ""){ $sumareted = "0.00";}else{ }
 
 	$sumaivaed = $sumaivaei - $sumaivaeg;
-	$sumaivaed  = number_format($sumaivaed ,2,".","");
+	$sumaivaed  = number_format((float)($sumaivaed ?? 0 ) ,2,".","");
 	//if($sumaivaed == ""){ $sumaivaed = "0.00"; }else{ }
 
 	//$sumapvptotd = '';	$sumareted = 0.00;	$sumaivaed = 0;
@@ -647,7 +647,7 @@
 			$qrySumTotgri = mysqli_query($db, $sqlSumTotgri);
 			$SumTotgri = mysqli_fetch_assoc($qrySumTotgri);
 			$TriSumTotgri = $SumTotgri['TriSumTotgri'];
-			$rowgri['factpvptot']  = number_format($TriSumTotgri ,2,".","");
+			$rowgri['factpvptot']  = number_format((float)($TriSumTotgri ?? 0 ) ,2,".","");
 			//if($TriSumTotg == ''){ $TriSumTotg = "0.00"; }else{ }
 			//echo $rowgri['factpvptot']."<br>";
 
@@ -665,7 +665,7 @@
 			$qrySumTotgrg = mysqli_query($db, $sqlSumTotgrg);
 			$SumTotgrg = mysqli_fetch_assoc($qrySumTotgrg);
 			$TriSumTotgrg = $SumTotgrg['TriSumTotgrg'];
-			$rowgrg['factpvptot']  = number_format($TriSumTotgrg ,2,".","");
+			$rowgrg['factpvptot']  = number_format((float)($TriSumTotgrg ?? 0 ) ,2,".","");
 			
 			//if($TriSumTotg == ''){ $TriSumTotg = "0.00"; }else{ }
 			//echo $rowgrg['factpvptot']."<br>";
@@ -673,7 +673,7 @@
 
 			global $sumapvptotd;
 			$calculo = $rowgri['factpvptot'] - $rowgrg['factpvptot'];
-			$rowd['factpvptot'] = number_format(abs($calculo) ,2,".","");
+			$rowd['factpvptot'] = number_format(abs((float)($calculo ?? 0)) ,2,".","");
 			if($sumapvptotd > 0){
 				$TotEd = ($rowd['factpvptot']*100)/$sumapvptotd;
 			}elseif($sumapvptotd < 0){
@@ -756,28 +756,28 @@
 		$qrySumIva = mysqli_query($db, $sqlSumIva);
 		$SumIva = mysqli_fetch_assoc($qrySumIva);
 		$TriSumIvai = $SumIva['TriSumIvai'];
-		$TriSumIvai = number_format($TriSumIvai,2,".","");
+		$TriSumIvai = number_format((float)($TriSumIvai ?? 0 ),2,".","");
 		//if($TriSumIvai == ''){ $TriSumIvai = "0.00"; }else{ }
 		
 		$sqlSumSub = "SELECT SUM(`factpvp`) AS 'TriSumSubToti' $SqlFromi";
 		$qrySumSub = mysqli_query($db, $sqlSumSub);
 		$SumSub = mysqli_fetch_assoc($qrySumSub);
 		$TriSumSubToti = $SumSub['TriSumSubToti'];
-		$TriSumSubToti = number_format($TriSumSubToti,2,".","");
+		$TriSumSubToti = number_format((float)($TriSumSubToti ?? 0 ),2,".","");
 		//if($TriSumSubToti == ''){ $TriSumSubToti = "0.00"; }else{ }
 	
 		$sqlSumRete = "SELECT SUM(`factrete`) AS 'TriSumRetei' $SqlFromi";
 		$qrySumRete = mysqli_query($db, $sqlSumRete);
 		$SumRete = mysqli_fetch_assoc($qrySumRete);
 		$TriSumRetei = $SumRete['TriSumRetei'];
-		$TriSumRetei = number_format($TriSumRetei,2,".","");
+		$TriSumRetei = number_format((float)($TriSumRetei ?? 0 ),2,".","");
 		//if($TriSumRetei == ''){ $TriSumRetei ="0.00"; }else{ }
 	
 		$sqlSumTot = "SELECT SUM(`factpvptot`) AS 'TriSumToti' $SqlFromi";
 		$qrySumTot = mysqli_query($db, $sqlSumTot);
 		$SumTot = mysqli_fetch_assoc($qrySumTot);
 		$TriSumToti = $SumTot['TriSumToti'];
-		$TriSumToti= number_format($TriSumToti,2,".","");
+		$TriSumToti= number_format((float)($TriSumToti ?? 0 ),2,".","");
 		//if($TriSumToti == ''){ $TriSumToti = "0.00"; }else{ }
 
 		/* CONSULTAS PARA GASTOS */
@@ -788,43 +788,43 @@
 		$qrySumIvag = mysqli_query($db, $sqlSumIvag);
 		$SumIvag = mysqli_fetch_assoc($qrySumIvag);
 		$TriSumIvag = $SumIvag['TriSumIvag'];
-		$TriSumIvag = number_format($TriSumIvag,2,".","");
+		$TriSumIvag = number_format((float)($TriSumIvag ?? 0 ),2,".","");
 		//if($TriSumIvag == ''){ $TriSumIvag = "0.00"; }else{ }
 	
 		$sqlSumSubg = "SELECT SUM(`factpvp`) AS 'TriSumSubTotg' $SqlFromg";
 		$qrySumSubg = mysqli_query($db, $sqlSumSubg);
 		$SumSubg = mysqli_fetch_assoc($qrySumSubg);
 		$TriSumSubTotg = $SumSubg['TriSumSubTotg'];
-		$TriSumSubTotg = number_format($TriSumSubTotg,2,".","");
+		$TriSumSubTotg = number_format((float)($TriSumSubTotg ?? 0 ),2,".","");
 		//if($TriSumSubTotg == ''){ $TriSumSubTotg = "0.00"; }else{ }
 	
 		$sqlSumReteg = "SELECT SUM(`factrete`) AS 'TriSumReteg' $SqlFromg";
 		$qrySumReteg = mysqli_query($db, $sqlSumReteg);
 		$SumReteg = mysqli_fetch_assoc($qrySumReteg);
 		$TriSumReteg = $SumReteg['TriSumReteg'];
-		$TriSumReteg = number_format($TriSumReteg,2,".","");
+		$TriSumReteg = number_format((float)($TriSumReteg ?? 0 ),2,".","");
 		//if($TriSumReteg == ''){ $TriSumReteg ="0.00"; }else{ }
 	
 		$sqlSumTotg = "SELECT SUM(`factpvptot`) AS 'TriSumTotg' $SqlFromg";
 		$qrySumTotg = mysqli_query($db, $sqlSumTotg);
 		$SumTotg = mysqli_fetch_assoc($qrySumTotg);
 		$TriSumTotg = $SumTotg['TriSumTotg'];
-		$TriSumTotg = number_format($TriSumTotg,2,".","");
+		$TriSumTotg = number_format((float)($TriSumTotg ?? 0 ),2,".","");
 		//if($TriSumTotg == ''){ $TriSumTotg = "0.00"; }else{ }
 
 		/* CALCULO DE LAS DIFERENCIAS */
 
 		$TriSumIvad = $TriSumIvai - $TriSumIvag;
-		$TriSumIvad = number_format($TriSumIvad,2,".","");
+		$TriSumIvad = number_format((float)($TriSumIvad ?? 0 ),2,".","");
 
 		$TriSumSubTotd = $TriSumSubToti - $TriSumSubTotg;
-		$TriSumSubTotd= number_format($TriSumSubTotd,2,".","");
+		$TriSumSubTotd= number_format((float)($TriSumSubTotd ?? 0 ),2,".","");
 
 		$TriSumReted = $TriSumRetei - $TriSumReteg;
-		$TriSumReted = number_format($TriSumReted,2,".","");
+		$TriSumReted = number_format(($TriSumReted ?? 0 ),2,".","");
 
 		$TriSumTotd = $TriSumToti - $TriSumTotg;
-		$TriSumTotd = number_format($TriSumTotd,2,".","");
+		$TriSumTotd = number_format((float)($TriSumTotd ?? 0 ),2,".","");
 
 		global $dyt1;   global $MesNomb;
 		//if($rowi['tot']!= 0.00){

@@ -37,9 +37,11 @@
 ----
 
 # ** ÚLTIMA VERSIÓN:
-## * MCGestion2026 V26.08.21 (Beta cb26_)
+## * MCGestion2026 V26.08.21B (Beta cb26_)
     * Actualizado jpgraph v4.4.3
-    - cb26_gastos Ajustes codigo en: Crear.php Ver.php ValidateForm.php 
+    - cb26_gastos Ajustes codigo en: Crear.php Ver.php ValidateForm.php
+    - Mod_Conta\Inclu_Index\indexConsultaTablasTrim.php
+        - Deprecated: number_format() $rowg['factivae'] = number_format($TriSumIvag ,2,".","");
 
 ----
 ## * MCGestion2026 V26.08.20 (Beta cb26_) py
