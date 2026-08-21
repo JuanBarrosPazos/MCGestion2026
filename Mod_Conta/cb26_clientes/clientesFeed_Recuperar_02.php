@@ -103,7 +103,7 @@ function process_form(){
 		print $tablaResult;
 
 	} else { 
-		print("</br><font color='#FF0000'>* ERROR L.59: </font></br> ".mysqli_error($db))."</br>";
+		print("</br><font color='#F1BD2D'>* ERROR L.59: </font></br> ".mysqli_error($db))."</br>";
 				show_form ();
 				//global $texerror;
 				//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";

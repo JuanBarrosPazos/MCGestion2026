@@ -35,12 +35,10 @@ session_start();
 
 	function process_form(){
 		
-		global $db;
+		global $db, $db_name;	global $dyt1;
  
 		show_form();
 
-		global $dyt1;
-		
 		require 'FactDate.php';
 
 		global $vname; 		$vname = "`".$_SESSION['clave']."gastos_".$dyt1."`";
@@ -55,11 +53,11 @@ session_start();
 		require 'FunctVerTodoSumTotal.php';
 
 		global $rutPend;	$rutPend = '';
-		global $pend;	$pend = "";
+		global $pend;		$pend = "";
 		require 'Botonera.php';
 
 		if(!$qb){
-				print("<font color='#FF0000'>
+				print("<font color='#F1BD2D'>
 						ERROR: </font>".mysqli_error($db)."</br>");
 		}else{
 			if(mysqli_num_rows($qb) == 0){
@@ -128,16 +126,12 @@ session_start();
 
 	function show_form($errors=[]){
 	
-		if(isset($_POST['show_formcl'])){
-					$defaults = $_POST;
-		} elseif(isset($_POST['todo'])){
+		if((isset($_POST['show_formcl']))||(isset($_POST['todo']))){
 				$defaults = $_POST;
-		} else { $defaults = array ('factnom' => '',
-									'factnif' => '',
-									'factnum' => '',
-									'factnumini' => '',
-									'Orden' => isset($ordenar));
-								}
+								  
+		}else{ $defaults = array ('factnom' => '', 'factnif' => '', 'factnum' => '', 
+								  'factnumini' => '', 'Orden' => isset($ordenar));
+		}
 
 		global $titulo; 		$titulo = "CONSULTAR GASTOS";
 		global $TitBut1;		$TitBut1 = "VER TODOS LOS GASTOS";		
@@ -210,7 +204,7 @@ session_start();
 		require 'Botonera.php';
 
 		if(!$qb){
-			print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+			print("<font color='#F1BD2D'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 		}else{
 			if(mysqli_num_rows($qb) == 0){
 				global $titNoData;		$titNoData = "GASTOS ".$dyt1."<br>";

@@ -37,6 +37,11 @@
 ----
 
 # ** ÚLTIMA VERSIÓN:
+## * MCGestion2026 V26.08.21 (Beta cb26_)
+    * Actualizado jpgraph v4.4.3
+    - cb26_gastos Ajustes codigo en: Crear.php Ver.php ValidateForm.php 
+
+----
 ## * MCGestion2026 V26.08.20 (Beta cb26_) py
     * INTEGRACIÓN DE SCRIPTS PY...
     - Mod_Conta Clientes y Proveedores:

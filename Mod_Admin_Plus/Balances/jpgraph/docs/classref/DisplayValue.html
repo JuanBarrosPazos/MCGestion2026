@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -93,7 +93,9 @@ $lineplot->value->Show(); <p> &nbsp;
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify the alignment of the display value in relation to the data point. Possible values are 'left', 'right', 'center'&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -115,7 +117,18 @@ $lineplot->value->Show(); <p> &nbsp;
 Please rememberthat you must use TTF fonts if you need any angle other than 0 or 90 degrees (horizontal or vertical)&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="DisplayValue.html#_DISPLAYVALUE_SETFONT">DisplayValue::SetFont()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$bplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">barPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Setup&nbsp;the&nbsp;values&nbsp;that&nbsp;are&nbsp;displayed&nbsp;on&nbsp;top&nbsp;of&nbsp;each&nbsp;bar<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Must&nbsp;use&nbsp;TTF&nbsp;fonts&nbsp;if&nbsp;we&nbsp;want&nbsp;text&nbsp;at&nbsp;an&nbsp;arbitrary&nbsp;angle<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_ARIAL</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Black&nbsp;color&nbsp;for&nbsp;positive&nbsp;values&nbsp;and&nbsp;darkred&nbsp;for&nbsp;negative&nbsp;values<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">"black"</span><span style="color: #007700">,</span><span style="color: #DD0000">"darkred"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$bplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">barPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Setup&nbsp;the&nbsp;values&nbsp;that&nbsp;are&nbsp;displayed&nbsp;on&nbsp;top&nbsp;of&nbsp;each&nbsp;bar
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Must&nbsp;use&nbsp;TTF&nbsp;fonts&nbsp;if&nbsp;we&nbsp;want&nbsp;text&nbsp;at&nbsp;an&nbsp;arbitrary&nbsp;angle
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_ARIAL</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Black&nbsp;color&nbsp;for&nbsp;positive&nbsp;values&nbsp;and&nbsp;darkred&nbsp;for&nbsp;negative&nbsp;values
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">"black"</span><span style="color: #007700">,</span><span style="color: #DD0000">"darkred"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -144,7 +157,9 @@ Please rememberthat you must use TTF fonts if you need any angle other than 0 or
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify the value for the labels. You can have one color for positive and one color for negative values. If no negative color value is specified it will be the same as the positive color.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Black&nbsp;color&nbsp;for&nbsp;positive&nbsp;values&nbsp;and&nbsp;darkred&nbsp;for&nbsp;negative&nbsp;values<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">"black"</span><span style="color: #007700">,</span><span style="color: #DD0000">"darkred"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Black&nbsp;color&nbsp;for&nbsp;positive&nbsp;values&nbsp;and&nbsp;darkred&nbsp;for&nbsp;negative&nbsp;values
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">"black"</span><span style="color: #007700">,</span><span style="color: #DD0000">"darkred"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -182,7 +197,9 @@ Please rememberthat you must use TTF fonts if you need any angle other than 0 or
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify font for display value&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="DisplayValue.html#_DISPLAYVALUE_SETANGLE">DisplayValue::SetAngle()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Must&nbsp;use&nbsp;TTF&nbsp;fonts&nbsp;if&nbsp;we&nbsp;want&nbsp;text&nbsp;at&nbsp;an&nbsp;arbitrary&nbsp;angle<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_ARIAL</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Must&nbsp;use&nbsp;TTF&nbsp;fonts&nbsp;if&nbsp;we&nbsp;want&nbsp;text&nbsp;at&nbsp;an&nbsp;arbitrary&nbsp;angle
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_ARIAL</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -215,7 +232,10 @@ Please remember that if you want to format a number with a '%' sign you must use
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Format&nbsp;label&nbsp;as&nbsp;floating&nbsp;point&nbsp;with&nbsp;2&nbsp;decimal&nbsp;points&nbsp;and<br />//&nbsp;a&nbsp;dollar&nbsp;sign&nbsp;in&nbsp;front,&nbsp;e.g.&nbsp;'$237.56'<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFormt</span><span style="color: #007700">(</span><span style="color: #DD0000">'$%01.2f'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Format&nbsp;label&nbsp;as&nbsp;floating&nbsp;point&nbsp;with&nbsp;2&nbsp;decimal&nbsp;points&nbsp;and
+<br />//&nbsp;a&nbsp;dollar&nbsp;sign&nbsp;in&nbsp;front,&nbsp;e.g.&nbsp;'$237.56'
+<br /></span><span style="color: #0000BB">$bplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFormt</span><span style="color: #007700">(</span><span style="color: #DD0000">'$%01.2f'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -235,7 +255,15 @@ Please remember that if you want to format a number with a '%' sign you must use
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify a function that get's called to format any value.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="DisplayValue.html#_DISPLAYVALUE_SETFORMAT">DisplayValue::SetFormat()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">barValueFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;english&nbsp;style<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">number_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;french&nbsp;style<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;number_format($aLabel,&nbsp;2,&nbsp;',',&nbsp;'&nbsp;');<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFormatCallback</span><span style="color: #007700">(</span><span style="color: #DD0000">'barValueFormat'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">barValueFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;english&nbsp;style
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">number_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;french&nbsp;style
+<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;number_format($aLabel,&nbsp;2,&nbsp;',',&nbsp;'&nbsp;');
+<br /></span><span style="color: #007700">}
+<br />
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFormatCallback</span><span style="color: #007700">(</span><span style="color: #DD0000">'barValueFormat'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -278,7 +306,9 @@ Please remember that if you want to format a number with a '%' sign you must use
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Enable display of the label. If you want to display a value you must enable it since it is turned off by default.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Enable&nbsp;display&nbsp;of&nbsp;each&nbsp;slice&nbsp;value<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Enable&nbsp;display&nbsp;of&nbsp;each&nbsp;slice&nbsp;value
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

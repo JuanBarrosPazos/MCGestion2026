@@ -194,7 +194,7 @@ function process_form(){
 			</table>" );
 
 		} else { 
-			print("</br><font color='#FF0000'>
+			print("</br><font color='#F1BD2D'>
 					* MODIFIQUE LA ENTRADA 146: </font></br> ".mysqli_error($db))."</br>";
 					show_form ();
 					global $texerror; 	$texerror = "\n\t ".mysqli_error($db);
@@ -284,18 +284,18 @@ function show_form($errors=[]){
 				</tr>
 	<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]' enctype='multipart/form-data'>
 				<tr>
-					<td style='width:120px; text-align:right;'>REFERENCIA<font color='#FF0000'> *</font></td>
+					<td style='width:120px; text-align:right;'>REFERENCIA<font color='#F1BD2D'> *</font></td>
 					<td>SE GENERA AUTOMÁTICA</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;'>RAZON SOCIAL<font color='#FF0000'> *</font>
+					<td style='text-align:right;'>RAZON SOCIAL<font color='#F1BD2D'> *</font>
 					</td>
 					<td>
 		<input type='text' name='rsocial' size=30 maxlength=30 pattern='[a-zA-Z0-9\s]{3,30}' placeholder='RAZON SOCIAL' value='".$defaults['rsocial']."' required />
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;'>DOCUMENTO<font color='#FF0000'> *</font></td>
+					<td style='text-align:right;'>DOCUMENTO<font color='#F1BD2D'> *</font></td>
 					<td>
 			<select name='doc' required >");
 				foreach($doctype as $option => $label){
@@ -315,31 +315,31 @@ function show_form($errors=[]){
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;'>NÚMERO<font color='#FF0000'> *</font></td>
+					<td style='text-align:right;'>NÚMERO<font color='#F1BD2D'> *</font></td>
 					<td>
 		<input type='text' name='dni' size=14 maxlength=8 pattern='[0-9A-Z]{8,8}' placeholder='IDENTIFCADOR'  value='".$defaults['dni']."' required />
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;'>CONTROL<font color='#FF0000'> *</font></td>
+					<td style='text-align:right;'>CONTROL<font color='#F1BD2D'> *</font></td>
 					<td>
 		<input type='text' name='ldni' size=14 maxlength=1  pattern='[0-9A-Z]{1,1}' placeholder='CONTROL ID.' value='".$defaults['ldni']."' required />
 				</td>
 				</tr>
 				<tr> 
-					<td style='text-align:right;'>MAIL<font color='#FF0000'> *</font></td>
+					<td style='text-align:right;'>MAIL<font color='#F1BD2D'> *</font></td>
 					<td>
 		<input type='mail' name='Email' size=42 maxlength=50 placeholder='miemail@enminusculas' value='".$defaults['Email']."'/>
 					</td>
 				</tr>	
 				<tr>
-					<td style='text-align:right;'>DIRECCIÓN<font color='#FF0000'> *</font></td>
+					<td style='text-align:right;'>DIRECCIÓN<font color='#F1BD2D'> *</font></td>
 					<td>
 	<input type='text' name='Direccion' size=42 maxlength=60 placeholder='MI DIRECCION' value='".$defaults['Direccion']."' required />
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;'>TELÉFONO 1<font color='#FF0000'> *</font></td>
+					<td style='text-align:right;'>TELÉFONO 1<font color='#F1BD2D'> *</font></td>
 					<td>
 		<input type='text' name='Tlf1' size=12 maxlength=9 pattern='[0-9]{9,9}' placeholder='TELEFONO 1' value='".$defaults['Tlf1']."' required />
 					</td>
@@ -351,7 +351,7 @@ function show_form($errors=[]){
 					</td>
 				</tr>
 				<tr>
-					<td style='text-align:right;'>FOTOGRAFIA<font color='#FF0000'>&nbsp;&nbsp;</font></td>
+					<td style='text-align:right;'>FOTOGRAFIA<font color='#F1BD2D'>&nbsp;&nbsp;</font></td>
 					<td>
 		<input type='file' name='myimg' value='".@$defaults['myimg']."' style='color:#fff;' />
 					</td>

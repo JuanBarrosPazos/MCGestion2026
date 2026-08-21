@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -89,7 +89,10 @@ You can add several PiePlots by adjusting their size and positioning each PiePlo
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Add a pieplots or text object to the pie graph. You can specify either a single object or an array. If you specify an array all object in the array must be of the same type. &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$piegraph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PieGraph</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">,</span><span style="color: #0000BB">400</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pieplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PiePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$piegraph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PieGraph</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">,</span><span style="color: #0000BB">400</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$pieplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PiePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -137,7 +140,8 @@ You can add several PiePlots by adjusting their size and positioning each PiePlo
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set the background color. Synonym to SetMarginColor()&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Graph.html#_GRAPH___CONSTRUCT">Graph::__construct()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'gray'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'gray'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -161,7 +165,9 @@ You can add several PiePlots by adjusting their size and positioning each PiePlo
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #007700">...<br /></span><span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Stroke</span><span style="color: #007700">()<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #007700">...
+<br /></span><span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Stroke</span><span style="color: #007700">()
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -221,7 +227,8 @@ You can add several PiePlots by adjusting their size and positioning each PiePlo
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>See Graph::Graph()&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Graph.html#_GRAPH___CONSTRUCT">Graph::__construct()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$piegraph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PieGraph</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">,</span><span style="color: #0000BB">400</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$piegraph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PieGraph</span><span style="color: #007700">(</span><span style="color: #0000BB">300</span><span style="color: #007700">,</span><span style="color: #0000BB">400</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

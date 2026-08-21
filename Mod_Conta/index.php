@@ -284,7 +284,7 @@ session_start();
 			if(mysqli_query($db, $sg1st)){ 
 				// print("* OK CLOSE EJERCICIO: ".$ystatus.".<br/>");
 			} else {
-				print("<font color='#FF0000'>* ".mysqli_error($db))."</br>";}
+				print("<font color='#F1BD2D'>* ".mysqli_error($db))."</br>";}
 		}
 
 		/* PASA EL ESTADO DEL EJERCICIO AUTOMATICAMENTE A OPEN */
@@ -300,7 +300,7 @@ session_start();
 							print($rowi['year'].". ");
 								}
 							print("<br/>");
-						} else {print("<font color='#FF0000'>* ".mysqli_error($db))."</br>";}
+						} else {print("<font color='#F1BD2D'>* ".mysqli_error($db))."</br>";}
 				}
 						
 	} // FIN function status_close()

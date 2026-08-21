@@ -18,7 +18,7 @@
                 <tr>
                         <th>
                                 ".$titNoData."
-                                <font color='#FF0000'>NO HAY DATOS</font>
+                                <font color='#F1BD2D'>NO HAY DATOS</font>
                         </th>
                 </tr>
                 <tr>

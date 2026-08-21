@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -49,7 +49,8 @@ $ganttgraph->Add($line);
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify where in the single day the line sould be drawn.	&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Draw&nbsp;line&nbsp;in&nbsp;the&nbsp;middle&nbsp;of&nbsp;the&nbsp;day<br /></span><span style="color: #0000BB">$line</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetDayOffset</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Draw&nbsp;line&nbsp;in&nbsp;the&nbsp;middle&nbsp;of&nbsp;the&nbsp;day
+<br /></span><span style="color: #0000BB">$line</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetDayOffset</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -139,7 +140,11 @@ $ganttgraph->Add($line);
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Create a new verticla line according to specification that later on can be added to the gantt graph vis its Add() method.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Image.html#_IMAGE_SETLINESTYLE">Image::SetLineStyle()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$line&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">GanttVLine</span><span style="color: #007700">(</span><span style="color: #DD0000">'2002-11-02'</span><span style="color: #007700">,</span><span style="color: #DD0000">'System&nbsp;test&nbsp;starts'</span><span style="color: #007700">,</span><span style="color: #DD0000">'darkblue'</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #DD0000">'solid'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$granttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$line</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$line&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">GanttVLine</span><span style="color: #007700">(</span><span style="color: #DD0000">'2002-11-02'</span><span style="color: #007700">,</span><span style="color: #DD0000">'System&nbsp;test&nbsp;starts'</span><span style="color: #007700">,</span><span style="color: #DD0000">'darkblue'</span><span style="color: #007700">,</span><span style="color: #0000BB">2</span><span style="color: #007700">,</span><span style="color: #DD0000">'solid'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$granttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$line</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

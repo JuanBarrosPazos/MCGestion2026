@@ -38,33 +38,33 @@ function validate_form(){
 	/* VALIDAMOS EL CAMPO year */
 	
 		if(strlen(trim($_POST['year'])) == ''){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>CAMPO OBLIGATORIO</font>";
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>CAMPO OBLIGATORIO</font>";
 			}
 		
 		elseif(strlen(trim($_POST['year'])) < 4){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>MINIMO 4 NUMEROS</font>";
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>MINIMO 4 NUMEROS</font>";
 			}
 		
 		elseif (!preg_match('/^[^@´`\'áéíóú#$&%<>:´"·\(\)=¿?!¡\[\]\{\};,:\*\']+$/',$_POST['year'])){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>CARACTERES NO VALIDOS.</font>";
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>CARACTERES NO VALIDOS.</font>";
 			}
 			
 		elseif (!preg_match('/^[0-9]+$/',$_POST['year'])){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>SOLO NUMEROS</font>";
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>SOLO NUMEROS</font>";
 			}
 
 		elseif($_POST['year'] == (date('Y')+1)){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>
 			<br>EL NUEVO AÑO SE CREARÁ AUTOMATICAMENTE.</font>";
 			}
 		
 		elseif($_POST['year'] < (date('Y')-5)){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>
 			<br>NO SE PERMITEN EJERCICIOS < ".(date('Y')-5).".</font>";
 			}
 		
 		elseif($_POST['year'] > date('Y')){
-			$errors [] = "EJERCICIO YEAR:  <font color='#FF0000'>AÑO NO ADMITIDO</font>";
+			$errors [] = "EJERCICIO YEAR:  <font color='#F1BD2D'>AÑO NO ADMITIDO</font>";
 			}
 		
 ////////////////
@@ -93,9 +93,9 @@ function validate_form(){
 		$qf = mysqli_query($db, $sqlf);	
 		$countf = mysqli_num_rows($qf);	
 				
-		if($countf > 0){ $errors [] = "<font color='#FF0000'>T. FEEDBACK YA EXISTE ESTE EJERCICIO ".$a.".</font>"; 
-		} elseif($countx > 0){$errors [] = "<font color='#FF0000'>YA EXISTE ESTE EJERCICIO</font>";
-		} elseif($_POST['year'] < ($yval - 1)){$errors [] = "<font color='#FF0000'>AÑO PERMITIDO <b>* ".($yval-1)." *</b></font>"; }
+		if($countf > 0){ $errors [] = "<font color='#F1BD2D'>T. FEEDBACK YA EXISTE ESTE EJERCICIO ".$a.".</font>"; 
+		} elseif($countx > 0){$errors [] = "<font color='#F1BD2D'>YA EXISTE ESTE EJERCICIO</font>";
+		} elseif($_POST['year'] < ($yval - 1)){$errors [] = "<font color='#F1BD2D'>AÑO PERMITIDO <b>* ".($yval-1)." *</b></font>"; }
 						
 		}
 				

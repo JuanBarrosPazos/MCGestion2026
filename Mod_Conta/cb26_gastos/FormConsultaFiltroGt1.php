@@ -8,7 +8,7 @@
     global $vname; 		global $limit;
 	global $sqlb; 		$sqlb =  "SELECT * FROM $vname WHERE 1 ";
 
-	global $filtro;
+	global $filtro, $fil;
 	if($fil == ''){
 		$filtro = '';
 	}else{

@@ -131,72 +131,72 @@ function MM_validateForm() {
 	/* Validamos el campo Nombre. */
 	
 		if(strlen(trim($_POST['nombre'])) == 0){
-		$errors [] = "Nombre: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Nombre: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif (strlen(trim($_POST['nombre'])) < 3 ){
-		$errors [] = "Nombre: <font color='#FF0000'>Escriba más de tres carácteres.</font>";
+		$errors [] = "Nombre: <font color='#F1BD2D'>Escriba más de tres carácteres.</font>";
 		}
 		
 	elseif (!preg_match('/^[^0-9@#$&%<>:"·\(\)=¿?!¡\[\]\{\};,:\.\*]+$/',$_POST['nombre'])){
-		$errors [] = "Nombre: <font color='#FF0000'>Solo texto</font>";
+		$errors [] = "Nombre: <font color='#F1BD2D'>Solo texto</font>";
 		}
 		
 	/* Validamos el campo Apellidos. */
 	
 		if(strlen(trim($_POST['apellidos'])) == 0){
-		$errors [] = "Apellidos: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Apellidos: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif (strlen(trim($_POST['apellidos'])) < 3 ){
-		$errors [] = "Apellidos: <font color='#FF0000'>Escriba más de tres carácteres.</font>";
+		$errors [] = "Apellidos: <font color='#F1BD2D'>Escriba más de tres carácteres.</font>";
 		}
 		
 	elseif (!preg_match('/^[^0-9@#$&%<>:"·\(\)=¿?!¡\[\]\{\};,:\.\*]+$/',$_POST['apellidos'])){
-		$errors [] = "Apellidos: <font color='#FF0000'>Solo texto</font>";
+		$errors [] = "Apellidos: <font color='#F1BD2D'>Solo texto</font>";
 		}
 
 
 	/* Validamos el campo mail. */
 	
 		if(strlen(trim($_POST['Email'])) == 0){
-		$errors [] = "Mail: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif (strlen(trim($_POST['Email'])) < 5 ){
-		$errors [] = "Mail: <font color='#FF0000'>Escriba más de cinco carácteres.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Escriba más de cinco carácteres.</font>";
 		}
 		
 	elseif (!preg_match('/^[^@#$&%<>:"·\(\)=¿?!¡\[\]\{\};,:*\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/',$_POST['Email'])){
-		$errors [] = "Mail: <font color='#FF0000'>Esta dirección no es válida.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Esta dirección no es válida.</font>";
 		}
 		
 	/* Validamos el campo Asunto. */
 	
 		if(strlen(trim($_POST['asunto'])) == 0){
-		$errors [] = "Asunto: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Asunto: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif (strlen(trim($_POST['asunto'])) < 3 ){
-		$errors [] = "Asunto: <font color='#FF0000'>Escriba más de tres carácteres.</font>";
+		$errors [] = "Asunto: <font color='#F1BD2D'>Escriba más de tres carácteres.</font>";
 		}
 		
 	elseif (!preg_match('/^[^0-9@#$&%<>:"·\(\)=¿?!¡\[\]\{\};,:\.\*]+$/',$_POST['asunto'])){
-		$errors [] = "Asunto: <font color='#FF0000'>Solo texto</font>";
+		$errors [] = "Asunto: <font color='#F1BD2D'>Solo texto</font>";
 		}
 
 	/* Validamos el campo Mensaje. */
 	
 		if(strlen(trim($_POST['mensaje'])) == 0){
-		$errors [] = "Mensaje: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Mensaje: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif (strlen(trim($_POST['mensaje'])) < 3 ){
-		$errors [] = "Mensaje: <font color='#FF0000'>Escriba más de tres carácteres.</font>";
+		$errors [] = "Mensaje: <font color='#F1BD2D'>Escriba más de tres carácteres.</font>";
 		}
 		
 	elseif (!preg_match('/^[^$<>\[\]\{\}]+$/',$_POST['mensaje'])){
-		$errors [] = "Mensaje: <font color='#FF0000'>Caracteres no permitidos $<>[]{}</font>";
+		$errors [] = "Mensaje: <font color='#F1BD2D'>Caracteres no permitidos $<>[]{}</font>";
 		}
 
 	return $errors;
@@ -221,7 +221,7 @@ function show_form($errors=[]){
 	print("<table align='center'>
 				<tr>
 					<td style='text-align:'center'>
-						<font color='#FF0000'>* SOLUCIONE ESTOS ERRORES:</font><br/>
+						<font color='#F1BD2D'>* SOLUCIONE ESTOS ERRORES:</font><br/>
 					</td>
 				</tr>
 				<tr>
@@ -415,7 +415,7 @@ print(" <table align='center' style=\"border:0px;margin_bottom:6px;margin-top:15
 			print("<table align='center' style=\"margin-top:20px;margin-bottom:20px\">
 						<tr>
 							<td align='center'>
-								<font color='#FF0000'>
+								<font color='#F1BD2D'>
 									EL MENSAJE NO HA PODIDO ENVIARSE,<br>
 									".$_POST['nombre']." ".$_POST['apellidos'].".
 									MUCHAS GRACIAS.

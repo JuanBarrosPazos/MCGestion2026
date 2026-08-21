@@ -37,13 +37,13 @@
 		if ($errors){
 			print("<tr>
 						<th style='text-align:center'>
-							<font color='#FF0000'>* SOLUCIONE ESTOS ERRORES:</font><br/>
+							<font color='#F1BD2D'>* SOLUCIONE ESTOS ERRORES:</font><br/>
 						</th>
 					</tr>
 					<tr>
 						<td style='text-align:center' >");
 			for($a=0; $c=count($errors), $a<$c; $a++){
-				print("<font color='#FF0000'>**</font>  ".$errors [$a]."<br/>");
+				print("<font color='#F1BD2D'>**</font>  ".$errors [$a]."<br/>");
 				}
 			print("</td>
 					</tr>");

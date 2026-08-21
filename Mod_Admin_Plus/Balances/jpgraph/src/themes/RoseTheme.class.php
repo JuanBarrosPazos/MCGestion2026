@@ -12,7 +12,7 @@ class RoseTheme extends Theme
 
     function GetColorList() {
         return array(
-            '#FF0000',
+            '#F1BD2D',
             '#FF99FF',
             '#AA0099',
             '#FF00FF',

@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -135,7 +135,8 @@ LP_AREA_NOT_FILLED<br>
 A plot can be specified with either only Y-values or both Y-and X-values. If both X and Y values are specified they should have the same number of elements.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Graph.html#_GRAPH_ADD">Graph::Add()</a><li><a href="Graph.html#_GRAPH_ADDY2">Graph::AddY2()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"><br />$lineplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">
+<br />$lineplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -160,7 +161,15 @@ A plot can be specified with either only Y-values or both Y-and X-values. If bot
 This method is only to be used in the case where line and bar plots are combined. Any other use is undefined.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$ydata&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">12</span><span style="color: #007700">,</span><span style="color: #0000BB">15</span><span style="color: #007700">,</span><span style="color: #0000BB">22</span><span style="color: #007700">,</span><span style="color: #0000BB">19</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Graph</span><span style="color: #007700">(</span><span style="color: #0000BB">400</span><span style="color: #007700">,</span><span style="color: #0000BB">200</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScale</span><span style="color: #007700">(</span><span style="color: #DD0000">"textlin"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$line&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$line</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBarCenter</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">BarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$line</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$ydata&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">12</span><span style="color: #007700">,</span><span style="color: #0000BB">15</span><span style="color: #007700">,</span><span style="color: #0000BB">22</span><span style="color: #007700">,</span><span style="color: #0000BB">19</span><span style="color: #007700">,</span><span style="color: #0000BB">5</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Graph</span><span style="color: #007700">(</span><span style="color: #0000BB">400</span><span style="color: #007700">,</span><span style="color: #0000BB">200</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScale</span><span style="color: #007700">(</span><span style="color: #DD0000">"textlin"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$line&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$line</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBarCenter</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">BarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$bar</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$line</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -180,7 +189,10 @@ This method is only to be used in the case where line and bar plots are combined
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify color for line.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lp&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;full&nbsp;blue<br /></span><span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'#0000FF'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lp&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Set&nbsp;full&nbsp;blue
+<br /></span><span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'#0000FF'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -232,7 +244,8 @@ This method is only to be used in the case where line and bar plots are combined
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify that a lineplot should be filled as well as the fill color.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="LinePlot.html#_LINEPLOT_SETCOLOR">LinePlot::SetColor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'green'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'green'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -255,7 +268,8 @@ This method is only to be used in the case where line and bar plots are combined
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Fill line not from 0 (as default) but from the minimum Y value. This is mostly usefull when a plot have the negative value and the X-axis is placed at the minimum Y-alue (at the bottom)&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillFromYMin</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillFromYMin</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -300,7 +314,9 @@ This method is only to be used in the case where line and bar plots are combined
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$p1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillGradient</span><span style="color: #007700">(</span><span style="color: #DD0000">'white'</span><span style="color: #007700">,</span><span style="color: #DD0000">'darkgreen'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$p1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillGradient</span><span style="color: #007700">(</span><span style="color: #DD0000">'white'</span><span style="color: #007700">,</span><span style="color: #DD0000">'darkgreen'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -324,7 +340,8 @@ This method is only to be used in the case where line and bar plots are combined
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStepStyle</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStepStyle</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -348,7 +365,8 @@ The default line style is 'solid'
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Image.html#_IMAGE_SETLINESTYLE">Image::SetLineStyle()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStyle</span><span style="color: #007700">(</span><span style="color: #DD0000">'dotted'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lp</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStyle</span><span style="color: #007700">(</span><span style="color: #DD0000">'dotted'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -121,7 +121,8 @@ To view a 3D pieplot you start by constructing a PieGraph() and then adding a nu
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify projection angle for 3D in degrees. Must be between 10 and 80 degrees. A small angle will make the pie very flat and a large angle will make it present much more of pie circle.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -159,7 +160,12 @@ To view a 3D pieplot you start by constructing a PieGraph() and then adding a nu
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify URL for each slice for the image map&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$targets&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'nextimage.php?1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'nextimage.php?2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'nextimage.php?3'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;Show&nbsp;the&nbsp;actual&nbsp;value&nbsp;in&nbsp;the&nbsp;alt&nbsp;text&nbsp;when&nbsp;user&nbsp;hovers&nbsp;the<br />//&nbsp;cursor&nbsp;over&nbsp;the&nbsp;slice<br /></span><span style="color: #0000BB">$alts&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'More&nbsp;details..(%.1f)'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'More&nbsp;details..(%.1f)'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'More&nbsp;details..(%.1f)'&nbsp;</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$targets</span><span style="color: #007700">,</span><span style="color: #0000BB">$alts</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$targets&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'nextimage.php?1'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'nextimage.php?2'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'nextimage.php?3'</span><span style="color: #007700">);
+<br /></span><span style="color: #FF8000">//&nbsp;Show&nbsp;the&nbsp;actual&nbsp;value&nbsp;in&nbsp;the&nbsp;alt&nbsp;text&nbsp;when&nbsp;user&nbsp;hovers&nbsp;the
+<br />//&nbsp;cursor&nbsp;over&nbsp;the&nbsp;slice
+<br /></span><span style="color: #0000BB">$alts&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'More&nbsp;details..(%.1f)'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'More&nbsp;details..(%.1f)'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'More&nbsp;details..(%.1f)'&nbsp;</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$pie</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$targets</span><span style="color: #007700">,</span><span style="color: #0000BB">$alts</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -265,7 +271,9 @@ The labels may include an optional sprintf() formatting string. Before stroking 
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_SETLABELTYPE">PiePlot::SetLabelType()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;explicit&nbsp;labels&nbsp;and&nbsp;position&nbsp;them&nbsp;outside&nbsp;the&nbsp;pie<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabels</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"Jan\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Feb\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Mar\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Apr\n%.1f%%"</span><span style="color: #007700">),</span><span style="color: #0000BB">1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;explicit&nbsp;labels&nbsp;and&nbsp;position&nbsp;them&nbsp;outside&nbsp;the&nbsp;pie
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabels</span><span style="color: #007700">(array(</span><span style="color: #DD0000">"Jan\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Feb\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Mar\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"Apr\n%.1f%%"</span><span style="color: #007700">),</span><span style="color: #0000BB">1</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

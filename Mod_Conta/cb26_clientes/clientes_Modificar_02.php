@@ -140,7 +140,7 @@ function process_form(){
 				$sg6 = "UPDATE `$db_name`.$tName SET `refcliente` = '$rf', `factnif` = '$factnif', `factnom` = '$_POST[rsocial]' WHERE $tName.`factnif` LIKE '$dnif' ";
 	
 				if(mysqli_query($db, $sg6)){ //print("* OK");
-				} else { //print("<font color='#FF0000'>* ".mysqli_error($db))."</br>";
+				} else { //print("<font color='#F1BD2D'>* ".mysqli_error($db))."</br>";
 						 global $texerror1;
 						 $texerror1 = "\n\t ".mysqli_error($db);
 							}
@@ -153,7 +153,7 @@ function process_form(){
 			$sg6 = "UPDATE `$db_name`.$tableGastPend SET `refcliente` = '$rf', `factnif` = '$factnif', `factnom` = '$_POST[rsocial]' WHERE $tableGastPend.`factnif` LIKE '$dnif' ";
 	
 			if(mysqli_query($db, $sg6)){ //print("* OK");
-			} else { //print("<font color='#FF0000'>* ".mysqli_error($db))."</br>";
+			} else { //print("<font color='#F1BD2D'>* ".mysqli_error($db))."</br>";
 					 global $texerror6;
 					 $texerror6 = "\n\t ".mysqli_error($db);
 						}
@@ -221,7 +221,7 @@ function process_form(){
 			</table>");
 	
 		} else { 
-			print("</br><font color='#FF0000'>* ERROR L. 114/133: </font></br> ".mysqli_error($db))."</br>";
+			print("</br><font color='#F1BD2D'>* ERROR L. 114/133: </font></br> ".mysqli_error($db))."</br>";
 			show_form ();
 			//global $texerror;
 			//$texerror = $texerror1.$texerror2.$texerror3.$texerror4."\n";
@@ -330,13 +330,13 @@ function show_form($errors=[]){
 			<input type='hidden' name='myimg' value='".$defaults['myimg']."' />
 				<tr>
 					<td style='width:120px; text-align:right;' >	
-						<font color='#FF0000'>*</font>REFERENCIA
+						<font color='#F1BD2D'>*</font>REFERENCIA
 					</td>
 					<td>".$rf."</td>
 				</tr>
 				<tr>
 					<td style='text-align:right;' >	
-						<font color='#FF0000'>*</font>RAZON SOCIAL
+						<font color='#F1BD2D'>*</font>RAZON SOCIAL
 					</td>
 					<td>
 		<input type='text' name='rsocial' size=30 maxlength=30 value='".$defaults['rsocial']."' />
@@ -344,7 +344,7 @@ function show_form($errors=[]){
 				</tr>
 				<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>*</font>DOCUMENTO
+						<font color='#F1BD2D'>*</font>DOCUMENTO
 					</td>
 					<td>
 			<select name='doc'>");
@@ -364,7 +364,7 @@ function show_form($errors=[]){
 				</tr>
 				<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>*</font>NÚMERO
+						<font color='#F1BD2D'>*</font>NÚMERO
 					</td>
 					<td>
 		<input type='text' name='dni' size=12 maxlength=8 value='".$defaults['dni']."' />
@@ -372,7 +372,7 @@ function show_form($errors=[]){
 				</tr>
 				<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>*</font>CONTROL
+						<font color='#F1BD2D'>*</font>CONTROL
 					</td>
 					<td>
 		<input type='text' name='ldni' size=4 maxlength=1 value='".$defaults['ldni']."' />
@@ -380,7 +380,7 @@ function show_form($errors=[]){
 				</tr>
 				<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>*</font>MAIL
+						<font color='#F1BD2D'>*</font>MAIL
 					</td>
 					<td>
 		<input type='text' name='Email' size=42 maxlength=50 value='".$defaults['Email']."' />
@@ -388,7 +388,7 @@ function show_form($errors=[]){
 				</tr>	
 				<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>*</font>DIRECCIÓN
+						<font color='#F1BD2D'>*</font>DIRECCIÓN
 					</td>
 					<td>
 	<input type='text' name='Direccion' size=42 maxlength=60 value='".$defaults['Direccion']."' />
@@ -396,7 +396,7 @@ function show_form($errors=[]){
 				</tr>
 				<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>*</font>TELÉFONO 1
+						<font color='#F1BD2D'>*</font>TELÉFONO 1
 					</td>
 					<td>
 		<input type='text' name='Tlf1' size=12 maxlength=9 value='".$defaults['Tlf1']."' />
@@ -405,7 +405,7 @@ function show_form($errors=[]){
 				<tr>
 					<tr>
 					<td style='text-align:right;' >
-						<font color='#FF0000'>&nbsp;</font>TELÉFONO 2
+						<font color='#F1BD2D'>&nbsp;</font>TELÉFONO 2
 					</td>
 					<td>
 		<input type='text' name='Tlf2' size=12 maxlength=9 value='".$defaults['Tlf2']."' />

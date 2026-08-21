@@ -42,27 +42,27 @@ function validate_form(){
 	/* VALIDAMOS EL CAMPO factrete */
 	
 		if(strlen(trim($_POST['ret1'])) == ''){
-			$errors [] = "RETENCIONES % <font color='#FF0000'>CAMPO OBLIGATORIO</font>";
+			$errors [] = "RETENCIONES % <font color='#F1BD2D'>CAMPO OBLIGATORIO</font>";
 			}
 		
 		elseif (!preg_match('/^[^@´`\'áéíóú#$&%<>:´"·\(\)=¿?!¡\[\]\{\};,:\*\']+$/',$_POST['ret1'])){
-			$errors [] = "RETENCIONES % <font color='#FF0000'>CARACTERES NO VALIDOS.</font>";
+			$errors [] = "RETENCIONES % <font color='#F1BD2D'>CARACTERES NO VALIDOS.</font>";
 			}
 			
 		elseif (!preg_match('/^[0-9]+$/',$_POST['ret1'])){
-			$errors [] = "RETENCIONES % <font color='#FF0000'>SOLO NUMEROS</font>";
+			$errors [] = "RETENCIONES % <font color='#F1BD2D'>SOLO NUMEROS</font>";
 			}
 
 		elseif(strlen(trim($_POST['ret2'])) == ''){
-			$errors [] = "RETENCIONES % <font color='#FF0000'>CAMPO OBLIGATORIO</font>";
+			$errors [] = "RETENCIONES % <font color='#F1BD2D'>CAMPO OBLIGATORIO</font>";
 			}
 		
 		elseif (!preg_match('/^[^@´`\'áéíóú#$&%<>:´"·\(\)=¿?!¡\[\]\{\};,:\*\']+$/',$_POST['ret2'])){
-			$errors [] = "RETENCIONES % <font color='#FF0000'>CARACTERES NO VALIDOS.</font>";
+			$errors [] = "RETENCIONES % <font color='#F1BD2D'>CARACTERES NO VALIDOS.</font>";
 			}
 			
 		elseif (!preg_match('/^[0-9]+$/',$_POST['ret2'])){
-			$errors [] = "RETENCIONES % <font color='#FF0000'>SOLO NUMEROS</font>";
+			$errors [] = "RETENCIONES % <font color='#F1BD2D'>SOLO NUMEROS</font>";
 			}
 
 	////////////////
@@ -81,7 +81,7 @@ function validate_form(){
 		$countx = mysqli_num_rows($qx);
 		$rowsx = mysqli_fetch_assoc($qx);
 			
-		if($countx > 0){$errors [] = "<font color='#FF0000'>YA EXISTE ESTE % RETENCIONES</font>";
+		if($countx > 0){$errors [] = "<font color='#F1BD2D'>YA EXISTE ESTE % RETENCIONES</font>";
 							}
 		}
 

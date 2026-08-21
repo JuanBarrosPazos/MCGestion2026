@@ -349,7 +349,7 @@ img { border-radius: 0.8em; }
 	*/
 }
 .botonrojo, .botonrojo:focus, .botonrojo:visited {
-	background-color: #FF0000;
+	background-color: #F1BD2D;
 }
 .botonlila, .botonlila:focus, .botonlila:visited {
 	background-color: #DD92FD;

@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -33,7 +33,10 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Instead of specifying the string manually that should be used as a challenge the string can be automatically generated. This is done witha  call to the Rand() method. &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$antispam&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AntiSpam</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$rval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Rand</span><span style="color: #007700">();<br />...<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$antispam&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AntiSpam</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$rval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Rand</span><span style="color: #007700">();
+<br />...
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -53,7 +56,9 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>This is an alternative way of specifying the AntiSpam string. This can also be specified in the initial creation of the ANtiSpam object ro be automatically generated with a call to the Rand() method&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AntiSpam.html#_ANTISPAM_RAND">AntiSpam::Rand()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$antispam&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AntiSpam</span><span style="color: #007700">();<br />...<br /></span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #0000BB">$mySpamVal</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$antispam&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AntiSpam</span><span style="color: #007700">();
+<br />...
+<br /></span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #0000BB">$mySpamVal</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -65,7 +70,10 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>This sends the antispam image back to the browser or to an optional file named as the first and only argument.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AntiSpam.html#_ANTISPAM___CONSTRUCT">AntiSpam::__construct()</a><li><a href="AntiSpam.html#_ANTISPAM_RAND">AntiSpam::Rand()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$antispam&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AntiSpam</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$rval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Rand</span><span style="color: #007700">();<br />...<br /></span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Stroke</span><span style="color: #007700">()</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$antispam&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AntiSpam</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$rval&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Rand</span><span style="color: #007700">();
+<br />...
+<br /></span><span style="color: #0000BB">$antispam</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Stroke</span><span style="color: #007700">()</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

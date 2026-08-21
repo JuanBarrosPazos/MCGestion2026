@@ -52,7 +52,7 @@
 			<select name='dy' title='SELECCIONAR AÑO...' class='botonlila' style='vertical-align: middle' >
 				<option value=''>YEAR</option>");
 	
-	global $db;
+	global $db, $db_name;
 	global $t1; 		$t1 = "`".$_SESSION['clave']."status`";
 	$sqly =  "SELECT * FROM $t1  WHERE `hidden` = 'no' ORDER BY `year` DESC ";
 	$qy = mysqli_query($db, $sqly);				
@@ -91,55 +91,15 @@
 			</tr>
 			<tr>					
 				<td style='text-align:center;' >	
-			<input type='text' name='factnum' placeholder='NÚMERO FACTURA' size=22 maxlength=20 value='".@$defaults['factnum']."' />
-			<!--
-			<input type='text' name='factnif' size=22 maxlength=10 value='".@$defaults['factnif']."' />
-			-->
-			<select name='factnif' title='NUMERO NIF FACTURA' class='botonlila'>
-				<option value=''>Nº NIF</option>");
-				global $db; 
-				global $tabla1; 		$tabla1 = "`".$_SESSION['clave']."proveedores`";
+			<input type='text' name='factnum' placeholder='NÚMERO FACTURA' size=20 maxlength=18 value='".@$defaults['factnum']."' />
 
-				$sqlb =  "SELECT * FROM $tabla1 ORDER BY `rsocial` ASC ";
-				$qb = mysqli_query($db, $sqlb);
-				if(!$qb){
-						print("* ".mysqli_error($db)."<br/>");
-				} else {
-					while($rows = mysqli_fetch_assoc($qb)){
-						print ("<option value='".$rows['dni'].$rows['ldni']."' ");
-						if($rows['dni'].$rows['ldni'] == @$defaults['factnif']){
-													print ("selected = 'selected'");
-															}
-								print ("> ".$rows['dni'].$rows['ldni']." </option>");
-							}
-					}  
+			<input type='text' name='factnif' placeholder='NÚMERO NIF' size=20 maxlength=18 value='".@$defaults['factnif']."' />
 
-	print ("</select>
-					<!--
-					<input type='text' name='factnom' size=22 maxlength=22 value='".@$defaults['factnom']."' />
-					-->
-			<select name='factnom' title='RAZON SOCIAL' class='botonlila'>
-				<option value=''>RAZON SOCIAL</option>");
-				global $db;
-				global $tabla1; 		$tabla1 = "`".$_SESSION['clave']."proveedores`";
-				$sqlb =  "SELECT * FROM $tabla1 ORDER BY `rsocial` ASC ";
-				$qb = mysqli_query($db, $sqlb);
-				if(!$qb){
-						print("* ".mysqli_error($db)."<br/>");
-				} else {
-					while($rows = mysqli_fetch_assoc($qb)){
-						print ("<option value='".$rows['ref']."' ");
-						if($rows['ref'] == @$defaults['factnom']){
-											print ("selected = 'selected'");
-													}
-									print ("> ".$rows['rsocial']." </option>");
-							}
-			}
-
-	print ("</select>
-					</td>
-				</tr>
-			</form>");
+			<input type='text' name='factnom' placeholder='RAZON SOCIAL' size=20 maxlength=18 value='".@$defaults['factnom']."' />
+			
+				</td>
+			</tr>
+		</form>");
 						
 	////////
 

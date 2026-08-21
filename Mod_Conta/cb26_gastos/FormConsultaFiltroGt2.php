@@ -31,9 +31,10 @@
 		$sqlb .= "";
 		$key = $key+0;
 	}else{
-		$fnif = $_POST['factnif'];
+		$fnif = "%".$_POST['factnif']."%";
 		$or2 = 'OR';
-		$sqlb .= " $or1 `factnif` = '$fnif' ";
+		//$sqlb .= " $or1 `factnif` = '$fnif' ";
+		$sqlb .= " $or1 `factnif` LIKE '$fnif' ";
 		$key = $key+1;
 	}
 
@@ -46,8 +47,9 @@
 		$sqlb .= "";
 		$key = $key+0;
 	}else{
-		$fnom = $_POST['factnom'];
-		$sqlb .= " $or2 `refprovee` = '$fnom' ";
+		$fnom = "%".$_POST['factnom']."%";
+		//$sqlb .= " $or2 `refprovee` = '$fnom' ";
+		$sqlb .= " $or2 `factnom` LIKE '$fnom' ";
 		$key = $key+1;
 	}
 	global $factnom; 	$factnom = $_POST['factnom'];
@@ -63,6 +65,6 @@
 	//echo $key."<br>";
 	
 	$sqlb .= " ORDER BY $orden ";
-	//echo "-*- ".$sqlb."<br>";
+	//echo "* ".$sqlb."<br>";
 
 ?>

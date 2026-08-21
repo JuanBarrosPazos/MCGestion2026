@@ -40,27 +40,27 @@ session_start();
 		/* VALIDAMOS EL CAMPO factivae */
 	
 		if(strlen(trim($_POST['iva1'])) == ''){
-			$errors [] = "IMPUESTOS % <font color='#FF0000'>CAMPO OBLIGATORIO</font>";
+			$errors [] = "IMPUESTOS % <font color='#F1BD2D'>CAMPO OBLIGATORIO</font>";
 			}
 		
 		elseif (!preg_match('/^[^@´`\'áéíóú#$&%<>:´"·\(\)=¿?!¡\[\]\{\};,:\*\']+$/',$_POST['iva1'])){
-			$errors [] = "IMPUESTOS % <font color='#FF0000'>CARACTERES NO VALIDOS.</font>";
+			$errors [] = "IMPUESTOS % <font color='#F1BD2D'>CARACTERES NO VALIDOS.</font>";
 			}
 			
 		elseif (!preg_match('/^[0-9]+$/',$_POST['iva1'])){
-			$errors [] = "IMPUESTOS % <font color='#FF0000'>SOLO NUMEROS</font>";
+			$errors [] = "IMPUESTOS % <font color='#F1BD2D'>SOLO NUMEROS</font>";
 			}
 
 		elseif(strlen(trim($_POST['iva2'])) == ''){
-			$errors [] = "IMPUESTOS % <font color='#FF0000'>CAMPO OBLIGATORIO</font>";
+			$errors [] = "IMPUESTOS % <font color='#F1BD2D'>CAMPO OBLIGATORIO</font>";
 			}
 		
 		elseif (!preg_match('/^[^@´`\'áéíóú#$&%<>:´"·\(\)=¿?!¡\[\]\{\};,:\*\']+$/',$_POST['iva2'])){
-			$errors [] = "IMPUESTOS % <font color='#FF0000'>CARACTERES NO VALIDOS.</font>";
+			$errors [] = "IMPUESTOS % <font color='#F1BD2D'>CARACTERES NO VALIDOS.</font>";
 			}
 			
 		elseif (!preg_match('/^[0-9]+$/',$_POST['iva2'])){
-			$errors [] = "IMPUESTOS % <font color='#FF0000'>SOLO NUMEROS</font>";
+			$errors [] = "IMPUESTOS % <font color='#F1BD2D'>SOLO NUMEROS</font>";
 			}
 
 	////////////////
@@ -79,7 +79,7 @@ session_start();
 			$countx = mysqli_num_rows($qx);
 			$rowsx = mysqli_fetch_assoc($qx);
 				
-			if($countx > 0){ $errors [] = "<font color='#FF0000'>YA EXISTE ESTE % IMPUESTOS</font>"; }
+			if($countx > 0){ $errors [] = "<font color='#F1BD2D'>YA EXISTE ESTE % IMPUESTOS</font>"; }
 
 		}
 

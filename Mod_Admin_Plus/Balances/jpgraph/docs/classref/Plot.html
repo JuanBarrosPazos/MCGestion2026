@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -48,7 +48,9 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Hide legend for this plot even if it was specified (with SetLegend() ) &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">GanttBar</span><span style="color: #007700">(...);<br /></span><span style="color: #0000BB">$bar</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideLegend</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">GanttBar</span><span style="color: #007700">(...);
+<br /></span><span style="color: #0000BB">$bar</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideLegend</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -106,7 +108,8 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify color for plot. Each plot type is free to interpret it to its own choosing.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'red'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'red'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -144,7 +147,12 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set the URL links for the CSIM if the plot type support this.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$url1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"http://someotherurl.html"<br /></span><span style="color: #0000BB">$url2&nbsp;</span><span style="color: #007700">=&nbsp;..<br />...<br /><br /></span><span style="color: #0000BB">$targetarray&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">$url1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$url2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$url3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$url4</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$targetarray</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$url1&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"http://someotherurl.html"
+<br /></span><span style="color: #0000BB">$url2&nbsp;</span><span style="color: #007700">=&nbsp;..
+<br />...
+<br />
+<br /></span><span style="color: #0000BB">$targetarray&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">$url1</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$url2</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$url3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$url4</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$targetarray</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

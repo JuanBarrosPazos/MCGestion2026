@@ -82,12 +82,13 @@
 				<tr>
 					<td style='text-align:right;'>RAZON SOCIAL</td>
 					<td>
-		<input type='hidden' name='factnom' value='".@$defaults['factnom']."' />".@$defaults['factnom']."
+				<input type='hidden' name='factnom' value='".@$defaults['factnom']."' />".@$defaults['factnom']."
 					</td>
 				</tr>
 				<tr>
 					<td style='text-align:right;'>REFERENCIA</td>
 					<td>
+		
 		<input type='hidden' name='refprovee' value='".$defaults['refprovee']."' />".$defaults['refprovee']."
 					</td>
 				</tr>

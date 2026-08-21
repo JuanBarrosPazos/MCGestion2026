@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -56,7 +56,8 @@ It is optional to use titles for the columns, so if you don't want to use titles
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Hide titles&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Hide&nbsp;the&nbsp;titles<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Hide</span><span style="color: #007700">();</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Hide&nbsp;the&nbsp;titles
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Hide</span><span style="color: #007700">();</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -128,7 +129,11 @@ It is perfectly legal to just specify the explicit width of the first few column
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;some&nbsp;titles&nbsp;and&nbsp;explicitely&nbsp;set&nbsp;the&nbsp;size&nbsp;of&nbsp;the<br />//&nbsp;first&nbsp;two&nbsp;columns.<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColTitles</span><span style="color: #007700">(<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'Note'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Name'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Duration'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Start'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Finish'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">100</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;some&nbsp;titles&nbsp;and&nbsp;explicitely&nbsp;set&nbsp;the&nbsp;size&nbsp;of&nbsp;the
+<br />//&nbsp;first&nbsp;two&nbsp;columns.
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColTitles</span><span style="color: #007700">(
+<br />&nbsp;&nbsp;&nbsp;&nbsp;array(</span><span style="color: #DD0000">'Note'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Name'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Duration'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Start'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Finish'</span><span style="color: #007700">),array(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">100</span><span style="color: #007700">));
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -154,7 +159,8 @@ It is perfectly legal to just specify the explicit width of the first few column
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify extra margin to the left and right of the text in each column&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColumnMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">30</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColumnMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">30</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -252,7 +258,8 @@ It is perfectly legal to just specify the explicit width of the first few column
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Enable 3D header style. This is enabled by default.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;No&nbsp;3D&nbsp;style&nbsp;for&nbsp;titles<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStyle</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;No&nbsp;3D&nbsp;style&nbsp;for&nbsp;titles
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStyle</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -275,7 +282,8 @@ It is perfectly legal to just specify the explicit width of the first few column
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Show titles. If you specify titles they are by default displayed.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="GanttActivityInfo.html#_GANTTACTIVITYINFO_HIDE">GanttActivityInfo::Hide()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Hide&nbsp;the&nbsp;titles<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Hide&nbsp;the&nbsp;titles
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">actinfo</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

@@ -829,7 +829,7 @@
                 <style>
                     .p { background-color: yellow; }
                     .m { background-color: #00FF00; }
-                    .s { background-color: #FF0000; }
+                    .s { background-color: #F1BD2D; }
                     .c { background-color: aqua; }
                     .x { background-color: pink; }
                     .f { background-color: gold; }

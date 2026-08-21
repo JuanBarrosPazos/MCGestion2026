@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -74,7 +74,8 @@ To show horizontal plots you can rotate the graph 90 degrees by $graph->Angle(90
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify width in absolute pixels. If specified this overrides any calls to SetWidth()&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="BarPlot.html#_BARPLOT_SETWIDTH">BarPlot::SetWidth()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAbsWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAbsWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -96,7 +97,15 @@ To show horizontal plots you can rotate the graph 90 degrees by $graph->Angle(90
 Default is to center the bars.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScale</span><span style="color: #007700">(</span><span style="color: #DD0000">"textlin"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;...<br /><br /></span><span style="color: #0000BB">$barplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">BarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">,</span><span style="color: #0000BB">$xdata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">"center"</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;...<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScale</span><span style="color: #007700">(</span><span style="color: #DD0000">"textlin"</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;...
+<br />
+<br /></span><span style="color: #0000BB">$barplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">BarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">,</span><span style="color: #0000BB">$xdata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">"center"</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;...
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -119,7 +128,12 @@ By specifying an array as argument you can assign individual colors to each of t
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Plot.html#_PLOT_SETCOLOR">Plot::SetColor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;All&nbsp;bars&nbsp;will&nbsp;have&nbsp;the&nbsp;same&nbsp;color<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'#E234A9'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;bars&nbsp;will&nbsp;haev&nbsp;individual&nbsp;colors<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'red'</span><span style="color: #007700">,</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">,</span><span style="color: #DD0000">'green'</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;All&nbsp;bars&nbsp;will&nbsp;have&nbsp;the&nbsp;same&nbsp;color
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'#E234A9'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;The&nbsp;bars&nbsp;will&nbsp;haev&nbsp;individual&nbsp;colors
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(array(</span><span style="color: #DD0000">'red'</span><span style="color: #007700">,</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">,</span><span style="color: #DD0000">'green'</span><span style="color: #007700">));
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -175,7 +189,8 @@ You should also be observant that gradient fills makes use of more CPU time than
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Graph.html#_GRAPH_STROKEBACKGROUNDGRAD">Graph::StrokeBackgroundGrad()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillgradient</span><span style="color: #007700">(</span><span style="color: #DD0000">'orange'</span><span style="color: #007700">,</span><span style="color: #DD0000">'darkred'</span><span style="color: #007700">,</span><span style="color: #0000BB">GRAD_VER</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillgradient</span><span style="color: #007700">(</span><span style="color: #DD0000">'orange'</span><span style="color: #007700">,</span><span style="color: #DD0000">'darkred'</span><span style="color: #007700">,</span><span style="color: #0000BB">GRAD_VER</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -189,7 +204,8 @@ You should also be observant that gradient fills makes use of more CPU time than
 This is usefull when you have a background in the image that you want to be shown underneth the bars.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="BarPlot.html#_BARPLOT_SETFILLCOLOR">BarPlot::SetFillColor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetNoFill</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetNoFill</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -231,7 +247,8 @@ This is usefull when you have a background in the image that you want to be show
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetPattern</span><span style="color: #007700">(</span><span style="color: #DD0000">'PATTERN_CROSS2'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetPattern</span><span style="color: #007700">(</span><span style="color: #DD0000">'PATTERN_CROSS2'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -281,7 +298,8 @@ This is usefull when you have a background in the image that you want to be show
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set a drop shadow for the bar (or rather an "up-right" shadow)&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -307,7 +325,8 @@ This is usefull when you have a background in the image that you want to be show
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Put&nbsp;the&nbsp;values&nbsp;in&nbsp;the&nbsp;middle&nbsp;of&nbsp;the&nbsp;bars<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetValuePos</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Put&nbsp;the&nbsp;values&nbsp;in&nbsp;the&nbsp;middle&nbsp;of&nbsp;the&nbsp;bars
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetValuePos</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -329,7 +348,11 @@ This is usefull when you have a background in the image that you want to be show
 If the X-axis scale is a linear scale (i.e. lin, int or date) then the width must be specified in absolute pixels.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="BarPlot.html#_BARPLOT_SETABSWIDTH">BarPlot::SetAbsWidth()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;fractions&nbsp;for&nbsp;a&nbsp;text&nbsp;scale<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">0.4</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;absolute&nbsp;width&nbsp;25&nbsp;pixels<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">25</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;fractions&nbsp;for&nbsp;a&nbsp;text&nbsp;scale
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">0.4</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;absolute&nbsp;width&nbsp;25&nbsp;pixels
+<br /></span><span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">25</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -349,7 +372,8 @@ If the X-axis scale is a linear scale (i.e. lin, int or date) then the width mus
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify the start plot for bars, (minimum Y-value). By default the base uses the value 0 as base.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetYBase</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$barplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetYBase</span><span style="color: #007700">(</span><span style="color: #0000BB">100</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -398,7 +422,8 @@ If the X-axis scale is a linear scale (i.e. lin, int or date) then the width mus
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Create a new bar plot&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">BarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$bar&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">BarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$ydata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

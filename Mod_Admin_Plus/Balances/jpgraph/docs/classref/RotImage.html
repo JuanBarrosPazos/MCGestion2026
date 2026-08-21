@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -49,7 +49,8 @@ The rotation is performed around point (0,0).
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="RotImage.html#_ROTIMAGE_SETTRANSLATION">RotImage::SetTranslation()</a><li><a href="RotImage.html#_ROTIMAGE_SETCENTER">RotImage::SetCenter()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -76,7 +77,15 @@ The rotation is performed around point (0,0).
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="RotImage.html#_ROTIMAGE_SETTRANSLATION">RotImage::SetTranslation()</a><li><a href="RotImage.html#_ROTIMAGE_SETANGLE">RotImage::SetAngle()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #0000BB">600</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">=</span><span style="color: #0000BB">400</span><span style="color: #007700">;<br /></span><span style="color: #0000BB">$graph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Graph</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">,</span><span style="color: #0000BB">$height</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftm</span><span style="color: #007700">,</span><span style="color: #0000BB">$rightm</span><span style="color: #007700">,</span><span style="color: #0000BB">$topm</span><span style="color: #007700">,</span><span style="color: #0000BB">$bottomm</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Rotate&nbsp;graph&nbsp;around&nbsp;the&nbsp;plots&nbsp;(0,0)&nbsp;point,&nbsp;i.e<br />//&nbsp;where&nbsp;the&nbsp;graph&nbsp;axis&nbsp;intersect.<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCenter</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftm</span><span style="color: #007700">,</span><span style="color: #0000BB">$height</span><span style="color: #007700">-(</span><span style="color: #0000BB">$topm</span><span style="color: #007700">+</span><span style="color: #0000BB">$bottomm</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$width</span><span style="color: #007700">=</span><span style="color: #0000BB">600</span><span style="color: #007700">;&nbsp;</span><span style="color: #0000BB">$height</span><span style="color: #007700">=</span><span style="color: #0000BB">400</span><span style="color: #007700">;
+<br /></span><span style="color: #0000BB">$graph&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Graph</span><span style="color: #007700">(</span><span style="color: #0000BB">$width</span><span style="color: #007700">,</span><span style="color: #0000BB">$height</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftm</span><span style="color: #007700">,</span><span style="color: #0000BB">$rightm</span><span style="color: #007700">,</span><span style="color: #0000BB">$topm</span><span style="color: #007700">,</span><span style="color: #0000BB">$bottomm</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Rotate&nbsp;graph&nbsp;around&nbsp;the&nbsp;plots&nbsp;(0,0)&nbsp;point,&nbsp;i.e
+<br />//&nbsp;where&nbsp;the&nbsp;graph&nbsp;axis&nbsp;intersect.
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCenter</span><span style="color: #007700">(</span><span style="color: #0000BB">$leftm</span><span style="color: #007700">,</span><span style="color: #0000BB">$height</span><span style="color: #007700">-(</span><span style="color: #0000BB">$topm</span><span style="color: #007700">+</span><span style="color: #0000BB">$bottomm</span><span style="color: #007700">));
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -115,7 +124,8 @@ The rotation is performed around point (0,0).
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">50</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">50</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

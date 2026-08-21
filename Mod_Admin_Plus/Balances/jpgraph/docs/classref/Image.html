@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -102,7 +102,10 @@ Note that all coordinates in methods belonging to Image is given in direct scree
 Alphablending is enabled by default (when GD2 is used) but can be turned off by a call to this function with the argument false.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlphaBlending</span><span style="color: #007700">();<br />...<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'orange@0.5'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlphaBlending</span><span style="color: #007700">();
+<br />...
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'orange@0.5'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -119,7 +122,8 @@ Enabling anti-aliasing will greatly improve the visual apperance of certain grap
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Image.html#_IMAGE_LINE">Image::Line()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAntiAliasing</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAntiAliasing</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -246,7 +250,8 @@ Supported formats are:
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">,</span><span style="color: #0000BB">40</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">20</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">,</span><span style="color: #0000BB">40</span><span style="color: #007700">,</span><span style="color: #0000BB">20</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -288,7 +293,8 @@ The quality is specified as an integer in the range 0 (worst quality) to 100 (be
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify transparent color for image.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTransparent</span><span style="color: #007700">(</span><span style="color: #DD0000">"white"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTransparent</span><span style="color: #007700">(</span><span style="color: #DD0000">"white"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

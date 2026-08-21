@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -33,7 +33,9 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Fix a maximum value for a scale eventhough autoscaling is used for the min value.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;For&nbsp;a&nbsp;negative&nbsp;scale&nbsp;we&nbsp;might&nbsp;want&nbsp;to&nbsp;make&nbsp;sure&nbsp;it<br />//&nbsp;always&nbsp;start&nbsp;at&nbsp;the&nbsp;top&nbsp;from&nbsp;0<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">y2scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAutoMax</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;For&nbsp;a&nbsp;negative&nbsp;scale&nbsp;we&nbsp;might&nbsp;want&nbsp;to&nbsp;make&nbsp;sure&nbsp;it
+<br />//&nbsp;always&nbsp;start&nbsp;at&nbsp;the&nbsp;top&nbsp;from&nbsp;0
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">y2scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAutoMax</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -53,7 +55,8 @@
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set the minimum data value when the autoscaling is used. Usefull if you want a fix minimum (like 0) but automtic maximum value.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Just&nbsp;let&nbsp;the&nbsp;maximum&nbsp;be&nbsp;autoscaled<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAutoMin</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Just&nbsp;let&nbsp;the&nbsp;maximum&nbsp;be&nbsp;autoscaled
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAutoMin</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -95,7 +98,13 @@ By default the auto ticks are off.
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Graph.html#_GRAPH_SETSCALE">Graph::SetScale()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Manually&nbsp;set&nbsp;Y-scale&nbsp;min=30,&nbsp;max=90<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScale</span><span style="color: #007700">(</span><span style="color: #DD0000">'textlin'</span><span style="color: #007700">,</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">90</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Let&nbsp;JpGraph&nbsp;figure&nbsp;out&nbsp;suitable&nbsp;tick&nbsp;marks<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yscale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAutoTicks</span><span style="color: #007700">();<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Manually&nbsp;set&nbsp;Y-scale&nbsp;min=30,&nbsp;max=90
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScale</span><span style="color: #007700">(</span><span style="color: #DD0000">'textlin'</span><span style="color: #007700">,</span><span style="color: #0000BB">30</span><span style="color: #007700">,</span><span style="color: #0000BB">90</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Let&nbsp;JpGraph&nbsp;figure&nbsp;out&nbsp;suitable&nbsp;tick&nbsp;marks
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yscale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAutoTicks</span><span style="color: #007700">();
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

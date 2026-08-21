@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -150,7 +150,8 @@ If the alignment is not given the the default is 'right','top'&nbsp;<br>
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify X and Y coordinate for the legend box&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;10x10&nbsp;pixels&nbsp;from&nbsp;the&nbsp;upper&nbsp;right&nbsp;corner<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAbsPos</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #DD0000">'right'</span><span style="color: #007700">,</span><span style="color: #DD0000">'top'</span><span style="color: #007700">)</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;10x10&nbsp;pixels&nbsp;from&nbsp;the&nbsp;upper&nbsp;right&nbsp;corner
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAbsPos</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #0000BB">10</span><span style="color: #007700">,</span><span style="color: #DD0000">'right'</span><span style="color: #007700">,</span><span style="color: #DD0000">'top'</span><span style="color: #007700">)</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -321,7 +322,9 @@ Allowed arguments: LEGEND_VERT,LEGEND_HOR
 Please note that horizontal layout is only suitable for a few legends since it makes use of quite a lot of horizontal space.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Put&nbsp;a&nbsp;horizontal&nbsp;legend&nbsp;box&nbsp;at&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;graph<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.0.5</span><span style="color: #007700">,</span><span style="color: #DD0000">'left'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLayout</span><span style="color: #007700">(</span><span style="color: #0000BB">LEGEND_HOR</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Put&nbsp;a&nbsp;horizontal&nbsp;legend&nbsp;box&nbsp;at&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;graph
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.0.5</span><span style="color: #007700">,</span><span style="color: #DD0000">'left'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLayout</span><span style="color: #007700">(</span><span style="color: #0000BB">LEGEND_HOR</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -356,7 +359,8 @@ Please note that horizontal layout is only suitable for a few legends since it m
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Extra vertical spacing (in pixels) between rows&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Add&nbsp;5&nbsp;pixels&nbsp;extra&nbsp;margin&nbsp;between&nbsp;each&nbsp;legend&nbsp;row<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLineSpacing</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Add&nbsp;5&nbsp;pixels&nbsp;extra&nbsp;margin&nbsp;between&nbsp;each&nbsp;legend&nbsp;row
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLineSpacing</span><span style="color: #007700">(</span><span style="color: #0000BB">5</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -525,7 +529,8 @@ It is often desirable to use a smaller size for the marks in the legend than in 
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Add a drop down shadow for the legend box.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Use&nbsp;a&nbsp;shadow&nbsp;width&nbsp;default&nbsp;width<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Use&nbsp;a&nbsp;shadow&nbsp;width&nbsp;default&nbsp;width
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">legend</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

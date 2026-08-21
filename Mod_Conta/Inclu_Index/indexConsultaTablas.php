@@ -176,7 +176,7 @@
 /////////////////////////
 
 	if(!$qbi){
-	print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+	print("<font color='#F1BD2D'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 	} else {
 		if(mysqli_num_rows($qbi) == 0){
 			print ("<div style='clear:both'></div>
@@ -188,7 +188,7 @@
 					<tr>
 						<td colspan='3'>
 							<span style='display:block; margin-top: 0.4em;'>
-								<font color='#FF0000'>NO HAY DATOS</font>
+								<font color='#F1BD2D'>NO HAY DATOS</font>
 							</span>
 						</td>
 					</tr>
@@ -364,7 +364,7 @@
 /////////////////////////
 
 	if(!$qbg){
-			print("<font color='#FF0000'>*Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+			print("<font color='#F1BD2D'>*Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 	} else {
 		if(mysqli_num_rows($qbg) == 0){
 			print ("<table class='tablac tableForm' >
@@ -374,7 +374,7 @@
 						<tr>
 							<td colspan='3'>
 								<span style='display:block; margin-top: 0.4em;'>
-									<font color='#FF0000'>NO HAY DATOS</font>
+									<font color='#F1BD2D'>NO HAY DATOS</font>
 								</span>
 							</td>
 						</tr>
@@ -559,7 +559,7 @@
 					<tr>
 						<td colspan='3' >
 							<span style='display:block; margin-top: 0.4em;'>
-								<font color='#FF0000'>NO HAY DATOS</font>
+								<font color='#F1BD2D'>NO HAY DATOS</font>
 							</span>
 						</td>
 					</tr>

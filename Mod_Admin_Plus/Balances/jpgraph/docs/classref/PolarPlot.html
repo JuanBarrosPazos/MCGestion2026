@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -72,7 +72,12 @@ Public properties are
 Remember that to create an image map graph you need to construct the graph with the Graph::StrokeCSIM() method instead of the ordinary Graph::Stroke()&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Graph.html#_GRAPH_STROKECSIM">Graph::StrokeCSIM()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Dummy&nbsp;targets<br /></span><span style="color: #0000BB">$t&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'#1'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#2'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#3'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#4'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#5'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#6'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$polarplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$t</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Dummy&nbsp;targets
+<br /></span><span style="color: #0000BB">$t&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'#1'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#2'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#3'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#4'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#5'</span><span style="color: #007700">,</span><span style="color: #DD0000">'#6'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$polarplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$t</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -170,7 +175,15 @@ Remember that to create an image map graph you need to construct the graph with 
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>A polar plot is created form an array of (angle,radius) specification for each plot point..&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$pdata&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">15</span><span style="color: #007700">,</span><span style="color: #0000BB">35</span><span style="color: #007700">,</span><span style="color: #0000BB">40</span><span style="color: #007700">,</span><span style="color: #0000BB">70</span><span style="color: #007700">,</span><span style="color: #0000BB">70</span><span style="color: #007700">,</span><span style="color: #0000BB">120</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$polarplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PolarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$pdata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$polarplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightblue@0.5'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$polargraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$polarplot</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$polargraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Stroke</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$pdata&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">15</span><span style="color: #007700">,</span><span style="color: #0000BB">35</span><span style="color: #007700">,</span><span style="color: #0000BB">40</span><span style="color: #007700">,</span><span style="color: #0000BB">70</span><span style="color: #007700">,</span><span style="color: #0000BB">70</span><span style="color: #007700">,</span><span style="color: #0000BB">120</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$polarplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PolarPlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$pdata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$polarplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightblue@0.5'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$polargraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$polarplot</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$polargraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Stroke</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

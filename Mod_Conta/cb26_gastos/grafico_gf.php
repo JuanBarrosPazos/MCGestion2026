@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-//		ESTE SCRIPT FUNCIONA CON VARIABLES GLOBALES.
+//		ESTE SCRIPT FUNCIONA CON VARIABLES GLOBALES
 
-	require_once ('../jpgraph/src/jpgraph.php');
-	require_once ('../jpgraph/src/jpgraph_line.php');
+	require ('../jpgraph/src/jpgraph.php');
+	require ('../jpgraph/src/jpgraph_line.php');
 
 	require '../../Mod_Admin_Plus/Inclu/error_hidden.php';
 	require '../../Mod_Admin_Plus/Inclu/my_bbdd_clave.php';

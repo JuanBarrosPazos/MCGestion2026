@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -95,7 +95,22 @@ The specified callback function gets called with the Y-value for the current plo
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">FCallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$aVal</span><span style="color: #007700">)&nbsp;{<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;callback&nbsp;will&nbsp;adjust&nbsp;the&nbsp;fill&nbsp;color&nbsp;and&nbsp;size&nbsp;of<br />//&nbsp;the&nbsp;datapoint&nbsp;according&nbsp;to&nbsp;the&nbsp;data&nbsp;value&nbsp;according&nbsp;to<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(&nbsp;</span><span style="color: #0000BB">$aVal&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">30&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;elseif(&nbsp;</span><span style="color: #0000BB">$aVal&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">70&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">=</span><span style="color: #DD0000">"red"</span><span style="color: #007700">;<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(</span><span style="color: #0000BB">floor</span><span style="color: #007700">(</span><span style="color: #0000BB">$aVal</span><span style="color: #007700">/</span><span style="color: #0000BB">3</span><span style="color: #007700">),</span><span style="color: #DD0000">""</span><span style="color: #007700">,</span><span style="color: #0000BB">$c</span><span style="color: #007700">);<br />}<br /><br />...<br /><br /></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;the&nbsp;callback<br /></span><span style="color: #0000BB">$scatterplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCallback</span><span style="color: #007700">(</span><span style="color: #DD0000">"FCallback"</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">FCallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$aVal</span><span style="color: #007700">)&nbsp;{
+<br /></span><span style="color: #FF8000">//&nbsp;This&nbsp;callback&nbsp;will&nbsp;adjust&nbsp;the&nbsp;fill&nbsp;color&nbsp;and&nbsp;size&nbsp;of
+<br />//&nbsp;the&nbsp;datapoint&nbsp;according&nbsp;to&nbsp;the&nbsp;data&nbsp;value&nbsp;according&nbsp;to
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">if(&nbsp;</span><span style="color: #0000BB">$aVal&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">30&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"blue"</span><span style="color: #007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;elseif(&nbsp;</span><span style="color: #0000BB">$aVal&nbsp;</span><span style="color: #007700">&lt;&nbsp;</span><span style="color: #0000BB">70&nbsp;</span><span style="color: #007700">)&nbsp;</span><span style="color: #0000BB">$c&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"green"</span><span style="color: #007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;else&nbsp;</span><span style="color: #0000BB">$c</span><span style="color: #007700">=</span><span style="color: #DD0000">"red"</span><span style="color: #007700">;
+<br />&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;array(</span><span style="color: #0000BB">floor</span><span style="color: #007700">(</span><span style="color: #0000BB">$aVal</span><span style="color: #007700">/</span><span style="color: #0000BB">3</span><span style="color: #007700">),</span><span style="color: #DD0000">""</span><span style="color: #007700">,</span><span style="color: #0000BB">$c</span><span style="color: #007700">);
+<br />}
+<br />
+<br />...
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;the&nbsp;callback
+<br /></span><span style="color: #0000BB">$scatterplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCallback</span><span style="color: #007700">(</span><span style="color: #DD0000">"FCallback"</span><span style="color: #007700">);
+<br />
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -124,7 +139,18 @@ The difference from the ordinary SetCallback() is that the callback function spe
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">FCallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$aYVal</span><span style="color: #007700">,</span><span style="color: #0000BB">$aXVal</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Some&nbsp;code&nbsp;to&nbsp;the&nbsp;size&nbsp;and&nbsp;color<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;array(&nbsp;...&nbsp;);<br />}<br /><br />...<br /><br /></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;the&nbsp;callback<br /></span><span style="color: #0000BB">$scatterplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCallbackYX</span><span style="color: #007700">(</span><span style="color: #DD0000">"FCallback"</span><span style="color: #007700">);<br /><br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">FCallback</span><span style="color: #007700">(</span><span style="color: #0000BB">$aYVal</span><span style="color: #007700">,</span><span style="color: #0000BB">$aXVal</span><span style="color: #007700">)&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Some&nbsp;code&nbsp;to&nbsp;the&nbsp;size&nbsp;and&nbsp;color
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;array(&nbsp;...&nbsp;);
+<br />}
+<br />
+<br />...
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Specify&nbsp;the&nbsp;callback
+<br /></span><span style="color: #0000BB">$scatterplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCallbackYX</span><span style="color: #007700">(</span><span style="color: #DD0000">"FCallback"</span><span style="color: #007700">);
+<br />
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -145,7 +171,8 @@ The difference from the ordinary SetCallback() is that the callback function spe
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PlotMark.html#_PLOTMARK_SETFILLCOLOR">PlotMark::SetFillColor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'navy'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'navy'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -177,7 +204,8 @@ The difference from the ordinary SetCallback() is that the callback function spe
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set fill color for mark&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PlotMark.html#_PLOTMARK_SETCOLOR">PlotMark::SetColor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -446,7 +474,29 @@ In terms of the builtin flags 230 countries are supported. The following table l
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;A&nbsp;standard&nbsp;shape<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FILLEDCIRCLE</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Use&nbsp;image&nbsp;in&nbsp;file&nbsp;'mark.jpg'&nbsp;as&nbsp;mark.,&nbsp;aslo&nbsp;scale&nbsp;it&nbsp;to<br />//&nbsp;half&nbsp;the&nbsp;size<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_IMAGE</span><span style="color: #007700">,</span><span style="color: #DD0000">'mark.jpg'</span><span style="color: #007700">,</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;the&nbsp;built-in&nbsp;image&nbsp;diamond&nbsp;in&nbsp;yellow&nbsp;color&nbsp;and&nbsp;70%&nbsp;of&nbsp;originally&nbsp;size<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_IMG_DIAMOND</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.7</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Setting&nbsp;the&nbsp;plotmarks&nbsp;to&nbsp;a&nbsp;Swedish&nbsp;flag&nbsp;showing&nbsp;the&nbsp;three<br />//&nbsp;ways&nbsp;of&nbsp;doing&nbsp;it<br /></span><span style="color: #007700">....<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FLAG1</span><span style="color: #007700">,</span><span style="color: #DD0000">'sweden'</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;OR<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FLAG1</span><span style="color: #007700">,</span><span style="color: #0000BB">197</span><span style="color: #007700">);<br /></span><span style="color: #FF8000">//&nbsp;OR<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FLAG1</span><span style="color: #007700">,</span><span style="color: #DD0000">'Kingdom&nbsp;of&nbsp;Sweden'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;A&nbsp;standard&nbsp;shape
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FILLEDCIRCLE</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Use&nbsp;image&nbsp;in&nbsp;file&nbsp;'mark.jpg'&nbsp;as&nbsp;mark.,&nbsp;aslo&nbsp;scale&nbsp;it&nbsp;to
+<br />//&nbsp;half&nbsp;the&nbsp;size
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_IMAGE</span><span style="color: #007700">,</span><span style="color: #DD0000">'mark.jpg'</span><span style="color: #007700">,</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;the&nbsp;built-in&nbsp;image&nbsp;diamond&nbsp;in&nbsp;yellow&nbsp;color&nbsp;and&nbsp;70%&nbsp;of&nbsp;originally&nbsp;size
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_IMG_DIAMOND</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">0.7</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Setting&nbsp;the&nbsp;plotmarks&nbsp;to&nbsp;a&nbsp;Swedish&nbsp;flag&nbsp;showing&nbsp;the&nbsp;three
+<br />//&nbsp;ways&nbsp;of&nbsp;doing&nbsp;it
+<br /></span><span style="color: #007700">....
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FLAG1</span><span style="color: #007700">,</span><span style="color: #DD0000">'sweden'</span><span style="color: #007700">);
+<br /></span><span style="color: #FF8000">//&nbsp;OR
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FLAG1</span><span style="color: #007700">,</span><span style="color: #0000BB">197</span><span style="color: #007700">);
+<br /></span><span style="color: #FF8000">//&nbsp;OR
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetType</span><span style="color: #007700">(</span><span style="color: #0000BB">MARK_FLAG1</span><span style="color: #007700">,</span><span style="color: #DD0000">'Kingdom&nbsp;of&nbsp;Sweden'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -486,7 +536,8 @@ In terms of the builtin flags 230 countries are supported. The following table l
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set width of plot mark&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$lineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">mark</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

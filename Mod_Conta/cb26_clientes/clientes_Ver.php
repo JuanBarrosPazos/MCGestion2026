@@ -55,7 +55,7 @@ session_start();
 		$qc = mysqli_query($db, $sqlc);
 		
 		if(!$qc){
-				print("<font color='#FF0000'>
+				print("<font color='#F1BD2D'>
 						Se ha producido un error: </font>".mysqli_error($db)."</br></br>");
 		} else {
 				

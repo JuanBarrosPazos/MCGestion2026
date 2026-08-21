@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -56,7 +56,8 @@ $months = $gDateLocale->GetShortMonth(); <p> &nbsp;
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Get the full month name as specified by integer 0-11&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="DateLocale.html#_DATELOCALE_GETSHORTMONTHNAME">DateLocale::GetShortMonthName()</a><li><a href="DateLocale.html#_DATELOCALE_GETSHORTMONTH">DateLocale::GetShortMonth()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$jan&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gDateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetLongMonthName</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$jan&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gDateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetLongMonthName</span><span style="color: #007700">(</span><span style="color: #0000BB">0</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -68,7 +69,8 @@ $months = $gDateLocale->GetShortMonth(); <p> &nbsp;
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Return an array with all months of the year in their long form.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="DateLocale.html#_DATELOCALE_GETSHORTMONTH">DateLocale::GetShortMonth()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$allmonths&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gDateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetMonth</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTickLabels</span><span style="color: #007700">(</span><span style="color: #0000BB">$allmonths</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$allmonths&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gDateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetMonth</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTickLabels</span><span style="color: #007700">(</span><span style="color: #0000BB">$allmonths</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -537,7 +539,9 @@ The following table lists some commonly used locales. The exact locales availabl
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Construct a new DateLocale.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$dateLocale&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateLocale</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">//&nbsp;Use&nbsp;Swedish&nbsp;locale<br /></span><span style="color: #0000BB">$dateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #DD0000">'sv_SE'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$dateLocale&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">DateLocale</span><span style="color: #007700">();
+<br /></span><span style="color: #FF8000">//&nbsp;Use&nbsp;Swedish&nbsp;locale
+<br /></span><span style="color: #0000BB">$dateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #DD0000">'sv_SE'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

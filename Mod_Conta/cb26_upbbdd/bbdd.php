@@ -62,7 +62,7 @@ function show_form(){
 	$consulta = "SHOW TABLES FROM $db_name $nom";
 	$respuesta = mysqli_query($db, $consulta);
 	if(!$respuesta){
-	print("<font color='#FF0000'>194 Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+	print("<font color='#F1BD2D'>194 Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 		
 	} else {print( "<table align='center'>
 						<tr>

@@ -148,34 +148,6 @@ function config_one_cb23(){
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname5."\n\t* ".mysqli_error($db)."\n";
 	}
 
-	/************** CREAMOS LA TABLA PROVEEDORES FEED **************
-
-	global $vname5f;
-	$vname5f = "`".$_SESSION['clave']."proveedoresfeed`";
-	
-	$provee = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname5f (
-  `id` int(4) NOT NULL auto_increment,
-  `ref` varchar(20) NOT NULL,
-  `rsocial` varchar(30) NOT NULL,
-  `myimg` varchar(30) NOT NULL default 'untitled.png',
-  `doc` varchar(11) NOT NULL,
-  `dni` varchar(8) NOT NULL,
-  `ldni` varchar(1) NOT NULL,
-  `Email` varchar(50) NULL,
-  `Direccion` varchar(60) NOT NULL,
-  `Tlf1` int(9) NULL,
-  `Tlf2` int(9) NULL,
-  `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
- UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
-		
-	if(mysqli_query($db, $provee)){
-			$LogText = $LogText."\t* OK CREATE TABLE ".$vname5f."\n";
-	}else{ 	//print("* ERROR CREATE TABLE ".$vname5f.". ".mysqli_error($db)."</br>");
-			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname5f."\n\t* ".mysqli_error($db)."\n";
-	}
-*/
-
 	/************** CREAMOS LA TABLA GASTOS PENDIENTES  ***************/
 
 	global $tablProveedores;
@@ -257,34 +229,6 @@ function config_one_cb23(){
 	}else{ 	//print("* ERROR CREATE TABLE ".$vname6.". ".mysqli_error($db)."</br>");
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname6."\n\t* ".mysqli_error($db)." \n";
 	}
-					
-	/************** CREAMOS LA TABLA CLIENTES FEED **************
-
-	global $vname6f;
-	$vname6f = "`".$_SESSION['clave']."clientesfeed`";
-	
-	$provee = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname6f (
-  `id` int(4) NOT NULL auto_increment,
-  `ref` varchar(20) NOT NULL,
-  `rsocial` varchar(30) NOT NULL,
-  `myimg` varchar(30) NOT NULL default 'untitled.png',
-  `doc` varchar(11) NOT NULL,
-  `dni` varchar(8) NOT NULL,
-  `ldni` varchar(1) NOT NULL,
-  `Email` varchar(50) NULL,
-  `Direccion` varchar(60) NOT NULL,
-  `Tlf1` int(9) NULL,
-  `Tlf2` int(9) NULL,
-  `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
- UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
-		
-	if(mysqli_query($db, $provee)){
-			$LogText = $LogText."\t* OK CREATE TABLE ".$vname6f."\n";
-	}else{ 	//print("* ERROR CREATE TABLE ".$vname6f." ".mysqli_error($db)."</br>");
-			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname6f."\n\t* ".mysqli_error($db)."\n";
-	}
-*/
 
 	/************** CREAMOS LA TABLA INGRESOS PENDIENTES ***************/
 
@@ -398,27 +342,6 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname11."\n\t* ".mysqli_error($db)." \n";
 	}
 
-	/************** CREAMOS LA TABLA STATUS FEEDBACK **************
-
-	global $vname12;
-	$vname12 = "`".$_SESSION['clave']."statusfeed`";
-
-	$statusfeed = "CREATE TABLE IF NOT EXISTS `$db_name`.$vname12 (
-				  `id` int(2) NOT NULL auto_increment,
-  				  `year` int(4) NOT NULL,
-   				  `ycod` int(2) NOT NULL,
- 				  `stat` varchar(5) NOT NULL DEFAULT 'open',
- 				  `hidden` varchar(2) NOT NULL DEFAULT 'no',
-				  `date` datetime NOT NULL default CURRENT_TIMESTAMP,
-				  PRIMARY KEY  (`id`)
-				) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
-		
-	if(mysqli_query($db, $statusfeed)){
-			$LogText = $LogText."\t* OK CREATE TABLE ".$vname12.". \n";
-	}else{ 	//print("* ERROR CREATE TABLE ".$vname12." ".mysqli_error($db)."</br>");
-			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vname12."\n\t* ".mysqli_error($db)." \n";
-	}
-*/
 	/************** CREAMOS LA TABLA RETENCION ***************/
 
 	global $vname13;
@@ -590,45 +513,6 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 			$LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta2."\n";
 				}
 
-	/************** CREAMOS LA TABLA GASTOS FEED  **************
- 
-	global $vnamegf;
-	$vnamegf = "`".$_SESSION['clave']."gastosfeed`";
-	
-	$tgf = "CREATE TABLE IF NOT EXISTS `$db_name`.$vnamegf (
-  `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) NOT NULL,
-  `factnumini` varchar(20) NOT NULL,
-  `factdate` date NOT NULL,
-  `factdateini` date NOT NULL,
-  `refprovee` varchar(20) NOT NULL,
-  `factnom` varchar(22) NOT NULL,
-  `factnif` varchar(20) NOT NULL,
-  `factiva` int(2) NOT NULL,
-  `factivae` decimal(9,2) unsigned NOT NULL,
-  `factpvp` decimal(9,2) unsigned NOT NULL,
-  `factret` int(2) unsigned NOT NULL,
-  `factrete` decimal(9,2) unsigned NOT NULL,
-  `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text NOT NULL,
-  `myimg1` varchar(30) NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) NOT NULL default 'untitled.png',
-  `factcrea` datetime NOT NULL,
-  `factmodif` datetime NOT NULL,
-  `ruta` varchar(50) NOT NULL,
-  `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
-
-	if(mysqli_query($db, $tgf)){
-				$LogText = $LogText."\t* OK CREATE TABLE ".$vnamegf."\n";
-	} else { 	//print( "* ERROR CREATE TABLE ".$vnamegf." ".mysqli_error($db)."\n");
-				$LogText = $LogText."\t* ERROR CREATE TABLE ".$vnamegf."\n\t* ".mysqli_error($db)."\n";
-			}
-*/
 	/************** CREAMOS LA TABLA INGRESOS  ***************/
 
 	global $tblClientes;
@@ -742,44 +626,6 @@ $impuestos2 = "INSERT INTO `$db_name`.$vname10 (`id`, `iva`, `name`) VALUES
 			 $LogText = $LogText."\t* YA EXISTE EL DIRECTORIO ".$carpeta4."\n";
 				}
 
-	/************** CREAMOS LA TABLA INGRESOS FEED  **************
-
-	global $vnameif; 	$vnameif = "`".$_SESSION['clave']."ingresosfeed`";
-	
-	$tif = "CREATE TABLE IF NOT EXISTS `$db_name`.$vnameif (
-  `id` int(4) NOT NULL auto_increment,
-  `factnum` varchar(20) NOT NULL,
-  `factnumini` varchar(20) NOT NULL,
-  `factdate` date NOT NULL,
-  `factdateini` date NOT NULL,
-  `refcliente` varchar(20) NOT NULL,
-  `factnom` varchar(22) NOT NULL,
-  `factnif` varchar(20) NOT NULL,
-  `factiva` int(2) NOT NULL,
-  `factivae` decimal(9,2) unsigned NOT NULL,
-  `factpvp` decimal(9,2) unsigned NOT NULL,
-  `factret` int(2) unsigned NOT NULL,
-  `factrete` decimal(9,2) unsigned NOT NULL,
-  `factpvptot` decimal(9,2) unsigned NOT NULL,
-  `coment` text NOT NULL,
-  `myimg1` varchar(30) NOT NULL default 'untitled.png',
-  `myimg2` varchar(30) NOT NULL default 'untitled.png',
-  `myimg3` varchar(30) NOT NULL default 'untitled.png',
-  `myimg4` varchar(30) NOT NULL default 'untitled.png',
-  `factcrea` datetime NOT NULL,
-  `factmodif` datetime NOT NULL,
-  `ruta` varchar(50) NOT NULL,
-  `borrado` datetime NOT NULL default CURRENT_TIMESTAMP,
-  PRIMARY KEY  (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf16 COLLATE=utf16_spanish2_ci AUTO_INCREMENT=1 ";
-		
-	if(mysqli_query($db, $tif)){
-			$LogText = $LogText."\t* OK CREATE TABLE ".$vnameif."\n";
-	}else{ 	//print( "* ERROR CREATE TABLE ".$vnameif." ".mysqli_error($db)."\n");
-			$LogText = $LogText."\t* ERROR CREATE TABLE ".$vnameif."\n\t* ".mysqli_error($db)."\n";
-				}
-*/
 		/************	PASAMOS LOS PARAMETROS A .LOG	*****************/
 	
 		$datein = date('Y-m-d H:i:s');

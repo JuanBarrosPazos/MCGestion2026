@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -61,7 +61,9 @@ The anchor points determines what position on the icon shoudl be aligned with th
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$icon&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IconImage</span><span style="color: #007700">(</span><span style="color: #DD0000">"../smiley.png"</span><span style="color: #007700">,</span><span style="color: #0000BB">0.7</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$icon</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$icon&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IconImage</span><span style="color: #007700">(</span><span style="color: #DD0000">"../smiley.png"</span><span style="color: #007700">,</span><span style="color: #0000BB">0.7</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$icon</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -121,7 +123,12 @@ $bar = new GanttBar(0,$titles,$startdat,$enddate);
 <b>Hint:</b> When using icons togehter with titles the height of each bar is not affected (by design!) of the icons height. If you are using icons in several rows it might therefore be usefull to increase the vertical margin factor between each row. This is done by a call to the method GanttGarph::SetVMarginFactor()&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="GanttGraph.html#_GANTTGRAPH_SETVMARGINFACTOR">GanttGraph::SetVMarginFactor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Creating&nbsp;an&nbsp;icon&nbsp;from&nbsp;an&nbsp;image&nbsp;file&nbsp;and&nbsp;scaling&nbsp;it&nbsp;to&nbsp;70%<br />//&nbsp;of&nbsp;original&nbsp;size<br /></span><span style="color: #0000BB">$icon&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IconImage</span><span style="color: #007700">(</span><span style="color: #DD0000">"smiley.png"</span><span style="color: #007700">,</span><span style="color: #0000BB">0.7</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;on&nbsp;of&nbsp;the&nbsp;bultin&nbsp;icons<br /></span><span style="color: #0000BB">$icon&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IconImage</span><span style="color: #007700">(</span><span style="color: #0000BB">GICON_TEXT</span><span style="color: #007700">,</span><span style="color: #0000BB">0.8</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Creating&nbsp;an&nbsp;icon&nbsp;from&nbsp;an&nbsp;image&nbsp;file&nbsp;and&nbsp;scaling&nbsp;it&nbsp;to&nbsp;70%
+<br />//&nbsp;of&nbsp;original&nbsp;size
+<br /></span><span style="color: #0000BB">$icon&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IconImage</span><span style="color: #007700">(</span><span style="color: #DD0000">"smiley.png"</span><span style="color: #007700">,</span><span style="color: #0000BB">0.7</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Using&nbsp;on&nbsp;of&nbsp;the&nbsp;bultin&nbsp;icons
+<br /></span><span style="color: #0000BB">$icon&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">IconImage</span><span style="color: #007700">(</span><span style="color: #0000BB">GICON_TEXT</span><span style="color: #007700">,</span><span style="color: #0000BB">0.8</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

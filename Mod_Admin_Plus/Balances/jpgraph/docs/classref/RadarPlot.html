@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -50,7 +50,8 @@ A spider plot can only be added to a SpiderGraph <p> &nbsp;
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="RadarPlot.html#_RADARPLOT_SETFILLCOLOR">RadarPlot::SetFillColor()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$spideplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'darkred'</span><span style="color: #007700">,</span><span style="color: #DD0000">'lightblue'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$spideplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'darkred'</span><span style="color: #007700">,</span><span style="color: #DD0000">'lightblue'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -98,7 +99,15 @@ A spider plot can only be added to a SpiderGraph <p> &nbsp;
 This method might be useful if you programatically have set the colro and later need to disable the fill.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$spiderplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightblue'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;...&nbsp;some&nbsp;code<br /><br />//&nbsp;Turn&nbsp;off&nbsp;the&nbsp;fill<br /></span><span style="color: #007700">if(&nbsp;</span><span style="color: #0000BB">$doNotFillSpiderPlot&nbsp;</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$spiderplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFill</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$spiderplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFillColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightblue'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;...&nbsp;some&nbsp;code
+<br />
+<br />//&nbsp;Turn&nbsp;off&nbsp;the&nbsp;fill
+<br /></span><span style="color: #007700">if(&nbsp;</span><span style="color: #0000BB">$doNotFillSpiderPlot&nbsp;</span><span style="color: #007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$spiderplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFill</span><span style="color: #007700">(</span><span style="color: #0000BB">false</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

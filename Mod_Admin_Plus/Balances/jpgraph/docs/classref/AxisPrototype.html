@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -73,7 +73,9 @@ Public properties:
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>This method is used to hide the axis.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Hide</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;Hide&nbsp;xaxis<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Hide</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;Hide&nbsp;y-axis<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Hide</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;Hide&nbsp;xaxis
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Hide</span><span style="color: #007700">();&nbsp;</span><span style="color: #FF8000">//&nbsp;Hide&nbsp;y-axis
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -85,7 +87,13 @@ Public properties:
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Hide the first and last label on the scale. Usefull whe you are using Axis Type of AXSTYLE_BOXIN or AXSTYLE_BOXOUT to avoid the labels to owerwrite a box around the plot.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_HIDEFIRSTTICKLABEL">AxisPrototype::HideFirstTickLabel()</a><li><a href="AxisPrototype.html#_AXISPROTOTYPE_HIDELASTTICKLABEL">AxisPrototype::HideLastTickLabel()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//...<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAxisStyle</span><span style="color: #007700">(</span><span style="color: #0000BB">AXSTYLE_BOXOUT</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideFirstLastLabel</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideFirstLastLabel</span><span style="color: #007700">();<br /></span><span style="color: #FF8000">//...<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//...
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetAxisStyle</span><span style="color: #007700">(</span><span style="color: #0000BB">AXSTYLE_BOXOUT</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideFirstLastLabel</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideFirstLastLabel</span><span style="color: #007700">();
+<br /></span><span style="color: #FF8000">//...
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -180,7 +188,10 @@ This is probably of less use for the end user of the library.&nbsp;<br>
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Hide the line of the axis. This <strong>only</strong> hides the axis-line but will keep the tick marks and labels. If you want to hide the tick marks you should call HideTicks(). To hide the axis completely, line, ticks and labels use Hide().&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_HIDETICKS">AxisPrototype::HideTicks()</a><li><a href="AxisPrototype.html#_AXISPROTOTYPE_HIDE">AxisPrototype::Hide()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Hide&nbsp;line&nbsp;and&nbsp;tick&nbsp;marks<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideLine</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideTicks</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Hide&nbsp;line&nbsp;and&nbsp;tick&nbsp;marks
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideLine</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideTicks</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -212,7 +223,8 @@ This is probably of less use for the end user of the library.&nbsp;<br>
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Hide major or minor tick makrs on the axis.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Only&nbsp;display&nbsp;major&nbsp;tick&nbsp;marks<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideTicks</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Only&nbsp;display&nbsp;major&nbsp;tick&nbsp;marks
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideTicks</span><span style="color: #007700">(</span><span style="color: #0000BB">true</span><span style="color: #007700">,</span><span style="color: #0000BB">false</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -236,7 +248,8 @@ This is probably of less use for the end user of the library.&nbsp;<br>
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_HIDEFIRSTTICKLABEL">AxisPrototype::HideFirstTickLabel()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideZeroLabel</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">HideZeroLabel</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -265,7 +278,8 @@ This is probably of less use for the end user of the library.&nbsp;<br>
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specifies the color of the axis line as well as the labels on the axis. If the label color is not specified it will be the same as the axis color.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'blue'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -374,7 +388,8 @@ Note:<br>
 If you want to use any angles other than 0 and 90 degrees you must make sure that the labels are using TTF fonts. Internal fonts only support vertical and horizontal angles.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETFONT">AxisPrototype::SetFont()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_ARIAL</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_NORMAL</span><span style="color: #007700">,</span><span style="color: #0000BB">11</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;45&nbsp;degrees&nbsp;angle</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_ARIAL</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_NORMAL</span><span style="color: #007700">,</span><span style="color: #0000BB">11</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelAngle</span><span style="color: #007700">(</span><span style="color: #0000BB">45</span><span style="color: #007700">);&nbsp;</span><span style="color: #FF8000">//&nbsp;45&nbsp;degrees&nbsp;angle</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -434,7 +449,16 @@ For a full example see barscalecallbackex1.php
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETLABELFORMAT">AxisPrototype::SetLabelFormat()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">yLabelFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)&nbsp;{<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;english&nbsp;style<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">number_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;french&nbsp;style<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;number_format($aLabel,&nbsp;2,&nbsp;',',&nbsp;'&nbsp;');<br /></span><span style="color: #007700">}<br /><br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelFormatCallback</span><span style="color: #007700">(</span><span style="color: #DD0000">'yLabelFormat'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #007700">function&nbsp;</span><span style="color: #0000BB">yLabelFormat</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)&nbsp;{
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;english&nbsp;style
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #007700">return&nbsp;</span><span style="color: #0000BB">number_format</span><span style="color: #007700">(</span><span style="color: #0000BB">$aLabel</span><span style="color: #007700">)
+<br />&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//&nbsp;Format&nbsp;'1000&nbsp;french&nbsp;style
+<br />&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;return&nbsp;number_format($aLabel,&nbsp;2,&nbsp;',',&nbsp;'&nbsp;');
+<br /></span><span style="color: #007700">}
+<br />
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">yaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelFormatCallback</span><span style="color: #007700">(</span><span style="color: #DD0000">'yLabelFormat'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -484,7 +508,8 @@ Will be deprecated in a future release. Use SetLabelFormat() instead.&nbsp;<br>
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify margin between labels and tick marks.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">15</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">15</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -590,7 +615,8 @@ See topaxisex1.php for a real life example.&nbsp;<br>
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETTICKLABELS">AxisPrototype::SetTickLabels()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Only&nbsp;draw&nbsp;labels&nbsp;on&nbsp;every&nbsp;2nd&nbsp;tick&nbsp;mark<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTextLabelInterval</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Only&nbsp;draw&nbsp;labels&nbsp;on&nbsp;every&nbsp;2nd&nbsp;tick&nbsp;mark
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTextLabelInterval</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -655,7 +681,13 @@ The color argment is an array that can be used to specify individual colors for 
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETTEXTLABELINTERVAL">AxisPrototype::SetTextLabelInterval()</a><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETTEXTTICKINTERVAL">AxisPrototype::SetTextTickInterval()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Set&nbsp;the&nbsp;x-axel&nbsp;to&nbsp;the&nbsp;month&nbsp;of&nbsp;the&nbsp;years&nbsp;using&nbsp;the<br />//&nbsp;gloablly&nbsp;available&nbsp;$gDateLocale<br /><br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gDateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetShortMonth</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTickLabels</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Set&nbsp;the&nbsp;x-axel&nbsp;to&nbsp;the&nbsp;month&nbsp;of&nbsp;the&nbsp;years&nbsp;using&nbsp;the
+<br />//&nbsp;gloablly&nbsp;available&nbsp;$gDateLocale
+<br />
+<br /></span><span style="color: #0000BB">$a&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$gDateLocale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetShortMonth</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTickLabels</span><span style="color: #007700">(</span><span style="color: #0000BB">$a</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT2</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -764,7 +796,8 @@ See topaxisex1.php for real life example.
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set the title for the axis. You can specify the alignment as being either "high", "middle" and "low". To adjust the titles font and color you have to access the label instance variable. For example, $graph->xaxis->title->SetFont(FF_FONT2,FS_BOLD)&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTitle</span><span style="color: #007700">(</span><span style="color: #DD0000">'Values&nbsp;for&nbsp;2002'</span><span style="color: #007700">,</span><span style="color: #DD0000">'middle'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTitle</span><span style="color: #007700">(</span><span style="color: #DD0000">'Values&nbsp;for&nbsp;2002'</span><span style="color: #007700">,</span><span style="color: #DD0000">'middle'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -808,7 +841,8 @@ By default x-axis have the title below the axis and y-axis have it on the left a
 See topaxisex1.php for real life example&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETLABELSIDE">AxisPrototype::SetLabelSide()</a><li><a href="AxisPrototype.html#_AXISPROTOTYPE_SETTICKSIDE">AxisPrototype::SetTickSide()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTitleSide</span><span style="color: #007700">(</span><span style="color: #0000BB">SIDE_TOP</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">xaxis</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTitleSide</span><span style="color: #007700">(</span><span style="color: #0000BB">SIDE_TOP</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>

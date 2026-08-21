@@ -95,7 +95,7 @@ function process_form(){
 
 			print $tablaResult;
 
-		} else { print("</br><font color='#FF0000'>
+		} else { print("</br><font color='#F1BD2D'>
 						* MODIFIQUE LA ENTRADA 92: </font></br> ".mysqli_error($db))."</br>";
 					show_form ();
 					global $texerror; 		$texerror = "\n\t ".mysqli_error($db);

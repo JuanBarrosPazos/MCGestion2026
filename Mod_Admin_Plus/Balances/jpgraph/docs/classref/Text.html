@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -97,7 +97,8 @@ Valid paragraph alignment
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_PARAGRAPHALIGN">Text::ParagraphAlign()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$text&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -174,7 +175,8 @@ The difference between this method and the GetTextHeight() is that this method u
 The difference between this method and the GetFontHeight() is that that method uses a predefined character to determine the height while GetTextHeight() uses the actual text in the string.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_GETFONTHEIGHT">Text::GetFontHeight()</a><li><a href="Text.html#_TEXT_GETWIDTH">Text::GetWidth()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$height&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetTextHeight</span><span style="color: #007700">(</span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$height&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetTextHeight</span><span style="color: #007700">(</span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -194,7 +196,8 @@ The difference between this method and the GetFontHeight() is that that method u
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Get total width of text&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_GETTEXTHEIGHT">Text::GetTextHeight()</a><li><a href="Text.html#_TEXT_GETFONTHEIGHT">Text::GetFontHeight()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$width&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$width&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">GetWidth</span><span style="color: #007700">(</span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">img</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -244,7 +247,15 @@ Valid alignments are:
 </ul>&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_ALIGN">Text::Align()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #DD0000">"The&nbsp;first&nbsp;line\nSec&nbsp;line\nThird&nbsp;line"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ParagraphAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Will&nbsp;give&nbsp;the&nbsp;result:<br />//<br />//&nbsp;&nbsp;The&nbsp;first&nbsp;line<br />//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sec&nbsp;line<br />//&nbsp;&nbsp;&nbsp;&nbsp;Third&nbsp;line<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #DD0000">"The&nbsp;first&nbsp;line\nSec&nbsp;line\nThird&nbsp;line"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ParagraphAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'center'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Will&nbsp;give&nbsp;the&nbsp;result:
+<br />//
+<br />//&nbsp;&nbsp;The&nbsp;first&nbsp;line
+<br />//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sec&nbsp;line
+<br />//&nbsp;&nbsp;&nbsp;&nbsp;Third&nbsp;line
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -382,7 +393,13 @@ To use the old style of stright corners specify a corner radius of 0.
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_SETSHADOW">Text::SetShadow()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">"Note:&nbsp;Simple&nbsp;textnote.\nWIth&nbsp;two&nbsp;lines"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT1</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.97</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">(</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">AddText</span><span style="color: #007700">(</span><span style="color: #0000BB">$txt</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">"Note:&nbsp;Simple&nbsp;textnote.\nWIth&nbsp;two&nbsp;lines"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT1</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.97</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">(</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">AddText</span><span style="color: #007700">(</span><span style="color: #0000BB">$txt</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -440,7 +457,8 @@ To use the old style of stright corners specify a corner radius of 0.
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify Client Side Image Target for text&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTarget</span><span style="color: #007700">(</span><span style="color: #DD0000">'mainpage.html'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Go&nbsp;to&nbsp;main&nbsp;page'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTarget</span><span style="color: #007700">(</span><span style="color: #DD0000">'mainpage.html'</span><span style="color: #007700">,</span><span style="color: #DD0000">'Go&nbsp;to&nbsp;main&nbsp;page'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -527,7 +545,8 @@ The available TTF are by default
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify a context sensitive margin for the text. Depending on in which context the text is used the margin will be interpretated accordingly.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Start&nbsp;further&nbsp;away&nbsp;from&nbsp;the&nbsp;top&nbsp;of&nbsp;graph<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">15</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Start&nbsp;further&nbsp;away&nbsp;from&nbsp;the&nbsp;top&nbsp;of&nbsp;graph
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">15</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -579,7 +598,11 @@ Note: Paragraph alignment is only applicable to horizontal text, i.e. angle = 0 
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #DD0000">"Multi&nbsp;line\ntext&nbsp;!"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetParagraphAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'right'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Default&nbsp;for&nbsp;title&nbsp;is&nbsp;"center"<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Set</span><span style="color: #007700">(</span><span style="color: #DD0000">"Multi&nbsp;line\ntext&nbsp;!"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">title</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetParagraphAlign</span><span style="color: #007700">(</span><span style="color: #DD0000">'right'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Default&nbsp;for&nbsp;title&nbsp;is&nbsp;"center"
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -643,7 +666,8 @@ Note: Paragraph alignment is only applicable to horizontal text, i.e. angle = 0 
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify the position of the text using the plot scale positions. The Y position is taken to be the Y axis. It is not possible to use Y2 scale to specify the position.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScalePos</span><span style="color: #007700">(</span><span style="color: #0000BB">27.3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">278.9</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetScalePos</span><span style="color: #007700">(</span><span style="color: #0000BB">27.3</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">278.9</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -677,7 +701,13 @@ Note: Paragraph alignment is only applicable to horizontal text, i.e. angle = 0 
 Note: You can also specify the shadow directly in the SetBox() call. This method was added to make Text more like other graph objects which have a SetShadow() method.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_SETBOX">Text::SetBox()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">"Note:&nbsp;Simple&nbsp;textnote.\nWIth&nbsp;two&nbsp;lines"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT1</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.97</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">(</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">AddText</span><span style="color: #007700">(</span><span style="color: #0000BB">$txt</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">"Note:&nbsp;Simple&nbsp;textnote.\nWIth&nbsp;two&nbsp;lines"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT1</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.97</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">(</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">AddText</span><span style="color: #007700">(</span><span style="color: #0000BB">$txt</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -697,7 +727,8 @@ Note: You can also specify the shadow directly in the SetBox() call. This method
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify a maximum line length. This method will insert suitable line breaks to ensure thateach line never exeeds the specified number of characters. The method will not break words.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">'A&nbsp;suitable&nbsp;long&nbsp;text&nbsp;which&nbsp;will&nbsp;be&nbsp;broken'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWordWrap</span><span style="color: #007700">(</span><span style="color: #0000BB">15</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">'A&nbsp;suitable&nbsp;long&nbsp;text&nbsp;which&nbsp;will&nbsp;be&nbsp;broken'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWordWrap</span><span style="color: #007700">(</span><span style="color: #0000BB">15</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -721,7 +752,8 @@ Note: You can also specify the shadow directly in the SetBox() call. This method
 &nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -761,7 +793,27 @@ Note. The texts are hidden by default and you must remember toi call Show() to m
 <div style="font-weight:bold;font-family:arial;font-size:85%;">Returns</div>An istance of class Text<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="Text.html#_TEXT_SETPOS">Text::SetPos()</a><li><a href="Text.html#_TEXT_SET">Text::Set()</a><li><a href="Text.html#_TEXT_PARAGRAPHALIGN">Text::ParagraphAlign()</a><li><a href="Text.html#_TEXT_SHOW">Text::Show()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Possible&nbsp;creations&nbsp;of&nbsp;text&nbsp;objects<br /><br />//&nbsp;Case&nbsp;1.&nbsp;Text&nbsp;and&nbsp;position&nbsp;is&nbsp;specified&nbsp;later<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">();<br /><br /></span><span style="color: #FF8000">//&nbsp;Case&nbsp;2.&nbsp;Position&nbsp;is&nbsp;specified&nbsp;later<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello&nbsp;world'</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Case&nbsp;3.&nbsp;Full&nbsp;specification<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello&nbsp;world'</span><span style="color: #007700">,</span><span style="color: #0000BB">100</span><span style="color: #007700">,</span><span style="color: #0000BB">150</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;A&nbsp;more&nbsp;real&nbsp;life&nbsp;example<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">"Note:&nbsp;Simple&nbsp;textnote.\nWIth&nbsp;two&nbsp;lines"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT1</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.97</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">(</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">AddText</span><span style="color: #007700">(</span><span style="color: #0000BB">$txt</span><span style="color: #007700">);<br /><br /><br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Possible&nbsp;creations&nbsp;of&nbsp;text&nbsp;objects
+<br />
+<br />//&nbsp;Case&nbsp;1.&nbsp;Text&nbsp;and&nbsp;position&nbsp;is&nbsp;specified&nbsp;later
+<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">();
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Case&nbsp;2.&nbsp;Position&nbsp;is&nbsp;specified&nbsp;later
+<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello&nbsp;world'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Case&nbsp;3.&nbsp;Full&nbsp;specification
+<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">'Hello&nbsp;world'</span><span style="color: #007700">,</span><span style="color: #0000BB">100</span><span style="color: #007700">,</span><span style="color: #0000BB">150</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;A&nbsp;more&nbsp;real&nbsp;life&nbsp;example
+<br /></span><span style="color: #0000BB">$txt&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">Text</span><span style="color: #007700">(</span><span style="color: #DD0000">"Note:&nbsp;Simple&nbsp;textnote.\nWIth&nbsp;two&nbsp;lines"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT1</span><span style="color: #007700">,</span><span style="color: #0000BB">FS_BOLD</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Pos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.5</span><span style="color: #007700">,</span><span style="color: #0000BB">0.97</span><span style="color: #007700">,</span><span style="color: #DD0000">'center'</span><span style="color: #007700">,</span><span style="color: #DD0000">'bottom'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$txt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBox</span><span style="color: #007700">(</span><span style="color: #DD0000">'yellow'</span><span style="color: #007700">,</span><span style="color: #DD0000">'black'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">AddText</span><span style="color: #007700">(</span><span style="color: #0000BB">$txt</span><span style="color: #007700">);
+<br />
+<br />
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

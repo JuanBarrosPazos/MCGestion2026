@@ -59,7 +59,7 @@ session_start();
 		require 'Botonera.php';
 
 		if(!$qb){
-				print("<font color='#FF0000'>
+				print("<font color='#F1BD2D'>
 						ERROR: </font>".mysqli_error($db)."</br>");
 		}else{
 			if(mysqli_num_rows($qb) == 0){
@@ -213,7 +213,7 @@ session_start();
 		require 'Botonera.php';
 
 		if(!$qb){
-			print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+			print("<font color='#F1BD2D'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 		}else{
 			if(mysqli_num_rows($qb) == 0){
 				global $titNoData;		$titNoData = "INGRESOS PENDIENTES ".$dyt1."<br>";

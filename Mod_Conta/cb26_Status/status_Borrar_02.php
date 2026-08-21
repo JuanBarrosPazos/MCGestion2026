@@ -113,7 +113,7 @@ session_start();
 		$qb = mysqli_query($db, $sqlb);
 
 		if(!$qb){
-				print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+				print("<font color='#F1BD2D'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 		} else {
 			if(mysqli_num_rows($qb) == 0){
 
@@ -167,7 +167,7 @@ session_start();
 		$qb = mysqli_query($db, $sqlb);
 
 		if(!$qb){
-				print("<font color='#FF0000'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
+				print("<font color='#F1BD2D'>Se ha producido un error: </font></br>".mysqli_error($db)."</br>");
 		} else {
 			if(mysqli_num_rows($qb) == 0){
 

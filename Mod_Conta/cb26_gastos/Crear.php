@@ -52,7 +52,7 @@ session_start();
 		$errors = array();
 		
 		require 'ValidateForm.php';
-		require 'ValidateImg.php';
+		//require 'ValidateImg.php';
 
 		return $errors;
 
@@ -81,33 +81,36 @@ session_start();
 
 		global $new_name1;	global $new_name2;	global $new_name3;	global $new_name4;
 		
-		if($_FILES['myimg1']['size'] == 0){
-			$new_name1 = $_POST['factnum']."_1.png";
-		}else{
-			$extension1 = substr($_FILES['myimg1']['name'],-3);
-			// $extension1 = end(explode('.', $_FILES['myimg1']['name']) );
-			$new_name1 = $_POST['factnum']."_1.".$extension1;
+		if (empty($_FILES['myimg1']['name']) || $_FILES['myimg1']['size'] == 0) {
+			$new_name1 = $_POST['factnum'] . "_1.png";
+		} else {
+			// Obtener la extensión de forma segura (soporta .jpg, .jpeg, .png, etc.)
+			$extension1 = pathinfo($_FILES['myimg1']['name'], PATHINFO_EXTENSION);
+			$new_name1 = $_POST['factnum'] . "_1." . $extension1;
 		}
 
-		if($_FILES['myimg2']['size'] == 0){
-			$new_name2 = $_POST['factnum']."_2.png";
-		}else{
-			$extension2 = substr($_FILES['myimg2']['name'],-3);
-			$new_name2 = $_POST['factnum']."_2.".$extension2;
+		if (empty($_FILES['myimg2']['name']) || $_FILES['myimg2']['size'] == 0) {
+			$new_name2 = $_POST['factnum'] . "_2.png";
+		} else {
+			// Obtener la extensión de forma segura (soporta .jpg, .jpeg, .png, etc.)
+			$extension2 = pathinfo($_FILES['myimg2']['name'], PATHINFO_EXTENSION);
+			$new_name2 = $_POST['factnum'] . "_2." . $extension2;
 		}
 
-		if($_FILES['myimg3']['size'] == 0){
-			$new_name3 = $_POST['factnum']."_3.png";
-		}else{
-			$extension3 = substr($_FILES['myimg3']['name'],-3);
-			$new_name3 = $_POST['factnum']."_3.".$extension3;
+		if (empty($_FILES['myimg3']['name']) || $_FILES['myimg3']['size'] == 0) {
+			$new_name3 = $_POST['factnum'] . "_3.png";
+		} else {
+			// Obtener la extensión de forma segura (soporta .jpg, .jpeg, .png, etc.)
+			$extension3 = pathinfo($_FILES['myimg3']['name'], PATHINFO_EXTENSION);
+			$new_name3 = $_POST['factnum'] . "_3." . $extension3;
 		}
 
-		if($_FILES['myimg4']['size'] == 0){
-			$new_name4 = $_POST['factnum']."_4.png";
-		}else{
-			$extension4 = substr($_FILES['myimg4']['name'],-3);
-			$new_name4 = $_POST['factnum']."_4.".$extension4;
+		if (empty($_FILES['myimg4']['name']) || $_FILES['myimg4']['size'] == 0) {
+			$new_name4 = $_POST['factnum'] . "_4.png";
+		} else {
+			// Obtener la extensión de forma segura (soporta .jpg, .jpeg, .png, etc.)
+			$extension4 = pathinfo($_FILES['myimg4']['name'], PATHINFO_EXTENSION);
+			$new_name4 = $_POST['factnum'] . "_4." . $extension4;
 		}
 
 		/************* FIN NOMBRES DE LAS IMG  ***************/
@@ -124,7 +127,7 @@ session_start();
 
 			/************* INICIO CREAMOS LAS IMAGENES ***************/
 		
-			if($_FILES['myimg1']['size'] == 0){ 
+			if(empty($_FILES['myimg1']['name']) || $_FILES['myimg1']['size'] == 0){ 
 				$new_name1 = $_POST['factnum']."_1.png";
 				$rename_filename1 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name1;								
 				copy("../cb26_Docs/docgastos_".$dyt1."/untitled.png", $rename_filename1);
@@ -158,7 +161,7 @@ session_start();
 	
 			/////////////
 	
-			if($_FILES['myimg2']['size'] == 0){
+			if(empty($_FILES['myimg2']['name']) || $_FILES['myimg2']['size'] == 0){
 					$new_name2 = $_POST['factnum']."_2.png";
 					$rename_filename2 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name2;								
 					copy("../cb26_Docs/docgastos_".$dyt1."/untitled.png", $rename_filename2);
@@ -194,7 +197,7 @@ session_start();
 				
 			/////////////
 	
-			if($_FILES['myimg3']['size'] == 0){
+			if(empty($_FILES['myimg3']['name']) || $_FILES['myimg3']['size'] == 0){
 					$new_name3 = $_POST['factnum']."_3.png";
 					$rename_filename3 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name3;								
 					copy("../cb26_Docs/docgastos_".$dyt1."/untitled.png", $rename_filename3);
@@ -229,7 +232,7 @@ session_start();
 				
 			/////////////
 			
-			if($_FILES['myimg4']['size'] == 0){
+			if(empty($_FILES['myimg4']['name']) || $_FILES['myimg4']['size'] == 0){
 					$new_name4 = $_POST['factnum']."_4.png";
 					$rename_filename4 = "../cb26_Docs/docgastos_".$dyt1."/".$new_name4;								
 					copy("../cb26_Docs/docgastos_".$dyt1."/untitled.png", $rename_filename4);
@@ -383,7 +386,7 @@ session_start();
 	////////////////////
 
 	if ((isset($_POST['oculto1'])) || (isset($_POST['oculto']))) {
-	if (($_POST['proveegastos'] == '') && ($defaults['factnom'] == '')) { 
+	if (($_POST['proveegastos'] == '') && (@$defaults['factnom'] == '')) { 
 			print("<table class='tableForm' >
 						<tr align='center'>
 							<td>
@@ -402,7 +405,13 @@ session_start();
  
 		require 'FormDatos.php';
 
-		print("<tr>
+		print("<input type='hidden' name='myimg1' value='".@$defaults['myimg1']."' style='color:#fff !important;' />
+				<input type='hidden' name='myimg2' value='".@$defaults['myimg2']."' style='color:#fff !important;' />
+				<input type='hidden' name='myimg3' value='".@$defaults['myimg3']."' style='color:#fff !important;' />
+				<input type='hidden' name='myimg4' value='".@$defaults['myimg4']."' style='color:#fff !important;' />
+
+		<!--
+		<tr>
 					<td style='text-align:right;'>PDF / FOTO 1</td>
 					<td>
 		<input type='file' name='myimg1' value='".@$defaults['myimg1']."' style='color:#fff !important;' />
@@ -426,6 +435,7 @@ session_start();
 		<input type='file' name='myimg4' value='".@$defaults['myimg4']."' style='color:#fff !important;' />
 					</td>
 				</tr>
+		-->
 				<tr>
 					<td colspan='2' align='right' valign='middle' >
 					<!--

@@ -40,9 +40,9 @@ if(isset($_POST['oculto'])){
 	// VALIDO LA REFERENCIA
 	if(isset($_POST['id'])){
 		if($_POST['id'] == @$rowdni['id']){ 
-		}elseif($ccliente > 0){$errors [] = "EL CLIENTE <font color='#FF0000'> YA EXISTE ".$rf.".</font>";}
+		}elseif($ccliente > 0){$errors [] = "EL CLIENTE <font color='#F1BD2D'> YA EXISTE ".$rf.".</font>";}
 	} else { 
-		if($ccliente > 0){$errors [] = "EL CLIENTE <font color='#FF0000'> YA EXISTE ".$rf.".</font>";}
+		if($ccliente > 0){$errors [] = "EL CLIENTE <font color='#F1BD2D'> YA EXISTE ".$rf.".</font>";}
 	}
 		
 				   ////////////////////				   ////////////////////
@@ -115,17 +115,17 @@ if(isset($_POST['oculto'])){
 
 	if(isset($_POST['id'] )){
 		if($_POST['id'] == @$rowrsoc['id']){}
-		elseif(@$countrsoc > 0){$errors [] = " RAZON SOCIAL <font color='#FF0000'>YA EXISTE ".$_POST['rsocial']."</font>";}
+		elseif(@$countrsoc > 0){$errors [] = " RAZON SOCIAL <font color='#F1BD2D'>YA EXISTE ".$_POST['rsocial']."</font>";}
 	} else { 
-		if(@$countrsoc > 0){$errors [] = " RAZON SOCIAL <font color='#FF0000'>YA EXISTE ".$_POST['rsocial']."</font>";}
+		if(@$countrsoc > 0){$errors [] = " RAZON SOCIAL <font color='#F1BD2D'>YA EXISTE ".$_POST['rsocial']."</font>";}
 	}
 	
 	if(strlen(trim($_POST['rsocial'])) == 0){
-		$errors [] = "R. SOCIAL <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "R. SOCIAL <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 	}elseif (strlen(trim($_POST['rsocial'])) < 2){
-		$errors [] = "R. SOCIAL <font color='#FF0000'>Escriba más de 2 carácteres.</font>";
+		$errors [] = "R. SOCIAL <font color='#F1BD2D'>Escriba más de 2 carácteres.</font>";
 	}elseif (!preg_match('/^[^@´`\'áéíóú#$%<>:"·\_(\)=¿?!¡\[\]\{\};,:\.\*]+$/',$_POST['rsocial'])){
-		$errors [] = "R. SOCIAL <font color='#FF0000'>Caracteres no validos. Se permite espacio blanco</font>";
+		$errors [] = "R. SOCIAL <font color='#F1BD2D'>Caracteres no validos. Se permite espacio blanco</font>";
 	}
 		
 				   ////////////////////				   ////////////////////
@@ -144,21 +144,21 @@ if(isset($_POST['oculto'])){
 	if(isset($_POST['id'] )){ 
 		if($_POST['id'] == @$rowdni['id']){
 		}elseif($countdni > 0){ 
-			$errors [] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Ya Existe.</font>"; 
+			$errors [] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Ya Existe.</font>"; 
 		}
 	}else{
 		if($countdni > 0){ 
-			$errors [] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Ya Existe.</font>"; 
+			$errors [] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Ya Existe.</font>"; 
 		}
 	}
 	
 	if($_POST['doc'] == 'DNI') {
 		if(strlen(trim($_POST['dni'])) == 0){
-			$errors [] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Campo Obligatorio.</font>";
+			$errors [] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Campo Obligatorio.</font>";
 		} elseif (!preg_match('/^[\d]+$/',$_POST['dni'])){
-			$errors [] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Sólo Números.</font>";
+			$errors [] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Sólo Números.</font>";
 		} elseif (strlen(trim($_POST['dni'])) < 8){
-			$errors [] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Más de 7 Carácteres.</font>";
+			$errors [] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Más de 7 Carácteres.</font>";
 		}
 	}
 	
@@ -298,11 +298,11 @@ $countdni = mysqli_num_rows($qdni);
 
 if (isset($_POST['id'])) {
     if ($_POST['id'] != @$rowdni['id'] && $countdni > 0) {
-        $errors[] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Ya Existe.</font>";
+        $errors[] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Ya Existe.</font>";
     }
 } else {
     if ($countdni > 0) {
-        $errors[] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Ya Existe.</font>";
+        $errors[] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Ya Existe.</font>";
     }
 }
 
@@ -310,21 +310,21 @@ if (isset($_POST['id'])) {
 if ($doc == 'DNI') {
 
     if (strlen($dni) == 0) {
-        $errors[] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Campo Obligatorio.</font>";
+        $errors[] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Campo Obligatorio.</font>";
     } elseif (!preg_match('/^\d+$/', $dni)) {
-        $errors[] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Sólo Números.</font>";
+        $errors[] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Sólo Números.</font>";
     } elseif (strlen($dni) < 8) {
-        $errors[] = "N&uacute;mero DNI/NIF: <font color='#FF0000'>Más de 7 Carácteres.</font>";
+        $errors[] = "N&uacute;mero DNI/NIF: <font color='#F1BD2D'>Más de 7 Carácteres.</font>";
     }
 
     if (strlen($ldni) == 0) {
-        $errors[] = "Letra DNI: <font color='#FF0000'>Campo obligatorio.</font>";
+        $errors[] = "Letra DNI: <font color='#F1BD2D'>Campo obligatorio.</font>";
     } elseif (!preg_match('/^[A-Z]$/', $ldni)) {
-        $errors[] = "Letra Control DNI: <font color='#FF0000'>Sólo una letra mayúscula.</font>";
+        $errors[] = "Letra Control DNI: <font color='#F1BD2D'>Sólo una letra mayúscula.</font>";
     } elseif (strlen($dni) == 8 && preg_match('/^\d+$/', $dni)) {
         $letraCorrecta = calcularLetraDNI($dni);
         if ($ldni != $letraCorrecta) {
-            $errors[] = "Letra Control DNI: <font color='#FF0000'>Letra no correcta. $letraCorrecta is ok.</font>";
+            $errors[] = "Letra Control DNI: <font color='#F1BD2D'>Letra no correcta. $letraCorrecta is ok.</font>";
         }
     }
 
@@ -332,21 +332,21 @@ if ($doc == 'DNI') {
 } elseif ($doc == 'NIE') {
 
     if (strlen($dni) == 0) {
-        $errors[] = "N&uacute;mero NIE/NIF: <font color='#FF0000'>Campo obligatorio.</font>";
+        $errors[] = "N&uacute;mero NIE/NIF: <font color='#F1BD2D'>Campo obligatorio.</font>";
     } elseif (strlen($dni) < 8) {
-        $errors[] = "N&uacute;mero NIE/NIF: <font color='#FF0000'>Más de 7 carácteres.</font>";
+        $errors[] = "N&uacute;mero NIE/NIF: <font color='#F1BD2D'>Más de 7 carácteres.</font>";
     } elseif (!preg_match('/^[XYZ]\d{7}$/', $dni)) {
-        $errors[] = "N&uacute;mero NIE/NIF: <font color='#FF0000'>Formato incorrecto. Debe ser X, Y o Z seguido de 7 números.</font>";
+        $errors[] = "N&uacute;mero NIE/NIF: <font color='#F1BD2D'>Formato incorrecto. Debe ser X, Y o Z seguido de 7 números.</font>";
     }
 
     if (strlen($ldni) == 0) {
-        $errors[] = "Letra Control NIE/NIF: <font color='#FF0000'>Campo obligatorio.</font>";
+        $errors[] = "Letra Control NIE/NIF: <font color='#F1BD2D'>Campo obligatorio.</font>";
     } elseif (!preg_match('/^[A-Z]$/', $ldni)) {
-        $errors[] = "Letra Control NIE/NIF: <font color='#FF0000'>Sólo una letra mayúscula.</font>";
+        $errors[] = "Letra Control NIE/NIF: <font color='#F1BD2D'>Sólo una letra mayúscula.</font>";
     } elseif (preg_match('/^[XYZ]\d{7}$/', $dni)) {
         $letraCorrecta = calcularLetraNIE($dni);
         if ($ldni != $letraCorrecta) {
-            $errors[] = "Letra Control NIE Extranjeros: <font color='#FF0000'>Letra no correcta. $letraCorrecta is ok.</font>";
+            $errors[] = "Letra Control NIE Extranjeros: <font color='#F1BD2D'>Letra no correcta. $letraCorrecta is ok.</font>";
         }
     }
 
@@ -357,41 +357,41 @@ if ($doc == 'DNI') {
     $letrasValidas = $letraPorTipo[$doc];
 
     if (strlen($dni) == 0) {
-        $errors[] = "N&uacute;mero $nombre: <font color='#FF0000'>Campo obligatorio.</font>";
+        $errors[] = "N&uacute;mero $nombre: <font color='#F1BD2D'>Campo obligatorio.</font>";
     } elseif (strlen($dni) < 8) {
-        $errors[] = "N&uacute;mero $nombre: <font color='#FF0000'>Más de 7 carácteres.</font>";
+        $errors[] = "N&uacute;mero $nombre: <font color='#F1BD2D'>Más de 7 carácteres.</font>";
     } elseif (!preg_match('/^[A-Z]\d{7}$/', $dni)) {
-        $errors[] = "N&uacute;mero $nombre: <font color='#FF0000'>Formato incorrecto. Debe ser 1 letra + 7 números.</font>";
+        $errors[] = "N&uacute;mero $nombre: <font color='#F1BD2D'>Formato incorrecto. Debe ser 1 letra + 7 números.</font>";
     } elseif (!in_array($dni[0], $letrasValidas)) {
-        $errors[] = "N&uacute;mero $nombre: <font color='#FF0000'>Letra Invalida. Solo " . implode(',', $letrasValidas) . ".</font>";
+        $errors[] = "N&uacute;mero $nombre: <font color='#F1BD2D'>Letra Invalida. Solo " . implode(',', $letrasValidas) . ".</font>";
     }
 
     if (strlen($ldni) == 0) {
-        $errors[] = "Letra Control NIE/NIF: <font color='#FF0000'>Campo obligatorio.</font>";
+        $errors[] = "Letra Control NIE/NIF: <font color='#F1BD2D'>Campo obligatorio.</font>";
     } elseif (preg_match('/^[A-Z]\d{7}$/', $dni) && in_array($dni[0], $letrasValidas)) {
 
         if (in_array($doc, $controlModulo23)) {
             /* NIF especial de persona física (K,L,M): letra = módulo 23 de los 7 dígitos, como el DNI */
             $letraCorrecta = calcularLetraDNI(substr($dni, 1, 7));
             if (!preg_match('/^[A-Z]$/', $ldni)) {
-                $errors[] = "Letra Control $nombre: <font color='#FF0000'>Solo mayusculas.</font>";
+                $errors[] = "Letra Control $nombre: <font color='#F1BD2D'>Solo mayusculas.</font>";
             } elseif ($ldni != $letraCorrecta) {
-                $errors[] = "Letra Control $nombre: <font color='#FF0000'>Letra no correcta. $letraCorrecta is ok.</font>";
+                $errors[] = "Letra Control $nombre: <font color='#F1BD2D'>Letra no correcta. $letraCorrecta is ok.</font>";
             }
         } else {
             $control = calcularControlCIF(substr($dni, 1, 7));
 
             if (in_array($doc, $controlSoloLetra)) {
                 if (!preg_match('/^[A-Z]$/', $ldni)) {
-                    $errors[] = "Letra Control $nombre: <font color='#FF0000'>Solo mayusculas.</font>";
+                    $errors[] = "Letra Control $nombre: <font color='#F1BD2D'>Solo mayusculas.</font>";
                 } elseif ($ldni != $control['letra']) {
-                    $errors[] = "Letra Control $nombre: <font color='#FF0000'>Letra no correcta. {$control['letra']} is ok.</font>";
+                    $errors[] = "Letra Control $nombre: <font color='#F1BD2D'>Letra no correcta. {$control['letra']} is ok.</font>";
                 }
             } elseif (in_array($doc, $controlSoloNumero)) {
                 if (!preg_match('/^\d$/', $ldni)) {
-                    $errors[] = "Numero Control $nombre: <font color='#FF0000'>Sólo números.</font>";
+                    $errors[] = "Numero Control $nombre: <font color='#F1BD2D'>Sólo números.</font>";
                 } elseif ($ldni != $control['digito']) {
-                    $errors[] = "Numero Control $nombre: <font color='#FF0000'>Numero incorrecto. {$control['digito']} is ok.</font>";
+                    $errors[] = "Numero Control $nombre: <font color='#F1BD2D'>Numero incorrecto. {$control['digito']} is ok.</font>";
                 }
             }
         }
@@ -419,34 +419,34 @@ if ($doc == 'DNI') {
 	if((isset($_POST['id']))||($_POST['Email']!="")){
 		if(@$_POST['id'] == @$rowml['id']){}
 		elseif($countml > 0){
-			$errors [] = "Mail: <font color='#FF0000'>YA EXISTE.</font>";
+			$errors [] = "Mail: <font color='#F1BD2D'>YA EXISTE.</font>";
 			}
 	} else { }
 		
 	if(strlen(trim($_POST['Email']) > 0)){
 	/*if(strlen(trim($_POST['Email'])) == 0){
-		$errors [] = "Mail: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	else*/if (strlen(trim($_POST['Email'])) < 5 ){
-		$errors [] = "Mail: <font color='#FF0000'>Escriba más de cinco carácteres.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Escriba más de cinco carácteres.</font>";
 		}
 		
 	elseif (!preg_match('/^[^A-Z]+$/',$_POST['Email'])){
-		$errors [] = "Mail: <font color='#FF0000'>Solo Minusculas</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Solo Minusculas</font>";
 		}
 
 	elseif (!preg_match('/^[^@´`\'áéíóú#$&%<>:"·\(\)=¿?!¡\[\]\{\};,:\*\s]+@([-a-z0-9]+\.)+[a-z]{2,}$/',$_POST['Email'])){
-		$errors [] = "Mail: <font color='#FF0000'>Esta dirección no es válida.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>Esta dirección no es válida.</font>";
 		}
 		
 	/* 
 	if(trim($_POST['id'] == @$rowd['id'])&&(!strcasecmp($_POST['Email'] , $rowd['Email']))){}
 			elseif(!strcasecmp($_POST['Email'] , $rowd['Email'])){
-				$errors [] = "Mail: <font color='#FF0000'>No se puede registrar con este Mail.</font>";
+				$errors [] = "Mail: <font color='#F1BD2D'>No se puede registrar con este Mail.</font>";
 				}	
 	
 	elseif(!strcasecmp($_POST['Email'] , $rowd['Email'])){
-		$errors [] = "Mail: <font color='#FF0000'>No se puede registrar con este Mail.</font>";
+		$errors [] = "Mail: <font color='#F1BD2D'>No se puede registrar con este Mail.</font>";
 		}	
 	*/
 	} // FIN ISSET MAIL
@@ -458,11 +458,11 @@ if ($doc == 'DNI') {
 	/* Validamos el campo Dirección. */
 	
 	if(strlen(trim($_POST['Direccion'])) == 0){
-		$errors [] = "Dirección: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Dirección: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif (!preg_match('/^\b[^@#$%&<>\?\[\]\{\}\+]+$/',$_POST['Direccion'])){
-		$errors [] = "Dirección: <font color='#FF0000'>No se admiten carácteres especiales.</font>";
+		$errors [] = "Dirección: <font color='#F1BD2D'>No se admiten carácteres especiales.</font>";
 		}
 
 				   ////////////////////				   ////////////////////
@@ -482,23 +482,23 @@ if ($doc == 'DNI') {
 	if((isset($_POST['id']))||($_POST['Tlf1']!='000000000')){
 		if(@$_POST['id'] == @$rowtlf1['id']){}
 		elseif($countlf1 != 0){
-			$errors [] = "Teléfono 1: <font color='#FF0000'>YA EXISTE.</font>";
+			$errors [] = "Teléfono 1: <font color='#F1BD2D'>YA EXISTE.</font>";
 			}
 	}
 
 	if(strlen(trim($_POST['Tlf1'])) == 0){
-		$errors [] = "Teléfono 1: <font color='#FF0000'>Este campo es obligatorio.</font>";
+		$errors [] = "Teléfono 1: <font color='#F1BD2D'>Este campo es obligatorio.</font>";
 		}
 	
 	elseif ((trim($_POST['Tlf1'])) == (trim($_POST['Tlf2']))){
-				$errors [] = "Teléfono 1 y 2: <font color='#FF0000'>SON IGUALES</font>";
+				$errors [] = "Teléfono 1 y 2: <font color='#F1BD2D'>SON IGUALES</font>";
 	}
 	elseif (!preg_match('/^[\d]+$/',$_POST['Tlf1'])){
-		$errors [] = "Teléfono 1: <font color='#FF0000'>Sólo se admiten números.</font>";
+		$errors [] = "Teléfono 1: <font color='#F1BD2D'>Sólo se admiten números.</font>";
 		}
 
 	elseif (strlen(trim($_POST['Tlf1'])) < 9){
-		$errors [] = "Teléfono 1: <font color='#FF0000'>No menos de nueve números</font>";
+		$errors [] = "Teléfono 1: <font color='#F1BD2D'>No menos de nueve números</font>";
 		}
 
 				   ////////////////////				   ////////////////////
@@ -520,11 +520,11 @@ if ($doc == 'DNI') {
 		if(@$_POST['id'] == @$rowtlf2['id']){
 
 		}elseif($countlf2 > 0){
-			$errors [] = "Teléfono 2: <font color='#FF0000'>YA EXISTE.</font>";
+			$errors [] = "Teléfono 2: <font color='#F1BD2D'>YA EXISTE.</font>";
 		}elseif (!preg_match('/^[\d]+$/',$_POST['Tlf2'])){
-			$errors [] = "Teléfono 2: <font color='#FF0000'>Sólo se admiten números.</font>";
+			$errors [] = "Teléfono 2: <font color='#F1BD2D'>Sólo se admiten números.</font>";
 		}elseif (strlen(trim($_POST['Tlf2'])) < 9){
-			$errors [] = "Teléfono 2: <font color='#FF0000'>No menos de nueve números</font>";
+			$errors [] = "Teléfono 2: <font color='#F1BD2D'>No menos de nueve números</font>";
 		}
 
 	}

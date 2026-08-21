@@ -141,7 +141,7 @@ function process_form_img(){
 			$sqla = "UPDATE `$db_name`.$vname SET `myimg` = '$new_name'  WHERE $vname.`dni` = '$dinold' LIMIT 1 ";
 				
 			if(mysqli_query($db, $sqla)){print("");
-			}else { print("</br><font color='#FF0000'>* ERROR </font>".mysqli_error($db)); }
+			}else { print("</br><font color='#F1BD2D'>* ERROR </font>".mysqli_error($db)); }
 
 			if(mysqli_query($db, $sqla)){
 					
@@ -272,13 +272,13 @@ function show_form_img($errors=[]){
 		print("	<div>
 					<table class='tableForm'>
 					<th style='text-align:left'>
-					<font color='#FF0000'>* SOLUCIONE ESTOS ERRORES:</font><br/>
+					<font color='#F1BD2D'>* SOLUCIONE ESTOS ERRORES:</font><br/>
 					</th>
 					<tr>
 					<td style='text-align:left'>");
 			
 		for($a=0; $c=count($errors), $a<$c; $a++){
-			print("<font color='#FF0000'>**</font>  ".$errors [$a]."<br/>");
+			print("<font color='#F1BD2D'>**</font>  ".$errors [$a]."<br/>");
 			}
 		print("</td>
 				</tr>

@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -51,7 +51,8 @@ Features:
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Takes into account all series and returns the minimum Y and X value. Used internally to determine autoscaling.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="BarPlot.html#_BARPLOT_MIN">BarPlot::Min()</a><li><a href="Plot.html#_PLOT_MIN">Plot::Min()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #007700">list(</span><span style="color: #0000BB">$xmin</span><span style="color: #007700">,</span><span style="color: #0000BB">$ymin</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">$acclineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Min</span><span style="color: #007700">()<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #007700">list(</span><span style="color: #0000BB">$xmin</span><span style="color: #007700">,</span><span style="color: #0000BB">$ymin</span><span style="color: #007700">)&nbsp;=&nbsp;</span><span style="color: #0000BB">$acclineplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Min</span><span style="color: #007700">()
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -94,7 +95,10 @@ This can be achieved by calculating a linear interpoaltion for the missing value
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Creates a new accumulated line plot from a number of line plots.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="LinePlot.html#_LINEPLOT_LINEPLOT">LinePlot::LinePlot()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$line1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$line2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$aline&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">$line1</span><span style="color: #007700">,</span><span style="color: #0000BB">$line2</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$acclineplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AccLinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$aline</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$line1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay1</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$line2&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">LinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$datay2</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$aline&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #0000BB">$line1</span><span style="color: #007700">,</span><span style="color: #0000BB">$line2</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$acclineplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">AccLinePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$aline</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

@@ -106,11 +106,11 @@
 					<td colspan='9' class='BorderInf'></td>
 				</tr>
 				<tr>
-					<td colspan='3' class='BorderDch' align='center'>IMPUESTOS REPERC €</td>
-					<td colspan='2' class='BorderDch' align='center'>RETENCION REPERC €</td>
+					<td colspan='3' class='BorderDch' align='center'>IMPUESTOS SOPORT €</td>
+					<td colspan='2' class='BorderDch' align='center'>RETENCION SOPORT €</td>
 					<td class='BorderDch' align='center'>TOTAL €</td>
 					<td colspan='3' rowspan=2 align='center'>
-						<div id='footer' style='font-size:0.9em;' >&copy; J. Barr&oacute;s 2016/23</div>
+						<div id='footer' style='font-size:0.9em;' >&copy; J. Barr&oacute;s 2016/26</div>
 					</td>
 				</tr>
 				<tr>

@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -57,7 +57,9 @@ If you only want to explode a single slice you could also use the ExplodeSlice()
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_EXPLODESLICE">PiePlot::ExplodeSlice()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//To&nbsp;explode&nbsp;slice&nbsp;0,2&nbsp;to&nbsp;radius&nbsp;100&nbsp;you&nbsp;would&nbsp;call<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Explode</span><span style="color: #007700">(array(</span><span style="color: #0000BB">100</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">100</span><span style="color: #007700">));<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//To&nbsp;explode&nbsp;slice&nbsp;0,2&nbsp;to&nbsp;radius&nbsp;100&nbsp;you&nbsp;would&nbsp;call
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Explode</span><span style="color: #007700">(array(</span><span style="color: #0000BB">100</span><span style="color: #007700">,</span><span style="color: #0000BB">0</span><span style="color: #007700">,</span><span style="color: #0000BB">100</span><span style="color: #007700">));
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -80,7 +82,8 @@ If you only want to explode a single slice you could also use the ExplodeSlice()
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Explode all slices a specified amount. If no radius is specified it will default to 20 pixels.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_EXPLODESLICE">PiePlot::ExplodeSlice()</a><li><a href="PiePlot.html#_PIEPLOT_EXPLODE">PiePlot::Explode()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ExplodeAll</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ExplodeAll</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -109,7 +112,9 @@ If you only want to explode a single slice you could also use the ExplodeSlice()
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Explode a single slice to a specific radius.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_EXPLODE">PiePlot::Explode()</a><li><a href="PiePlot.html#_PIEPLOT_EXPLODEALL">PiePlot::ExplodeAll()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Explode&nbsp;slice&nbsp;number&nbsp;2&nbsp;(the&nbsp;third&nbsp;slice)&nbsp;using&nbsp;the&nbsp;default<br />//&nbsp;explode&nbsp;radius.<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ExplodeSlice</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Explode&nbsp;slice&nbsp;number&nbsp;2&nbsp;(the&nbsp;third&nbsp;slice)&nbsp;using&nbsp;the&nbsp;default
+<br />//&nbsp;explode&nbsp;radius.
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ExplodeSlice</span><span style="color: #007700">(</span><span style="color: #0000BB">2</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -139,7 +144,8 @@ If you only want to explode a single slice you could also use the ExplodeSlice()
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set the center point for the PiePlot&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_SETSIZE">PiePlot::SetSize()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCenter</span><span style="color: #007700">(</span><span style="color: #0000BB">0.4</span><span style="color: #007700">,</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCenter</span><span style="color: #007700">(</span><span style="color: #0000BB">0.4</span><span style="color: #007700">,</span><span style="color: #0000BB">0.5</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -199,7 +205,10 @@ If you only want to explode a single slice you could also use the ExplodeSlice()
 Each slice will aslo have it's own 'alt' tag. Depending on the browser this tag is usually showed when the mouse is hold over a poarticular area on the image map. When formatting the alt strings can be specified as a printf() format string. The value supplied to the string will be the value for each slice.&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_GETCSIMAREAS">PiePlot::GetCSIMareas()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$targets&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'godetail1.html'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gotodetail2.html'&nbsp;'gotodetail3.html'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$alts&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Year&nbsp;%d'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Year&nbsp;%d'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Year&nbsp;%d'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$targets</span><span style="color: #007700">,</span><span style="color: #0000BB">$alts</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$targets&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'godetail1.html'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'gotodetail2.html'&nbsp;'gotodetail3.html'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$alts&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'Year&nbsp;%d'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Year&nbsp;%d'</span><span style="color: #007700">,&nbsp;</span><span style="color: #DD0000">'Year&nbsp;%d'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetCSIMTargets</span><span style="color: #007700">(</span><span style="color: #0000BB">$targets</span><span style="color: #007700">,</span><span style="color: #0000BB">$alts</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -292,7 +301,10 @@ Note: The adjustment affect both manually speicfied labels with SetLabels() as w
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_SETLABELS">PiePlot::SetLabels()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$p1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PiePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelPos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.6</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$p1</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$p1&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PiePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$data</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelPos</span><span style="color: #007700">(</span><span style="color: #0000BB">0.6</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$p1</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -338,7 +350,10 @@ Note: The actual alignment of the labels are dependent on the position. If the l
 &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PiePlot.html#_PIEPLOT_SETLABELTYPE">PiePlot::SetLabelType()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelType</span><span style="color: #007700">(</span><span style="color: #0000BB">PIE_VALUE_PER</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$lbl&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"adam\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"bertil\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"kalle\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"peter\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"daniel\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"erik\n%.1f%%"</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabels</span><span style="color: #007700">(</span><span style="color: #0000BB">$lbl</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelType</span><span style="color: #007700">(</span><span style="color: #0000BB">PIE_VALUE_PER</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$lbl&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">"adam\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"bertil\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"kalle\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"peter\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"daniel\n%.1f%%"</span><span style="color: #007700">,</span><span style="color: #DD0000">"erik\n%.1f%%"</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabels</span><span style="color: #007700">(</span><span style="color: #0000BB">$lbl</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -367,7 +382,14 @@ The following values are allowed arguments:
 The defauklt is to show percent.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Show&nbsp;absolute&nbsp;values<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelType</span><span style="color: #007700">(</span><span style="color: #0000BB">PIE_VALUE_ABS</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Display&nbsp;each&nbsp;label&nbsp;with&nbsp;postfix&nbsp;'kr',&nbsp;e.g.&nbsp;each&nbsp;label&nbsp;will<br />//&nbsp;look&nbsp;like&nbsp;(for&nbsp;example)&nbsp;23.5&nbsp;kr<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d&nbsp;kr'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Show&nbsp;absolute&nbsp;values
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLabelType</span><span style="color: #007700">(</span><span style="color: #0000BB">PIE_VALUE_ABS</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Display&nbsp;each&nbsp;label&nbsp;with&nbsp;postfix&nbsp;'kr',&nbsp;e.g.&nbsp;each&nbsp;label&nbsp;will
+<br />//&nbsp;look&nbsp;like&nbsp;(for&nbsp;example)&nbsp;23.5&nbsp;kr
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFormat</span><span style="color: #007700">(</span><span style="color: #DD0000">'%d&nbsp;kr'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">value</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Show</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -391,7 +413,11 @@ Each text string can be formatted as a printf() format string since when printed
 <b>Tip:</b> If you have many evry small slices then the labels close to the pie may be overwriting each other. In this case it is probably better to hide the labels by the slices and instead just show the values ion the legends.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$legends&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'April&nbsp;(%d)'</span><span style="color: #007700">,</span><span style="color: #DD0000">'May&nbsp;(%d)'</span><span style="color: #007700">,</span><span style="color: #DD0000">'June&nbsp;(%d)'</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLegends</span><span style="color: #007700">(</span><span style="color: #0000BB">$legends</span><span style="color: #007700">);<br /><br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$legends&nbsp;</span><span style="color: #007700">=&nbsp;array(</span><span style="color: #DD0000">'April&nbsp;(%d)'</span><span style="color: #007700">,</span><span style="color: #DD0000">'May&nbsp;(%d)'</span><span style="color: #007700">,</span><span style="color: #DD0000">'June&nbsp;(%d)'</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetLegends</span><span style="color: #007700">(</span><span style="color: #0000BB">$legends</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -425,7 +451,12 @@ Each text string can be formatted as a printf() format string since when printed
 This is often more affective if one or more slices are exploded.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Explode&nbsp;all&nbsp;slices<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ExplodeAll</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);<br /><br /></span><span style="color: #FF8000">//&nbsp;Add&nbsp;drop&nbsp;shadow<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Explode&nbsp;all&nbsp;slices
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ExplodeAll</span><span style="color: #007700">(</span><span style="color: #0000BB">10</span><span style="color: #007700">);
+<br />
+<br /></span><span style="color: #FF8000">//&nbsp;Add&nbsp;drop&nbsp;shadow
+<br /></span><span style="color: #0000BB">$p1</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetShadow</span><span style="color: #007700">();
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -520,7 +551,8 @@ The angle should be specified in degrees.
 </ul>&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTheme</span><span style="color: #007700">(</span><span style="color: #DD0000">'water'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTheme</span><span style="color: #007700">(</span><span style="color: #DD0000">'water'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -572,7 +604,8 @@ The angle should be specified in degrees.
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Show the lines between each slice and the border around the pie.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;show&nbsp;both<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ShowBorder</span><span style="color: #007700">();</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;show&nbsp;both
+<br /></span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">ShowBorder</span><span style="color: #007700">();</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -592,7 +625,9 @@ The angle should be specified in degrees.
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Construct a new pie plot which later can be added to Piegraph&nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="PieGraph.html#_PIEGRAPH_ADD">PieGraph::Add()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$pieplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PiePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$slicedata</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$pieplot&nbsp;</span><span style="color: #007700">=&nbsp;new&nbsp;</span><span style="color: #0000BB">PiePlot</span><span style="color: #007700">(</span><span style="color: #0000BB">$slicedata</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$piegraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">Add</span><span style="color: #007700">(</span><span style="color: #0000BB">$pieplot</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

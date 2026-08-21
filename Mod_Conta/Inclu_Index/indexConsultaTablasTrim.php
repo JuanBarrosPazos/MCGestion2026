@@ -271,7 +271,7 @@
 					<tr>
 						<td colspan='3'>
 							<span style='display:block; margin-top: 0.4em;'>
-								<font color='#FF0000'>NO HAY DATOS</font>
+								<font color='#F1BD2D'>NO HAY DATOS</font>
 							</span>
 						</td>
 					</tr>
@@ -531,7 +531,7 @@
 		<tr>
 			<td colspan='3'>
 				<span style='display:block; margin-top: 0.4em;'>
-					<font color='#FF0000'>NO HAY DATOS</font>
+					<font color='#F1BD2D'>NO HAY DATOS</font>
 				</span>
 			</td>
 		</tr>
@@ -592,7 +592,7 @@
 					<tr>
 						<td colspan='3' >
 							<span style='display:block; margin-top: 0.4em;'>
-								<font color='#FF0000'>NO HAY DATOS</font>
+								<font color='#F1BD2D'>NO HAY DATOS</font>
 							</span>
 						</td>
 					</tr>

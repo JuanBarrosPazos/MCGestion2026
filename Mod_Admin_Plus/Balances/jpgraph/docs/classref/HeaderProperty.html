@@ -2,7 +2,7 @@
 		<!--
 		A:link        {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
 		A:visited     {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: none; color: #000000}
-		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #FF0000}
+		A:hover       {font-family: helvetica, arial, geneva, sans-serif; font-size: small; text-decoration: underline; color: #F1BD2D}
         A.no:link        {font-family:inherit; font-size: inhreit;text-decoration: none; color: #000000}
         A.no:visited     {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
         A.no:hover       {font-family:inherit; font-size: inherit;text-decoration: none; color: #000000}
@@ -148,7 +148,8 @@ You use the methods on these object to specify how you want the scale to be disp
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Set color of frame around scale&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$ganttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">year</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFrameCOlor</span><span style="color: #007700">(</span><span style="color: #DD0000">'darkblue'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$ganttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">year</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFrameCOlor</span><span style="color: #007700">(</span><span style="color: #DD0000">'darkblue'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -204,7 +205,12 @@ You use the methods on these object to specify how you want the scale to be disp
 For example if the scale is an hour scale then SetIntervall() will give number of hours between each scale interball.&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Setup&nbsp;minute&nbsp;format<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetIntervall</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBackgroundColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightyellow:1.5'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT0</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStyle</span><span style="color: #007700">(</span><span style="color: #0000BB">MINUTESTYLE_MM</span><span style="color: #007700">);<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">grid</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightgray'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
+<span style="color: #0000BB"></span><span style="color: #FF8000">//&nbsp;Setup&nbsp;minute&nbsp;format
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetIntervall</span><span style="color: #007700">(</span><span style="color: #0000BB">30</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetBackgroundColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightyellow:1.5'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetFont</span><span style="color: #007700">(</span><span style="color: #0000BB">FF_FONT0</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetStyle</span><span style="color: #007700">(</span><span style="color: #0000BB">MINUTESTYLE_MM</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB">$graph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">minute</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">grid</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightgray'</span><span style="color: #007700">);</span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -337,7 +343,8 @@ Minute style
 <div style="font-weight:bold;font-family:arial;font-size:90%;">Description:</div>Specify margin above and below text in scale&nbsp;<br>
 
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$ganttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">year</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTitleVertMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">7</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$ganttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">year</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetTitleVertMargin</span><span style="color: #007700">(</span><span style="color: #0000BB">7</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p>
@@ -360,7 +367,8 @@ Tip: If you want the weekend background color to continue down the gantt chart t
  &nbsp;<br>
  &nbsp; <div style="font-weight:bold;font-family:arial;font-size:90%;">See also:</div><ul><li><a href="HeaderProperty.html#_HEADERPROPERTY_SETSUNDAYFONTCOLOR">HeaderProperty::SetSundayFontColor()</a><li><a href="GanttScale.html#_GANTTSCALE_USEWEEKENDBACKGROUND">GanttScale::UseWeekendBackground()</a></ul>
 <div style="font-weight:bold;font-family:arial;font-size:90%;"><p>Example:</div><div style="padding:5px;border:dashed gray 1px;background-color:#f3f3f3;font-family:courier new;font-size:90%;font-weight:bold;"><b><span style="color: #000000">
-<span style="color: #0000BB">$ganttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">day</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWeekendColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightgray'</span><span style="color: #007700">);<br /></span><span style="color: #0000BB"></span>
+<span style="color: #0000BB">$ganttgraph</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">scale</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">day</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">SetWeekendColor</span><span style="color: #007700">(</span><span style="color: #DD0000">'lightgray'</span><span style="color: #007700">);
+<br /></span><span style="color: #0000BB"></span>
 </span>
 </b></div><br>
 <p> <hr> <p></html>

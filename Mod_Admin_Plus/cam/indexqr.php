@@ -173,7 +173,7 @@ function process_pinqr(){
 				<tr>
 					<th class='BorderInf'>
 					<b>
-					<font color='#FF0000'>
+					<font color='#F1BD2D'>
 						NO EXISTE EL USUARIO.
 						</br>
 						PONGASE EN CONTACTO CON ADMIN SYSTEM.

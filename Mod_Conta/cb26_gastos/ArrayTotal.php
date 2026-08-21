@@ -6,12 +6,12 @@
 		$defaults = array ( 'id' => $_POST['id'],
 							'proveegastos' => $_POST['refprovee'],
 							'refprovee' => $_POST['refprovee'],
-							'xl' => @$_POST['xl'],
+							'xl' => $_POST['xl'] ?? '',
 							'dy' => $dyx,
 							'dm' => $dmx,
 							'dd' => $ddx,
-							'factnum' => strtoupper($_POST['factnum']),
-							'factnumini' => strtoupper($_POST['factnumini']),
+							'factnum' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factnumini' => strtoupper((string)($_POST['factnumini'] ?? '')),
 							'factdate' => $_POST['factdate'],
 							'factdateini' => $_POST['factdateini'],
 							'factnom' => $_POST['factnom'],
@@ -27,14 +27,14 @@
 							'factpvptot1' => $factpvptot1,	
 							'factpvptot2' => $factpvptot2,	
 							'coment' => $_POST['coment'],	
-							'myimg1' => @$_POST['myimg1'],	
-							'myimg2' => @$_POST['myimg2'],	
-							'myimg3' => @$_POST['myimg3'],	
-							'myimg4' => @$_POST['myimg4'],
-							'vname'  => @$_POST['vname'],
+							'myimg1' => $_POST['myimg1'] ?? '',	
+							'myimg2' => $_POST['myimg2'] ?? '',	
+							'myimg3' => $_POST['myimg3'] ?? '',	
+							'myimg4' => $_POST['myimg4'] ?? '',
+							'vname'  => $_POST['vname'] ?? '',
 							'factcrea' => $_POST['factcrea'],
 							'factmodif' => $_POST['factmodif'],
-							'delruta' => @$DelRuta /*@$_POST['delruta']*/);
+							'delruta' => $DelRuta ?? '' /*@$_POST['delruta'] ?? ''*/);
 
     }else{ }
 
@@ -52,8 +52,8 @@
 							'dy' => $_POST['dy'],
 							'dm' => $_POST['dm'],
 							'dd' => $_POST['dd'],
-							'factnum' => strtoupper($_POST['factnum']),
-							'factnumini' => strtoupper($_POST['factnumini']),
+							'factnum' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factnumini' => strtoupper((string)($_POST['factnumini'] ?? '')),
 							'factdate' => $_POST['factdate'],
 							'factdateini' => $_POST['factdateini'],
 							'refprovee' => $_POST['refprovee'],
@@ -84,11 +84,11 @@
 							'dy' => $_POST['dy'],
 							'dm' => $_POST['dm'],
 							'dd' => $_POST['dd'],
-							'factnum' => strtoupper($_POST['factnum']),
-							'factnumini' => strtoupper($_POST['factnumini']),
+							'factnum' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factnumini' => strtoupper((string)($_POST['factnumini'] ?? '')),
 							'factdate' => $_POST['factdate'],
 							'factdateini' => $_POST['factdateini'],
-						   	'refprovee' => $_POST['ref'],
+						   	//'refprovee' => $_POST['ref'],
 						   	'factnom' => $_POST['rsocial'],
 						   	'factnif' => $_POST['factnif'],
 						   	'factiva' => $_POST['factiva'],
@@ -109,7 +109,7 @@
 							'factcrea' => $_POST['factcrea'],
 							'factmodif' => $_POST['factmodif'],
 							'vname'  => $_POST['vname'],
-							'delruta' => @$_POST['delruta']);
+							'delruta' => $_POST['delruta'] ?? '');
 
     }else{ }
 
@@ -121,13 +121,12 @@
 							'dy' => $_POST['dy'],
 							'dm' => $_POST['dm'],
 							'dd' => $_POST['dd'],
-							'factnum' => strtoupper($_POST['factnum']),
-							'factnumini' => strtoupper($_POST['factnum']),
-						 	'factdate' => @$_POST['factdate'],
-							'factdateini' => @$_POST['factdateini'],
-						   	'refprovee' => @$rowprovee['ref'],
-						   	'factnom' => @$rowprovee['rsocial'],
-						   	'factnif' => @$_dnil,
+							'factnum' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factnumini' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factdateini' => $_POST['factdateini'] ?? '',
+						   	'refprovee' => $rowprovee['ref'] ?? '',
+						   	'factnom' => $rowprovee['rsocial'] ?? '',
+						   	'factnif' => $_dnil ?? '',
 						   	'factiva' => $_POST['factiva'],
 							'factivae1' => $_POST['factivae1'],	
 							'factivae2' => $_POST['factivae2'],	
@@ -139,12 +138,12 @@
 							'factpvptot1' => $_POST['factpvptot1'],	
 							'factpvptot2' => $_POST['factpvptot2'],	
 							'coment' => $_POST['coment'],	
-							'myimg1' => @$_POST['myimg1'],	
-							'myimg2' => @$_POST['myimg2'],	
-							'myimg3' => @$_POST['myimg3'],	
-							'myimg4' => @$_POST['myimg4'],
-							'factcrea' => @$_POST['factcrea'],
-							'factmodif' => @$_POST['factmodif']);
+							'myimg1' => $_POST['myimg1'] ?? '',	
+							'myimg2' => $_POST['myimg2'] ?? '',	
+							'myimg3' => $_POST['myimg3'] ?? '',	
+							'myimg4' => $_POST['myimg4'] ?? '',
+							'factcrea' => $_POST['factcrea'] ?? '',
+							'factmodif' => $_POST['factmodif'] ?? '');
 
 	}else{ }
 
@@ -154,13 +153,13 @@
 							'dy' => '',
 							'dm' => '',
 							'dd' => '',
-							'factnum' => strtoupper(@$_POST['factnum']),
-							'factnumini' => strtoupper(@$_POST['factnum']),
-							'factdate' => @$_POST['factdate'],
-							'factdateini' => @$_POST['factdateini'],
-							'refprovee' => @$rowprovee['ref'],
-							'factnom' => @$rowprovee['rsocial'],
-							'factnif' => @$_dnil,
+							'factnum' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factnumini' => strtoupper((string)($_POST['factnum'] ?? '')),
+							'factdate' => $_POST['factdate'] ?? '',
+							'factdateini' => $_POST['factdateini'] ?? '',
+							'refprovee' => $rowprovee['ref'] ?? '',
+							'factnom' => $rowprovee['rsocial'] ?? '',
+							'factnif' => $_dnil ?? '',
 							'factiva' => '00',
 							'factivae1' => '00',	
 							'factivae2' => '00',	
@@ -176,8 +175,8 @@
 							'myimg2' => '',	
 							'myimg3' => '',	
 							'myimg4' => '',
-							'factcrea' => @$_POST['factcrea'],
-							'factmodif' => @$_POST['factmodif']);
+							'factcrea' => $_POST['factcrea'] ?? '',
+							'factmodif' => $_POST['factmodif'] ?? '');
 
 	}else{ }
 
