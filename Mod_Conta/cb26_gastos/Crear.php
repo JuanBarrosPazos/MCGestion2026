@@ -401,10 +401,10 @@ session_start();
  
 		require 'FormDatos.php';
 
-		print("<input type='hidden' name='myimg1' value='".@$defaults['myimg1']."' style='color:#fff !important;' />
-				<input type='hidden' name='myimg2' value='".@$defaults['myimg2']."' style='color:#fff !important;' />
-				<input type='hidden' name='myimg3' value='".@$defaults['myimg3']."' style='color:#fff !important;' />
-				<input type='hidden' name='myimg4' value='".@$defaults['myimg4']."' style='color:#fff !important;' />
+	print("<input type='hidden' name='myimg1' value='".@$defaults['myimg1']."' style='color:#fff !important;' />
+			<input type='hidden' name='myimg2' value='".@$defaults['myimg2']."' style='color:#fff !important;' />
+			<input type='hidden' name='myimg3' value='".@$defaults['myimg3']."' style='color:#fff !important;' />
+			<input type='hidden' name='myimg4' value='".@$defaults['myimg4']."' style='color:#fff !important;' />
 
 		<!--
 		<tr>

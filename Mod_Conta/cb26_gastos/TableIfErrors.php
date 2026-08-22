@@ -1,9 +1,17 @@
 <?php
 
+    global $keyModifDat, $titErrors;
+    
+    if($keyModifDat == 1){
+        $titErrors = "* CONFIRME CIFRAS ACTUALIZADAS:";
+    }else{
+        $titErrors = "* SOLUCIONE ESTOS ERRORES:";
+    }
+
     if ($errors){
         print("<table class='tableForm' >
                     <th style='text-align:left'>
-                    <font color='#F1BD2D'>* SOLUCIONE ESTOS ERRORES:</font><br/>
+                    <font color='#F1BD2D'>".$titErrors."</font><br/>
                     </th>
                     <tr>
                     <td style='text-align:left'>");

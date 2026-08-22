@@ -41,7 +41,7 @@ function process_form(){
 
 	print("<table class='tableForm' style='margin-top: 1.6em !important;' >
 		<tr>
-			<th colspan=3 '>DATOS DEL CLIENTE</th>
+			<th colspan=3 '>DATOS DEL PROVEEDOR</th>
 		</tr>
 		<tr>
 			<td style='width:120px; text-align:right;' >ID</td>

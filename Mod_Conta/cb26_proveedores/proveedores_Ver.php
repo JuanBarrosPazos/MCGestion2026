@@ -173,7 +173,7 @@ session_start();
 
 	function show_form($errors=[]){
 		
-		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO CLIENTE";
+		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO PROVEEDOR";
 		global $DeleteBlackTit;			$DeleteBlackTit = "INICIO PAPELERA proveedores";
 		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
 
@@ -185,7 +185,7 @@ session_start();
 
 		global $LinkForm1;
 		/*
-		$$LinkForm1 = "<a href='proveedores_Crear.php' title='CREAR NUEVO CLIENTE' class='botonverde' style='color:#343434;'>CREAR NUEVO CLIENTE</a>";
+		$$LinkForm1 = "<a href='proveedores_Crear.php' title='CREAR NUEVO PROVEEDOR' class='botonverde' style='color:#343434;'>CREAR NUEVO PROVEEDOR</a>";
 		 */
 		$LinkForm1 = "<a href='proveedores_Crear.php' >".$PersonAddBlack.$closeButton."</a>";
 		global $LinkForm2;
@@ -248,7 +248,7 @@ session_start();
 			global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
 			global $DatosBlackTit;			$DatosBlackTit = "MODIFICAR DATOS";
 			global $FotoBlackTit;			$FotoBlackTit = "MODIFICAR IMAGEN";
-			global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR CLIENTE";
+			global $DeleteWhitTit;			$DeleteWhitTit = "BORRAR PROVEEDOR";
 			require '../Inclu/BotoneraVar.php';
 			global $closeButton;
 	

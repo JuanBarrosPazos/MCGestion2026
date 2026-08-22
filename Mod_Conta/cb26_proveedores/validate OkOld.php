@@ -40,9 +40,9 @@ if(isset($_POST['oculto'])){
 	// VALIDO LA REFERENCIA
 	if(isset($_POST['id'])){
 		if($_POST['id'] == @$rowdni['id']){ }
-		elseif($ccliente > 0){$errors [] = "EL CLIENTE <font color='#F1BD2D'> YA EXISTE ".$rf.".</font>";}
+		elseif($ccliente > 0){$errors [] = "EL PROVEEDOR <font color='#F1BD2D'> YA EXISTE ".$rf.".</font>";}
 	} else { 
-		if($ccliente > 0){$errors [] = "EL CLIENTE <font color='#F1BD2D'> YA EXISTE ".$rf.".</font>";}
+		if($ccliente > 0){$errors [] = "EL PROVEEDOR <font color='#F1BD2D'> YA EXISTE ".$rf.".</font>";}
 	}
 		
 				   ////////////////////				   ////////////////////

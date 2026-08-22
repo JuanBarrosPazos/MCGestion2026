@@ -48,7 +48,7 @@ session_start();
 
 			print("<table class='tableForm' >
 				<tr>
-					<th colspan=3 >HA BORRADO AL CLIENTE</th>
+					<th colspan=3 >HA BORRADO AL PROVEEDOR</th>
 				</tr>
 				<tr>
 					<td style='width: 120px; text-align: right;'>RAZON SOCIAL</td>
@@ -195,7 +195,7 @@ session_start();
 
 function show_form(){
 	
-	global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS CLIENTE";
+	global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR DATOS PROVEEDOR";
 	global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
 	global $DeleteBlackTit;		$DeleteBlackTit = "INICIO PAPELERA proveedores";
 	require '../Inclu/BotoneraVar.php';
@@ -206,7 +206,7 @@ function show_form(){
 	print("
 			<table class='tableForm' >
 				<tr>
-					<th colspan=3 >BORRARÁ EL CLIENTE</th>
+					<th colspan=3 >BORRARÁ EL PROVEEDOR</th>
 				</tr>
 		<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]'>
 				<tr>
@@ -328,7 +328,7 @@ function info_01(){
 				}
 
 	global $text;
-	$text = "\n- CLIENTE ELIMINAR SELECCIONADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- PROVEEDOR ELIMINAR SELECCIONADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	global $texerror;
 	$logdocu = $_SESSION['ref'];
@@ -358,7 +358,7 @@ function info_02(){
 				}
 
 	global $text;
-	$text = "\n- CLIENTE ELIMINADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
+	$text = "\n- PROVEEDOR ELIMINADO ".$ActionTime.".\n\tID: ".$_SESSION['xid'].".\n\tR. Social: ".$_POST['rsocial'].".\n\tDNI: ".$_POST['dni'].$_POST['ldni'].".\n\tReferencia: ".$_POST['ref'].".\n\tEmail: ".$_POST['Email'].".\n\tDireccion: ".$_POST['Direccion'].".\n\tTlf 1: ".$_POST['Tlf1'].".\n\tTlf 2: ".$_POST['Tlf2'].".";			
 
 	global $texerror;
 	$logdocu = $_SESSION['ref'];

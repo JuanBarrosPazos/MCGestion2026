@@ -45,7 +45,7 @@ function process_form(){
 	global $tablaResult;
 	$tablaResult = "<table class='tableForm' >
 				<tr>
-					<th colspan=3 >HA RECUPERADO EL CLIENTE</th>
+					<th colspan=3 >HA RECUPERADO EL PROVEEDOR</th>
 				</tr>
 				<tr>
 					<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
@@ -157,7 +157,7 @@ function show_form(){
 
 	} else { $defaults = $_POST; }
 	
-		global $RestoreBlackTit;	$RestoreBlackTit = "RECUPERAR DATOS CLIENTE";
+		global $RestoreBlackTit;	$RestoreBlackTit = "RECUPERAR DATOS PROVEEDOR";
 		global $PersonsBlackTit;	$PersonsBlackTit = "VER TODOS LOS proveedores";
 		global $DeleteBlackTit;		$DeleteBlackTit = "INICIO PAPELERA proveedores";
 		require '../Inclu/BotoneraVar.php';
@@ -165,7 +165,7 @@ function show_form(){
 
 	print("<table class='tableForm' >
 				<tr>
-					<th colspan=2 >RECUPERAR DATOS DEL CLIENTE</th>
+					<th colspan=2 >RECUPERAR DATOS DEL PROVEEDOR</th>
 				</tr>
 	<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]' enctype='multipart/form-data'>
 		<input type='hidden' name='id' value='".$defaults['id']."' />

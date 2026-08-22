@@ -1,6 +1,6 @@
 <?php
 
-	global $KeyModif;	global $rutPend;
+	global $KeyModif, $rutPend;
 
 	print("<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]' enctype='multipart/form-data'>
                 <input type='hidden' name='id' value='".@$defaults['id']."' />
@@ -9,7 +9,7 @@
 					<td style='text-align:right;'>NUMERO</td>
 					<td>
 		<input type='text' name='factnum' size=22 maxlength=20 value='".strtoupper(@$defaults['factnum'])."' required />
-		<input type='hidden' name='factnumini' value='".strtoupper(@$defaults['factnumini'])."' />** ".strtoupper(@$defaults['factnumini'])."
+		<input type='hidden' name='factnumini' value='".strtoupper(@$defaults['factnumini'])."' /> ".strtoupper(@$defaults['factnumini'])."
 					</td>
 				</tr>
 				<tr>

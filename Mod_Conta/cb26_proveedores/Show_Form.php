@@ -72,9 +72,9 @@
 			</tr>
 			<tr>
 				<td>
-			<input type='text' name='ref' id='ref' size=20 maxlength=20 pattern='[a-zA-Z0-9\s]{3,20}' placeholder='REF. CLIENTE' title='REFERENCIA CLIENTE...' value='".@$defaults['ref']."' />
+			<input type='text' name='ref' id='ref' size=20 maxlength=20 pattern='[a-zA-Z0-9\s]{3,20}' placeholder='REF. PROVEEDOR' title='REFERENCIA PROVEEDOR...' value='".@$defaults['ref']."' />
 			
-			<input type='text' name='rsocial' id='rsocial' size=20 maxlength=20 pattern='[a-zA-Z0-9\s]{3,20}' placeholder='RAZON SOCIAL' title='RAZON SOCIAL CLIENTE...' value='".@$defaults['rsocial']."' />
+			<input type='text' name='rsocial' id='rsocial' size=20 maxlength=20 pattern='[a-zA-Z0-9\s]{3,20}' placeholder='RAZON SOCIAL' title='RAZON SOCIAL PROVEEDOR...' value='".@$defaults['rsocial']."' />
 		</form>	
 					</td>
 				</tr>

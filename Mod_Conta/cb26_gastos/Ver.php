@@ -147,14 +147,20 @@ session_start();
 
 	function gt2(){
 
-		global $db;		global $db_name; 	global $dyt1;
+		global $db,  $db_name, $sqlb, $dyt1;
 
 		require 'FactDate.php';
 		require 'VerConsultaLogica.php';
 	
 		global $vname; 		$vname = "`".$_SESSION['clave']."gastos_".$dyt1."`";
 
-		require 'FunctGt2.php';
+		require 'FormConsultaFiltroGt2.php';
+		
+		$qc = mysqli_query($db, $sqlb);
+		
+		global $gt;
+		if($qc){ $gt = mysqli_num_rows($qc); }else{ }
+
 
 	} // FIN function gt2()
 
@@ -164,13 +170,19 @@ session_start();
 
 	function gt1(){
 
-		global $db; 		global $db_name;
+		global $db, $db_name, $sqlb;
 
 		require 'FactDate.php';
 
 		global $vname; 	$vname = "`".$_SESSION['clave']."gastos_".$dyt1."`";
 
-		require 'FunctGt1.php';
+		require 'FormConsultaFiltroGt1.php';
+		//$sqlb =  "SELECT * FROM $vname WHERE `factdate` LIKE '$fil' ORDER BY $orden ";
+
+		$qb = mysqli_query($db, $sqlb);
+		if(mysqli_num_rows($qb) == 0){}
+		global $gt; 	$gt = mysqli_num_rows($qb);
+
 
 	} // FIN function gt1()
 

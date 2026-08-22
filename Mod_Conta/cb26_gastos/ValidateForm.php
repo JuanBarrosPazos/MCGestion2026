@@ -233,8 +233,6 @@ $errors [] = "FACTURA NUMERO <font color='#F1BD2D'>Solo mayusculas, números sin
 ////////////////////				////////////////////				////////////////////
 				 ////////////////////				  ///////////////////
 
-	global $keyModifDat;
-
 	if((isset($_POST['factnum']))&&(strlen(trim($_POST['factnum'])) != 0)){
 	
         global $db; 	global $db_name;
@@ -316,47 +314,54 @@ $errors [] = "FACTURA NUMERO <font color='#F1BD2D'>Solo mayusculas, números sin
 
 	/* INICIO VALIDACIÓN DE LOS VALORES NUMERICOS DE LA FACTURA */
 
-	require 'FormatNumber.php'; 
+		require 'FormatNumber.php'; 
 
-	global $civae;
-	$civae = $factpvp * ($fiva / 100);
-	$civae = floatval($civae);
-    $civae = number_format($civae,2,".","");
-	//$civae = number_format($civae,2,".","");
-    //echo "*** ".$civae."<br>";
-	global $valIvaeEnt;		$valIvaeEnt = substr($civae,0,-3);
-	global $valIvaeDec;		$valIvaeDec = substr($civae,-2);
-	//echo "*** ".$valIvaeEnt.".".$valIvaeDec."<br>";
+		global $factivae, $factrete, $factpvptot, $factpvp, $fiva;
+		
+		global $civae;			$civae = $factpvp * ($fiva / 100);
+		$civae = floatval($civae);
+		$civae = number_format($civae,2,".","");
+		//$civae = number_format($civae,2,".","");
+		//echo "*** ".$civae."<br>";
 
-	if(trim($factivae) != trim($civae)){
-		$errors [] = "IMPUESTOS € <font color='#F1BD2D'> => </font> ".$civae." €";
+		global $valIvaeEnt;		$valIvaeEnt = substr($civae,0,-3);
+		global $valIvaeDec;		$valIvaeDec = substr($civae,-2);
+		//echo "*** ".$valIvaeEnt.".".$valIvaeDec."<br>";
+
+		global $fret;			$fret = $_POST['factret'];
+		global $crete;			$crete = $factpvp * ($fret / 100);
+		$crete = floatval($crete);
+		$crete = number_format($crete,2,".","");
+
+		//$cftot = ($factpvp + $civae) + $factrete;
+		global $cftot;			$cftot = ($factpvp + $civae) + $crete;
+		$cftot = floatval($cftot);
+		$cftot = number_format($cftot,2,".","");
+
+		global $valReteEnt;		$valReteEnt = substr($crete,0,-3);
+		global $valReteDec;		$valReteDec = substr($crete,-2);
+		//echo "*** ".$valReteEnt.".".$valReteDec."<br>";
+
+		global $keyModifDat;	$keyModifDat = 0;
+
+	if (empty($errors)){
+		global $keyModifDat;	$keyModifDat = 1;
+
+		if(trim($factivae) != trim($civae)){
+			$errors [] = "IMPUESTOS € <font color='#F1BD2D'> => </font> ".$civae." €";
+		}
+
+		if(trim($factrete) != trim($crete)){
+			$errors [] = "RETENCIONES € <font color='#F1BD2D'> => </font> ".$crete." €";
+		}
+
+		if(trim($factpvptot) != trim($cftot)){
+				$errors [] = "TOTAL € <font color='#F1BD2D'> => </font> ".$cftot." €";
+		}
 	}
-
-	$fret = $_POST['factret'];
-
-	global $crete;
-	$crete = $factpvp * ($fret / 100);
-	$crete = floatval($crete);
-	$crete = number_format($crete,2,".","");
-	if(trim($factrete) != trim($crete)){
-		$errors [] = "RETENCIONES € <font color='#F1BD2D'> => </font> ".$crete." €";
-	}
-	global $valReteEnt;		$valReteEnt = substr($crete,0,-3);
-	global $valReteDec;		$valReteDec = substr($crete,-2);
-	//echo "*** ".$valReteEnt.".".$valReteDec."<br>";
-
-	//$cftot = ($factpvp + $civae) + $factrete;
-	global $cftot;
-	$cftot = ($factpvp + $civae) + $crete;
-	$cftot = floatval($cftot);
-	$cftot = number_format($cftot,2,".","");
-	if(trim($factpvptot) != trim($cftot)){
-			$errors [] = "TOTAL € <font color='#F1BD2D'> => </font> ".$cftot." €";
-	}
-	global $valToteEnt;		$valToteEnt = substr($cftot,0,-3);
-	global $valToteDec;		$valToteDec = substr($cftot,-2);
-	//echo "*** ".$valToteEnt.".".$valToteDec."<br>";
-	
+		global $valToteEnt;		$valToteEnt = substr($cftot,0,-3);
+		global $valToteDec;		$valToteDec = substr($cftot,-2);
+		//echo "*** ".$valToteEnt.".".$valToteDec."<br>";
 	/* FINAL VALIDACIÓN DE LOS VALORES NUMERICOS DE LA FACTURA */
 
 				   ////////////////////				   ////////////////////

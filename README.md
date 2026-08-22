@@ -14,7 +14,7 @@
 ## CUESTIONES PENDIENTES
 - ** REVISAR CONFIGURACIONES PARA LAS TABLAS FEED... Y MODIFICAR LAS FUNCIONES RELACIONADAS...
 
-- ** Mod_Conta\cb26_proveedores REVISAR CONFIGURACIÓN Y FUNCIONAMIENTO
+- ** Mod_Conta\cb26_proveedores REVISAR CONFIGURACIÓN Y FUNCIONAMIENTO...
 
 - proveedoresFeed_Borrar_02.php Pendiente Confirmar Operaciones en cascada bbdd...
 - proveedores_Modificar_02.php  Pendiente Confirmar operaciones en cascada bbdd...
@@ -37,12 +37,23 @@
 ----
 
 # ** ÚLTIMA VERSIÓN:
+## * MCGestion2026 V26.08.22 (Beta cb26_)
+    - Mod_Admin_Plus\GenerarDatosPy\generaDatosImgAdmin01.py
+        - Genera los datos de usuarios, imagenes y directorios de usuarios automáticamente.
+    - Mod_Admin_Plus\GenerarDatosPy\generaDatosImgAdmin00.py
+        - Genera los datos de usuarios e imagenes automáticamente.
+    - Mod_Conta\GenerarDatosPy: Se actualizan los *.py
+    - Se eliminan las librerías Mod_Conta\jpgraph
+    - Se eliminan las funciones para graficas jpgraph.
+    - Mod_Conta/cb26_gastos/Crear.php -> FormSelectProvee.php
+        - select name='proveegastos' consulta a bbdd x datalist id='list_proveedores' consulta a bbdd
+    - ValidateForm.php Se modifica la lógica...
+----
 ## * MCGestion2026 V26.08.21B (Beta cb26_)
     * Actualizado jpgraph v4.4.3
     - cb26_gastos Ajustes codigo en: Crear.php Ver.php ValidateForm.php
     - Mod_Conta\Inclu_Index\indexConsultaTablasTrim.php
         - Deprecated: number_format() $rowg['factivae'] = number_format($TriSumIvag ,2,".","");
-
 ----
 ## * MCGestion2026 V26.08.20 (Beta cb26_) py
     * INTEGRACIÓN DE SCRIPTS PY...
@@ -54,7 +65,6 @@
         - Mod_Admin_Plus\GenerarDatosPy\generaDatosHorarios04.py
         - Se integra script py para generar datos de documentos oficiales y comprovar la validación.
         - Mod_Admin_Plus\GenerarDatosPy\generarDatosDniOtros.py
-
 ----
 ## * MCGestion2026 V26.08.19B (Beta cb26_)
     - Se modifica cb23_*/*.* por cb26_*/*.*
@@ -67,7 +77,6 @@
         - Modificación de datos y cambio de nombre de imagen al modificar la referencia del cliente...
     - clientesFeed_Borrar_02.php
         - Eliminacion definitiva del cliente y su imagen...
-
 ----
 ## * MCGestion2026 V26.08.18 (Beta cb23_clientes)
     * cb23_clientes

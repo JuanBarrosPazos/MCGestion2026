@@ -1,7 +1,7 @@
 <?php
 
         global $DeleteBlackTit;         $DeleteBlackTit = "INICIO PAPELERA proveedores";
-        global $PersonAddBlacktit;      $PersonAddBlacktit = "CREAR NUEVO CLIENTE";
+        global $PersonAddBlacktit;      $PersonAddBlacktit = "CREAR NUEVO PROVEEDOR";
         global $PersonsBlackTit;        $PersonsBlackTit = "VER TODOS LOS proveedores";
         require '../Inclu/BotoneraVar.php';
         global $closeButton, $KeyForm, $BotonPapelera, $DeleteBlack, $PersonAddBlack, $PersonsBlack;

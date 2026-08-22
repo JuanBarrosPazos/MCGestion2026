@@ -178,7 +178,7 @@ function process_form(){
 
 		print("<table class='tableForm'>
 				<tr>
-					<th colspan=3 class='BorderInf'>HA MODIFICADO EL CLIENTE</th>
+					<th colspan=3 class='BorderInf'>HA MODIFICADO EL PROVEEDOR</th>
 				</tr>
 				<tr>
 					<td style='width: 120px; text-align: right;' >RAZON SOCIAL</td>
@@ -323,7 +323,7 @@ function show_form($errors=[]){
 
 	print("<table class='tableForm'>
 				<tr>
-					<th colspan=2 >NUEVOS DATOS DEL CLIENTE</th>
+					<th colspan=2 >NUEVOS DATOS DEL PROVEEDOR</th>
 				</tr>
 	<form name='form_datos' method='post' action='$_SERVER[PHP_SELF]'  enctype='multipart/form-data'>
 			<input type='hidden' name='id' value='".$defaults['id']."' />

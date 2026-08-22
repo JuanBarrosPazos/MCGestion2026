@@ -1,6 +1,6 @@
 <?php
 
-	// REF CLIENTE & RAZON SOCIAL
+	// REF PROVEEDOR & RAZON SOCIAL
 	global $oper, $openPar, $closePar;
 	if((strlen(trim($_POST['ref'])) == 0)||(strlen(trim($_POST['rsocial'])) == 0)){
 		//$ref = "`ref` = ".trim($_POST['ref'])."%";

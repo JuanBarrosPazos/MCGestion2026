@@ -1,5 +1,7 @@
 <?php
 
+    global $text;
+    
     $dir = "../cb26_Docs/log";
 
     $logdocu = $_SESSION['ref'];

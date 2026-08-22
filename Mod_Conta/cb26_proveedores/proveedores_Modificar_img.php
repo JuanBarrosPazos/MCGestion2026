@@ -289,7 +289,7 @@ function show_form_img($errors=[]){
 		
 	print("<table align='center' style='border:none;'>
 				<tr>
-					<th colspan=2 >MODIFICAR IMAGEN CLIENTE</th>
+					<th colspan=2 >MODIFICAR IMAGEN PROVEEDOR</th>
 				</tr>
 				<tr>
 					<th class='BorderInf'>LA IMAGEN ACTUAL DE : </br>".$defaults['rsocial']."</th>

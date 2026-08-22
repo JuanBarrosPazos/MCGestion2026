@@ -81,7 +81,7 @@ session_start();
 					</tr>");
 				
 			global $DetalleBlackTit;	$DetalleBlackTit = "VER DETALLES";
-			global $RestoreBlackTit;	$RestoreBlackTit = "RECUPERAR DATOS CLIENTE";
+			global $RestoreBlackTit;	$RestoreBlackTit = "RECUPERAR DATOS PROVEEDOR";
 			global $DeleteWhiteTit;		$DeleteWhiteTit = "BORRAR";
 			require '../Inclu/BotoneraVar.php';
 			global $closeButton;
@@ -160,7 +160,7 @@ session_start();
 
 	function show_form($errors=[]){
 		
-		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO CLIENTE";
+		global $PersonAddBlackTit;		$PersonAddBlackTit = "CREAR NUEVO PROVEEDOR";
 		global $DeleteBlackTit;			$DeleteBlackTit = "VER TODO PAPELERA proveedores";
 		global $PersonsBlackTit;		$PersonsBlackTit = "VER TODOS LOS proveedores";
 		require '../Inclu/BotoneraVar.php';
@@ -230,7 +230,7 @@ session_start();
 							</tr>");
 				
 			global $DetalleBlackTit;		$DetalleBlackTit = "VER DETALLES";
-			global $RestoreBlackTit;		$RestoreBlackTit = "RECUPERAR DATOS CLIENTE";
+			global $RestoreBlackTit;		$RestoreBlackTit = "RECUPERAR DATOS PROVEEDOR";
 			global $DeleteWhiteTit;			$DeleteWhiteTit = "BORRAR";
 			require '../Inclu/BotoneraVar.php';
 			global $closeButton;
